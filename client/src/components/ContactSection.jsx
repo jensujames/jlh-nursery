@@ -240,7 +240,7 @@ export default function ContactSection({ onBookVisitClick }) {
                   Email Enquiries
                 </div>
                 <a
-                  href="mailto:nurseryjustlikehome@gmail.com"
+                  href="mailto:deevan.aumdsorg@gmail.com"
                   style={{
                     fontSize: '1.05rem',
                     color: '#3d050f',
@@ -250,7 +250,7 @@ export default function ContactSection({ onBookVisitClick }) {
                     marginTop: '0.2rem'
                   }}
                 >
-                  nurseryjustlikehome@gmail.com
+                  deevan.aumdsorg@gmail.com
                 </a>
                 <div style={{ marginTop: '0.75rem', fontSize: '0.84rem', color: '#6b7280', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                   <Clock size={14} />

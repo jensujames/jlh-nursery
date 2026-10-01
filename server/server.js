@@ -7,10 +7,45 @@ const morgan = require('morgan');
 const path = require('path');
 const fs = require('fs');
 const mongoose = require('mongoose');
+const nodemailer = require('nodemailer');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/jlh_nursery';
+const FORM_RECEIVER_EMAIL = process.env.FORM_RECEIVER_EMAIL || process.env.NURSERY_EMAIL || 'deevan.aumdsorg@gmail.com';
+
+// Configure optional automated email delivery
+let mailTransporter = null;
+if (process.env.SMTP_USER && process.env.SMTP_PASS) {
+  mailTransporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
+    port: parseInt(process.env.SMTP_PORT || '465', 10),
+    secure: process.env.SMTP_SECURE !== 'false',
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS
+    }
+  });
+}
+
+const sendNotificationEmail = async ({ subject, text, html }) => {
+  console.log(`📧 [NEW FORM SUBMISSION] Forwarding to receiver: ${FORM_RECEIVER_EMAIL} | Subject: "${subject}"`);
+  if (!mailTransporter) {
+    return;
+  }
+  try {
+    await mailTransporter.sendMail({
+      from: `"Just Like Home Nursery" <${process.env.SMTP_USER}>`,
+      to: FORM_RECEIVER_EMAIL,
+      subject,
+      text,
+      html
+    });
+    console.log(`✅ [EMAIL DELIVERED] Successfully sent notification to ${FORM_RECEIVER_EMAIL}`);
+  } catch (err) {
+    console.error(`⚠️ [EMAIL ERROR] Failed to send email via SMTP:`, err.message);
+  }
+};
 
 // ==================== CORS CONFIGURATION ====================
 // Supports both open development, custom production domain whitelist, and wildcards
@@ -176,7 +211,7 @@ app.get('/api/health', (req, res) => {
     app: 'Just Like Home Nursery API',
     location: 'Villa No. 47, Al Rashidiya 2, Ajman',
     phone: '0502005346',
-    email: 'nurseryjustlikehome@gmail.com',
+    email: FORM_RECEIVER_EMAIL,
     database: isMongoConnected ? 'MongoDB Connected' : 'Resilient In-Memory Active',
     uptimeSeconds: Math.floor(process.uptime()),
     timestamp: new Date().toISOString()
@@ -231,6 +266,22 @@ app.post('/api/visits', async (req, res) => {
       status: 'Pending',
       createdAt: new Date().toISOString()
     };
+
+    // Forward notification to receiver
+    sendNotificationEmail({
+      subject: `New Visit Booking: ${parentName} (${childName || 'Little One'})`,
+      text: `New Nursery Visit Booking:\nParent: ${parentName}\nPhone: ${phone}\nEmail: ${email || 'Not provided'}\nChild: ${childName || 'Little One'} (${childAge})\nProgram: ${programInterest || 'Nursery Program'}\nPreferred Date: ${preferredDate} at ${preferredTime || 'Morning (10:00 AM)'}\nNotes: ${notes || 'None'}`,
+      html: `
+        <h2>New Nursery Visit Booking</h2>
+        <p><strong>Parent:</strong> ${parentName}</p>
+        <p><strong>Phone:</strong> <a href="tel:${phone}">${phone}</a></p>
+        <p><strong>Email:</strong> ${email || 'Not provided'}</p>
+        <p><strong>Child:</strong> ${childName || 'Little One'} (${childAge})</p>
+        <p><strong>Program:</strong> ${programInterest || 'Nursery Program'}</p>
+        <p><strong>Date & Time:</strong> ${preferredDate} at ${preferredTime || 'Morning (10:00 AM)'}</p>
+        <p><strong>Notes:</strong> ${notes || 'None'}</p>
+      `
+    });
 
     if (isMongoConnected) {
       const saved = await VisitModel.create(newVisitData);
@@ -313,6 +364,22 @@ app.post('/api/enquiries', async (req, res) => {
       status: 'New',
       createdAt: new Date().toISOString()
     };
+
+    // Forward notification to receiver
+    sendNotificationEmail({
+      subject: `New Website Enquiry (${subject || 'General'}): ${name}`,
+      text: `New Enquiry Received:\nName: ${name}\nPhone: ${phone}\nEmail: ${email || 'Not provided'}\nSubject: ${subject || 'General Enquiry'}\nType: ${type || 'General'}\nMessage:\n${message}`,
+      html: `
+        <h2>New Website Enquiry</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Phone:</strong> <a href="tel:${phone}">${phone}</a></p>
+        <p><strong>Email:</strong> ${email || 'Not provided'}</p>
+        <p><strong>Subject:</strong> ${subject || 'General Enquiry'}</p>
+        <p><strong>Type:</strong> ${type || 'General'}</p>
+        <p><strong>Message:</strong></p>
+        <div style="white-space: pre-wrap; background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">${message}</div>
+      `
+    });
 
     if (isMongoConnected) {
       const saved = await EnquiryModel.create(enquiryData);

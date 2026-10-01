@@ -422,8 +422,8 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
                 }}>
                   <Mail size={15} />
                 </div>
-                <a href="mailto:nurseryjustlikehome@gmail.com" style={{ color: '#334155', textDecoration: 'none', fontSize: '0.84rem' }}>
-                  nurseryjustlikehome@gmail.com
+                <a href="mailto:deevan.aumdsorg@gmail.com" style={{ color: '#334155', textDecoration: 'none', fontSize: '0.84rem' }}>
+                  deevan.aumdsorg@gmail.com
                 </a>
               </div>
 
