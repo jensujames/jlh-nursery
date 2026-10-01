@@ -6,7 +6,8 @@ import {
   Calendar, 
   ArrowUp,
   Home,
-  GraduationCap
+  GraduationCap,
+  FileText
 } from 'lucide-react';
 
 export default function FloatingDock({ onBookVisitClick }) {
@@ -27,6 +28,7 @@ export default function FloatingDock({ onBookVisitClick }) {
 
   const isHome = location.pathname === '/';
   const isPrograms = location.pathname.startsWith('/programs');
+  const isAdmissions = location.pathname.startsWith('/admissions');
 
   return (
     <>
@@ -181,8 +183,8 @@ export default function FloatingDock({ onBookVisitClick }) {
             gap: '2px',
             textDecoration: 'none',
             color: isHome ? '#721024' : '#64748b',
-            padding: '4px 8px',
-            minWidth: '54px'
+            padding: '4px 6px',
+            minWidth: '50px'
           }}
         >
           <Home size={20} strokeWidth={isHome ? 2.5 : 1.8} />
@@ -199,15 +201,33 @@ export default function FloatingDock({ onBookVisitClick }) {
             gap: '2px',
             textDecoration: 'none',
             color: isPrograms ? '#721024' : '#64748b',
-            padding: '4px 8px',
-            minWidth: '54px'
+            padding: '4px 6px',
+            minWidth: '50px'
           }}
         >
           <GraduationCap size={20} strokeWidth={isPrograms ? 2.5 : 1.8} />
           <span style={{ fontSize: '0.68rem', fontWeight: isPrograms ? '800' : '600' }}>Programs</span>
         </Link>
 
-        {/* 3. Direct Phone Call */}
+        {/* 3. Admissions Tab */}
+        <Link 
+          to="/admissions"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '2px',
+            textDecoration: 'none',
+            color: isAdmissions ? '#721024' : '#64748b',
+            padding: '4px 6px',
+            minWidth: '50px'
+          }}
+        >
+          <FileText size={20} strokeWidth={isAdmissions ? 2.5 : 1.8} />
+          <span style={{ fontSize: '0.68rem', fontWeight: isAdmissions ? '800' : '600' }}>Admissions</span>
+        </Link>
+
+        {/* 4. Direct Phone Call */}
         <a 
           href="tel:0502005346"
           style={{
@@ -217,8 +237,8 @@ export default function FloatingDock({ onBookVisitClick }) {
             gap: '2px',
             textDecoration: 'none',
             color: '#0284c7',
-            padding: '4px 8px',
-            minWidth: '54px'
+            padding: '4px 6px',
+            minWidth: '50px'
           }}
           title="Direct Phone Call"
         >
@@ -236,7 +256,7 @@ export default function FloatingDock({ onBookVisitClick }) {
           <span style={{ fontSize: '0.68rem', fontWeight: '700' }}>Call</span>
         </a>
 
-        {/* 4. WhatsApp Chat */}
+        {/* 5. WhatsApp Chat */}
         <a 
           href="https://wa.me/971502005346?text=Hello%20Just%20Like%20Home%20Nursery,%20I%20would%20like%20to%20arrange%20a%20visit."
           target="_blank"
@@ -248,8 +268,8 @@ export default function FloatingDock({ onBookVisitClick }) {
             gap: '2px',
             textDecoration: 'none',
             color: '#16a34a',
-            padding: '4px 8px',
-            minWidth: '54px'
+            padding: '4px 6px',
+            minWidth: '50px'
           }}
           title="Instant WhatsApp"
         >
@@ -266,30 +286,6 @@ export default function FloatingDock({ onBookVisitClick }) {
           </div>
           <span style={{ fontSize: '0.68rem', fontWeight: '700' }}>Chat</span>
         </a>
-
-        {/* 5. Book Tour Primary Pill */}
-        <button 
-          onClick={onBookVisitClick}
-          type="button"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '5px',
-            padding: '8px 14px',
-            borderRadius: '999px',
-            background: 'linear-gradient(135deg, #F15A29 0%, #d44015 100%)',
-            color: '#ffffff',
-            border: 'none',
-            fontSize: '0.78rem',
-            fontWeight: '900',
-            cursor: 'pointer',
-            boxShadow: '0 4px 14px rgba(241, 90, 41, 0.40)',
-            whiteSpace: 'nowrap'
-          }}
-        >
-          <Calendar size={14} strokeWidth={2.4} />
-          <span>Book Tour</span>
-        </button>
       </nav>
 
       <style>{`
