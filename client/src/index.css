@@ -1191,26 +1191,27 @@ textarea {
 }
 
 .hero-actions-container {
-  width: min(500px, 48vw);
+  width: min(580px, 52vw);
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 20px;
   pointer-events: auto;
   z-index: 28;
-  transform: translateY(-8px);
+  transform: translateY(-52px);
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .hero-actions-container:hover {
-  transform: translateY(-10px);
+  transform: translateY(-56px);
 }
 
 @media (max-width: 880px) {
   .hero-actions-container {
     width: 92%;
-    max-width: 460px;
+    max-width: 480px;
     gap: 16px;
+    transform: translateY(-16px);
   }
 }
 
@@ -1222,7 +1223,8 @@ textarea {
   gap: 6px;
   flex-shrink: 0;
   user-select: none;
-  align-self: center;
+  align-self: flex-start;
+  margin-top: 8px;
 }
 
 .hero-spine-num {
@@ -1272,11 +1274,11 @@ textarea {
 }
 
 .hero-actions-title {
-  font-size: clamp(32px, 3.8vw, 50px);
+  font-size: clamp(38px, 4.8vw, 64px);
   font-weight: 850;
   color: #0f172a;
-  line-height: 1.12;
-  letter-spacing: -0.025em;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   margin: 0;
   padding: 0;
   position: relative;
@@ -1284,14 +1286,14 @@ textarea {
 }
 
 .hero-actions-desc {
-  font-size: 15px;
+  font-size: 15.5px;
   color: #475569;
   line-height: 1.55;
   font-weight: 500;
   margin: 0;
   position: relative;
   z-index: 2;
-  max-width: 420px;
+  max-width: 460px;
 }
 
 .hero-buttons-wrap {
