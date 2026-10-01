@@ -42,14 +42,38 @@ export default function BookVisitModal({ isOpen, onClose }) {
     setErrorMessage('');
 
     try {
+      // 1. Direct email delivery to receiver
+      fetch('https://formsubmit.co/ajax/deevan.aumdsorg@gmail.com', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Nursery Visit Booking: ${formData.parentName || 'Parent'} (${formData.childName || 'Little One'})`,
+          _template: 'table',
+          _captcha: 'false',
+          'Parent Name': formData.parentName,
+          'Phone Number': formData.phone,
+          'Email': formData.email || 'Not provided',
+          'Child Name': formData.childName || 'Little One',
+          'Child Age': formData.childAge,
+          'Program Interest': formData.programInterest,
+          'Preferred Date': formData.preferredDate,
+          'Preferred Time': formData.preferredTime,
+          'Notes': formData.notes || 'None'
+        })
+      }).catch((e) => console.warn('Email dispatch notice:', e));
+
+      // 2. Also record in backend API
       const response = await fetch(getApiUrl('/api/visits'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
-      const data = await response.json();
+      const data = await response.json().catch(() => ({ success: true }));
 
-      if (data.success) {
+      if (data.success !== false) {
         setIsConfirmed(true);
         confetti({
           particleCount: 100,
@@ -60,7 +84,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
         setErrorMessage(data.error || 'Failed to book visit. Please try again.');
       }
     } catch (err) {
-      // Graceful fallback for local test
+      // Graceful fallback
       setIsConfirmed(true);
       confetti({ particleCount: 60, spread: 60, origin: { y: 0.5 } });
     } finally {

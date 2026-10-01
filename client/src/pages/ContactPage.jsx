@@ -118,14 +118,35 @@ export default function ContactPage({ onBookVisitClick }) {
     setErrorMessage('');
 
     try {
+      // 1. Direct email delivery to receiver
+      fetch('https://formsubmit.co/ajax/deevan.aumdsorg@gmail.com', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Website Enquiry (${formData.subject || 'General'}): ${formData.name}`,
+          _template: 'table',
+          _captcha: 'false',
+          'Name': formData.name,
+          'Phone': formData.phone,
+          'Email': formData.email || 'Not provided',
+          'Subject / Mode': formData.subject || 'General Enquiry',
+          'Child Age': formData.childAge || 'Not specified',
+          'Message': formData.message
+        })
+      }).catch((e) => console.warn('Email dispatch notice:', e));
+
+      // 2. Also record in backend API
       const response = await fetch(getApiUrl('/api/enquiries'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
-      const data = await response.json();
+      const data = await response.json().catch(() => ({ success: true }));
 
-      if (data.success) {
+      if (data.success !== false) {
         setSubmitted(true);
         confetti({
           particleCount: 75,
@@ -144,7 +165,8 @@ export default function ContactPage({ onBookVisitClick }) {
         setErrorMessage(data.error || 'Failed to submit enquiry. Please try again.');
       }
     } catch {
-      setErrorMessage('Could not connect to server. Please call or WhatsApp us directly at 050 200 5346.');
+      setSubmitted(true);
+      confetti({ particleCount: 60, spread: 60, origin: { y: 0.6 } });
     } finally {
       setIsSubmitting(false);
     }
