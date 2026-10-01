@@ -1,0 +1,240 @@
+/* ==========================================================================
+   FULL-WIDTH CONTINUOUS CLAYMORPHIC & GLASSMORPHIC FACT TICKER
+   Harmonized with Hero Theme (Peach, Coral, Gold, Sky Blue)
+   Reduced Height • Expansive Width • Infinite Continuous Marquee
+   ========================================================================== */
+
+.fact-carousel-section {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(180deg, 
+    rgba(255, 241, 232, 0.90) 0%, 
+    rgba(255, 248, 243, 0.98) 50%, 
+    #FFFDF7 100%
+  );
+  border-top: 1px solid rgba(241, 90, 41, 0.12);
+  border-bottom: 1px solid rgba(241, 90, 41, 0.08);
+  padding: 1.25rem 0; /* Reduced section height */
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 35;
+}
+
+/* Warm Ambient Floating Glows aligned with Hero Lighting */
+.fact-ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  pointer-events: none;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.fact-glow-1 {
+  top: -20px;
+  left: 10%;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(241, 90, 41, 0.20) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.fact-glow-2 {
+  bottom: -20px;
+  right: 15%;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.22) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.fact-glow-3 {
+  top: 10%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(114, 197, 232, 0.18) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+/* Full-Width Wrapper with Elegant Left/Right Edge Fade Masks */
+.fact-carousel-fullwidth-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 2;
+  mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+}
+
+/* Continuous Infinite Marquee Conveyor Track */
+.fact-carousel-continuous-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  padding: 8px 10px;
+  animation: factContinuousScroll 32s linear infinite;
+  will-change: transform;
+}
+
+.fact-carousel-continuous-track.is-paused {
+  animation-play-state: paused;
+}
+
+.fact-carousel-continuous-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes factContinuousScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   Wide, Reduced-Height Horizontal Claymorphic Card
+   ========================================================================== */
+.fact-horizontal-card {
+  flex: 0 0 340px;
+  width: 340px;
+  min-height: 74px;
+  box-sizing: border-box;
+  
+  /* Luminous Frosted Glass Base */
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(255, 250, 246, 0.88) 100%
+  );
+  border: 2px solid rgba(255, 255, 255, 0.98);
+  border-radius: 20px;
+  padding: 12px 20px;
+  
+  /* Horizontal Orientation */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  
+  backdrop-filter: blur(16px) saturate(145%);
+  -webkit-backdrop-filter: blur(16px) saturate(145%);
+  
+  /* 3D Clay Pillowed Lighting + Layered Soft Drop Shadow */
+  box-shadow: 
+    0 10px 24px rgba(241, 90, 41, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.02),
+    inset 0 2px 4px rgba(255, 255, 255, 0.98),
+    inset 0 -2px 6px rgba(241, 90, 41, 0.05);
+  
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.28s ease, 
+              border-color 0.28s ease;
+  user-select: none;
+  cursor: default;
+}
+
+.fact-horizontal-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: #ffffff;
+  box-shadow: 
+    0 16px 36px rgba(241, 90, 41, 0.16),
+    0 4px 12px rgba(0, 0, 0, 0.04),
+    inset 0 2px 4px rgba(255, 255, 255, 1),
+    inset 0 -2px 6px rgba(241, 90, 41, 0.08);
+}
+
+/* 3D Tactile Clay Icon Squircle */
+.fact-icon-wrap {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #ffffff;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fact-horizontal-card:hover .fact-icon-wrap {
+  transform: scale(1.1) rotate(4deg);
+}
+
+/* Text Container */
+.fact-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  flex: 1;
+}
+
+/* Bold Stat Number */
+.fact-number {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  font-size: 1.45rem;
+  font-weight: 850;
+  color: #1e293b;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Clean, Sleek Caption */
+.fact-label {
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: 0.82rem;
+  font-weight: 650;
+  color: #64748b;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  margin-top: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Subtle Corner Glow Accent */
+.fact-card-corner-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 0 18px 0 40px;
+  background: radial-gradient(circle at top right, var(--accent-color, #F15A29) 0%, transparent 70%);
+  opacity: 0.12;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.fact-horizontal-card:hover .fact-card-corner-glow {
+  opacity: 0.28;
+}
+
+@media (max-width: 768px) {
+  .fact-carousel-section {
+    padding: 1rem 0;
+  }
+  .fact-horizontal-card {
+    flex: 0 0 280px;
+    width: 280px;
+    min-height: 68px;
+    padding: 10px 16px;
+    gap: 12px;
+  }
+  .fact-icon-wrap {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+  .fact-number {
+    font-size: 1.25rem;
+  }
+  .fact-label {
+    font-size: 0.76rem;
+  }
+}
