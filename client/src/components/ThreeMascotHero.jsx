@@ -2069,7 +2069,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
               </div>
 
               <div className="hero-card-main">
-                {/* Top Group: Admissions pill + 3-line heading */}
+                {/* Top Group: Admissions pill + 2-line heading */}
                 <div className="hero-header-top-group">
                   <div className="hero-mobile-app-pill" aria-label="2026 Admissions Open">
                     <span className="hero-mobile-app-dot" />
@@ -2077,8 +2077,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   </div>
 
                   <h1 className="hero-actions-title">
-                    Where <br />
-                    Little Hearts <br />
+                    Where Little Hearts <br />
                     Feel at Home
                   </h1>
                 </div>

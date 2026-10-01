@@ -105,7 +105,7 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
       <header style={{
         position: 'sticky',
         top: 0,
-        zIndex: 50,
+        zIndex: 1000,
         transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
         background: isScrolled 
           ? 'rgba(255, 246, 239, 0.96)' 
@@ -406,7 +406,11 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
 
             {/* Mobile App Menu Hamburger / Close Button */}
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setMobileMenuOpen(prev => !prev);
+              }}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -419,7 +423,10 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
                 color: mobileMenuOpen ? '#ffffff' : '#721024',
                 cursor: 'pointer',
                 transition: 'all 0.25s ease',
-                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
+                position: 'relative',
+                zIndex: 1001,
+                pointerEvents: 'auto'
               }}
               className="mobile-hamburger"
               aria-label="Toggle navigation menu"
