@@ -428,6 +428,8 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
     const defaultCamPos = new THREE.Vector3(0.0, 0.45, 6.2);
     camera.position.copy(defaultCamPos);
 
+    const isMobileInitial = window.innerWidth <= 880 || isMobileDevice;
+
     const controls = new OrbitControls(camera, heroElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
@@ -436,6 +438,17 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
     controls.minDistance = 1.8;
     controls.maxDistance = 14.0;
     controls.target.copy(defaultTarget);
+
+    // Disable OrbitControls touch hijacking on mobile devices so user can scroll page smoothly
+    if (isMobileInitial) {
+      controls.enabled = false;
+      controls.enableRotate = false;
+    }
+
+    // Explicitly guarantee touchAction is pan-y so mobile swipes trigger page scroll
+    heroElement.style.touchAction = 'pan-y';
+    if (heroCanvas) heroCanvas.style.touchAction = 'pan-y';
+    if (blocksCanvas) blocksCanvas.style.touchAction = 'pan-y';
 
     const section1Group = new THREE.Group();
     scene.add(section1Group);
@@ -1641,6 +1654,13 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       heroRenderer.setSize(width, height);
       blocksRenderer.setSize(width, height);
       updateCardDockTargets();
+
+      const isMobileNow = width <= 880 || isMobileDevice;
+      controls.enabled = !isMobileNow;
+      controls.enableRotate = !isMobileNow;
+      heroElement.style.touchAction = 'pan-y';
+      if (heroCanvas) heroCanvas.style.touchAction = 'pan-y';
+      if (blocksCanvas) blocksCanvas.style.touchAction = 'pan-y';
     }
 
     updateResponsiveLayout();

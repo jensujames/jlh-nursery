@@ -942,6 +942,7 @@ textarea {
   height: 100vh;
   display: block;
   pointer-events: none;
+  touch-action: pan-y;
   z-index: 10;
   will-change: transform, opacity;
 }
@@ -954,6 +955,7 @@ textarea {
   height: 100vh;
   display: block;
   pointer-events: none;
+  touch-action: pan-y;
   z-index: 60;
   will-change: transform;
 }
@@ -962,6 +964,7 @@ textarea {
   position: relative;
   width: 100%;
   pointer-events: auto;
+  touch-action: pan-y;
   z-index: 25;
 }
 
