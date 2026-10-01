@@ -1583,10 +1583,10 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         defaultCamPos.set(0.0, 0.38, 6.5 + (1.0 - aspectFactor) * 1.6);
         defaultTarget.set(0.0, 0.08, 0.0);
 
-        characterRoot.position.set(0.0, 0.02, 0.0);
-        characterRoot.scale.setScalar(0.88);
+        characterRoot.position.set(0.0, 0.05, 0.0);
+        characterRoot.scale.setScalar(0.78);
         shadowMesh.position.set(0.0, -0.975, 0.0);
-        shadowMesh.scale.setScalar(0.88);
+        shadowMesh.scale.setScalar(0.78);
 
         blockRig[0].scatter.x = -0.66; blockRig[0].scatter.z = 0.55;
         blockRig[1].scatter.x = -0.22; blockRig[1].scatter.z = 0.62;

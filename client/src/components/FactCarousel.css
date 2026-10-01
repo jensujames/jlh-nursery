@@ -217,24 +217,29 @@
 
 @media (max-width: 768px) {
   .fact-carousel-section {
-    padding: 1rem 0;
+    padding: 0.75rem 0;
   }
   .fact-horizontal-card {
-    flex: 0 0 280px;
-    width: 280px;
-    min-height: 68px;
-    padding: 10px 16px;
-    gap: 12px;
-  }
-  .fact-icon-wrap {
-    width: 42px;
-    height: 42px;
+    flex: 0 0 236px;
+    width: 236px;
+    min-height: 56px;
+    padding: 8px 12px;
+    gap: 10px;
     border-radius: 14px;
   }
+  .fact-icon-wrap {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+  }
+  .fact-icon-wrap svg {
+    width: 17px;
+    height: 17px;
+  }
   .fact-number {
-    font-size: 1.25rem;
+    font-size: 1.08rem;
   }
   .fact-label {
-    font-size: 0.76rem;
+    font-size: 0.72rem;
   }
 }
