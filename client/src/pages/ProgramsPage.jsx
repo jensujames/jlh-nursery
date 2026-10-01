@@ -384,17 +384,20 @@ export default function ProgramsPage({ onBookVisitClick }) {
           }}>
             {/* Card 1 */}
             <RevealOnScroll animation="from-left" delay={100}>
-              <div style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '1.75rem',
-                padding: '2.5rem',
-                border: '1.5px solid rgba(2, 132, 199, 0.2)',
-                boxShadow: '0 10px 30px rgba(2, 132, 199, 0.06)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                height: '100%'
-              }}>
+              <div 
+                className="specialized-pathway-card"
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '1.75rem',
+                  padding: '2.5rem',
+                  border: '1.5px solid rgba(2, 132, 199, 0.2)',
+                  boxShadow: '0 10px 30px rgba(2, 132, 199, 0.06)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  height: '100%'
+                }}
+              >
                 <div>
                   <div style={{
                     width: '48px',
@@ -437,17 +440,20 @@ export default function ProgramsPage({ onBookVisitClick }) {
 
             {/* Card 2 */}
             <RevealOnScroll animation="from-bottom" delay={180}>
-              <div style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '1.75rem',
-                padding: '2.5rem',
-                border: '1.5px solid rgba(21, 128, 61, 0.2)',
-                boxShadow: '0 10px 30px rgba(21, 128, 61, 0.06)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                height: '100%'
-              }}>
+              <div 
+                className="specialized-pathway-card"
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '1.75rem',
+                  padding: '2.5rem',
+                  border: '1.5px solid rgba(21, 128, 61, 0.2)',
+                  boxShadow: '0 10px 30px rgba(21, 128, 61, 0.06)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  height: '100%'
+                }}
+              >
                 <div>
                   <div style={{
                     width: '48px',
@@ -490,17 +496,20 @@ export default function ProgramsPage({ onBookVisitClick }) {
 
             {/* Card 3 */}
             <RevealOnScroll animation="from-right" delay={260}>
-              <div style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '1.75rem',
-                padding: '2.5rem',
-                border: '1.5px solid rgba(217, 119, 6, 0.2)',
-                boxShadow: '0 10px 30px rgba(217, 119, 6, 0.06)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                height: '100%'
-              }}>
+              <div 
+                className="specialized-pathway-card"
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '1.75rem',
+                  padding: '2.5rem',
+                  border: '1.5px solid rgba(217, 119, 6, 0.2)',
+                  boxShadow: '0 10px 30px rgba(217, 119, 6, 0.06)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  height: '100%'
+                }}
+              >
                 <div>
                   <div style={{
                     width: '48px',

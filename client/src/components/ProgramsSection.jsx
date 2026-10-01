@@ -160,17 +160,20 @@ export default function ProgramsSection({ onBookVisitClick }) {
         </RevealOnScroll>
 
         {/* Program Selection Pills */}
-        <div style={{
-          display: 'flex',
-          overflowX: 'auto',
-          gap: '0.75rem',
-          paddingBottom: '1rem',
-          marginBottom: '2.5rem',
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
-          justifyContent: 'center',
-          flexWrap: 'wrap'
-        }}>
+        <div 
+          className="programs-pills-bar"
+          style={{
+            display: 'flex',
+            overflowX: 'auto',
+            gap: '0.75rem',
+            paddingBottom: '1rem',
+            marginBottom: '2.5rem',
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            justifyContent: 'center',
+            flexWrap: 'wrap'
+          }}
+        >
           {programs.map((prog, index) => {
             const isSelected = selectedProgram === index;
             const ProgIcon = prog.icon;
@@ -203,19 +206,22 @@ export default function ProgramsSection({ onBookVisitClick }) {
 
         {/* Detailed Program Showcase Card (ScrollCraft Paradigm #01: 3D Depth Compaction) */}
         <RevealOnScroll animation="zoom-in" delay={150}>
-          <div style={{
-            backgroundColor: '#ffffff',
-            borderRadius: '2rem',
-            border: '1.5px solid rgba(123, 17, 39, 0.12)',
-            boxShadow: '0 24px 60px rgba(70, 7, 19, 0.10)',
-            overflow: 'hidden',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            transform: `perspective(1000px) rotateX(${(0.45 - progress) * 5}deg) scale(${0.97 + Math.min(0.03, progress * 0.05)})`,
-            transition: 'transform 0.2s ease-out'
-          }}>
+          <div 
+            className="programs-showcase-card"
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '2rem',
+              border: '1.5px solid rgba(123, 17, 39, 0.12)',
+              boxShadow: '0 24px 60px rgba(70, 7, 19, 0.10)',
+              overflow: 'hidden',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              transform: `perspective(1000px) rotateX(${(0.45 - progress) * 5}deg) scale(${0.97 + Math.min(0.03, progress * 0.05)})`,
+              transition: 'transform 0.2s ease-out'
+            }}
+          >
           {/* Left Column: Details */}
-          <div style={{ padding: '3rem' }}>
+          <div className="programs-card-details" style={{ padding: '3rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{
                 width: '48px',
@@ -314,7 +320,7 @@ export default function ProgramsSection({ onBookVisitClick }) {
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div className="programs-actions-row" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <button
                 onClick={onBookVisitClick}
                 className="btn-primary"
@@ -338,12 +344,15 @@ export default function ProgramsSection({ onBookVisitClick }) {
           </div>
 
           {/* Right Column: Visual Showcase */}
-          <div style={{
-            position: 'relative',
-            minHeight: '380px',
-            backgroundColor: '#460713',
-            overflow: 'hidden'
-          }}>
+          <div 
+            className="programs-card-image-wrap"
+            style={{
+              position: 'relative',
+              minHeight: '380px',
+              backgroundColor: '#460713',
+              overflow: 'hidden'
+            }}
+          >
             <img 
               src={selectedProgram === 0 ? "/images/hero.jpg" : selectedProgram % 2 === 0 ? "/images/classroom.jpg" : "/images/outdoor.jpg"}
               alt={current.title}

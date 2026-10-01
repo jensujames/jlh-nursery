@@ -160,13 +160,16 @@ export default function AdmissionsCalculator({ onBookVisitClick }) {
 
         {/* Interactive Timing & Program Schedule Matcher */}
         <RevealOnScroll animation="zoom-in" delay={200}>
-        <div style={{
-          backgroundColor: '#ffffff',
-          borderRadius: '2rem',
-          padding: '3rem',
-          border: '1.5px solid rgba(123, 17, 39, 0.12)',
-          boxShadow: '0 20px 50px rgba(70, 7, 19, 0.08)'
-        }}>
+        <div 
+          className="adm-calculator-container"
+          style={{
+            backgroundColor: '#ffffff',
+            borderRadius: '2rem',
+            padding: '3rem',
+            border: '1.5px solid rgba(123, 17, 39, 0.12)',
+            boxShadow: '0 20px 50px rgba(70, 7, 19, 0.08)'
+          }}
+        >
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
             <span className="badge-gold">INTERACTIVE ADMISSIONS PLANNER</span>
             <h3 style={{ fontSize: '1.85rem', marginTop: '0.4rem', color: '#3d050f' }}>
@@ -177,11 +180,14 @@ export default function AdmissionsCalculator({ onBookVisitClick }) {
             </p>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2.5rem'
-          }}>
+          <div 
+            className="adm-calculator-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '2.5rem'
+            }}
+          >
             {/* Left Controls: Age & Timing Options */}
             <div>
               {/* Step 1: Select Age */}
@@ -197,7 +203,10 @@ export default function AdmissionsCalculator({ onBookVisitClick }) {
                 }}>
                   1. Child's Age Group
                 </label>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.65rem' }}>
+                <div 
+                  className="adm-age-buttons-grid"
+                  style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.65rem' }}
+                >
                   {[
                     { id: 'infant', label: 'Infant (45d - 1.5y)' },
                     { id: 'toddler', label: 'Toddler (1.5 - 3y)' },
@@ -238,7 +247,10 @@ export default function AdmissionsCalculator({ onBookVisitClick }) {
                 }}>
                   2. Daily Attendance Hours
                 </label>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                <div 
+                  className="adm-timing-buttons-list"
+                  style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}
+                >
                   {[
                     { id: 'half', title: 'Half-Day (8:00 AM - 1:00 PM)', sub: 'Standard EYFS Curriculum' },
                     { id: 'extended', title: 'Extended Care (8:00 AM - 3:00 PM)', sub: 'Curriculum + Lunch + Rest' },
@@ -268,12 +280,15 @@ export default function AdmissionsCalculator({ onBookVisitClick }) {
 
             {/* Right Output: Program Match Overview */}
             {/* Right Output: Program Match Overview - Colorful Claymorphism & Glassmorphism */}
-            <div className="clay-glass-banner-pastel" style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              padding: '2.5rem 2.25rem'
-            }}>
+            <div 
+              className="clay-glass-banner-pastel adm-calc-output-card"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                padding: '2.5rem 2.25rem'
+              }}
+            >
               {/* Floating Ambient Glow Bubbles */}
               <div className="clay-glow-orb clay-orb-1" />
               <div className="clay-glow-orb clay-orb-2" />

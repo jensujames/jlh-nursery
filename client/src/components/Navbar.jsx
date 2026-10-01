@@ -435,29 +435,84 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
             </button>
           </div>
         </div>
+      </header>
 
-        {/* NATIVE MOBILE APP NAVIGATION CANVAS / FULL-SCREEN SHEET */}
-        {mobileMenuOpen && (
-          <div 
-            className="mobile-app-drawer"
-            style={{
-              position: 'fixed',
-              top: '58px',
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: '#fffdf9',
-              zIndex: 9999,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              overflowY: 'auto',
-              WebkitOverflowScrolling: 'touch',
-              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.25)'
-            }}
-          >
-            {/* Scrollable App Nav Content */}
-            <div style={{ padding: '1rem 1rem 2rem' }}>
+      {/* NATIVE MOBILE APP NAVIGATION CANVAS / FULL-SCREEN SHEET (OUTSIDE HEADER) */}
+      {mobileMenuOpen && (
+        <div 
+          className="mobile-app-drawer"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: '#fffdf9',
+            zIndex: 999999,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            overflowY: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.25)'
+          }}
+        >
+          {/* Top Bar with Brand & Close Button */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '0.75rem 1rem',
+            borderBottom: '1px solid rgba(114, 16, 36, 0.1)',
+            background: 'rgba(255, 255, 255, 0.96)',
+            position: 'sticky',
+            top: 0,
+            zIndex: 20
+          }}>
+            <Link 
+              to="/" 
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none' }}
+            >
+              <img 
+                src="/images/logo.png" 
+                alt="Just Like Home Nursery" 
+                style={{ width: '34px', height: '34px', objectFit: 'contain' }}
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+              <div>
+                <div style={{ fontFamily: 'var(--font-heading)', fontWeight: '900', fontSize: '0.92rem', color: '#721024', lineHeight: 1.1 }}>
+                  Just Like Home
+                </div>
+                <div style={{ fontSize: '0.68rem', color: '#8a6b72', fontWeight: '700' }}>
+                  Nursery Ajman
+                </div>
+              </div>
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{
+                width: '38px',
+                height: '38px',
+                borderRadius: '12px',
+                backgroundColor: '#fce7eb',
+                color: '#721024',
+                border: '1.5px solid rgba(114, 16, 36, 0.2)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer'
+              }}
+              aria-label="Close menu"
+            >
+              <X size={20} strokeWidth={2.4} />
+            </button>
+          </div>
+
+          {/* Scrollable App Nav Content */}
+          <div style={{ padding: '1rem 1rem 2rem' }}>
               {/* App Status & Direct Contact Cards */}
               <div style={{
                 display: 'grid',
@@ -716,7 +771,6 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
             </div>
           </div>
         )}
-      </header>
 
       <style>{`
         .navbar-brand-logo-wrap {

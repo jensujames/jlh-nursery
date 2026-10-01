@@ -5244,17 +5244,191 @@ textarea {
   }
 
   /* Modals: Native App Bottom Sheet style */
-  .modal-overlay {
-    padding: 0 !important;
-    align-items: flex-end !important;
+  /* Programs Section: Mobile Horizontal Swipable Category Strip (No Vertical Stack) */
+  .programs-pills-bar {
+    display: flex !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    gap: 0.5rem !important;
+    padding: 0 4px 10px 4px !important;
+    margin-bottom: 1.25rem !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
-  .modal-content {
+  .programs-pills-bar::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .programs-pills-bar button {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    padding: 0.45rem 0.95rem !important;
+    font-size: 0.78rem !important;
+  }
+
+  /* Programs Showcase 3D Card on Mobile */
+  .programs-showcase-card {
+    grid-template-columns: 1fr !important;
+    border-radius: 20px !important;
+    transform: none !important;
+    overflow: hidden !important;
+  }
+
+  .programs-card-details {
+    padding: 1.25rem 1rem !important;
+  }
+
+  .programs-card-details h3 {
+    font-size: clamp(1.25rem, 5.2vw, 1.55rem) !important;
+    margin-bottom: 0.45rem !important;
+  }
+
+  .programs-card-details p {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 0.85rem !important;
+  }
+
+  .programs-card-details [style*="backgroundColor: '#fdfbf7'"],
+  .programs-card-details [style*="backgroundColor: #fdfbf7"] {
+    padding: 0.75rem 0.95rem !important;
+    margin-bottom: 1.15rem !important;
+    border-radius: 12px !important;
+  }
+
+  .programs-actions-row {
+    flex-direction: column !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+  }
+
+  .programs-actions-row button,
+  .programs-actions-row a {
     width: 100% !important;
     max-width: 100% !important;
-    border-radius: 20px 20px 0 0 !important;
-    padding: 1.25rem 1rem max(1.25rem, env(safe-area-inset-bottom)) !important;
-    max-height: 90vh !important;
-    overflow-y: auto !important;
+    padding: 10px 16px !important;
+    font-size: 0.86rem !important;
+    justify-content: center !important;
+    white-space: normal !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .programs-card-image-wrap {
+    min-height: 200px !important;
+    max-height: 200px !important;
+    height: 200px !important;
+    width: 100% !important;
+  }
+
+  .programs-card-image-wrap img {
+    height: 200px !important;
+    object-fit: cover !important;
+  }
+
+  /* Specialized Pathway Cards on Mobile */
+  .specialized-pathway-card {
+    padding: 1.25rem 1rem !important;
+    border-radius: 18px !important;
+  }
+
+  .specialized-pathway-card h3 {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .specialized-pathway-card p {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Admissions Calculator on Mobile */
+  .adm-calculator-container {
+    padding: 1.25rem 1rem !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+
+  .adm-calculator-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .adm-age-buttons-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem !important;
+  }
+
+  .adm-age-buttons-grid button {
+    padding: 0.72rem 0.5rem !important;
+    font-size: 0.78rem !important;
+    border-radius: 12px !important;
+    text-align: center !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .adm-timing-buttons-list button {
+    padding: 0.75rem 0.95rem !important;
+    border-radius: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .adm-timing-buttons-list button > div:first-child {
+    font-size: 0.84rem !important;
+  }
+
+  .adm-timing-buttons-list button > div:last-child {
+    font-size: 0.74rem !important;
+  }
+
+  .adm-calc-output-card {
+    padding: 1.25rem 1rem !important;
+    text-align: left !important;
+    align-items: stretch !important;
+    border-radius: 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .adm-calc-output-card .clay-glow-orb {
+    display: none !important;
+  }
+
+  .adm-calc-output-card h3 {
+    font-size: 1.15rem !important;
+    text-align: left !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .adm-calc-output-card [style*="backgroundColor: 'rgba(255, 255, 255, 0.92)'"],
+  .adm-calc-output-card [style*="backgroundColor: rgba(255, 255, 255, 0.92)"] {
+    padding: 0.75rem 0.85rem !important;
+    margin-bottom: 0.65rem !important;
+    border-radius: 12px !important;
+  }
+
+  .adm-calc-output-card .btn-clay-gold {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.75rem 1.25rem !important;
+    font-size: 0.86rem !important;
+    justify-content: center !important;
+  }
+
+  /* Full Screen Mobile App Drawer */
+  .mobile-app-drawer {
+    display: flex !important;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 999999 !important;
+    background-color: #fffdf9 !important;
   }
 }
