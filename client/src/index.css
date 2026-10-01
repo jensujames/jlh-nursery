@@ -557,8 +557,8 @@ textarea {
 
 @media (max-width: 768px) {
   .section-padding {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 2.25rem !important;
+    padding-bottom: 2.25rem !important;
   }
 }
 
@@ -4873,6 +4873,197 @@ textarea {
   .fac-showcase-container {
     border-radius: 18px !important;
     border-bottom-right-radius: 28px !important;
+    padding: 1.15rem 1rem !important;
+    gap: 1.15rem !important;
+    grid-template-columns: 1fr !important;
+    overflow: hidden !important;
+    margin-top: 1.25rem !important;
+    box-shadow: 0 10px 28px -6px rgba(114, 16, 36, 0.08) !important;
+  }
+
+  .fac-showcase-container img {
+    height: 210px !important;
+    max-height: 210px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 14px !important;
+  }
+
+  .fac-showcase-container > div > div:has(img) {
+    border-radius: 16px !important;
+    border-width: 3px !important;
+    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  /* Pin floating badges cleanly inside the top-right of showcase cards without clipping */
+  .fac-showcase-container .animate-float-slow,
+  .fac-showcase-container .animate-float-alt {
+    right: 10px !important;
+    left: auto !important;
+    top: 10px !important;
+    bottom: auto !important;
+    padding: 5px 12px !important;
+    font-size: 0.74rem !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    white-space: nowrap !important;
+    max-width: calc(100% - 20px) !important;
+    min-width: auto !important;
+    animation: none !important;
+    z-index: 5 !important;
+  }
+
+  .fac-showcase-container h3 {
+    font-size: clamp(1.22rem, 5vw, 1.5rem) !important;
+    line-height: 1.22 !important;
+    margin-bottom: 0.45rem !important;
+  }
+
+  .fac-showcase-container p {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 0.85rem !important;
+  }
+
+  .fac-showcase-container button,
+  .fac-showcase-container a.btn-primary,
+  .fac-showcase-container a.btn-secondary,
+  .fac-showcase-container .btn-clay-gold,
+  .fac-showcase-container .btn-clay-emerald {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 10px 18px !important;
+    font-size: 0.86rem !important;
+    border-radius: 9999px !important;
+  }
+
+  .fac-tabs-bar {
+    padding: 0.2rem 0.25rem 0.65rem !important;
+    margin-bottom: 1.15rem !important;
+    gap: 0.42rem !important;
+  }
+
+  .fac-tab-pill {
+    padding: 0.42rem 0.85rem !important;
+    font-size: 0.76rem !important;
+  }
+
+  /* Subpage Hero Banner (PageHeader.jsx across all 12 pages) */
+  .jlh-hero-banner {
+    padding-top: 1.85rem !important;
+    padding-bottom: 2.25rem !important;
+    min-height: auto !important;
+    border-bottom-right-radius: 36px !important;
+  }
+
+  .jlh-hero-right-bg {
+    width: 100% !important;
+    opacity: 0.14 !important;
+    filter: blur(2px) !important;
+    pointer-events: none !important;
+  }
+
+  .jlh-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .jlh-hero-left-content h1 {
+    font-size: clamp(1.62rem, 6.8vw, 2.15rem) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .jlh-hero-left-content p {
+    font-size: 0.84rem !important;
+    line-height: 1.48 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .jlh-hero-actions-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+  }
+
+  .jlh-hero-actions-row button,
+  .jlh-hero-actions-row a {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.72rem 1.25rem !important;
+    font-size: 0.86rem !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .jlh-hero-social-proof {
+    margin-top: 1.25rem !important;
+    gap: 10px !important;
+  }
+
+  .jlh-hero-social-proof img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .jlh-hero-social-proof div {
+    font-size: 0.78rem !important;
+  }
+
+  .jlh-hero-cards-preview {
+    display: none !important;
+  }
+
+  /* AboutPage Story Section Photography & Floating Badges */
+  .bg-cream .animate-float-slow,
+  .bg-cream .animate-float-alt {
+    max-width: calc(100% - 24px) !important;
+    right: 10px !important;
+    left: auto !important;
+    top: 10px !important;
+    bottom: auto !important;
+    min-width: auto !important;
+    padding: 5px 11px !important;
+    font-size: 0.74rem !important;
+    border-radius: 10px !important;
+    animation: none !important;
+  }
+
+  /* Bottom CTA Luminous Clay Banners across all pages */
+  .clay-glass-banner-pastel,
+  .clay-glass-banner-dark {
+    padding: 1.35rem 1rem !important;
+    border-radius: 20px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.15rem !important;
+  }
+
+  .clay-glass-banner-pastel h3,
+  .clay-glass-banner-dark h3 {
+    font-size: clamp(1.25rem, 5.2vw, 1.55rem) !important;
+    line-height: 1.22 !important;
+  }
+
+  .clay-glass-banner-pastel p,
+  .clay-glass-banner-dark p {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .btn-clay-gold,
+  .btn-clay-emerald {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    padding: 0.72rem 1.25rem !important;
+    font-size: 0.86rem !important;
+    justify-content: center !important;
   }
 
   .fac-showcase-grid {

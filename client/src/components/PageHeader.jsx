@@ -200,15 +200,18 @@ export default function PageHeader({
 
       {/* 4. Foreground Content Container */}
       <div className="container" style={{ position: 'relative', zIndex: 3 }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '3rem',
-          alignItems: 'center'
-        }}>
+        <div 
+          className="jlh-hero-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '3rem',
+            alignItems: 'center'
+          }}
+        >
           {/* ================= LEFT COLUMN ================= */}
           <RevealOnScroll animation="from-left" duration={700}>
-            <div>
+            <div className="jlh-hero-left-content">
               {/* Premium Frosted Glass Pill Badge */}
               <div style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '1.25rem' }}>
                 <span 
@@ -266,7 +269,10 @@ export default function PageHeader({
               </p>
 
               {/* Action Buttons Row */}
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+              <div 
+                className="jlh-hero-actions-row"
+                style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}
+              >
                 {/* Primary Button: Honey Gold Pill with Sheen */}
                 <button
                   onClick={onBookVisitClick}
@@ -350,7 +356,10 @@ export default function PageHeader({
               </div>
 
               {/* Social Proof Avatar Stack */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '2.25rem' }}>
+              <div 
+                className="jlh-hero-social-proof"
+                style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '2.25rem' }}
+              >
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   {[
                     "/images/testimonial-mom.jpg",
@@ -395,6 +404,7 @@ export default function PageHeader({
           {/* ================= RIGHT COLUMN: OPEN SCENE WITH FLOATING CARDS ================= */}
           <RevealOnScroll animation="from-right" duration={750} delay={100}>
             <div 
+              className="jlh-hero-cards-preview"
               style={{ 
                 position: 'relative', 
                 minHeight: '390px', 
