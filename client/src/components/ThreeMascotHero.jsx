@@ -2055,7 +2055,11 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   <span>2026 Admissions Open &bull; Villa 47, Ajman</span>
                 </div>
 
-                <h1 className="hero-actions-title">Where Little Hearts Feel at Home</h1>
+                <h1 className="hero-actions-title">
+                  Where <br />
+                  Little Hearts <br />
+                  Feel at Home
+                </h1>
                 <p className="hero-actions-desc">EYFS British curriculum &amp; motherly care in Al Rashidiya 2, Ajman.</p>
 
                 <div className="hero-buttons-wrap">
