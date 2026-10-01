@@ -350,19 +350,22 @@ export default function HomeCorePillars() {
 
         {/* Bottom Interactive Navigation Link Banner */}
         <RevealOnScroll animation="fade-up" delay={150}>
-          <div style={{
-            backgroundColor: '#ffffff',
-            borderRadius: '1.5rem',
-            padding: '1.4rem 2.25rem',
-            border: '2px solid rgba(21, 128, 61, 0.2)',
-            boxShadow: '0 12px 30px rgba(21, 128, 61, 0.08)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '1.25rem'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div 
+            className="core-pillars-banner-card"
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '1.5rem',
+              padding: '1.4rem 2.25rem',
+              border: '2px solid rgba(21, 128, 61, 0.2)',
+              boxShadow: '0 12px 30px rgba(21, 128, 61, 0.08)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '1.25rem'
+            }}
+          >
+            <div className="core-pillars-banner-content" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
               <span style={{
                 width: '44px',
                 height: '44px',
@@ -387,6 +390,7 @@ export default function HomeCorePillars() {
 
             <Link
               to="/about-us"
+              className="core-pillars-banner-btn"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',

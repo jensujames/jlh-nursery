@@ -253,22 +253,25 @@ export default function HomeQuickExplore() {
         {/* Section Header */}
         <RevealOnScroll animation="from-top">
           <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 2.5rem auto' }}>
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              backgroundColor: '#ffffff',
-              color: '#be123c',
-              border: '2px solid rgba(225, 29, 72, 0.25)',
-              borderRadius: '999px',
-              padding: '0.45rem 1.25rem',
-              fontSize: '0.85rem',
-              fontWeight: '800',
-              textTransform: 'uppercase',
-              letterSpacing: '0.06em',
-              marginBottom: '1.25rem',
-              boxShadow: '0 4px 14px rgba(225, 29, 72, 0.10)'
-            }}>
+            <div 
+              className="home-quick-explore-badge"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.45rem',
+                backgroundColor: '#ffffff',
+                color: '#be123c',
+                border: '2px solid rgba(225, 29, 72, 0.25)',
+                borderRadius: '999px',
+                padding: '0.45rem 1.25rem',
+                fontSize: '0.85rem',
+                fontWeight: '800',
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+                marginBottom: '1.25rem',
+                boxShadow: '0 4px 14px rgba(225, 29, 72, 0.10)'
+              }}
+            >
               <Sparkles size={15} color="#e11d48" /> EXPLORE JUST LIKE HOME NURSERY
             </div>
 

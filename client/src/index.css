@@ -4782,19 +4782,94 @@ textarea {
   .pillars-media-showcase {
     position: relative !important;
     top: 0 !important;
-    padding: 12px !important;
+    padding: 14px 14px 16px !important;
+    border-radius: 22px !important;
+    gap: 12px !important;
+  }
+
+  .pillars-collage-grid {
+    display: block !important;
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  .pillars-left-col {
+    display: none !important;
+  }
+
+  .pillars-right-col {
+    width: 100% !important;
+    height: 200px !important;
     border-radius: 18px !important;
-    gap: 10px !important;
+    overflow: hidden !important;
+    position: relative !important;
   }
 
-  .media-collage-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
-  }
-
-  .media-collage-grid img {
-    max-height: 160px !important;
+  .pillars-tall-img {
+    width: 100% !important;
+    height: 100% !important;
     object-fit: cover !important;
+    display: block !important;
+  }
+
+  .pillars-floating-badge {
+    top: 10px !important;
+    left: 10px !important;
+    padding: 0.3rem 0.75rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  .pillars-caption-title {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .pillars-caption-title h4 {
+    font-size: 1.08rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+  }
+
+  .pillars-controls-cluster {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .media-counter-pill {
+    font-size: 11px !important;
+    padding: 3px 8px !important;
+    font-weight: 800 !important;
+  }
+
+  .media-nav-arrow-btn {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .media-caption-desc {
+    font-size: 0.84rem !important;
+    line-height: 1.45 !important;
+    color: #475569 !important;
+    margin: 0 !important;
+  }
+
+  .media-feature-chips {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin-top: 4px !important;
+  }
+
+  .media-chip-item {
+    font-size: 11px !important;
+    padding: 3px 10px !important;
+    border-radius: 9999px !important;
   }
 
   /* Section 3 Curved Gallery Mobile Scale */
@@ -4871,7 +4946,7 @@ textarea {
   }
 
   .fac-showcase-container {
-    border-radius: 18px !important;
+    border-radius: 20px !important;
     border-bottom-right-radius: 28px !important;
     padding: 1.15rem 1rem !important;
     gap: 1.15rem !important;
@@ -4881,37 +4956,80 @@ textarea {
     box-shadow: 0 10px 28px -6px rgba(114, 16, 36, 0.08) !important;
   }
 
-  .fac-showcase-container img {
-    height: 210px !important;
-    max-height: 210px !important;
+  .fac-avatar-img {
+    width: 28px !important;
+    height: 28px !important;
+    max-height: 28px !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    display: inline-block !important;
+    object-fit: cover !important;
+  }
+
+  .fac-slide-main-img {
+    height: 220px !important;
+    max-height: 220px !important;
     width: 100% !important;
     object-fit: cover !important;
+    border-radius: 18px !important;
+    display: block !important;
+  }
+
+  .fac-doodle {
+    display: none !important;
+  }
+
+  .fac-hide-mobile {
+    display: none !important;
+  }
+
+  .fac-floating-card-1 {
+    position: absolute !important;
+    top: auto !important;
+    bottom: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+    min-width: auto !important;
+    max-width: calc(100% - 20px) !important;
+    padding: 8px 12px !important;
     border-radius: 14px !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14) !important;
+    animation: none !important;
+    z-index: 5 !important;
+  }
+
+  .fac-controls-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    border-top: 1px solid #eef2f6 !important;
+    padding-top: 0.9rem !important;
+  }
+
+  .fac-trust-block {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    gap: 8px !important;
+  }
+
+  .fac-arrows-cluster {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    width: 100% !important;
   }
 
   .fac-showcase-container > div > div:has(img) {
     border-radius: 16px !important;
     border-width: 3px !important;
     box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.12) !important;
-  }
-
-  /* Pin floating badges cleanly inside the top-right of showcase cards without clipping */
-  .fac-showcase-container .animate-float-slow,
-  .fac-showcase-container .animate-float-alt {
-    right: 10px !important;
-    left: auto !important;
-    top: 10px !important;
-    bottom: auto !important;
-    padding: 5px 12px !important;
-    font-size: 0.74rem !important;
-    font-weight: 700 !important;
-    border-radius: 10px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-    white-space: nowrap !important;
-    max-width: calc(100% - 20px) !important;
-    min-width: auto !important;
-    animation: none !important;
-    z-index: 5 !important;
   }
 
   .fac-showcase-container h3 {
@@ -4936,6 +5054,53 @@ textarea {
     padding: 10px 18px !important;
     font-size: 0.86rem !important;
     border-radius: 9999px !important;
+  }
+
+  /* Quick Explore Badge Mobile */
+  .home-quick-explore-badge {
+    font-size: 0.72rem !important;
+    padding: 0.35rem 0.85rem !important;
+    letter-spacing: 0.04em !important;
+    white-space: nowrap !important;
+    margin-bottom: 0.85rem !important;
+    max-width: 100% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  .home-quick-explore-badge svg {
+    width: 13px !important;
+    height: 13px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Core Pillars Interactive Banner Card */
+  .core-pillars-banner-card {
+    padding: 1.25rem 1rem !important;
+    border-radius: 1.25rem !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1rem !important;
+  }
+
+  .core-pillars-banner-content {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.75rem !important;
+  }
+
+  .core-pillars-banner-btn {
+    width: 100% !important;
+    max-width: 290px !important;
+    margin: 0.25rem auto 0 !important;
+    justify-content: center !important;
+    padding: 0.75rem 1.25rem !important;
+    font-size: 0.88rem !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
   }
 
   .fac-tabs-bar {

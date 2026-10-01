@@ -2342,7 +2342,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   >
                     {/* Asymmetric Media Showcase Collage (Fixed Height across all slides) */}
                     <div 
-                      className="media-collage-grid"
+                      className="media-collage-grid pillars-collage-grid"
                       style={{
                         display: 'grid',
                         gridTemplateColumns: 'minmax(200px, 1fr) minmax(200px, 1fr)',
@@ -2353,9 +2353,10 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                       }}
                     >
                       {/* Left Column: Working Hours Card on Top + Infant Photo on Bottom */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', height: '100%' }}>
+                      <div className="pillars-left-col" style={{ display: 'flex', flexDirection: 'column', gap: '10px', height: '100%' }}>
                         {/* Top: Working Hours Card */}
                         <div 
+                          className="pillars-info-card"
                           style={{
                             backgroundColor: currentPillar.infoCard?.bg || '#edf7e8',
                             borderRadius: '18px',
@@ -2411,6 +2412,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
                         {/* Bottom: Playful Child / Infant Photo */}
                         <div 
+                          className="pillars-small-img-wrap"
                           style={{
                             borderRadius: '18px',
                             overflow: 'hidden',
@@ -2436,6 +2438,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
                       {/* Right Column: Tall Portrait Photo + Floating Badge (Fixed Height) */}
                       <div 
+                        className="pillars-right-col"
                         style={{
                           borderRadius: '22px',
                           overflow: 'hidden',
@@ -2448,6 +2451,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                           src={currentPillar.tallImage}
                           alt={currentPillar.tallAlt || currentPillar.title}
                           loading="lazy"
+                          className="pillars-tall-img"
                           style={{
                             width: '100%',
                             height: '100%',
@@ -2459,6 +2463,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
                         {/* Floating Pillar Badge */}
                         <div 
+                          className="pillars-floating-badge"
                           style={{
                             position: 'absolute',
                             top: '12px',
@@ -2484,12 +2489,12 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                     </div>
 
                     {/* Captions & Highlights Area */}
-                    <div className="media-caption-area">
-                      <div className="media-caption-title" id="media-caption-title">
+                    <div className="media-caption-area pillars-caption-area">
+                      <div className="media-caption-title pillars-caption-title" id="media-caption-title">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                           <h4>{currentPillar.title}</h4>
                         </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <div className="pillars-controls-cluster" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                           <span 
                             className="media-counter-pill"
                             style={{
@@ -2925,6 +2930,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
                         {/* Trust Avatar Rating & Slider Controls Row */}
                         <div 
+                          className="fac-controls-row"
                           style={{
                             display: 'flex',
                             alignItems: 'center',
@@ -2936,13 +2942,14 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                           }}
                         >
                           {/* Avatars & Rating */}
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                          <div className="fac-trust-block" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                             <div style={{ display: 'flex', marginLeft: '6px' }}>
                               {['classroom.jpg', 'outdoor.jpg', 'hero.jpg', 'nurturing-hero.jpg'].map((img, aIdx) => (
                                 <img
                                   key={aIdx}
                                   src={`/images/${img}`}
                                   alt="Happy student"
+                                  className="fac-avatar-img"
                                   style={{
                                     width: '32px',
                                     height: '32px',
@@ -2967,7 +2974,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                           </div>
 
                           {/* Slider Navigation Arrows */}
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <div className="fac-arrows-cluster" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#94a3b8', marginRight: '4px' }}>
                               0{activeFacilityIdx + 1} / 0{FACILITY_SLIDES.length}
                             </span>
@@ -3040,7 +3047,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
                         {/* Floating Rocket Doodle */}
                         <div 
-                          className="animate-float-slow"
+                          className="animate-float-slow fac-doodle"
                           style={{
                             position: 'absolute',
                             bottom: '-12px',
@@ -3058,7 +3065,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
                         {/* Floating Star Doodle */}
                         <div 
-                          className="animate-float-alt"
+                          className="animate-float-alt fac-doodle"
                           style={{
                             position: 'absolute',
                             top: '-14px',
@@ -3076,7 +3083,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
                         {/* Floating Sparkle Doodle */}
                         <div 
-                          className="animate-float-slow"
+                          className="animate-float-slow fac-doodle"
                           style={{
                             position: 'absolute',
                             bottom: '18px',
@@ -3107,6 +3114,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                           <img
                             src={cur.image}
                             alt={cur.tabLabel}
+                            className="fac-slide-main-img"
                             style={{
                               width: '100%',
                               height: '430px',
@@ -3130,7 +3138,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
                         {/* Floating Card 1: Today's Progress (Top-Left / Mid-Left) */}
                         <div 
-                          className="animate-float-slow"
+                          className="animate-float-slow fac-floating-card-1"
                           style={{
                             position: 'absolute',
                             top: '8%',
@@ -3182,7 +3190,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
                         {/* Floating Card 2: Great Job! (Top Right) */}
                         <div 
-                          className="animate-float-alt"
+                          className="animate-float-alt fac-floating-card-2 fac-hide-mobile"
                           style={{
                             position: 'absolute',
                             top: '5%',
@@ -3224,7 +3232,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
                         {/* Floating Card 3: Next Lesson / Milestone (Bottom Right) */}
                         <div 
-                          className="animate-float-slow"
+                          className="animate-float-slow fac-floating-card-3 fac-hide-mobile"
                           style={{
                             position: 'absolute',
                             bottom: '12%',
