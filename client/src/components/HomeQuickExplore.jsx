@@ -303,14 +303,17 @@ export default function HomeQuickExplore() {
 
         {/* Pinterest / Dribbble-Style Interactive Category Pills */}
         <RevealOnScroll animation="from-top" delay={100}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '0.65rem',
-            marginBottom: '3rem'
-          }}>
+          <div 
+            className="quick-explore-category-strip"
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              gap: '0.65rem',
+              marginBottom: '3rem'
+            }}
+          >
             {categories.map((cat) => {
               const isSelected = activeCategory === cat.id;
               return (

@@ -80,6 +80,7 @@ export default function ScrollHUD() {
     <>
       {/* Floating HUD Controller */}
       <aside 
+        className="scroll-hud-aside"
         style={{
           position: 'fixed',
           bottom: '1.5rem',
