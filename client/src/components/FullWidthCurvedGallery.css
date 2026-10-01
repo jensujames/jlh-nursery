@@ -85,7 +85,7 @@
 
 @media (max-width: 768px) {
   .curved-gallery-single-heading {
-    font-size: clamp(1.35rem, 5.2vw, 1.95rem);
+    font-size: clamp(1.55rem, 6.2vw, 2.05rem) !important;
     white-space: normal;
   }
 }
