@@ -1195,11 +1195,19 @@ textarea {
 
 @media (max-width: 880px) {
   .hero-stage-overlay {
-    padding: 68px 16px 20px !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 66px 16px 14px !important;
+    display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important;
+    justify-content: space-between !important;
     align-items: stretch !important;
-    gap: 8px !important;
+    box-sizing: border-box !important;
+    pointer-events: none !important;
+    z-index: 28 !important;
   }
 }
 
@@ -1222,10 +1230,15 @@ textarea {
 @media (max-width: 880px) {
   .hero-actions-container {
     width: 100% !important;
-    max-width: 100% !important;
-    gap: 12px !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: stretch !important;
     transform: none !important;
-    margin-top: 4px !important;
+    margin: 0 !important;
+    gap: 0 !important;
+    pointer-events: none !important;
   }
   .hero-actions-container:hover {
     transform: none !important;
@@ -1234,6 +1247,12 @@ textarea {
     display: none !important;
   }
   .hero-card-right-arch {
+    display: none !important;
+  }
+  .hero-friends-pill {
+    display: none !important;
+  }
+  .hero-bottom-controls {
     display: none !important;
   }
 }
@@ -1283,7 +1302,7 @@ textarea {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -1292,29 +1311,84 @@ textarea {
   overflow: visible;
 }
 
+@media (max-width: 880px) {
+  .hero-card-main {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: stretch !important;
+    pointer-events: none !important;
+  }
+}
+
+/* Desktop groupings inside hero-card-main */
+.hero-header-top-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hero-bottom-actions-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+@media (max-width: 880px) {
+  /* 1. Top group: clean Admissions pill & 3-line heading at top of phone */
+  .hero-header-top-group {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    pointer-events: auto !important;
+    z-index: 30 !important;
+  }
+
+  /* 2. Bottom group: subcontent & buttons cleanly positioned below 3D cubes */
+  .hero-bottom-actions-group {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    padding: 12px 14px !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-radius: 20px !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 10px 30px rgba(184, 136, 115, 0.20), 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    pointer-events: auto !important;
+    margin-bottom: 2px !important;
+    z-index: 30 !important;
+  }
+}
+
 .hero-mobile-app-pill {
   display: none;
 }
 
 @media (max-width: 880px) {
   .hero-mobile-app-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 12px;
-    background: rgba(255, 255, 255, 0.94);
-    border: 1.5px solid #ffdecb;
-    border-radius: 999px;
-    font-size: 11.5px;
-    font-weight: 850;
-    color: #F15A29;
-    margin-bottom: 2px;
-    width: fit-content;
-    box-shadow: 0 4px 12px rgba(241, 90, 41, 0.12);
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 4px 12px !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    border: 1.5px solid #ffdecb !important;
+    border-radius: 999px !important;
+    font-size: 11px !important;
+    font-weight: 850 !important;
+    color: #F15A29 !important;
+    margin-bottom: 2px !important;
+    width: fit-content !important;
+    box-shadow: 0 4px 12px rgba(241, 90, 41, 0.12) !important;
   }
   .hero-mobile-app-dot {
-    width: 6.5px;
-    height: 6.5px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: #16a34a;
     box-shadow: 0 0 6px #16a34a;
@@ -1339,9 +1413,10 @@ textarea {
 
 @media (max-width: 880px) {
   .hero-actions-title {
-    font-size: clamp(27px, 7.6vw, 36px) !important;
-    line-height: 1.15 !important;
-    letter-spacing: -0.02em !important;
+    font-size: clamp(24px, 7vw, 32px) !important;
+    line-height: 1.14 !important;
+    letter-spacing: -0.025em !important;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8) !important;
   }
 }
 
@@ -1358,8 +1433,12 @@ textarea {
 
 @media (max-width: 880px) {
   .hero-actions-desc {
-    font-size: 13.5px !important;
-    line-height: 1.5 !important;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+    color: #334155 !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
     max-width: 100% !important;
   }
 }
@@ -1379,14 +1458,15 @@ textarea {
     width: 100% !important;
     display: flex !important;
     flex-direction: row !important;
-    gap: 10px !important;
-    margin-top: 8px !important;
+    gap: 8px !important;
+    margin-top: 2px !important;
   }
   .hero-cta-btn {
     flex: 1 !important;
-    padding: 12px 14px !important;
-    min-height: 48px !important;
-    font-size: 13.5px !important;
+    padding: 10px 12px !important;
+    min-height: 44px !important;
+    font-size: 13px !important;
+    font-weight: 850 !important;
     justify-content: center !important;
     border-radius: 14px !important;
   }
