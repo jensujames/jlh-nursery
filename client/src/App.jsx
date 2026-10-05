@@ -7,6 +7,7 @@ import BookVisitModal from './components/BookVisitModal';
 import AdminPortalModal from './components/AdminPortalModal';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollProgressBar from './components/ScrollProgressBar';
+import SmoothScroll from './components/SmoothScroll';
 
 // Multi-Page Views
 import HomePage from './pages/HomePage';
@@ -70,6 +71,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <SmoothScroll />
       <ScrollToTop />
       {/* Global Scroll Progress Ribbon (ScrollCraft Top Header Progress Bar) */}
       <ScrollProgressBar />

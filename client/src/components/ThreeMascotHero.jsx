@@ -290,8 +290,10 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         bg: "#edf7e8",
         accent: "#2e7d32"
       },
-      smallImage: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=85",
-      smallAlt: "Happy baby crawling playfully on clean soft floor",
+      smallImage: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&crop=faces,top&w=600&h=450&q=85",
+      smallAlt: "Smiling teacher holding learning materials",
+      smallImgPos: "center 10%",
+      tallImgPos: "center 20%",
       tallImage: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=85",
       tallAlt: "Loving mother and smiling baby experiencing gentle warmth"
     },
@@ -367,6 +369,84 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
   const triggerBlinkRef = useRef(null);
   const triggerDropRef = useRef(null);
   const triggerCubeActionRef = useRef(null);
+
+  // Synchronized Scroll & Manual Pillar Selection
+  const activePillarRef = useRef(activePillar);
+  activePillarRef.current = activePillar;
+  const isInteractingRef = useRef(false);
+  const interactionTimerRef = useRef(null);
+
+  const handlePillarSelect = (idx) => {
+    setActivePillar(idx);
+    activePillarRef.current = idx;
+    if (triggerCubeActionRef.current) {
+      triggerCubeActionRef.current(idx);
+    }
+    isInteractingRef.current = true;
+    if (interactionTimerRef.current) clearTimeout(interactionTimerRef.current);
+    interactionTimerRef.current = setTimeout(() => {
+      isInteractingRef.current = false;
+    }, 750);
+  };
+
+  // Scroll Progress Synchronizer for 4 Pillars (Warmth -> Trust -> Growth -> Joy)
+  useEffect(() => {
+    let ticking = false;
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        if (isInteractingRef.current) return;
+
+        const stack = document.getElementById('pillars-stack');
+        if (!stack) return;
+
+        const vh = window.innerHeight;
+        // Focal point slightly above center for natural reading eye-level
+        const focalY = vh * 0.46;
+
+        let closestIdx = 0;
+        let minDiff = Infinity;
+
+        for (let i = 0; i < 4; i++) {
+          const card = document.getElementById(`pillar-card-${i}`);
+          if (card) {
+            const cRect = card.getBoundingClientRect();
+            const cardCenterY = cRect.top + cRect.height / 2;
+            const diff = Math.abs(cardCenterY - focalY);
+            if (diff < minDiff) {
+              minDiff = diff;
+              closestIdx = i;
+            }
+          }
+        }
+
+        const currentCard = document.getElementById(`pillar-card-${activePillarRef.current}`);
+        let currentDiff = Infinity;
+        if (currentCard) {
+          const cRect = currentCard.getBoundingClientRect();
+          currentDiff = Math.abs(cRect.top + cRect.height / 2 - focalY);
+        }
+
+        // Hysteresis of 20px prevents any micro-jitter at scroll boundary
+        if (closestIdx !== activePillarRef.current && (currentDiff - minDiff > 20)) {
+          activePillarRef.current = closestIdx;
+          setActivePillar(closestIdx);
+          if (triggerCubeActionRef.current) {
+            triggerCubeActionRef.current(closestIdx);
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (interactionTimerRef.current) clearTimeout(interactionTimerRef.current);
+    };
+  }, []);
 
   // Detect mobile device once at mount
   const isMobileDevice = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -2201,7 +2281,11 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
               className="scroll-indicator" 
               id="scroll-arrow-btn"
               onClick={() => {
-                window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+                if (window.lenis) {
+                  window.lenis.scrollTo(window.innerHeight, { duration: 1.2 });
+                } else {
+                  window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+                }
                 playPopSound(480);
               }}
             >
@@ -2247,10 +2331,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                 <div 
                   className={`pillar-stack-card ${activePillar === 0 ? 'active' : ''}`}
                   id="pillar-card-0"
-                  onClick={() => {
-                    setActivePillar(0);
-                    if (triggerCubeActionRef.current) triggerCubeActionRef.current(0);
-                  }}
+                  onClick={() => handlePillarSelect(0)}
                 >
                   <div className="pillar-cube-slot" id="cube-slot-0">
                     <div className="slot-pedestal-ring" />
@@ -2265,10 +2346,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                 <div 
                   className={`pillar-stack-card ${activePillar === 1 ? 'active' : ''}`}
                   id="pillar-card-1"
-                  onClick={() => {
-                    setActivePillar(1);
-                    if (triggerCubeActionRef.current) triggerCubeActionRef.current(1);
-                  }}
+                  onClick={() => handlePillarSelect(1)}
                 >
                   <div className="pillar-cube-slot" id="cube-slot-1">
                     <div className="slot-pedestal-ring" />
@@ -2283,10 +2361,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                 <div 
                   className={`pillar-stack-card ${activePillar === 2 ? 'active' : ''}`}
                   id="pillar-card-2"
-                  onClick={() => {
-                    setActivePillar(2);
-                    if (triggerCubeActionRef.current) triggerCubeActionRef.current(2);
-                  }}
+                  onClick={() => handlePillarSelect(2)}
                 >
                   <div className="pillar-cube-slot" id="cube-slot-2">
                     <div className="slot-pedestal-ring" />
@@ -2301,10 +2376,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                 <div 
                   className={`pillar-stack-card ${activePillar === 3 ? 'active' : ''}`}
                   id="pillar-card-3"
-                  onClick={() => {
-                    setActivePillar(3);
-                    if (triggerCubeActionRef.current) triggerCubeActionRef.current(3);
-                  }}
+                  onClick={() => handlePillarSelect(3)}
                 >
                   <div className="pillar-cube-slot" id="cube-slot-3">
                     <div className="slot-pedestal-ring" />
@@ -2316,18 +2388,16 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                 </div>
               </div>
 
-              {/* Right Column: Sticky Media Showcase (Enters from Right) */}
+              {/* Right Column: Sticky Media Showcase with Smooth Sliding Track */}
               {(() => {
                 const currentPillar = pillarShowcaseData[activePillar];
                 const nextPillar = () => {
                   const nextIdx = (activePillar + 1) % pillarShowcaseData.length;
-                  setActivePillar(nextIdx);
-                  if (triggerCubeActionRef.current) triggerCubeActionRef.current(nextIdx);
+                  handlePillarSelect(nextIdx);
                 };
                 const prevPillar = () => {
                   const prevIdx = (activePillar - 1 + pillarShowcaseData.length) % pillarShowcaseData.length;
-                  setActivePillar(prevIdx);
-                  if (triggerCubeActionRef.current) triggerCubeActionRef.current(prevIdx);
+                  handlePillarSelect(prevIdx);
                 };
 
                 return (
@@ -2337,159 +2407,266 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                     data-reveal="right"
                     style={{
                       borderColor: `${currentPillar.tagColor}40`,
-                      boxShadow: `0 24px 60px -15px ${currentPillar.tagColor}28, 0 4px 16px rgba(0, 0, 0, 0.04)`
+                      boxShadow: `0 24px 60px -15px ${currentPillar.tagColor}28, 0 4px 16px rgba(0, 0, 0, 0.04)`,
+                      paddingBottom: '36px'
                     }}
                   >
-                    {/* Asymmetric Media Showcase Collage (Fixed Height across all slides) */}
+                    {/* Top Bar: Scroll Progress & Pillar Identity */}
                     <div 
-                      className="media-collage-grid pillars-collage-grid"
+                      className="pillars-showcase-progress-bar"
                       style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'minmax(200px, 1fr) minmax(200px, 1fr)',
-                        gap: '14px',
-                        width: '100%',
-                        height: '285px',
-                        borderRadius: '26px'
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        marginBottom: '16px',
+                        paddingBottom: '12px',
+                        borderBottom: '1px solid rgba(0, 0, 0, 0.06)'
                       }}
                     >
-                      {/* Left Column: Working Hours Card on Top + Infant Photo on Bottom */}
-                      <div className="pillars-left-col" style={{ display: 'flex', flexDirection: 'column', gap: '10px', height: '100%' }}>
-                        {/* Top: Working Hours Card */}
-                        <div 
-                          className="pillars-info-card"
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span 
                           style={{
-                            backgroundColor: currentPillar.infoCard?.bg || '#edf7e8',
-                            borderRadius: '18px',
-                            padding: '0.85rem 1.1rem',
-                            border: '1px solid rgba(0, 0, 0, 0.04)',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            boxShadow: '0 4px 14px rgba(0, 0, 0, 0.02)',
-                            flexShrink: 0
-                          }}
-                        >
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.45rem' }}>
-                            <div style={{
-                              width: '28px',
-                              height: '28px',
-                              borderRadius: '50%',
-                              backgroundColor: '#ffffff',
-                              color: currentPillar.infoCard?.accent || '#2e7d32',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              boxShadow: '0 2px 6px rgba(0, 0, 0, 0.06)'
-                            }}>
-                              <Clock size={15} strokeWidth={2.4} />
-                            </div>
-                            <span style={{
-                              fontSize: '0.88rem',
-                              fontWeight: '800',
-                              color: '#1e293b'
-                            }}>
-                              {currentPillar.infoCard?.title}
-                            </span>
-                          </div>
-
-                          <div style={{
-                            fontSize: '0.78rem',
-                            color: '#334155',
-                            lineHeight: 1.45,
-                            fontWeight: '600'
-                          }}>
-                            <div style={{ paddingBottom: '0.25rem', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-                              {currentPillar.infoCard?.line1}
-                            </div>
-                            <div style={{ padding: '0.25rem 0', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-                              {currentPillar.infoCard?.line2}
-                            </div>
-                            <div style={{ paddingTop: '0.25rem', color: '#64748b' }}>
-                              {currentPillar.infoCard?.line3}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Bottom: Playful Child / Infant Photo */}
-                        <div 
-                          className="pillars-small-img-wrap"
-                          style={{
-                            borderRadius: '18px',
-                            overflow: 'hidden',
-                            flex: 1,
-                            minHeight: 0,
-                            boxShadow: '0 6px 18px rgba(0, 0, 0, 0.06)',
-                            position: 'relative'
-                          }}
-                        >
-                          <img
-                            src={currentPillar.smallImage}
-                            alt={currentPillar.smallAlt || currentPillar.title}
-                            loading="lazy"
-                            style={{
-                              width: '100%',
-                              height: '100%',
-                              objectFit: 'cover',
-                              display: 'block'
-                            }}
-                          />
-                        </div>
-                      </div>
-
-                      {/* Right Column: Tall Portrait Photo + Floating Badge (Fixed Height) */}
-                      <div 
-                        className="pillars-right-col"
-                        style={{
-                          borderRadius: '22px',
-                          overflow: 'hidden',
-                          height: '100%',
-                          position: 'relative',
-                          boxShadow: '0 10px 24px rgba(0, 0, 0, 0.08)'
-                        }}
-                      >
-                        <img
-                          src={currentPillar.tallImage}
-                          alt={currentPillar.tallAlt || currentPillar.title}
-                          loading="lazy"
-                          className="pillars-tall-img"
-                          style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                            objectPosition: activePillar === 0 ? 'center 20%' : 'center',
-                            display: 'block'
-                          }}
-                        />
-
-                        {/* Floating Pillar Badge */}
-                        <div 
-                          className="pillars-floating-badge"
-                          style={{
-                            position: 'absolute',
-                            top: '12px',
-                            left: '12px',
-                            backgroundColor: 'rgba(255, 255, 255, 0.94)',
-                            backdropFilter: 'blur(8px)',
-                            padding: '0.35rem 0.85rem',
-                            borderRadius: '999px',
-                            fontSize: '0.78rem',
-                            fontWeight: '800',
-                            color: '#1e293b',
-                            boxShadow: '0 4px 14px rgba(0,0,0,0.12)',
                             display: 'inline-flex',
                             alignItems: 'center',
                             gap: '6px',
-                            zIndex: 2
+                            padding: '4px 12px',
+                            borderRadius: '999px',
+                            fontSize: '0.78rem',
+                            fontWeight: '800',
+                            backgroundColor: `${currentPillar.tagColor}15`,
+                            color: currentPillar.tagColor,
+                            border: `1px solid ${currentPillar.tagColor}30`,
+                            letterSpacing: '0.5px',
+                            transition: 'all 0.35s ease'
                           }}
                         >
-                          <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: currentPillar.tagColor }} />
-                          <span>Pillar: {currentPillar.pillarName}</span>
-                        </div>
+                          <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: currentPillar.tagColor }} />
+                          <span>{currentPillar.counter} &bull; {currentPillar.pillarName}</span>
+                        </span>
+                        <span style={{ fontSize: '0.82rem', fontWeight: '700', color: '#64748b' }} className="pillars-desktop-title-snippet">
+                          {currentPillar.title}
+                        </span>
+                      </div>
+
+                      {/* 4 Segmented Scroll Progress Indicators */}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }} title="Scroll progress through 4 Pillars">
+                        {pillarShowcaseData.map((p, pIdx) => {
+                          const isPastOrCurrent = pIdx <= activePillar;
+                          const isCurrent = pIdx === activePillar;
+                          return (
+                            <button
+                              key={pIdx}
+                              type="button"
+                              onClick={() => handlePillarSelect(pIdx)}
+                              aria-label={`Jump to ${p.pillarName}`}
+                              style={{
+                                height: '7px',
+                                width: isCurrent ? '28px' : '16px',
+                                borderRadius: '999px',
+                                backgroundColor: isCurrent ? p.tagColor : (isPastOrCurrent ? `${p.tagColor}80` : '#e2e8f0'),
+                                border: 'none',
+                                padding: 0,
+                                cursor: 'pointer',
+                                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                                boxShadow: isCurrent ? `0 2px 8px ${p.tagColor}60` : 'none'
+                              }}
+                            />
+                          );
+                        })}
                       </div>
                     </div>
 
-                    {/* Captions & Highlights Area */}
-                    <div className="media-caption-area pillars-caption-area">
+                    {/* Sliding Viewport & Track: Slides smoothly between WARMTH, TRUST, GROWTH, JOY */}
+                    <div 
+                      className="pillars-showcase-slider-viewport"
+                      style={{
+                        width: '100%',
+                        overflow: 'hidden',
+                        borderRadius: '26px',
+                        position: 'relative'
+                      }}
+                    >
+                      <div 
+                        className="pillars-showcase-slider-track"
+                        style={{
+                          display: 'flex',
+                          width: '100%',
+                          transform: `translate3d(-${activePillar * 100}%, 0, 0)`,
+                          transition: 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)',
+                          willChange: 'transform'
+                        }}
+                      >
+                        {pillarShowcaseData.map((item, idx) => (
+                          <div 
+                            key={idx}
+                            className="pillars-showcase-slide-item"
+                            style={{
+                              minWidth: '100%',
+                              maxWidth: '100%',
+                              width: '100%',
+                              flexShrink: 0,
+                              boxSizing: 'border-box'
+                            }}
+                          >
+                            <div 
+                              className="media-collage-grid pillars-collage-grid"
+                              style={{
+                                display: 'grid',
+                                gridTemplateColumns: '1fr 1fr',
+                                gap: '14px',
+                                width: '100%',
+                                height: '340px',
+                                borderRadius: '26px'
+                              }}
+                            >
+                              {/* Left Column: Working Hours Card on Top + Infant Photo on Bottom */}
+                              <div className="pillars-left-col" style={{ display: 'flex', flexDirection: 'column', gap: '14px', height: '100%', width: '100%' }}>
+                                {/* Top: Working Hours / Info Card */}
+                                <div 
+                                  className="pillars-info-card"
+                                  style={{
+                                    backgroundColor: item.infoCard?.bg || '#edf7e8',
+                                    borderRadius: '18px',
+                                    padding: '0.9rem 1.1rem',
+                                    border: '1px solid rgba(0, 0, 0, 0.04)',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'center',
+                                    boxShadow: '0 4px 14px rgba(0, 0, 0, 0.02)',
+                                    flexShrink: 0,
+                                    height: '140px',
+                                    boxSizing: 'border-box'
+                                  }}
+                                >
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.45rem' }}>
+                                    <div style={{
+                                      width: '28px',
+                                      height: '28px',
+                                      borderRadius: '50%',
+                                      backgroundColor: '#ffffff',
+                                      color: item.infoCard?.accent || '#2e7d32',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'center',
+                                      boxShadow: '0 2px 6px rgba(0, 0, 0, 0.06)'
+                                    }}>
+                                      <Clock size={15} strokeWidth={2.4} />
+                                    </div>
+                                    <span style={{
+                                      fontSize: '0.88rem',
+                                      fontWeight: '800',
+                                      color: '#1e293b'
+                                    }}>
+                                      {item.infoCard?.title}
+                                    </span>
+                                  </div>
+
+                                  <div style={{
+                                    fontSize: '0.78rem',
+                                    color: '#334155',
+                                    lineHeight: 1.45,
+                                    fontWeight: '600'
+                                  }}>
+                                    <div style={{ paddingBottom: '0.25rem', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
+                                      {item.infoCard?.line1}
+                                    </div>
+                                    <div style={{ padding: '0.25rem 0', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
+                                      {item.infoCard?.line2}
+                                    </div>
+                                    <div style={{ paddingTop: '0.25rem', color: '#64748b' }}>
+                                      {item.infoCard?.line3}
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Bottom: Playful Child / Infant Photo */}
+                                <div 
+                                  className="pillars-small-img-wrap"
+                                  style={{
+                                    borderRadius: '18px',
+                                    overflow: 'hidden',
+                                    height: '186px',
+                                    width: '100%',
+                                    boxShadow: '0 6px 18px rgba(0, 0, 0, 0.06)',
+                                    position: 'relative',
+                                    boxSizing: 'border-box'
+                                  }}
+                                >
+                                  <img
+                                    src={item.smallImage}
+                                    alt={item.smallAlt || item.title}
+                                    loading={idx === 0 ? 'eager' : 'lazy'}
+                                    style={{
+                                      width: '100%',
+                                      height: '100%',
+                                      objectFit: 'cover',
+                                      objectPosition: item.smallImgPos || (idx === 0 ? 'center 10%' : 'center'),
+                                      display: 'block'
+                                    }}
+                                  />
+                                </div>
+                              </div>
+
+                              {/* Right Column: Tall Portrait Photo + Floating Badge (Fixed Height) */}
+                              <div 
+                                className="pillars-right-col"
+                                style={{
+                                  borderRadius: '22px',
+                                  overflow: 'hidden',
+                                  height: '340px',
+                                  width: '100%',
+                                  position: 'relative',
+                                  boxShadow: '0 10px 24px rgba(0, 0, 0, 0.08)',
+                                  boxSizing: 'border-box'
+                                }}
+                              >
+                                <img
+                                  src={item.tallImage}
+                                  alt={item.tallAlt || item.title}
+                                  loading={idx === 0 ? 'eager' : 'lazy'}
+                                  className="pillars-tall-img"
+                                  style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                    objectPosition: item.tallImgPos || (idx === 0 ? 'center 20%' : 'center'),
+                                    display: 'block'
+                                  }}
+                                />
+
+                                {/* Floating Pillar Badge */}
+                                <div 
+                                  className="pillars-floating-badge"
+                                  style={{
+                                    position: 'absolute',
+                                    top: '12px',
+                                    left: '12px',
+                                    backgroundColor: 'rgba(255, 255, 255, 0.94)',
+                                    backdropFilter: 'blur(8px)',
+                                    padding: '0.35rem 0.85rem',
+                                    borderRadius: '999px',
+                                    fontSize: '0.78rem',
+                                    fontWeight: '800',
+                                    color: '#1e293b',
+                                    boxShadow: '0 4px 14px rgba(0,0,0,0.12)',
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    gap: '6px',
+                                    zIndex: 2
+                                  }}
+                                >
+                                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.tagColor }} />
+                                  <span>Pillar: {item.pillarName}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Captions & Highlights Area (Visible on mobile only; on desktop, 4 pillars stack on left handles all descriptions) */}
+                    <div className="media-caption-area pillars-caption-area pillars-desktop-hide">
                       <div className="media-caption-title pillars-caption-title" id="media-caption-title">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                           <h4>{currentPillar.title}</h4>
@@ -2542,17 +2719,14 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                       )}
                     </div>
 
-                    {/* Indicators */}
-                    <div className="media-indicators">
+                    {/* Indicators (Visible on mobile only) */}
+                    <div className="media-indicators pillars-desktop-hide">
                       {pillarShowcaseData.map((item, idx) => (
                         <div 
                           key={idx}
                           className={`media-indicator-pill ${idx === activePillar ? 'active' : ''}`}
                           style={idx === activePillar ? { background: item.tagColor, boxShadow: `0 2px 8px ${item.tagColor}50` } : {}}
-                          onClick={() => {
-                            setActivePillar(idx);
-                            if (triggerCubeActionRef.current) triggerCubeActionRef.current(idx);
-                          }}
+                          onClick={() => handlePillarSelect(idx)}
                         />
                       ))}
                     </div>
@@ -2654,24 +2828,19 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
               </div>
             </div>
 
-            {/* Facilities Section: Upgraded Modern Glassmorphic Cards */}
+            {/* Facilities Section: Clean Minimal Campus Showcase */}
             <div className="facilities-section" id="facilities-grid">
-              <div className="section-title-wrap" data-reveal="top">
-                <div className="fac-section-tag">
+              <div className="section-title-wrap" data-reveal="top" style={{ marginBottom: '24px' }}>
+                <div className="fac-section-tag" style={{ background: 'rgba(2, 132, 199, 0.08)', color: '#0284c7', borderColor: '#bae6fd' }}>
                   <ShieldCheck size={14} className="fac-tag-icon" />
-                  <span>VILLA 47 CAMPUS EXCELLENCE</span>
+                  <span>VILLA 47 CAMPUS</span>
                 </div>
-                <h3 style={{ color: '#1e293b' }}>
-                  Designed for Happy Learning &amp;{' '}
-                  <span style={{
-                    background: 'linear-gradient(135deg, #721024 0%, #be123c 50%, #c9a84c 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent'
-                  }}>
-                    Safe Exploration
-                  </span>
+                <h3 style={{ color: '#1e293b', fontSize: 'clamp(1.8rem, 2.8vw, 2.3rem)', margin: '10px 0 8px' }}>
+                  Where Little Minds Flourish
                 </h3>
-                <p>Every square meter of our purpose-built villa is secured, climate-controlled, and equipped for joyful sensory discovery.</p>
+                <p style={{ maxWidth: '520px', margin: '0 auto', color: '#64748b', fontSize: '0.96rem' }}>
+                  Purpose-built, climate-controlled, and equipped for joyful sensory discovery in Al Rashidiya 2.
+                </p>
               </div>
               
               {/* Facility Tabs Bar */}
@@ -2711,104 +2880,81 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                     className="fac-showcase-container"
                     onMouseEnter={() => setIsFacAutoPlayPaused(true)}
                     onMouseLeave={() => setIsFacAutoPlayPaused(false)}
+                    style={{
+                      background: '#ffffff',
+                      borderRadius: '28px',
+                      border: '1.5px solid #f1f5f9',
+                      boxShadow: '0 12px 36px rgba(0, 0, 0, 0.04)',
+                      overflow: 'hidden'
+                    }}
                   >
                     <div 
                       className="fac-showcase-grid"
                       style={{
                         display: 'grid',
-                        gridTemplateColumns: '1.05fr 1fr',
-                        gap: '3rem',
+                        gridTemplateColumns: '1.08fr 1fr',
+                        gap: '2.5rem',
                         alignItems: 'center',
-                        padding: '2.5rem 3rem 3rem',
+                        padding: '2.5rem 3rem',
                         position: 'relative'
                       }}
                     >
-                      {/* LEFT COLUMN: Content Box Slide */}
+                      {/* LEFT COLUMN: Clean Minimal Content */}
                       <div 
                         key={`${cur.id}-content`} 
-                        style={{ animation: 'facContentSlide 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}
+                        style={{ animation: 'facContentSlide 0.4s ease forwards' }}
                       >
                         {/* Tag Pill Badge */}
                         <div 
                           style={{
                             display: 'inline-flex',
                             alignItems: 'center',
-                            gap: '8px',
-                            padding: '6px 16px',
-                            borderRadius: '9999px',
+                            gap: '6px',
+                            padding: '5px 14px',
+                            borderRadius: '999px',
                             background: cur.accentBadgeBg,
                             color: cur.accentBadgeColor,
                             fontWeight: 700,
-                            fontSize: '0.85rem',
-                            marginBottom: '1rem',
-                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)'
+                            fontSize: '0.8rem',
+                            marginBottom: '1rem'
                           }}
                         >
-                          <TagIcon size={15} />
+                          <TagIcon size={14} />
                           <span>{cur.tag}</span>
                         </div>
 
-                        {/* Big Playful Heading with Highlight & Sunburst Rays */}
+                        {/* Clean Heading */}
                         <h2 
                           style={{
-                            fontSize: 'clamp(2rem, 3.2vw, 2.75rem)',
+                            fontSize: 'clamp(1.75rem, 2.5vw, 2.25rem)',
                             fontWeight: 800,
                             color: '#0f172a',
-                            lineHeight: 1.15,
+                            lineHeight: 1.25,
                             margin: '0 0 1rem 0',
-                            letterSpacing: '-0.025em'
+                            letterSpacing: '-0.02em'
                           }}
                         >
-                          {cur.headingStart} <br />
-                          <span style={{
-                            background: cur.gradientText,
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
-                            position: 'relative',
-                            display: 'inline-block'
-                          }}>
+                          {cur.headingStart}{' '}
+                          <span style={{ color: cur.themeColor }}>
                             {cur.headingHighlight}
-                            {/* Sunburst Rays Doodle */}
-                            <svg 
-                              width="28" 
-                              height="28" 
-                              viewBox="0 0 24 24" 
-                              fill="none" 
-                              stroke="#f59e0b" 
-                              strokeWidth="2.5" 
-                              strokeLinecap="round"
-                              style={{
-                                position: 'absolute',
-                                top: '-10px',
-                                right: '-26px',
-                                opacity: 0.95
-                              }}
-                            >
-                              <line x1="12" y1="2" x2="12" y2="6" />
-                              <line x1="12" y1="18" x2="12" y2="22" />
-                              <line x1="4.93" y1="4.93" x2="7.76" y2="7.76" />
-                              <line x1="16.24" y1="16.24" x2="19.07" y2="19.07" />
-                              <line x1="2" y1="12" x2="6" y2="12" />
-                              <line x1="18" y1="12" x2="22" y2="12" />
-                            </svg>
                           </span>
                         </h2>
 
-                        {/* Description */}
+                        {/* Refined Description */}
                         <p 
                           style={{
-                            fontSize: '1rem',
-                            color: '#475569',
+                            fontSize: '0.96rem',
+                            color: '#64748b',
                             lineHeight: 1.6,
-                            marginBottom: '1.4rem',
-                            maxWidth: '510px'
+                            marginBottom: '1.5rem',
+                            maxWidth: '480px'
                           }}
                         >
                           {cur.desc}
                         </p>
 
                         {/* Feature Pills */}
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '1.4rem' }}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '2rem' }}>
                           {cur.features.map((feat, fIdx) => {
                             const FeatIcon = feat.icon;
                             return (
@@ -2819,13 +2965,12 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                                   alignItems: 'center',
                                   gap: '6px',
                                   padding: '6px 14px',
-                                  borderRadius: '9999px',
-                                  background: '#ffffff',
-                                  border: '1.5px solid #e2e8f0',
+                                  borderRadius: '999px',
+                                  background: '#f8fafc',
+                                  border: '1px solid #e2e8f0',
                                   fontSize: '0.82rem',
                                   fontWeight: 600,
-                                  color: '#334155',
-                                  boxShadow: '0 2px 6px rgba(0, 0, 0, 0.03)'
+                                  color: '#334155'
                                 }}
                               >
                                 <FeatIcon size={14} style={{ color: cur.themeColor }} />
@@ -2835,62 +2980,18 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                           })}
                         </div>
 
-                        {/* Metric Progress Bar */}
+                        {/* Minimal Controls Row: Book a Tour CTA + Slide Counter & Arrows */}
                         <div 
                           style={{
-                            background: '#f8fafc',
-                            border: '1px solid #e2e8f0',
-                            borderRadius: '16px',
-                            padding: '12px 18px',
-                            marginBottom: '1.6rem',
-                            maxWidth: '470px'
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            borderTop: '1px solid #f1f5f9',
+                            paddingTop: '1.25rem',
+                            gap: '16px',
+                            flexWrap: 'wrap'
                           }}
                         >
-                          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '0.84rem' }}>
-                            <span style={{ fontWeight: 600, color: '#475569' }}>{cur.metricLabel}</span>
-                            <span style={{ fontWeight: 800, color: cur.themeColor }}>{cur.metricValue}</span>
-                          </div>
-                          <div style={{ height: '7px', background: '#e2e8f0', borderRadius: '9999px', overflow: 'hidden', position: 'relative' }}>
-                            <div 
-                              style={{
-                                width: `${cur.metricPercent}%`,
-                                height: '100%',
-                                background: cur.primaryBtnBg,
-                                borderRadius: '9999px',
-                                position: 'relative',
-                                transition: 'width 0.8s ease'
-                              }}
-                            >
-                              <div className="fac-progress-shimmer-live" />
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Action Buttons Row */}
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap', marginBottom: '1.75rem' }}>
-                          <button
-                            type="button"
-                            onClick={onBookVisitClick}
-                            style={{
-                              display: 'inline-flex',
-                              alignItems: 'center',
-                              gap: '10px',
-                              padding: '12px 26px',
-                              borderRadius: '9999px',
-                              background: cur.primaryBtnBg,
-                              color: '#ffffff',
-                              fontWeight: 700,
-                              fontSize: '0.95rem',
-                              border: 'none',
-                              cursor: 'pointer',
-                              boxShadow: `0 10px 24px -6px ${cur.themeColor}55`,
-                              transition: 'all 0.25s ease'
-                            }}
-                          >
-                            <span>{cur.primaryCta}</span>
-                            <ArrowRight size={16} />
-                          </button>
-
                           <button
                             type="button"
                             onClick={onBookVisitClick}
@@ -2898,83 +2999,24 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                               display: 'inline-flex',
                               alignItems: 'center',
                               gap: '8px',
-                              padding: '11px 22px',
-                              borderRadius: '9999px',
-                              background: '#ffffff',
-                              color: '#1e293b',
+                              padding: '11px 24px',
+                              borderRadius: '999px',
+                              background: cur.primaryBtnBg,
+                              color: '#ffffff',
                               fontWeight: 700,
-                              fontSize: '0.92rem',
-                              border: '1.5px solid #cbd5e1',
+                              fontSize: '0.9rem',
+                              border: 'none',
                               cursor: 'pointer',
-                              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+                              boxShadow: `0 8px 20px -4px ${cur.themeColor}40`,
                               transition: 'all 0.25s ease'
                             }}
                           >
-                            <span 
-                              style={{
-                                width: '24px',
-                                height: '24px',
-                                borderRadius: '50%',
-                                background: '#0284c7',
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                color: '#ffffff'
-                              }}
-                            >
-                              <Play size={10} fill="#ffffff" style={{ marginLeft: '1px' }} />
-                            </span>
-                            <span>{cur.secondaryCta}</span>
+                            <span>Book a Tour</span>
+                            <ArrowRight size={15} />
                           </button>
-                        </div>
 
-                        {/* Trust Avatar Rating & Slider Controls Row */}
-                        <div 
-                          className="fac-controls-row"
-                          style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            borderTop: '1px solid #eef2f6',
-                            paddingTop: '1.25rem',
-                            flexWrap: 'wrap',
-                            gap: '12px'
-                          }}
-                        >
-                          {/* Avatars & Rating */}
-                          <div className="fac-trust-block" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                            <div style={{ display: 'flex', marginLeft: '6px' }}>
-                              {['classroom.jpg', 'outdoor.jpg', 'hero.jpg', 'nurturing-hero.jpg'].map((img, aIdx) => (
-                                <img
-                                  key={aIdx}
-                                  src={`/images/${img}`}
-                                  alt="Happy student"
-                                  className="fac-avatar-img"
-                                  style={{
-                                    width: '32px',
-                                    height: '32px',
-                                    borderRadius: '50%',
-                                    objectFit: 'cover',
-                                    border: '2px solid #ffffff',
-                                    marginLeft: aIdx === 0 ? 0 : '-10px',
-                                    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)'
-                                  }}
-                                />
-                              ))}
-                            </div>
-                            <div>
-                              <div style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 600 }}>
-                                Trusted by <strong style={{ color: '#0f172a' }}>25,000+</strong> happy families
-                              </div>
-                              <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.78rem', color: '#0f172a', fontWeight: 800 }}>
-                                <span>4.9</span>
-                                <span style={{ color: '#f59e0b', letterSpacing: '1px' }}>★★★★★</span>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Slider Navigation Arrows */}
-                          <div className="fac-arrows-cluster" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          {/* Minimal Slider Navigation Arrows */}
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#94a3b8', marginRight: '4px' }}>
                               0{activeFacilityIdx + 1} / 0{FACILITY_SLIDES.length}
                             </span>
@@ -2983,287 +3025,67 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                               onClick={prevSlide}
                               aria-label="Previous Slide"
                               style={{
-                                width: '34px',
-                                height: '34px',
+                                width: '32px',
+                                height: '32px',
                                 borderRadius: '50%',
-                                border: '1.5px solid #e2e8f0',
+                                border: '1px solid #e2e8f0',
                                 background: '#ffffff',
                                 display: 'inline-flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                color: '#475569',
+                                color: '#64748b',
                                 cursor: 'pointer',
                                 transition: 'all 0.2s ease'
                               }}
                             >
-                              <ChevronLeft size={16} />
+                              <ChevronLeft size={15} />
                             </button>
                             <button
                               type="button"
                               onClick={nextSlide}
                               aria-label="Next Slide"
                               style={{
-                                width: '34px',
-                                height: '34px',
+                                width: '32px',
+                                height: '32px',
                                 borderRadius: '50%',
-                                border: '1.5px solid #e2e8f0',
+                                border: '1px solid #e2e8f0',
                                 background: '#ffffff',
                                 display: 'inline-flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                color: '#475569',
+                                color: '#64748b',
                                 cursor: 'pointer',
                                 transition: 'all 0.2s ease'
                               }}
                             >
-                              <ChevronRight size={16} />
+                              <ChevronRight size={15} />
                             </button>
                           </div>
                         </div>
                       </div>
 
-                      {/* RIGHT COLUMN: Image Slide with Floating Cards & Animations */}
+                      {/* RIGHT COLUMN: Clean, Unobstructed Photography */}
                       <div 
                         key={`${cur.id}-image`}
                         style={{
                           position: 'relative',
-                          animation: 'facImageSlide 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards'
+                          borderRadius: '24px',
+                          overflow: 'hidden',
+                          boxShadow: '0 16px 36px -10px rgba(0, 0, 0, 0.12)',
+                          animation: 'facImageSlide 0.4s ease forwards'
                         }}
                       >
-                        {/* Decorative Pastel Background Blob */}
-                        <div 
+                        <img
+                          src={cur.image}
+                          alt={cur.tabLabel}
+                          className="fac-slide-main-img"
                           style={{
-                            position: 'absolute',
-                            top: '-20px',
-                            left: '-20px',
-                            right: '-20px',
-                            bottom: '-20px',
-                            borderRadius: '40px',
-                            background: cur.blobColor,
-                            filter: 'blur(32px)',
-                            zIndex: 0
+                            width: '100%',
+                            height: '380px',
+                            objectFit: 'cover',
+                            display: 'block'
                           }}
                         />
-
-                        {/* Floating Rocket Doodle */}
-                        <div 
-                          className="animate-float-slow fac-doodle"
-                          style={{
-                            position: 'absolute',
-                            bottom: '-12px',
-                            left: '-18px',
-                            zIndex: 4,
-                            background: 'rgba(255, 255, 255, 0.95)',
-                            padding: '10px',
-                            borderRadius: '50%',
-                            boxShadow: '0 10px 24px rgba(0, 0, 0, 0.12)',
-                            border: '2px solid #ffffff'
-                          }}
-                        >
-                          <Rocket size={24} style={{ color: '#0284c7' }} />
-                        </div>
-
-                        {/* Floating Star Doodle */}
-                        <div 
-                          className="animate-float-alt fac-doodle"
-                          style={{
-                            position: 'absolute',
-                            top: '-14px',
-                            left: '35%',
-                            zIndex: 4,
-                            background: 'rgba(255, 255, 255, 0.95)',
-                            padding: '8px',
-                            borderRadius: '50%',
-                            boxShadow: '0 8px 20px rgba(245, 158, 11, 0.2)',
-                            border: '2px solid #ffffff'
-                          }}
-                        >
-                          <Star size={18} fill="#f59e0b" style={{ color: '#f59e0b' }} />
-                        </div>
-
-                        {/* Floating Sparkle Doodle */}
-                        <div 
-                          className="animate-float-slow fac-doodle"
-                          style={{
-                            position: 'absolute',
-                            bottom: '18px',
-                            right: '-14px',
-                            zIndex: 4,
-                            background: 'rgba(255, 255, 255, 0.95)',
-                            padding: '8px',
-                            borderRadius: '50%',
-                            boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
-                            border: '2px solid #ffffff'
-                          }}
-                        >
-                          <Sparkles size={18} style={{ color: cur.themeColor }} />
-                        </div>
-
-                        {/* Main Photography Frame */}
-                        <div 
-                          style={{
-                            position: 'relative',
-                            zIndex: 2,
-                            borderRadius: '32px',
-                            overflow: 'hidden',
-                            boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.2)',
-                            border: '5px solid #ffffff',
-                            background: '#ffffff'
-                          }}
-                        >
-                          <img
-                            src={cur.image}
-                            alt={cur.tabLabel}
-                            className="fac-slide-main-img"
-                            style={{
-                              width: '100%',
-                              height: '430px',
-                              objectFit: 'cover',
-                              display: 'block'
-                            }}
-                          />
-                          {/* Sheer gradient footer overlay */}
-                          <div 
-                            style={{
-                              position: 'absolute',
-                              bottom: 0,
-                              left: 0,
-                              right: 0,
-                              height: '80px',
-                              background: 'linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.25) 100%)',
-                              pointerEvents: 'none'
-                            }}
-                          />
-                        </div>
-
-                        {/* Floating Card 1: Today's Progress (Top-Left / Mid-Left) */}
-                        <div 
-                          className="animate-float-slow fac-floating-card-1"
-                          style={{
-                            position: 'absolute',
-                            top: '8%',
-                            left: '-26px',
-                            zIndex: 5,
-                            background: 'rgba(255, 255, 255, 0.95)',
-                            backdropFilter: 'blur(12px)',
-                            borderRadius: '20px',
-                            padding: '12px 18px',
-                            boxShadow: '0 18px 36px -8px rgba(0, 0, 0, 0.16)',
-                            border: '2px solid rgba(255, 255, 255, 0.95)',
-                            minWidth: '190px'
-                          }}
-                        >
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-                            <div 
-                              style={{
-                                width: '36px',
-                                height: '36px',
-                                borderRadius: '12px',
-                                background: cur.floatingCard1.iconBg,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center'
-                              }}
-                            >
-                              {(() => {
-                                const Card1Icon = cur.floatingCard1.icon;
-                                return <Card1Icon size={18} style={{ color: cur.floatingCard1.iconColor }} />;
-                              })()}
-                            </div>
-                            <div>
-                              <div style={{ fontSize: '0.74rem', color: '#64748b', fontWeight: 600 }}>
-                                {cur.floatingCard1.title}
-                              </div>
-                              <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#0f172a' }}>
-                                {cur.floatingCard1.sub}
-                              </div>
-                            </div>
-                          </div>
-                          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', fontWeight: 700, color: '#64748b', marginBottom: '4px' }}>
-                            <span>{cur.floatingCard1.progressLabel}</span>
-                            <span style={{ color: cur.floatingCard1.iconColor }}>{cur.floatingCard1.metric}</span>
-                          </div>
-                          <div style={{ height: '5px', background: '#e2e8f0', borderRadius: '9999px', overflow: 'hidden' }}>
-                            <div style={{ width: cur.floatingCard1.progressWidth, height: '100%', background: cur.floatingCard1.iconColor, borderRadius: '9999px' }} />
-                          </div>
-                        </div>
-
-                        {/* Floating Card 2: Great Job! (Top Right) */}
-                        <div 
-                          className="animate-float-alt fac-floating-card-2 fac-hide-mobile"
-                          style={{
-                            position: 'absolute',
-                            top: '5%',
-                            right: '-18px',
-                            zIndex: 5,
-                            background: 'rgba(255, 255, 255, 0.95)',
-                            backdropFilter: 'blur(12px)',
-                            borderRadius: '18px',
-                            padding: '10px 16px',
-                            boxShadow: '0 16px 32px -8px rgba(0, 0, 0, 0.14)',
-                            border: '2px solid rgba(255, 255, 255, 0.95)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '10px'
-                          }}
-                        >
-                          <div 
-                            style={{
-                              width: '32px',
-                              height: '32px',
-                              borderRadius: '50%',
-                              background: '#fef3c7',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center'
-                            }}
-                          >
-                            <Star size={16} fill="#f59e0b" style={{ color: '#f59e0b' }} />
-                          </div>
-                          <div>
-                            <div style={{ fontSize: '0.82rem', fontWeight: 800, color: '#0f172a' }}>
-                              {cur.floatingCard2.tag}
-                            </div>
-                            <div style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600 }}>
-                              {cur.floatingCard2.sub}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Floating Card 3: Next Lesson / Milestone (Bottom Right) */}
-                        <div 
-                          className="animate-float-slow fac-floating-card-3 fac-hide-mobile"
-                          style={{
-                            position: 'absolute',
-                            bottom: '12%',
-                            right: '-24px',
-                            zIndex: 5,
-                            background: 'rgba(255, 255, 255, 0.96)',
-                            backdropFilter: 'blur(12px)',
-                            borderRadius: '20px',
-                            padding: '12px 18px',
-                            boxShadow: '0 18px 36px -8px rgba(0, 0, 0, 0.16)',
-                            border: '2px solid rgba(255, 255, 255, 0.95)',
-                            minWidth: '190px'
-                          }}
-                        >
-                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', marginBottom: '4px' }}>
-                            <span style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 700 }}>
-                              {cur.floatingCard3.category}
-                            </span>
-                            <ArrowRight size={13} style={{ color: cur.themeColor }} />
-                          </div>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            {(() => {
-                              const Card3Icon = cur.floatingCard3.icon;
-                              return <Card3Icon size={16} style={{ color: cur.floatingCard3.iconColor }} />;
-                            })()}
-                            <span style={{ fontSize: '0.84rem', fontWeight: 800, color: '#0f172a' }}>
-                              {cur.floatingCard3.title}
-                            </span>
-                          </div>
-                        </div>
-
                       </div>
                     </div>
                   </div>
