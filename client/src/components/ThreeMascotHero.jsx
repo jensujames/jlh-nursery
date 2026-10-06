@@ -2141,6 +2141,29 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
           {/* Hero Stage Floating Overlay */}
           <div className="hero-stage-overlay">
             
+            {/* Background Ambient "JLH Nursery" Watermark */}
+            <div 
+              className="hero-bg-watermark-text" 
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                top: '5%',
+                left: '3%',
+                fontSize: 'clamp(68px, 11vw, 160px)',
+                fontWeight: '950',
+                fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                color: 'rgba(114, 16, 36, 0.045)',
+                lineHeight: '0.88',
+                letterSpacing: '-0.04em',
+                whiteSpace: 'nowrap',
+                pointerEvents: 'none',
+                userSelect: 'none',
+                zIndex: 0
+              }}
+            >
+              JLH Nursery
+            </div>
+
             {/* Left: Exterior Spine + Action Card (Enters from Left) */}
             <div className="hero-actions-container animate-entrance-left" id="hero-actions-container">
               <div className="hero-spine-outer" aria-hidden="true">
@@ -2151,13 +2174,35 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
               <div className="hero-card-main">
                 {/* Top Group: Admissions pill + JLH Nursery heading & tagline */}
-                <div className="hero-header-top-group">
-                  <div className="hero-mobile-app-pill" aria-label="Nurturing, Learning, Growing">
+                <div className="hero-header-top-group" style={{ position: 'relative' }}>
+                  <div 
+                    className="hero-header-bg-ghost"
+                    aria-hidden="true"
+                    style={{
+                      position: 'absolute',
+                      top: '-16px',
+                      left: '-4px',
+                      fontSize: 'clamp(46px, 6vw, 84px)',
+                      fontWeight: '950',
+                      fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                      color: 'rgba(241, 90, 41, 0.055)',
+                      lineHeight: '1',
+                      letterSpacing: '-0.035em',
+                      whiteSpace: 'nowrap',
+                      pointerEvents: 'none',
+                      userSelect: 'none',
+                      zIndex: 0
+                    }}
+                  >
+                    JLH Nursery
+                  </div>
+
+                  <div className="hero-mobile-app-pill" aria-label="Nurturing, Learning, Growing" style={{ position: 'relative', zIndex: 1 }}>
                     <span className="hero-mobile-app-dot" />
                     <span>NURTURING &bull; LEARNING &bull; GROWING</span>
                   </div>
 
-                  <h1 className="hero-actions-title">
+                  <h1 className="hero-actions-title" style={{ position: 'relative', zIndex: 1 }}>
                     <span className="hero-brand-name">JLH Nursery</span>
                     <span className="hero-actions-tagline">A Nurturing Nursery in Ajman Where Little Hearts Feel at Home</span>
                   </h1>
@@ -2168,9 +2213,33 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   <p className="hero-actions-desc">
                     At Just Like Home Nursery, we create a warm and welcoming environment where children feel safe to explore, confident to learn and happy to be themselves.
                   </p>
-                  <p style={{ fontSize: '11px', fontWeight: '700', color: '#F15A29', margin: '4px 0 0 0', letterSpacing: '0.3px' }}>
-                    EYFS Approach &bull; Full-Day &amp; Half-Day Care &bull; Preschool &bull; School Readiness
-                  </p>
+                  <div 
+                    className="hero-offerings-glass-badge"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      padding: '7px 16px',
+                      borderRadius: '14px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.82)',
+                      backdropFilter: 'blur(16px)',
+                      WebkitBackdropFilter: 'blur(16px)',
+                      border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                      boxShadow: '0 6px 18px rgba(184, 136, 115, 0.14), 0 1px 3px rgba(0, 0, 0, 0.04)',
+                      margin: '6px 0 0 0',
+                      width: 'fit-content'
+                    }}
+                  >
+                    <span style={{ 
+                      fontSize: '11.5px', 
+                      fontWeight: '800', 
+                      color: '#F15A29', 
+                      letterSpacing: '0.35px',
+                      lineHeight: 1.35
+                    }}>
+                      EYFS Approach &bull; Full-Day &amp; Half-Day Care &bull; Preschool &bull; School Readiness
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
