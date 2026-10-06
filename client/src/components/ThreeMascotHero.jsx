@@ -273,20 +273,18 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
   const playMusicalBoing = () => {};
   const playPopSound = () => {};
 
-  // Main 4 Nursery Services Showcase Data with Happy Kids Playing Images
+  // Main 4 Nursery Services Showcase Data with Warmth, Trust, Growth, Joy
   const pillarShowcaseData = [
     {
+      pillarKey: "Warmth",
       pillarName: "Early Years Education",
-      title: "Play-Based Early Learning",
+      title: "Motherly Care & Play-Based EYFS",
       counter: "01 / 04",
       desc: "Play-based experiences supporting communication, social, emotional, physical and cognitive development in our nurturing Ajman environment.",
       tagColor: "#F15A29",
       highlights: ["Communication & Speech", "Emotional Wellbeing", "Sensory Discovery Tables"],
       infoCard: {
-        title: "EYFS British Approach",
-        line1: "Playful Hands-On Exploration",
-        line2: "Sensory & Cognitive Milestones",
-        line3: "Dedicated 1:4 Care Attention",
+        title: "Early Years Learning Space",
         bg: "#fff7ed",
         accent: "#ea580c"
       },
@@ -298,6 +296,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       tallAlt: "Joyful smiling child happily playing with colorful toys"
     },
     {
+      pillarKey: "Trust",
       pillarName: "Nursery & Preschool",
       title: "Curiosity & Friendships",
       counter: "02 / 04",
@@ -306,9 +305,6 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       highlights: ["Creative Play & Arts", "First Friendships", "Montessori Learning Easels"],
       infoCard: {
         title: "Preschool Learning Space",
-        line1: "Themed Classrooms & Reading Nook",
-        line2: "Peer Play & Cooperative Games",
-        line3: "Music, Rhymes & Movement",
         bg: "#f0f9ff",
         accent: "#0284c7"
       },
@@ -320,6 +316,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       tallAlt: "Children laughing and joyfully building colorful blocks together"
     },
     {
+      pillarKey: "Growth",
       pillarName: "School Readiness",
       title: "Foundations & Confidence",
       counter: "03 / 04",
@@ -328,9 +325,6 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       highlights: ["Phonics, Literacy & Math", "Independence & Good Manners", "Daily Structured Routines"],
       infoCard: {
         title: "Smooth School Transition",
-        line1: "Early Literacy, Phonics & Numbers",
-        line2: "Self-Care & Daily Good Manners",
-        line3: "Confident Big School Readiness",
         bg: "#f0fdf4",
         accent: "#16a34a"
       },
@@ -342,17 +336,15 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       tallAlt: "Happy active child discovering books and learning materials"
     },
     {
+      pillarKey: "Joy",
       pillarName: "Full-Day & Half-Day Care",
-      title: "Flexible Daycare & Timings",
+      title: "Flexible Care & Joyful Routines",
       counter: "04 / 04",
       desc: "Flexible care options designed around the needs of young children and their families in Al Rashidiya 2, Ajman.",
       tagColor: "#721024",
       highlights: ["Flexible Hours & Pick-Up", "Healthy Meals & Quiet Nap Times", "Safe 24/7 Monitored Campus"],
       infoCard: {
-        title: "Working Hours",
-        line1: "Mon - Fri: 07:30 AM to 05:30 PM",
-        line2: "Sat: 08:30 AM to 01:00 PM",
-        line3: "Sunday: Closed (Full & Half Day)",
+        title: "Flexible Daycare Hours",
         bg: "#fff1f2",
         accent: "#721024"
       },
@@ -2393,66 +2385,82 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   </div>
                 </div>
 
-                {/* 4 Pillar Cards with Pedestal Slots */}
+                {/* 4 Pillar Cards with Pedestal Slots & Light Background Numbers 1 to 4 */}
                 <div className="pillars-stack-container" id="pillars-stack">
                   
-                  {/* Service 0: EARLY YEARS EDUCATION */}
+                  {/* Service 0: WARMTH | EARLY YEARS EDUCATION */}
                   <div 
                     className={`pillar-stack-card ${activePillar === 0 ? 'active' : ''}`}
                     id="pillar-card-0"
                     onClick={() => handlePillarSelect(0)}
                   >
+                    <span className="pillar-card-bg-num" aria-hidden="true">01</span>
                     <div className="pillar-cube-slot" id="cube-slot-0">
                       <div className="slot-pedestal-ring" />
                     </div>
                     <div className="pillar-card-text">
+                      <div className="pillar-badge-pill" style={{ color: '#F15A29', backgroundColor: 'rgba(241, 90, 41, 0.1)', border: '1px solid rgba(241, 90, 41, 0.2)' }}>
+                        <span>WARMTH</span>
+                      </div>
                       <h4>EARLY YEARS EDUCATION</h4>
-                      <p>Play-based experiences supporting communication, social, emotional, physical and cognitive development.</p>
+                      <p>Motherly care, patience, and genuine personal attention at the heart of play-based experiences supporting communication, social, emotional, physical and cognitive development.</p>
                     </div>
                   </div>
 
-                  {/* Service 1: NURSERY & PRESCHOOL */}
+                  {/* Service 1: TRUST | NURSERY & PRESCHOOL */}
                   <div 
                     className={`pillar-stack-card ${activePillar === 1 ? 'active' : ''}`}
                     id="pillar-card-1"
                     onClick={() => handlePillarSelect(1)}
                   >
+                    <span className="pillar-card-bg-num" aria-hidden="true">02</span>
                     <div className="pillar-cube-slot" id="cube-slot-1">
                       <div className="slot-pedestal-ring" />
                     </div>
                     <div className="pillar-card-text">
+                      <div className="pillar-badge-pill" style={{ color: '#0284c7', backgroundColor: 'rgba(2, 132, 199, 0.1)', border: '1px solid rgba(2, 132, 199, 0.2)' }}>
+                        <span>TRUST</span>
+                      </div>
                       <h4>NURSERY & PRESCHOOL</h4>
-                      <p>A stimulating environment that encourages curiosity, friendships, creativity and a positive relationship with learning.</p>
+                      <p>A secure, transparent partnership with families and a stimulating environment that encourages curiosity, friendships, creativity and a positive relationship with learning.</p>
                     </div>
                   </div>
 
-                  {/* Service 2: SCHOOL READINESS */}
+                  {/* Service 2: GROWTH | SCHOOL READINESS */}
                   <div 
                     className={`pillar-stack-card ${activePillar === 2 ? 'active' : ''}`}
                     id="pillar-card-2"
                     onClick={() => handlePillarSelect(2)}
                   >
+                    <span className="pillar-card-bg-num" aria-hidden="true">03</span>
                     <div className="pillar-cube-slot" id="cube-slot-2">
                       <div className="slot-pedestal-ring" />
                     </div>
                     <div className="pillar-card-text">
+                      <div className="pillar-badge-pill" style={{ color: '#16a34a', backgroundColor: 'rgba(22, 163, 74, 0.1)', border: '1px solid rgba(22, 163, 74, 0.2)' }}>
+                        <span>GROWTH</span>
+                      </div>
                       <h4>SCHOOL READINESS</h4>
-                      <p>Building the confidence, routines and foundational skills children need for their next step into school.</p>
+                      <p>Nurturing whole-child social, emotional, motor, cognitive, and early academic milestones, building the confidence, routines and foundational skills children need for their next step into school.</p>
                     </div>
                   </div>
 
-                  {/* Service 3: FULL-DAY & HALF-DAY CARE */}
+                  {/* Service 3: JOY | FULL-DAY & HALF-DAY CARE */}
                   <div 
                     className={`pillar-stack-card ${activePillar === 3 ? 'active' : ''}`}
                     id="pillar-card-3"
                     onClick={() => handlePillarSelect(3)}
                   >
+                    <span className="pillar-card-bg-num" aria-hidden="true">04</span>
                     <div className="pillar-cube-slot" id="cube-slot-3">
                       <div className="slot-pedestal-ring" />
                     </div>
                     <div className="pillar-card-text">
+                      <div className="pillar-badge-pill" style={{ color: '#C62828', backgroundColor: 'rgba(198, 40, 40, 0.1)', border: '1px solid rgba(198, 40, 40, 0.2)' }}>
+                        <span>JOY</span>
+                      </div>
                       <h4>FULL-DAY & HALF-DAY CARE</h4>
-                      <p>Flexible care options designed around the needs of young children and their families in Ajman.</p>
+                      <p>Play-based learning that protects the natural wonder and joyful laughter of childhood, with flexible care options designed around the needs of young children and their families in Ajman.</p>
                     </div>
                   </div>
                 </div>
@@ -2511,7 +2519,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                           }}
                         >
                           <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: currentPillar.tagColor }} />
-                          <span>{currentPillar.counter} &bull; {currentPillar.pillarName}</span>
+                          <span>{currentPillar.counter} &bull; {currentPillar.pillarKey}: {currentPillar.pillarName}</span>
                         </span>
                         <span style={{ fontSize: '0.82rem', fontWeight: '700', color: '#64748b' }} className="pillars-desktop-title-snippet">
                           {currentPillar.title}
@@ -2589,64 +2597,44 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                                 borderRadius: '26px'
                               }}
                             >
-                              {/* Left Column: Working Hours Card on Top + Infant Photo on Bottom */}
-                              <div className="pillars-left-col" style={{ display: 'flex', flexDirection: 'column', gap: '14px', height: '100%', width: '100%' }}>
-                                {/* Top: Working Hours / Info Card */}
+                              {/* Left Column: Heading Card on Top + Playful Photo on Bottom */}
+                              <div className="pillars-left-col" style={{ display: 'flex', flexDirection: 'column', gap: '12px', height: '100%', width: '100%' }}>
+                                {/* Top: Only Heading */}
                                 <div 
                                   className="pillars-info-card"
                                   style={{
                                     backgroundColor: item.infoCard?.bg || '#edf7e8',
-                                    borderRadius: '18px',
-                                    padding: '0.9rem 1.1rem',
+                                    borderRadius: '16px',
+                                    padding: '0.85rem 1.15rem',
                                     border: '1px solid rgba(0, 0, 0, 0.04)',
                                     display: 'flex',
-                                    flexDirection: 'column',
-                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    gap: '10px',
                                     boxShadow: '0 4px 14px rgba(0, 0, 0, 0.02)',
-                                    flexShrink: 0,
-                                    height: '140px',
-                                    boxSizing: 'border-box'
+                                    flexShrink: 0
                                   }}
                                 >
-                                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.45rem' }}>
-                                    <div style={{
-                                      width: '28px',
-                                      height: '28px',
-                                      borderRadius: '50%',
-                                      backgroundColor: '#ffffff',
-                                      color: item.infoCard?.accent || '#2e7d32',
-                                      display: 'flex',
-                                      alignItems: 'center',
-                                      justifyContent: 'center',
-                                      boxShadow: '0 2px 6px rgba(0, 0, 0, 0.06)'
-                                    }}>
-                                      <Clock size={15} strokeWidth={2.4} />
-                                    </div>
-                                    <span style={{
-                                      fontSize: '0.88rem',
-                                      fontWeight: '800',
-                                      color: '#1e293b'
-                                    }}>
-                                      {item.infoCard?.title}
-                                    </span>
-                                  </div>
-
                                   <div style={{
-                                    fontSize: '0.78rem',
-                                    color: '#334155',
-                                    lineHeight: 1.45,
-                                    fontWeight: '600'
+                                    width: '28px',
+                                    height: '28px',
+                                    borderRadius: '50%',
+                                    backgroundColor: '#ffffff',
+                                    color: item.infoCard?.accent || '#2e7d32',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.06)',
+                                    flexShrink: 0
                                   }}>
-                                    <div style={{ paddingBottom: '0.25rem', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-                                      {item.infoCard?.line1}
-                                    </div>
-                                    <div style={{ padding: '0.25rem 0', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-                                      {item.infoCard?.line2}
-                                    </div>
-                                    <div style={{ paddingTop: '0.25rem', color: '#64748b' }}>
-                                      {item.infoCard?.line3}
-                                    </div>
+                                    <Clock size={15} strokeWidth={2.4} />
                                   </div>
+                                  <span style={{
+                                    fontSize: '0.92rem',
+                                    fontWeight: '800',
+                                    color: '#1e293b'
+                                  }}>
+                                    {item.infoCard?.title}
+                                  </span>
                                 </div>
 
                                 {/* Bottom: Playful Child / Infant Photo */}
@@ -2655,7 +2643,8 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                                   style={{
                                     borderRadius: '18px',
                                     overflow: 'hidden',
-                                    height: '186px',
+                                    flex: 1,
+                                    minHeight: '268px',
                                     width: '100%',
                                     boxShadow: '0 6px 18px rgba(0, 0, 0, 0.06)',
                                     position: 'relative',
@@ -2726,7 +2715,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                                   }}
                                 >
                                   <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.tagColor }} />
-                                  <span>Service: {item.pillarName}</span>
+                                  <span>{item.pillarKey} &bull; {item.pillarName}</span>
                                 </div>
                               </div>
                             </div>
@@ -2739,7 +2728,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                     <div className="media-caption-area pillars-caption-area pillars-desktop-hide">
                       <div className="media-caption-title pillars-caption-title" id="media-caption-title">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                          <h4>{currentPillar.title}</h4>
+                          <h4>{currentPillar.pillarKey} &bull; {currentPillar.pillarName}</h4>
                         </div>
                         <div className="pillars-controls-cluster" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                           <span 
