@@ -14,8 +14,6 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ProgramsPage from './pages/ProgramsPage';
 import EyfsPage from './pages/EyfsPage';
-import PreschoolPage from './pages/PreschoolPage';
-import DaycarePage from './pages/DaycarePage';
 import ActivitiesPage from './pages/ActivitiesPage';
 import FacilitiesPage from './pages/FacilitiesPage';
 import CampsPage from './pages/CampsPage';
@@ -90,8 +88,6 @@ export default function App() {
             <Route path="/about-us" element={<AboutPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/programs" element={<ProgramsPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/eyfs-learning" element={<EyfsPage onBookVisitClick={handleBookVisit} />} />
-            <Route path="/preschool-school-readiness" element={<PreschoolPage onBookVisitClick={handleBookVisit} />} />
-            <Route path="/daycare-ajman" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
             <Route path="/nursery-activities" element={<ActivitiesPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/facilities" element={<FacilitiesPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/camps" element={<CampsPage onBookVisitClick={handleBookVisit} />} />
@@ -99,6 +95,8 @@ export default function App() {
             <Route path="/gallery" element={<GalleryPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/blog" element={<BlogPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/contact" element={<ContactPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/preschool-school-readiness" element={<ProgramsPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/daycare-ajman" element={<ProgramsPage onBookVisitClick={handleBookVisit} />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>

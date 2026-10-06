@@ -36,8 +36,7 @@ const ARTICLES = [
     title: 'Nursery vs Preschool: What\'s the Difference?',
     note: 'Links to Programs and Preschool.',
     links: [
-      { label: 'Programs', url: '/programs' },
-      { label: 'Preschool', url: '/preschool-school-readiness' }
+      { label: 'Programs', url: '/programs' }
     ]
   },
   {
@@ -52,7 +51,7 @@ const ARTICLES = [
     title: 'Simple Ways to Build Independence Before Starting School',
     note: 'Links to Preschool & School Readiness.',
     links: [
-      { label: 'Preschool & School Readiness', url: '/preschool-school-readiness' }
+      { label: 'Programs', url: '/programs' }
     ]
   },
   {

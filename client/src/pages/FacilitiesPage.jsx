@@ -69,8 +69,13 @@ const FACILITIES = [
     icon: Lock
   },
   {
-    title: 'CCTV Monitoring',
-    desc: 'Monitoring supports enhanced safety within the nursery\'s approved policies and procedures.',
+    title: 'Safe & Child-Friendly Environment',
+    desc: 'Every corner is thoughtfully planned with rounded edges, non-toxic materials, and clean, welcoming surroundings.',
+    icon: ShieldCheck
+  },
+  {
+    title: 'CCTV Monitoring for Enhanced Safety',
+    desc: 'Continuous CCTV monitoring supports heightened safety and peace of mind within nursery approved policies.',
     icon: Video
   }
 ];

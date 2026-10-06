@@ -58,15 +58,19 @@ export default function HomePage({ onBookVisitClick }) {
   // 3. Facilities from document
   const FACILITIES = [
     'Safe and welcoming classrooms',
-    'Indoor and outdoor play',
-    'Baby care and quiet room',
-    'Sensory spaces',
-    'Reading corner',
-    'Life-skills areas',
+    'Indoor play area',
+    'Outdoor play area',
+    'Baby care/quiet room',
+    'Sensory and exploration spaces',
+    'Reading & story corner',
+    'Life skills activity areas',
     'Child-friendly washrooms',
+    'Kitchen & meal preparation area',
     'First-aid/clinic facility',
-    'Secure reception',
-    'CCTV monitoring'
+    'Doctor visits',
+    'Secure reception area',
+    'Safe and child-friendly environment',
+    'CCTV monitoring for enhanced safety'
   ];
 
   // 4. Why Parents Choose Pillars from document
@@ -469,11 +473,11 @@ export default function HomePage({ onBookVisitClick }) {
           <h2 style={{ fontSize: 'clamp(26px, 3.8vw, 38px)', fontWeight: '900', color: '#721024', margin: '0 0 20px 0', lineHeight: 1.25 }}>
             We Don't Just Educate Children. We Nurture Little Hearts.
           </h2>
-          <p style={{ fontSize: '17px', lineHeight: 1.8, color: '#475569', maxWidth: '840px', margin: '0 auto 24px auto' }}>
-            At Just Like Home Nursery, every child deserves to feel seen, heard, valued and encouraged. We recognise that no two children develop in exactly the same way. We celebrate individual personalities, interests, abilities and achievements while providing the gentle encouragement children need to become increasingly confident and independent.
+          <p style={{ fontSize: '18px', lineHeight: 1.8, color: '#475569', maxWidth: '840px', margin: '0 auto 24px auto', fontWeight: '500' }}>
+            We don't just educate children we nurture little hearts, build confidence, encourage curiosity, and create happy memories that last a lifetime. At Just Like Home Nursery, every child deserves to feel safe, valued, respected and encouraged.
           </p>
           <p style={{ fontSize: '18px', fontWeight: '850', color: '#721024', margin: 0 }}>
-            Preparing children for life with motherly care and attention.
+            “Where Little Hearts Feel at Home.”
           </p>
         </div>
       </section>

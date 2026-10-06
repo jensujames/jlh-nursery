@@ -222,12 +222,16 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
 
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
               {[
-                { name: 'About Just Like Home', path: '/about-us' },
-                { name: 'Our Programs', path: '/programs' },
+                { name: 'About Us', path: '/about-us' },
+                { name: 'Programs', path: '/programs' },
                 { name: 'EYFS & Learning', path: '/eyfs-learning' },
-                { name: 'Daily Activities', path: '/nursery-activities' },
+                { name: 'Activities', path: '/nursery-activities' },
                 { name: 'Facilities & Safety', path: '/facilities' },
-                { name: 'Admissions & Tour', path: '/admissions' }
+                { name: 'Camps', path: '/camps' },
+                { name: 'Admissions', path: '/admissions' },
+                { name: 'Gallery', path: '/gallery' },
+                { name: 'Parent Resources', path: '/blog' },
+                { name: 'Contact', path: '/contact' }
               ].map((item, idx) => (
                 <li key={idx}>
                   <Link 

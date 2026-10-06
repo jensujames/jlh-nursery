@@ -62,40 +62,14 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
   const navLinks = [
     { name: 'Home', path: '/', icon: Home, color: '#F15A29', bg: '#fff0eb' },
     { name: 'About Us', path: '/about-us', icon: Heart, color: '#e11d48', bg: '#ffe4e6' },
-    { 
-      name: 'Programs', 
-      path: '/programs',
-      icon: GraduationCap,
-      color: '#ff6b6b',
-      bg: '#ffe3e3',
-      hasDropdown: true,
-      dropdownState: programsDropdownOpen,
-      setDropdownState: setProgramsDropdownOpen,
-      subItems: [
-        { name: 'All Programs Overview', path: '/programs' },
-        { name: 'Preschool & School Readiness', path: '/preschool-school-readiness' },
-        { name: 'Full-Day & Half-Day Care', path: '/daycare-ajman' },
-        { name: 'Holiday & Summer Camps', path: '/camps' }
-      ]
-    },
-    { 
-      name: 'Learning', 
-      path: '/eyfs-learning',
-      icon: BookOpen,
-      color: '#0284c7',
-      bg: '#e0f2fe',
-      hasDropdown: true,
-      dropdownState: learningDropdownOpen,
-      setDropdownState: setLearningDropdownOpen,
-      subItems: [
-        { name: 'British EYFS Framework', path: '/eyfs-learning' },
-        { name: 'Daily Activities & Schedule', path: '/nursery-activities' }
-      ]
-    },
-    { name: 'Facilities', path: '/facilities', icon: Building2, color: '#059669', bg: '#dcfce7' },
+    { name: 'Programs', path: '/programs', icon: GraduationCap, color: '#ff6b6b', bg: '#ffe3e3' },
+    { name: 'EYFS & Learning', path: '/eyfs-learning', icon: BookOpen, color: '#0284c7', bg: '#e0f2fe' },
+    { name: 'Activities', path: '/nursery-activities', icon: Sparkles, color: '#16a34a', bg: '#f0fdf4' },
+    { name: 'Facilities & Safety', path: '/facilities', icon: Building2, color: '#059669', bg: '#dcfce7' },
+    { name: 'Camps', path: '/camps', icon: Clock, color: '#d97706', bg: '#fef3c7' },
     { name: 'Admissions', path: '/admissions', icon: Calculator, color: '#d97706', bg: '#fef3c7' },
     { name: 'Gallery', path: '/gallery', icon: Image, color: '#8b5cf6', bg: '#ede9fe' },
-    { name: 'Resources', path: '/blog', icon: BookText, color: '#ec4899', bg: '#fce7f3' },
+    { name: 'Parent Resources', path: '/blog', icon: BookText, color: '#ec4899', bg: '#fce7f3' },
     { name: 'Contact', path: '/contact', icon: MapPin, color: '#721024', bg: '#fdf0f2' },
   ];
 
@@ -306,11 +280,11 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
                   key={link.name}
                   to={link.path}
                   style={({ isActive }) => ({
-                    fontSize: '0.82rem',
+                    fontSize: '0.78rem',
                     fontWeight: '800',
                     color: isActive ? '#ffffff' : '#3d050f',
                     textDecoration: 'none',
-                    padding: '0.4rem 0.65rem',
+                    padding: '0.36rem 0.52rem',
                     borderRadius: '9999px',
                     background: isActive ? 'linear-gradient(135deg, #721024 0%, #8f152f 100%)' : 'transparent',
                     border: isActive ? '1px solid rgba(201, 168, 76, 0.5)' : '1px solid transparent',
@@ -472,9 +446,9 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
               style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none' }}
             >
               <img 
-                src="/images/logo.png" 
-                alt="Just Like Home Nursery" 
-                style={{ width: '34px', height: '34px', objectFit: 'contain' }}
+                src="/logo.jpg" 
+                alt="Just Like Home Nursery Logo" 
+                style={{ width: '34px', height: '34px', objectFit: 'contain', borderRadius: '50%' }}
                 onError={(e) => {
                   e.currentTarget.onerror = null;
                   e.currentTarget.style.display = 'none';

@@ -1,46 +1,106 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import { 
-  Clock, Sun, Heart, Users, MessageCircle, Calendar, 
-  ArrowRight, CheckCircle2, Sparkles 
+  Clock, Sun, Moon, Heart, MessageCircle, Calendar, 
+  Sparkles, CheckCircle2, ArrowRight, ShieldCheck 
 } from 'lucide-react';
 
 export default function DaycarePage() {
+  useEffect(() => {
+    document.title = "Full-Day & Half-Day Daycare in Ajman | Just Like Home";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Explore nurturing full-day and half-day nursery care in Ajman, combining safe routines, play-based learning, rest and parent communication.");
+    }
+  }, []);
+
+  const whatsappMessage = encodeURIComponent(
+    "Hello, I would like to check availability for full-day and half-day care options at Just Like Home Nursery."
+  );
+
   return (
-    <div className="daycare-page">
-      {/* 1. HERO */}
-      <section className="page-hero-section">
-        <div className="hero-atmosphere">
-          <div className="hero-sun-glow"></div>
-        </div>
-        <div className="container relative z-10">
+    <div className="daycare-page" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F', minHeight: '100vh' }}>
+      {/* 1. HERO & INTRODUCTION */}
+      <section className="page-hero-section" style={{ padding: '80px 20px 60px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div className="page-hero-content text-center max-w-4xl mx-auto">
-              <span className="badge badge-primary mb-4 inline-flex items-center gap-2">
-                <Clock size={14} /> Full-Day & Half-Day Daycare · Ajman
+            <div>
+              <span style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '6px 18px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                letterSpacing: '0.5px',
+                marginBottom: '20px'
+              }}>
+                <Clock size={14} />
+                FULL-DAY &amp; HALF-DAY CARE · FLEXIBLE CARE SEARCH INTENT
               </span>
-              <h1 className="hero-title text-3xl md:text-5xl font-black text-warm-navy mb-6 leading-tight">
+
+              <h1 style={{
+                fontSize: 'clamp(32px, 5vw, 50px)',
+                fontWeight: '900',
+                color: '#721024',
+                lineHeight: 1.2,
+                margin: '0 0 24px 0'
+              }}>
                 Flexible Care With a Consistent Sense of Belonging
               </h1>
-              <div className="space-y-4 text-lg md:text-xl text-stone-600 leading-relaxed font-normal">
-                <p>
+
+              <div style={{ fontSize: '17.5px', lineHeight: 1.8, color: '#475569', margin: '0 auto 36px', maxWidth: '800px' }}>
+                <p style={{ margin: 0 }}>
                   Families have different schedules, but every child needs consistency, reassurance and meaningful experiences throughout the day. Our full-day and half-day options are designed to provide a caring routine while supporting learning, play, rest and social development.
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-4 mt-8">
-                <Link to="/contact" className="btn btn-primary shadow-lg shadow-orange-500/20">
+
+              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Link
+                  to="/contact"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 28px',
+                    borderRadius: '999px',
+                    backgroundColor: '#721024',
+                    color: '#ffffff',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
                   <Calendar size={18} />
-                  Check Availability
+                  <span>CHECK AVAILABILITY</span>
                 </Link>
                 <a 
-                  href="https://wa.me/971502005346?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20full-day%20and%20half-day%20care%20availability%20at%20Just%20Like%20Home%20Nursery." 
+                  href={`https://wa.me/971502005346?text=${whatsappMessage}`}
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="btn btn-secondary"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 28px',
+                    borderRadius: '999px',
+                    backgroundColor: '#ffffff',
+                    color: '#721024',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    border: '1.5px solid #721024',
+                    transition: 'all 0.25s ease'
+                  }}
                 >
                   <MessageCircle size={18} />
-                  WhatsApp Us
+                  <span>WHATSAPP US</span>
                 </a>
               </div>
             </div>
@@ -48,102 +108,253 @@ export default function DaycarePage() {
         </div>
       </section>
 
-      {/* 2. A BALANCED NURSERY DAY */}
-      <section className="section bg-white border-y border-stone-100">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-5xl mx-auto">
-            <div className="lg:col-span-5">
-              <RevealOnScroll>
-                <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-white">
-                  <img 
-                    src="/images/classroom.jpg" 
-                    alt="Classroom routine at Just Like Home Nursery" 
-                    className="w-full h-[360px] object-cover"
-                  />
+      {/* 2. THREE CORE SECTIONS: A BALANCED NURSERY DAY / CARE THAT SUPPORTS DEVELOPMENT / KEEPING PARENTS CONNECTED */}
+      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '24px'
+          }}>
+            <RevealOnScroll>
+              <div style={{
+                background: '#FFFDF7',
+                borderRadius: '24px',
+                padding: '36px 30px',
+                border: '1.5px solid #ffede4',
+                boxShadow: '0 4px 14px rgba(0,0,0,0.02)',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column'
+              }}>
+                <div style={{
+                  width: '54px',
+                  height: '54px',
+                  borderRadius: '16px',
+                  backgroundColor: '#fff1f2',
+                  color: '#721024',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: '20px'
+                }}>
+                  <Sun size={26} />
                 </div>
-              </RevealOnScroll>
-            </div>
-
-            <div className="lg:col-span-7 space-y-4">
-              <RevealOnScroll delay={100}>
-                <span className="badge badge-accent inline-flex items-center gap-2">
-                  <Sun size={14} /> Daily Routine
-                </span>
-                <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy mt-2 mb-4">
+                <h2 style={{ fontSize: '22px', fontWeight: '850', color: '#1e293b', marginBottom: '14px' }}>
                   A Balanced Nursery Day
                 </h2>
-                <p className="text-stone-700 text-lg leading-relaxed">
+                <p style={{ fontSize: '15.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
                   Depending on the child's program and attendance hours, the day may include welcome routines, child-led play, guided activities, stories and music, physical movement, outdoor experiences, meals or snacks, quiet time and preparation for home.
                 </p>
-              </RevealOnScroll>
-            </div>
-          </div>
-        </div>
-      </section>
+              </div>
+            </RevealOnScroll>
 
-      {/* 3. CARE SUPPORTS DEVELOPMENT & 4. KEEPING PARENTS CONNECTED */}
-      <section className="section bg-[#FFFDF7]">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <RevealOnScroll>
-              <div className="p-8 md:p-10 rounded-3xl bg-white border border-stone-200 shadow-sm h-full flex flex-col justify-between">
-                <div>
-                  <div className="w-12 h-12 rounded-2xl bg-orange-50 text-[#F15A29] flex items-center justify-center mb-6">
-                    <Heart size={26} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-warm-navy mb-4">
-                    Care That Supports Development
-                  </h3>
-                  <p className="text-stone-600 text-base md:text-lg leading-relaxed">
-                    Care routines are not separate from learning. Conversations during meals, tidying after play, choosing an activity and managing personal belongings all help children build communication, responsibility and independence.
-                  </p>
+            <RevealOnScroll delay={50}>
+              <div style={{
+                background: '#FFFDF7',
+                borderRadius: '24px',
+                padding: '36px 30px',
+                border: '1.5px solid #ffede4',
+                boxShadow: '0 4px 14px rgba(0,0,0,0.02)',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column'
+              }}>
+                <div style={{
+                  width: '54px',
+                  height: '54px',
+                  borderRadius: '16px',
+                  backgroundColor: '#fff1f2',
+                  color: '#721024',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: '20px'
+                }}>
+                  <Heart size={26} />
                 </div>
+                <h2 style={{ fontSize: '22px', fontWeight: '850', color: '#1e293b', marginBottom: '14px' }}>
+                  Care That Supports Development
+                </h2>
+                <p style={{ fontSize: '15.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
+                  Care routines are not separate from learning. Conversations during meals, tidying after play, choosing an activity and managing personal belongings all help children build communication, responsibility and independence.
+                </p>
               </div>
             </RevealOnScroll>
 
             <RevealOnScroll delay={100}>
-              <div className="p-8 md:p-10 rounded-3xl bg-white border border-stone-200 shadow-sm h-full flex flex-col justify-between">
-                <div>
-                  <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#0284c7] flex items-center justify-center mb-6">
-                    <Users size={26} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-warm-navy mb-4">
-                    Keeping Parents Connected
-                  </h3>
-                  <p className="text-stone-600 text-base md:text-lg leading-relaxed">
-                    We understand that trust matters when children spend part of their day away from home. Regular parent communication helps families remain informed and gives educators useful insight into routines, preferences and changes that may affect the child.
-                  </p>
+              <div style={{
+                background: '#FFFDF7',
+                borderRadius: '24px',
+                padding: '36px 30px',
+                border: '1.5px solid #ffede4',
+                boxShadow: '0 4px 14px rgba(0,0,0,0.02)',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column'
+              }}>
+                <div style={{
+                  width: '54px',
+                  height: '54px',
+                  borderRadius: '16px',
+                  backgroundColor: '#fff1f2',
+                  color: '#721024',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: '20px'
+                }}>
+                  <MessageCircle size={26} />
                 </div>
+                <h2 style={{ fontSize: '22px', fontWeight: '850', color: '#1e293b', marginBottom: '14px' }}>
+                  Keeping Parents Connected
+                </h2>
+                <p style={{ fontSize: '15.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
+                  We understand that trust matters when children spend part of their day away from home. Regular parent communication helps families remain informed and gives educators useful insight into routines, preferences and changes that may affect the child.
+                </p>
               </div>
             </RevealOnScroll>
           </div>
         </div>
       </section>
 
-      {/* 5. CHOOSE THE RIGHT OPTION & CTA */}
-      <section className="section bg-white border-t border-stone-100">
-        <div className="container text-center max-w-3xl mx-auto">
+      {/* 3. CHOOSE THE RIGHT OPTION */}
+      <section style={{ padding: '80px 20px', backgroundColor: '#FFFDF7' }}>
+        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <span className="badge badge-primary mb-3">Enquiry Guidance</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy mb-4">
-              Choose the Right Option
+            <div style={{
+              background: '#ffffff',
+              borderRadius: '28px',
+              padding: '48px 36px',
+              border: '1.5px solid rgba(114, 16, 36, 0.12)',
+              boxShadow: '0 10px 30px rgba(114, 16, 36, 0.04)',
+              textAlign: 'center'
+            }}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                borderRadius: '20px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 24px'
+              }}>
+                <Clock size={30} />
+              </div>
+              <h2 style={{ fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: '900', color: '#721024', marginBottom: '18px' }}>
+                Choose the Right Option
+              </h2>
+              <p style={{ fontSize: '17px', lineHeight: 1.75, color: '#475569', maxWidth: '720px', margin: '0 auto 32px' }}>
+                Contact our team to confirm current operating hours, available attendance options, age eligibility and fees. We will help you identify an arrangement that suits your child and family.
+              </p>
+              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Link
+                  to="/contact"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 30px',
+                    borderRadius: '999px',
+                    backgroundColor: '#721024',
+                    color: '#ffffff',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
+                  <Calendar size={18} />
+                  <span>CHECK AVAILABILITY</span>
+                </Link>
+                <a 
+                  href={`https://wa.me/971502005346?text=${whatsappMessage}`}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 30px',
+                    borderRadius: '999px',
+                    backgroundColor: '#ffffff',
+                    color: '#721024',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    border: '1.5px solid #721024',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
+                  <MessageCircle size={18} />
+                  <span>WHATSAPP US</span>
+                </a>
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* 4. CLOSING CTA BANNER: CHECK AVAILABILITY | WHATSAPP US */}
+      <section style={{
+        padding: '80px 20px',
+        background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
+        color: '#ffffff',
+        textAlign: 'center'
+      }}>
+        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <RevealOnScroll>
+            <h2 style={{ fontSize: 'clamp(28px, 4.5vw, 40px)', fontWeight: '900', margin: '0 0 20px 0', lineHeight: 1.25 }}>
+              Flexible Care With a Consistent Sense of Belonging
             </h2>
-            <p className="text-stone-700 text-lg leading-relaxed mb-8">
-              Contact our team to confirm current operating hours, available attendance options, age eligibility and fees. We will help you identify an arrangement that suits your child and family.
+            <p style={{ fontSize: '17px', lineHeight: 1.75, opacity: 0.95, margin: '0 auto 36px', maxWidth: '680px' }}>
+              Our full-day and half-day options are designed to provide a caring routine while supporting learning, play, rest and social development.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/contact" className="btn btn-primary shadow-lg shadow-orange-500/20">
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link
+                to="/contact"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '15px 34px',
+                  borderRadius: '999px',
+                  backgroundColor: '#ffffff',
+                  color: '#721024',
+                  fontWeight: '800',
+                  fontSize: '15.5px',
+                  textDecoration: 'none',
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
+                  transition: 'all 0.25s ease'
+                }}
+              >
                 <Calendar size={18} />
-                Check Availability
+                <span>CHECK AVAILABILITY</span>
               </Link>
               <a 
-                href="https://wa.me/971502005346?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20full-day%20and%20half-day%20care%20availability%20at%20Just%20Like%20Home%20Nursery." 
+                href={`https://wa.me/971502005346?text=${whatsappMessage}`}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="btn btn-secondary"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '15px 34px',
+                  borderRadius: '999px',
+                  backgroundColor: 'rgba(255,255,255,0.12)',
+                  color: '#ffffff',
+                  fontWeight: '800',
+                  fontSize: '15.5px',
+                  textDecoration: 'none',
+                  border: '1.5px solid rgba(255,255,255,0.4)',
+                  transition: 'all 0.25s ease'
+                }}
               >
                 <MessageCircle size={18} />
-                WhatsApp Us
+                <span>WHATSAPP US</span>
               </a>
             </div>
           </RevealOnScroll>

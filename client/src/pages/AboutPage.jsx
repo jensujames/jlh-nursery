@@ -7,14 +7,50 @@ import {
 } from 'lucide-react';
 
 const PROMISES = [
-  'A safe, clean and welcoming environment.',
-  'Kindness, patience, respect and understanding for every child.',
-  'Support for emotional, social, physical, communication and intellectual development.',
-  'Learning through play, creativity, exploration and discovery.',
-  'Strong and respectful partnerships with parents and families.',
-  'Recognition of every child\'s unique abilities, interests and achievements.',
-  'Guidance that builds independence, confidence, good manners and essential life skills.',
+  'Providing a safe, clean, and welcoming environment.',
+  'Treating every child with kindness, patience, respect, and understanding.',
+  'Supporting each child\'s emotional, social, physical, communication, and intellectual development.',
+  'Encouraging children to learn through play, creativity, exploration, and discovery.',
+  'Building strong and respectful partnerships with parents and families.',
+  'Recognising and celebrating every child\'s unique abilities, interests, and achievements.',
+  'Helping children develop independence, confidence, good manners, and essential life skills.',
   'Creating a nurturing atmosphere that truly feels “Just Like Home.”'
+];
+
+const SERVICES_LIST = [
+  'Early Years Education following the EYFS approach',
+  'Full-Day & Half-Day Care Options',
+  'Nursery & Preschool Programs',
+  'School Readiness Program',
+  'Age-appropriate learning activities',
+  'Phonics, Literacy & Numeracy',
+  'Arabic Language Learning',
+  'Physical Development & Outdoor Play',
+  'Creative Arts & Craft Activities',
+  'Sensory & Exploration Activities',
+  'Storytelling, Rhymes & Music',
+  'Life Skills & Independence Activities',
+  'Special Events, Theme Days & Celebrations',
+  'Holiday & Summer Camp Programs',
+  'Educational Trips & Outings',
+  'Regular Parent Communication'
+];
+
+const FACILITIES_LIST = [
+  'Safe and welcoming classrooms',
+  'Indoor play area',
+  'Outdoor play area',
+  'Baby care/quiet room',
+  'Sensory and exploration spaces',
+  'Reading & story corner',
+  'Life skills activity areas',
+  'Child-friendly washrooms',
+  'Kitchen & meal preparation area',
+  'First-aid/clinic facility',
+  'Doctor visits',
+  'Secure reception area',
+  'Safe and child-friendly environment',
+  'CCTV monitoring for enhanced safety'
 ];
 
 export default function AboutPage() {
@@ -292,10 +328,10 @@ export default function AboutPage() {
                     <Heart size={28} />
                   </div>
                   <h3 style={{ fontSize: '24px', fontWeight: '850', color: '#1e293b', marginBottom: '14px' }}>
-                    Our Mission
+                    Our Vision &amp; Mission
                   </h3>
-                  <p style={{ fontSize: '17px', lineHeight: 1.7, color: '#334155', fontWeight: '500', margin: 0 }}>
-                    We do not simply educate children. We nurture little hearts, build confidence, encourage curiosity and create happy memories that last a lifetime.
+                  <p style={{ fontSize: '17px', lineHeight: 1.7, color: '#334155', fontWeight: '600', margin: 0 }}>
+                    We don't just educate children we nurture little hearts, build confidence, encourage curiosity, and create happy memories that last a lifetime.
                   </p>
                 </div>
                 <div style={{
@@ -448,6 +484,95 @@ export default function AboutPage() {
                 <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
                   Trust grows through communication. We value parents' knowledge of their children and aim to build a respectful partnership from the first enquiry onwards. Regular communication helps nursery and home work together around each child's routines, interests, development and wellbeing.
                 </p>
+              </div>
+            </RevealOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* 6.5 OUR SERVICES & FACILITIES */}
+      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+          <RevealOnScroll>
+            <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
+              <span style={{
+                display: 'inline-block',
+                padding: '6px 16px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                marginBottom: '14px'
+              }}>
+                SERVICES &amp; FACILITIES
+              </span>
+              <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: '900', color: '#721024', margin: 0 }}>
+                Everything Your Child Needs to Flourish
+              </h2>
+            </div>
+          </RevealOnScroll>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '32px'
+          }}>
+            {/* Services Card */}
+            <RevealOnScroll>
+              <div style={{
+                background: '#FFFDF7',
+                borderRadius: '28px',
+                padding: '38px 32px',
+                border: '1.5px solid #ffede4',
+                boxShadow: '0 8px 30px rgba(0,0,0,0.02)',
+                height: '100%'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+                  <span style={{ fontSize: '28px' }}>🌟</span>
+                  <h3 style={{ fontSize: '24px', fontWeight: '850', color: '#721024', margin: 0 }}>
+                    Our Services
+                  </h3>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  {SERVICES_LIST.map((srv, idx) => (
+                    <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                      <CheckCircle2 size={16} color="#721024" style={{ marginTop: '3px', flexShrink: 0 }} />
+                      <span style={{ fontSize: '15px', fontWeight: '650', color: '#334155', lineHeight: 1.5 }}>
+                        {srv}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </RevealOnScroll>
+
+            {/* Facilities Card */}
+            <RevealOnScroll delay={100}>
+              <div style={{
+                background: '#FFFDF7',
+                borderRadius: '28px',
+                padding: '38px 32px',
+                border: '1.5px solid #ffede4',
+                boxShadow: '0 8px 30px rgba(0,0,0,0.02)',
+                height: '100%'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+                  <span style={{ fontSize: '28px' }}>🏠</span>
+                  <h3 style={{ fontSize: '24px', fontWeight: '850', color: '#721024', margin: 0 }}>
+                    Our Facilities
+                  </h3>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  {FACILITIES_LIST.map((fac, idx) => (
+                    <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                      <CheckCircle2 size={16} color="#721024" style={{ marginTop: '3px', flexShrink: 0 }} />
+                      <span style={{ fontSize: '15px', fontWeight: '650', color: '#334155', lineHeight: 1.5 }}>
+                        {fac}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </RevealOnScroll>
           </div>

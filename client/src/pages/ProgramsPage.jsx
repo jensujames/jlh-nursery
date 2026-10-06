@@ -29,7 +29,7 @@ const PROGRAMS = [
     icon: BookOpen,
     color: '#721024',
     bgColor: '#FFF1F2',
-    link: '/preschool-school-readiness'
+    link: '/contact'
   },
   {
     title: 'School Readiness',
@@ -37,7 +37,7 @@ const PROGRAMS = [
     icon: GraduationCap,
     color: '#721024',
     bgColor: '#FFF1F2',
-    link: '/preschool-school-readiness'
+    link: '/contact'
   },
   {
     title: 'Full-Day & Half-Day Care',
@@ -45,7 +45,7 @@ const PROGRAMS = [
     icon: Clock,
     color: '#721024',
     bgColor: '#FFF1F2',
-    link: '/daycare-ajman'
+    link: '/contact'
   },
   {
     title: 'Holiday & Summer Camps',
@@ -55,6 +55,25 @@ const PROGRAMS = [
     bgColor: '#FFF1F2',
     link: '/camps'
   }
+];
+
+const SERVICES_LIST = [
+  'Early Years Education following the EYFS approach',
+  'Full-Day & Half-Day Care Options',
+  'Nursery & Preschool Programs',
+  'School Readiness Program',
+  'Age-appropriate learning activities',
+  'Phonics, Literacy & Numeracy',
+  'Arabic Language Learning',
+  'Physical Development & Outdoor Play',
+  'Creative Arts & Craft Activities',
+  'Sensory & Exploration Activities',
+  'Storytelling, Rhymes & Music',
+  'Life Skills & Independence Activities',
+  'Special Events, Theme Days & Celebrations',
+  'Holiday & Summer Camp Programs',
+  'Educational Trips & Outings',
+  'Regular Parent Communication'
 ];
 
 const DEVELOPMENTAL_STAGES = [
@@ -314,6 +333,70 @@ export default function ProgramsPage() {
                   <p style={{ fontSize: '15px', lineHeight: 1.65, color: '#475569', margin: 0 }}>
                     {item.desc}
                   </p>
+                </div>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3.5 ALL 16 COMPREHENSIVE SERVICES */}
+      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+          <RevealOnScroll>
+            <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
+              <span style={{
+                display: 'inline-block',
+                padding: '6px 16px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                marginBottom: '14px'
+              }}>
+                🌟 COMPREHENSIVE PROVISIONS
+              </span>
+              <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: '900', color: '#721024', margin: 0 }}>
+                Our Complete Suite of Nursery Services
+              </h2>
+            </div>
+          </RevealOnScroll>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '20px'
+          }}>
+            {SERVICES_LIST.map((service, index) => (
+              <RevealOnScroll key={index} delay={index * 30}>
+                <div style={{
+                  background: '#FFFDF7',
+                  borderRadius: '20px',
+                  padding: '22px 24px',
+                  border: '1.5px solid #ffede4',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.02)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '14px',
+                  height: '100%'
+                }}>
+                  <div style={{
+                    width: '38px',
+                    height: '38px',
+                    borderRadius: '12px',
+                    backgroundColor: '#fff1f2',
+                    color: '#721024',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}>
+                    <CheckCircle2 size={18} />
+                  </div>
+                  <span style={{ fontSize: '15px', fontWeight: '750', color: '#1e293b', lineHeight: 1.45 }}>
+                    {service}
+                  </span>
                 </div>
               </RevealOnScroll>
             ))}
