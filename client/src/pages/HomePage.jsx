@@ -2,61 +2,111 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ThreeMascotHero from '../components/ThreeMascotHero';
 import FullWidthCurvedGallery from '../components/FullWidthCurvedGallery';
-import HomeQuickExplore from '../components/HomeQuickExplore';
-import HomeNurturingSection from '../components/HomeNurturingSection';
 import RevealOnScroll from '../components/RevealOnScroll';
 import { 
   Heart, Sparkles, BookOpen, Sun, Compass, ShieldCheck, 
   Baby, Smile, Users, MapPin, Phone, Mail, ArrowRight, 
-  MessageCircle, Calendar, CheckCircle2, Award, Clock
+  MessageCircle, Calendar, CheckCircle2, Award, Clock,
+  Camera, Navigation, ChevronRight
 } from 'lucide-react';
 
 export default function HomePage({ onBookVisitClick }) {
-  const ABOUT_POINTS = [
-    'Providing a safe, clean, and welcoming environment.',
-    'Treating every child with kindness, patience, respect, and understanding.',
-    'Supporting each child\'s emotional, social, physical, communication, and intellectual development.',
-    'Encouraging children to learn through play, creativity, exploration, and discovery.',
-    'Building strong and respectful partnerships with parents and families.',
-    'Recognising and celebrating every child\'s unique abilities, interests, and achievements.',
-    'Helping children develop independence, confidence, good manners, and essential life skills.',
-    'Creating a nurturing atmosphere that truly feels “Just Like Home.”'
+  // 1. Programs from document
+  const PROGRAMS = [
+    {
+      title: 'Early Years Education',
+      desc: 'Play-based experiences supporting communication, social, emotional, physical and cognitive development.',
+      icon: Baby,
+      color: '#F15A29',
+      bg: '#FFF5F0'
+    },
+    {
+      title: 'Nursery & Preschool',
+      desc: 'A stimulating environment that encourages curiosity, friendships, creativity and a positive relationship with learning.',
+      icon: Sparkles,
+      color: '#0284c7',
+      bg: '#F0F9FF'
+    },
+    {
+      title: 'School Readiness',
+      desc: 'Building the confidence, routines and foundational skills children need for their next step into school.',
+      icon: Award,
+      color: '#16a34a',
+      bg: '#F0FDF4'
+    },
+    {
+      title: 'Full-Day & Half-Day Care',
+      desc: 'Flexible care options designed around the needs of young children and their families.',
+      icon: Clock,
+      color: '#721024',
+      bg: '#FFF1F2'
+    }
   ];
 
-  const SERVICES = [
-    { title: 'Early Years Education (EYFS)', icon: Sparkles, color: '#F15A29' },
-    { title: 'Full-Day & Half-Day Care', icon: Clock, color: '#0284c7' },
-    { title: 'Nursery & Preschool Programs', icon: Baby, color: '#16a34a' },
-    { title: 'School Readiness Program', icon: Award, color: '#7c3aed' },
-    { title: 'Age-Appropriate Learning', icon: BookOpen, color: '#d97706' },
-    { title: 'Phonics, Literacy & Numeracy', icon: Sparkles, color: '#e11d48' },
-    { title: 'Arabic Language Learning', icon: Compass, color: '#059669' },
-    { title: 'Physical & Outdoor Play', icon: Sun, color: '#F15A29' },
-    { title: 'Creative Arts & Crafts', icon: Smile, color: '#0284c7' },
-    { title: 'Sensory & Exploration', icon: Baby, color: '#16a34a' },
-    { title: 'Storytelling, Rhymes & Music', icon: Heart, color: '#7c3aed' },
-    { title: 'Life Skills & Independence', icon: ShieldCheck, color: '#d97706' },
-    { title: 'Special Events & Theme Days', icon: Calendar, color: '#e11d48' },
-    { title: 'Holiday & Summer Camps', icon: Sun, color: '#059669' },
-    { title: 'Educational Trips & Outings', icon: Compass, color: '#F15A29' },
-    { title: 'Regular Parent Communication', icon: Users, color: '#0284c7' }
+  // 2. Activities from document
+  const ACTIVITIES = [
+    { title: 'Phonics & Literacy', icon: BookOpen, color: '#F15A29', bg: '#FFF5F0' },
+    { title: 'Early Numeracy', icon: Sparkles, color: '#0284c7', bg: '#F0F9FF' },
+    { title: 'Arabic Learning', icon: Compass, color: '#16a34a', bg: '#F0FDF4' },
+    { title: 'Arts & Creativity', icon: Smile, color: '#d97706', bg: '#FFFBEB' },
+    { title: 'Music, Rhymes & Stories', icon: Heart, color: '#e11d48', bg: '#FFF1F2' },
+    { title: 'Sensory Exploration', icon: Baby, color: '#0d9488', bg: '#F0FDFA' },
+    { title: 'Physical & Outdoor Play', icon: Sun, color: '#ea580c', bg: '#FFF7ED' },
+    { title: 'Life Skills & Independence', icon: ShieldCheck, color: '#721024', bg: '#FFF1F2' }
   ];
 
+  // 3. Facilities from document
   const FACILITIES = [
     'Safe and welcoming classrooms',
-    'Indoor play area',
-    'Outdoor play area',
-    'Baby care/quiet room',
-    'Sensory and exploration spaces',
-    'Reading & story corner',
-    'Life skills activity areas',
+    'Indoor and outdoor play',
+    'Baby care and quiet room',
+    'Sensory spaces',
+    'Reading corner',
+    'Life-skills areas',
     'Child-friendly washrooms',
-    'Kitchen & meal preparation area',
     'First-aid/clinic facility',
-    'Doctor visits',
-    'Secure reception area',
-    'Safe and child-friendly environment',
-    'CCTV monitoring for enhanced safety'
+    'Secure reception',
+    'CCTV monitoring'
+  ];
+
+  // 4. Why Parents Choose Pillars from document
+  const PILLARS = [
+    {
+      title: 'Nurturing Care',
+      desc: 'Kindness, patience and understanding are at the heart of every interaction.',
+      color: '#e11d48',
+      icon: Heart
+    },
+    {
+      title: 'Learning Through Play',
+      desc: 'Children explore concepts naturally through purposeful, hands-on experiences.',
+      color: '#0284c7',
+      icon: Sparkles
+    },
+    {
+      title: 'Individual Attention',
+      desc: 'We recognise each child\'s interests, abilities and developmental journey.',
+      color: '#16a34a',
+      icon: Smile
+    },
+    {
+      title: 'Whole-Child Development',
+      desc: 'We support social, emotional, physical, communication and intellectual growth.',
+      color: '#d97706',
+      icon: Baby
+    },
+    {
+      title: 'Building Confidence',
+      desc: 'We encourage independence, good manners and essential everyday life skills.',
+      color: '#721024',
+      icon: Award
+    },
+    {
+      title: 'Parent Partnership',
+      desc: 'We build respectful relationships with families and keep parents connected.',
+      color: '#0d9488',
+      icon: Users
+    }
   ];
 
   const whatsappMessage = encodeURIComponent(
@@ -64,12 +114,12 @@ export default function HomePage({ onBookVisitClick }) {
   );
 
   return (
-    <div className="home-page-complete" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F' }}>
+    <div className="home-page-exact" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F' }}>
       
       {/* 1. Flagship 3D Mascot Hero Stage */}
       <ThreeMascotHero onBookVisitClick={onBookVisitClick} />
 
-      {/* 2. About Just Like Home & Vision/Mission */}
+      {/* 2. A Place to Learn, Grow and Feel at Home */}
       <section style={{ padding: '80px 20px', maxWidth: '1240px', margin: '0 auto' }}>
         <div style={{
           background: '#ffffff',
@@ -106,13 +156,13 @@ export default function HomePage({ onBookVisitClick }) {
               color: '#721024',
               margin: '0 0 20px 0'
             }}>
-              Where Little Hearts Feel at Home
+              A Place to Learn, Grow and Feel at Home
             </h2>
-            <p style={{ fontSize: '16.5px', lineHeight: 1.7, color: '#475569', marginBottom: '16px' }}>
-              We don't just educate children &mdash; we nurture little hearts, build confidence, encourage curiosity, and create happy memories that last a lifetime.
+            <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', marginBottom: '18px' }}>
+              Childhood's earliest years are filled with important little moments - first friendships, new words, discoveries, questions, achievements and growing independence. At Just Like Home Nursery, we make those moments meaningful.
             </p>
-            <p style={{ fontSize: '16.5px', lineHeight: 1.7, color: '#475569', marginBottom: '28px' }}>
-              Our approach combines early-years learning with the care, patience and personal attention of a nurturing home environment. Children are encouraged to discover the world through play, creativity, movement and hands-on experiences.
+            <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', marginBottom: '32px' }}>
+              Our approach combines early-years learning with the care, patience and personal attention of a nurturing home environment. Children are encouraged to discover the world through play, creativity, movement and hands-on experiences while developing confidence at their own pace.
             </p>
             <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
               <Link
@@ -121,7 +171,7 @@ export default function HomePage({ onBookVisitClick }) {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: '13px 26px',
+                  padding: '13px 28px',
                   borderRadius: '999px',
                   backgroundColor: '#721024',
                   color: '#ffffff',
@@ -131,7 +181,7 @@ export default function HomePage({ onBookVisitClick }) {
                   boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)'
                 }}
               >
-                <span>Read Our Story</span>
+                <span>About Just Like Home</span>
                 <ArrowRight size={17} />
               </Link>
               <button
@@ -166,7 +216,7 @@ export default function HomePage({ onBookVisitClick }) {
             }}>
               <img
                 src="/images/nurturing-hero.jpg"
-                alt="Where Little Hearts Feel at Home"
+                alt="A Place to Learn, Grow and Feel at Home"
                 style={{
                   width: '100%',
                   height: '400px',
@@ -194,7 +244,7 @@ export default function HomePage({ onBookVisitClick }) {
                   Villa No. 47, Al Rashidiya 2
                 </p>
                 <p style={{ margin: '2px 0 0 0', fontSize: '14.5px', fontWeight: '800', color: '#1e293b' }}>
-                  Ajman, United Arab Emirates
+                  Where Little Hearts Feel at Home
                 </p>
               </div>
               <span style={{ fontSize: '20px' }}>🏡</span>
@@ -203,274 +253,505 @@ export default function HomePage({ onBookVisitClick }) {
         </div>
       </section>
 
-      {/* 3. Company About Us - 8 Commitments */}
-      <section style={{ padding: '40px 20px 80px', maxWidth: '1240px', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 40px' }}>
-          <span style={{
-            display: 'inline-block',
-            padding: '6px 16px',
-            borderRadius: '999px',
-            backgroundColor: '#fff7ed',
-            color: '#F15A29',
-            fontSize: '13px',
-            fontWeight: '800',
-            marginBottom: '14px'
-          }}>
-            OUR PROMISES TO FAMILIES
-          </span>
-          <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: '900', color: '#1e293b', margin: '0 0 16px 0' }}>
-            Nurturing Little Hearts With Love &amp; Care
-          </h2>
-          <p style={{ fontSize: '16.5px', lineHeight: 1.7, color: '#475569' }}>
-            These principles guide how we structure each day, care for children and partner with parents:
-          </p>
-        </div>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '16px'
-        }}>
-          {ABOUT_POINTS.map((pt, idx) => (
-            <div
-              key={idx}
-              style={{
-                background: '#ffffff',
-                borderRadius: '20px',
-                padding: '22px 20px',
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: '14px',
-                boxShadow: '0 4px 16px rgba(0,0,0,0.03)',
-                border: '1.5px solid #f1f5f9'
-              }}
-            >
-              <div style={{
-                width: '32px',
-                height: '32px',
-                borderRadius: '50%',
-                backgroundColor: '#ecfdf5',
-                color: '#059669',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
-                marginTop: '2px'
-              }}>
-                <CheckCircle2 size={18} />
-              </div>
-              <p style={{ margin: 0, fontSize: '15px', lineHeight: 1.6, color: '#1e293b', fontWeight: '600' }}>
-                {pt}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 4. Vibrant Colorful Gateway Cards to Dedicated Pages */}
-      <HomeQuickExplore />
-
-      {/* 5. 3D Curved Perspective Photo Gallery on Home */}
-      <FullWidthCurvedGallery onBookVisitClick={onBookVisitClick} />
-
-      {/* 6. Asymmetric 3-Column Visual Showcase (Growing Minds) */}
-      <HomeNurturingSection onBookVisitClick={onBookVisitClick} />
-
-      {/* 7. Comprehensive Services & Facilities */}
-      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
+      {/* 3. Early Years Programs for Every Little Step */}
+      <section style={{ padding: '60px 20px 80px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
-          
-          {/* Services Grid */}
-          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 44px' }}>
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
             <span style={{
               display: 'inline-block',
               padding: '6px 16px',
               borderRadius: '999px',
-              backgroundColor: '#e0f2fe',
-              color: '#0284c7',
+              backgroundColor: '#fff1f2',
+              color: '#721024',
               fontSize: '13px',
               fontWeight: '800',
               marginBottom: '14px'
             }}>
-              🌟 OUR SERVICES
+              OUR PROGRAMS
             </span>
-            <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: '900', color: '#1e293b', margin: '0 0 16px 0' }}>
-              Enriching Learning &amp; Care Services
+            <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: '900', color: '#721024', margin: '0 0 16px 0' }}>
+              Early Years Programs for Every Little Step
             </h2>
             <p style={{ fontSize: '16.5px', lineHeight: 1.7, color: '#475569' }}>
-              Planned to nurture confidence, communication, independence and creativity.
+              Every stage of early childhood brings new opportunities to learn and grow. Our programs support children's changing developmental needs while making learning engaging, enjoyable and meaningful.
+            </p>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '24px',
+            marginBottom: '40px'
+          }}>
+            {PROGRAMS.map((prog, idx) => {
+              const Icon = prog.icon;
+              return (
+                <div
+                  key={idx}
+                  style={{
+                    background: '#FFFDF7',
+                    borderRadius: '24px',
+                    padding: '32px 24px',
+                    border: '1.5px solid #ffede4',
+                    boxShadow: '0 8px 24px rgba(0,0,0,0.03)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                  }}
+                >
+                  <div>
+                    <div style={{
+                      width: '54px',
+                      height: '54px',
+                      borderRadius: '16px',
+                      backgroundColor: prog.bg,
+                      color: prog.color,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '20px'
+                    }}>
+                      <Icon size={28} />
+                    </div>
+                    <h3 style={{ fontSize: '20px', fontWeight: '800', color: '#1e293b', marginBottom: '12px' }}>
+                      {prog.title}
+                    </h3>
+                    <p style={{ fontSize: '15px', lineHeight: 1.65, color: '#64748b', margin: 0 }}>
+                      {prog.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div style={{ textAlign: 'center' }}>
+            <Link
+              to="/programs"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '13px 32px',
+                borderRadius: '999px',
+                backgroundColor: '#721024',
+                color: '#ffffff',
+                fontWeight: '800',
+                fontSize: '15px',
+                textDecoration: 'none',
+                boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)'
+              }}
+            >
+              <span>Explore Our Programs</span>
+              <ArrowRight size={17} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Little Hands. Big Discoveries. (Activities) */}
+      <section style={{ padding: '80px 20px', backgroundColor: '#FFFDF7' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
+            <span style={{
+              display: 'inline-block',
+              padding: '6px 16px',
+              borderRadius: '999px',
+              backgroundColor: '#fff7ed',
+              color: '#F15A29',
+              fontSize: '13px',
+              fontWeight: '800',
+              marginBottom: '14px'
+            }}>
+              ACTIVITIES &amp; DISCOVERY
+            </span>
+            <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: '900', color: '#1e293b', margin: '0 0 16px 0' }}>
+              Little Hands. Big Discoveries.
+            </h2>
+            <p style={{ fontSize: '16.5px', lineHeight: 1.7, color: '#475569' }}>
+              We believe young children learn best by doing. Our learning experiences encourage children to explore, experiment, communicate, imagine and solve problems through activities designed around their age and stage of development.
             </p>
           </div>
 
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '16px',
-            marginBottom: '72px'
+            gap: '18px',
+            marginBottom: '40px'
           }}>
-            {SERVICES.map((srv, idx) => {
-              const Icon = srv.icon;
+            {ACTIVITIES.map((act, idx) => {
+              const Icon = act.icon;
               return (
                 <div
                   key={idx}
                   style={{
-                    background: '#FFFDF7',
+                    background: '#ffffff',
                     borderRadius: '20px',
-                    padding: '20px',
+                    padding: '24px 20px',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '14px',
-                    border: '1.5px solid #ffede4'
+                    gap: '16px',
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.03)',
+                    border: '1.5px solid #f1f5f9'
                   }}
                 >
                   <div style={{
-                    width: '42px',
-                    height: '42px',
-                    borderRadius: '12px',
-                    backgroundColor: '#ffffff',
+                    width: '46px',
+                    height: '46px',
+                    borderRadius: '14px',
+                    backgroundColor: act.bg,
+                    color: act.color,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    flexShrink: 0,
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
+                    flexShrink: 0
                   }}>
-                    <Icon size={20} color={srv.color} />
+                    <Icon size={22} />
                   </div>
-                  <span style={{ fontWeight: '750', fontSize: '15px', color: '#1e293b' }}>
-                    {srv.title}
+                  <span style={{ fontWeight: '800', fontSize: '16px', color: '#1e293b' }}>
+                    {act.title}
                   </span>
                 </div>
               );
             })}
           </div>
 
-          {/* Facilities Grid */}
-          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 44px' }}>
+          <div style={{ textAlign: 'center' }}>
+            <Link
+              to="/nursery-activities"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '13px 28px',
+                borderRadius: '999px',
+                backgroundColor: '#ffffff',
+                color: '#721024',
+                fontWeight: '800',
+                fontSize: '14.5px',
+                textDecoration: 'none',
+                border: '1.5px solid #721024',
+                boxShadow: '0 4px 14px rgba(0,0,0,0.04)'
+              }}
+            >
+              <span>View All Nursery Activities</span>
+              <ArrowRight size={17} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Philosophy Spotlight ("We Don't Just Educate Children. We Nurture Little Hearts.") */}
+      <section style={{ padding: '80px 20px', maxWidth: '1040px', margin: '0 auto', textAlign: 'center' }}>
+        <div style={{
+          background: 'linear-gradient(135deg, #fff1f2 0%, #fff8f5 100%)',
+          borderRadius: '32px',
+          padding: 'clamp(40px, 6vw, 64px) clamp(24px, 4vw, 48px)',
+          border: '2px solid rgba(114, 16, 36, 0.15)',
+          boxShadow: '0 16px 40px rgba(114, 16, 36, 0.08)'
+        }}>
+          <span style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            padding: '6px 16px',
+            borderRadius: '999px',
+            backgroundColor: '#721024',
+            color: '#ffffff',
+            fontSize: '13px',
+            fontWeight: '800',
+            marginBottom: '20px'
+          }}>
+            <Heart size={14} className="fill-current" />
+            OUR CARE PHILOSOPHY
+          </span>
+          <h2 style={{ fontSize: 'clamp(26px, 3.8vw, 38px)', fontWeight: '900', color: '#721024', margin: '0 0 20px 0', lineHeight: 1.25 }}>
+            We Don't Just Educate Children. We Nurture Little Hearts.
+          </h2>
+          <p style={{ fontSize: '17px', lineHeight: 1.8, color: '#475569', maxWidth: '840px', margin: '0 auto 24px auto' }}>
+            At Just Like Home Nursery, every child deserves to feel seen, heard, valued and encouraged. We recognise that no two children develop in exactly the same way. We celebrate individual personalities, interests, abilities and achievements while providing the gentle encouragement children need to become increasingly confident and independent.
+          </p>
+          <p style={{ fontSize: '18px', fontWeight: '850', color: '#721024', margin: 0 }}>
+            Preparing children for life with motherly care and attention.
+          </p>
+        </div>
+      </section>
+
+      {/* 6. Designed for Happy Learning & Safe Exploration (Facilities) */}
+      <section style={{ padding: '60px 20px 80px', maxWidth: '1240px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 44px' }}>
+          <span style={{
+            display: 'inline-block',
+            padding: '6px 16px',
+            borderRadius: '999px',
+            backgroundColor: '#fee2e2',
+            color: '#721024',
+            fontSize: '13px',
+            fontWeight: '800',
+            marginBottom: '14px'
+          }}>
+            FACILITIES &amp; SAFETY
+          </span>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: '900', color: '#1e293b', margin: '0 0 16px 0' }}>
+            Designed for Happy Learning &amp; Safe Exploration
+          </h2>
+          <p style={{ fontSize: '16.5px', lineHeight: 1.7, color: '#475569' }}>
+            From active play to quiet story time, our nursery provides dedicated spaces for the different experiences that make up a child's day.
+          </p>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+          gap: '16px',
+          marginBottom: '40px'
+        }}>
+          {FACILITIES.map((fac, idx) => (
+            <div
+              key={idx}
+              style={{
+                background: '#ffffff',
+                borderRadius: '18px',
+                padding: '20px 18px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px',
+                border: '1.5px solid #f1f5f9',
+                boxShadow: '0 4px 14px rgba(0,0,0,0.02)'
+              }}
+            >
+              <div style={{
+                width: '8px',
+                height: '8px',
+                borderRadius: '50%',
+                backgroundColor: '#721024',
+                flexShrink: 0
+              }} />
+              <span style={{ fontSize: '15px', fontWeight: '750', color: '#1e293b' }}>
+                {fac}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ textAlign: 'center' }}>
+          <Link
+            to="/facilities"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '13px 28px',
+              borderRadius: '999px',
+              backgroundColor: '#721024',
+              color: '#ffffff',
+              fontWeight: '800',
+              fontSize: '14.5px',
+              textDecoration: 'none',
+              boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)'
+            }}
+          >
+            <span>Explore Our Nursery</span>
+            <ArrowRight size={17} />
+          </Link>
+        </div>
+      </section>
+
+      {/* 7. Gallery on Home (Requested: "add the galery also in home") */}
+      <FullWidthCurvedGallery onBookVisitClick={onBookVisitClick} />
+
+      {/* 8. Why Parents Choose Just Like Home */}
+      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
             <span style={{
               display: 'inline-block',
               padding: '6px 16px',
               borderRadius: '999px',
-              backgroundColor: '#fee2e2',
+              backgroundColor: '#fff1f2',
               color: '#721024',
               fontSize: '13px',
               fontWeight: '800',
               marginBottom: '14px'
             }}>
-              🏠 OUR FACILITIES
+              PARENT TRUST &amp; VALUES
             </span>
-            <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: '900', color: '#1e293b', margin: '0 0 16px 0' }}>
-              Safe, Purpose-Built Campus Spaces
+            <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: '900', color: '#721024', margin: '0 0 16px 0' }}>
+              Why Parents Choose Just Like Home
             </h2>
-            <p style={{ fontSize: '16.5px', lineHeight: 1.7, color: '#475569' }}>
-              Villa No. 47 in Al Rashidiya 2 is designed with total safety, comfort and discovery in mind.
-            </p>
           </div>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '14px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '24px'
           }}>
-            {FACILITIES.map((fac, idx) => (
-              <div
-                key={idx}
-                style={{
-                  background: '#FFFDF7',
-                  borderRadius: '16px',
-                  padding: '16px 18px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  border: '1px solid #e2e8f0'
-                }}
-              >
-                <div style={{
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '50%',
-                  backgroundColor: '#721024',
-                  flexShrink: 0
-                }} />
-                <span style={{ fontSize: '14.5px', fontWeight: '700', color: '#334155' }}>
-                  {fac}
-                </span>
-              </div>
-            ))}
+            {PILLARS.map((pillar, idx) => {
+              const Icon = pillar.icon;
+              return (
+                <div
+                  key={idx}
+                  style={{
+                    background: '#FFFDF7',
+                    borderRadius: '24px',
+                    padding: '28px 24px',
+                    border: '1.5px solid #ffede4',
+                    boxShadow: '0 6px 20px rgba(0,0,0,0.02)',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '16px'
+                  }}
+                >
+                  <div style={{
+                    width: '46px',
+                    height: '46px',
+                    borderRadius: '14px',
+                    backgroundColor: '#ffffff',
+                    color: pillar.color,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+                  }}>
+                    <Icon size={22} />
+                  </div>
+                  <div>
+                    <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#1e293b', marginBottom: '8px' }}>
+                      {pillar.title}
+                    </h3>
+                    <p style={{ fontSize: '15px', lineHeight: 1.65, color: '#64748b', margin: 0 }}>
+                      {pillar.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-
         </div>
       </section>
 
-      {/* 8. Location & Contact Banner */}
-      <section style={{ padding: '80px 20px', maxWidth: '1200px', margin: '0 auto' }}>
+      {/* 9. Growing Together With Families */}
+      <section style={{ padding: '80px 20px', maxWidth: '1040px', margin: '0 auto', textAlign: 'center' }}>
         <div style={{
-          background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
+          background: '#ffffff',
           borderRadius: '32px',
-          padding: 'clamp(40px, 6vw, 64px)',
-          color: '#ffffff',
+          padding: 'clamp(36px, 5vw, 56px)',
+          border: '1.5px solid rgba(114, 16, 36, 0.1)',
+          boxShadow: '0 12px 36px rgba(114, 16, 36, 0.04)'
+        }}>
+          <span style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            padding: '6px 16px',
+            borderRadius: '999px',
+            backgroundColor: '#fff1f2',
+            color: '#721024',
+            fontSize: '13px',
+            fontWeight: '800',
+            marginBottom: '18px'
+          }}>
+            <Users size={14} />
+            FAMILY PARTNERSHIP
+          </span>
+          <h2 style={{ fontSize: 'clamp(26px, 3.8vw, 38px)', fontWeight: '900', color: '#1e293b', margin: '0 0 18px 0' }}>
+            Growing Together With Families
+          </h2>
+          <p style={{ fontSize: '17px', lineHeight: 1.8, color: '#475569', maxWidth: '820px', margin: '0 auto' }}>
+            Parents know their children better than anyone. That is why we believe early education works best as a partnership. We value open communication and work with families to understand each child's needs, progress, interests and achievements. When nursery and home work together, children have the confidence to thrive.
+          </p>
+        </div>
+      </section>
+
+      {/* 10. Visit Just Like Home Nursery in Ajman (Location & Contact) */}
+      <section style={{ padding: '40px 20px 80px', maxWidth: '1240px', margin: '0 auto' }}>
+        <div style={{
+          background: '#ffffff',
+          borderRadius: '32px',
+          padding: 'clamp(32px, 5vw, 56px)',
+          border: '1.5px solid #ffede4',
+          boxShadow: '0 12px 40px rgba(0,0,0,0.04)',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: '40px',
-          alignItems: 'center',
-          boxShadow: '0 20px 50px rgba(114, 16, 36, 0.25)'
+          alignItems: 'center'
         }}>
           <div>
             <span style={{
               display: 'inline-block',
               padding: '6px 16px',
               borderRadius: '999px',
-              backgroundColor: 'rgba(255,255,255,0.18)',
-              color: '#ffffff',
+              backgroundColor: '#fff1f2',
+              color: '#721024',
               fontSize: '13px',
               fontWeight: '800',
               marginBottom: '16px'
             }}>
-              COME AND VISIT US
+              LOCATION &amp; CONTACT
             </span>
-            <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: '900', margin: '0 0 16px 0', lineHeight: 1.25 }}>
-              Visit Just Like Home Nursery
+            <h2 style={{ fontSize: 'clamp(26px, 3.8vw, 38px)', fontWeight: '900', color: '#721024', margin: '0 0 16px 0', lineHeight: 1.25 }}>
+              Visit Just Like Home Nursery in Ajman
             </h2>
-            <p style={{ fontSize: '16.5px', lineHeight: 1.7, opacity: 0.92, marginBottom: '28px' }}>
-              The best way to know whether a nursery feels right is to experience it. Book a tour to meet our team, explore the classrooms and ask any questions.
+            <p style={{ fontSize: '16.5px', lineHeight: 1.7, color: '#475569', marginBottom: '28px' }}>
+              Conveniently located in Al Rashidiya 2, Ajman, Just Like Home Nursery provides families with a nurturing environment where children can learn, play, make friends and grow with confidence.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '32px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <MapPin size={20} className="text-amber-300 shrink-0" />
-                <span style={{ fontSize: '15px', fontWeight: '600' }}>Villa No. 47, Al Rashidiya 2, Ajman</span>
+                <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: '#fff1f2', color: '#721024', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <MapPin size={18} />
+                </div>
+                <div>
+                  <p style={{ margin: 0, fontWeight: '800', fontSize: '15px', color: '#1e293b' }}>Just Like Home Nursery</p>
+                  <p style={{ margin: 0, fontSize: '14px', color: '#64748b' }}>Villa No. 47, Al Rashidiya 2, Ajman</p>
+                </div>
               </div>
+
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <Phone size={20} className="text-amber-300 shrink-0" />
-                <span style={{ fontSize: '15px', fontWeight: '600' }}>Phone / WhatsApp: 050 200 5346</span>
+                <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: '#ecfdf5', color: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Phone size={18} />
+                </div>
+                <div>
+                  <p style={{ margin: 0, fontWeight: '800', fontSize: '15px', color: '#1e293b' }}>Phone / WhatsApp</p>
+                  <a href="tel:0502005346" style={{ margin: 0, fontSize: '14px', color: '#059669', textDecoration: 'none', fontWeight: '700' }}>050 200 5346</a>
+                </div>
               </div>
+
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <Mail size={20} className="text-amber-300 shrink-0" />
-                <span style={{ fontSize: '15px', fontWeight: '600' }}>Email: nurseryjustlikehome@gmail.com</span>
+                <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: '#e0f2fe', color: '#0284c7', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Mail size={18} />
+                </div>
+                <div>
+                  <p style={{ margin: 0, fontWeight: '800', fontSize: '15px', color: '#1e293b' }}>Email</p>
+                  <a href="mailto:nurseryjustlikehome@gmail.com" style={{ margin: 0, fontSize: '14px', color: '#0284c7', textDecoration: 'none', fontWeight: '600' }}>nurseryjustlikehome@gmail.com</a>
+                </div>
               </div>
             </div>
 
             <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-              <button
-                type="button"
-                onClick={onBookVisitClick}
+              <a
+                href="https://maps.google.com/?q=Villa+47+Al+Rashidiya+2+Ajman"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: '14px 28px',
+                  padding: '13px 26px',
                   borderRadius: '999px',
-                  backgroundColor: '#ffffff',
-                  color: '#721024',
+                  backgroundColor: '#721024',
+                  color: '#ffffff',
                   fontWeight: '800',
-                  fontSize: '15px',
-                  border: 'none',
-                  cursor: 'pointer',
-                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)'
+                  fontSize: '14.5px',
+                  textDecoration: 'none',
+                  boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)'
                 }}
               >
-                <Calendar size={18} />
-                <span>Book a Visit</span>
-              </button>
+                <Navigation size={17} />
+                <span>Get Directions</span>
+              </a>
 
               <a
                 href={`https://wa.me/971502005346?text=${whatsappMessage}`}
@@ -480,47 +761,119 @@ export default function HomePage({ onBookVisitClick }) {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: '14px 28px',
+                  padding: '13px 26px',
                   borderRadius: '999px',
-                  backgroundColor: 'rgba(255,255,255,0.15)',
-                  color: '#ffffff',
+                  backgroundColor: '#ffffff',
+                  color: '#059669',
                   fontWeight: '800',
-                  fontSize: '15px',
+                  fontSize: '14.5px',
                   textDecoration: 'none',
-                  border: '1.5px solid rgba(255,255,255,0.4)'
+                  border: '1.5px solid #059669'
                 }}
               >
-                <MessageCircle size={18} />
+                <MessageCircle size={17} />
                 <span>WhatsApp Us</span>
               </a>
             </div>
           </div>
 
           <div style={{
-            background: 'rgba(255, 255, 255, 0.08)',
             borderRadius: '24px',
-            padding: '24px',
-            border: '1px solid rgba(255, 255, 255, 0.15)'
+            overflow: 'hidden',
+            boxShadow: '0 12px 32px rgba(0,0,0,0.08)',
+            border: '2px solid #f1f5f9',
+            height: '360px'
           }}>
-            <h3 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '14px', color: '#ffffff' }}>
-              Why Choose Just Like Home?
-            </h3>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {[
-                'Nurturing motherly care and individual attention',
-                'British EYFS play-based learning approach',
-                'Purpose-built campus with shaded outdoor lawn',
-                '24/7 CCTV surveillance and secured reception',
-                'Flexible full-day and half-day care options',
-                'Transparent parent communication every day'
-              ].map((item, idx) => (
-                <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', opacity: 0.95 }}>
-                  <CheckCircle2 size={16} className="text-amber-300 shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            <iframe
+              title="Just Like Home Nursery Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3605.3424168050965!2d55.45187127599554!3d25.399222523727766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f1310!3m3!1m2!1s0x3e5f583e7428f52f%3A0xb30e8c160c87285c!2sAl%20Rashidiya%202%20-%20Ajman!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
+        </div>
+      </section>
+
+      {/* 11. Come See Why It Feels Just Like Home (Closing CTA) */}
+      <section style={{
+        padding: '90px 20px',
+        background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
+        color: '#ffffff',
+        textAlign: 'center'
+      }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <span style={{
+            display: 'inline-block',
+            padding: '6px 16px',
+            borderRadius: '999px',
+            backgroundColor: 'rgba(255, 255, 255, 0.18)',
+            color: '#ffffff',
+            fontSize: '13px',
+            fontWeight: '800',
+            marginBottom: '20px'
+          }}>
+            BOOK A VISIT
+          </span>
+          <h2 style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: '900', margin: '0 0 18px 0', lineHeight: 1.25 }}>
+            Come See Why It Feels Just Like Home
+          </h2>
+          <p style={{ fontSize: '17px', lineHeight: 1.75, opacity: 0.95, marginBottom: '36px' }}>
+            Choosing your child's nursery is an important decision - and sometimes the best way to know is simply to experience it. Meet our team, explore our nursery and discover the warm learning environment waiting for your little one.
+          </p>
+
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '28px' }}>
+            <button
+              type="button"
+              onClick={onBookVisitClick}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '15px 34px',
+                borderRadius: '999px',
+                backgroundColor: '#ffffff',
+                color: '#721024',
+                fontWeight: '800',
+                fontSize: '15.5px',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: '0 8px 25px rgba(0,0,0,0.2)'
+              }}
+            >
+              <Calendar size={18} />
+              <span>Book Your Nursery Visit</span>
+            </button>
+
+            <a
+              href={`https://wa.me/971502005346?text=${whatsappMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '15px 34px',
+                borderRadius: '999px',
+                backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                color: '#ffffff',
+                fontWeight: '800',
+                fontSize: '15.5px',
+                textDecoration: 'none',
+                border: '1.5px solid rgba(255, 255, 255, 0.4)'
+              }}
+            >
+              <MessageCircle size={18} />
+              <span>Chat on WhatsApp</span>
+            </a>
+          </div>
+
+          <p style={{ fontSize: '15px', fontWeight: '800', opacity: 0.85, margin: 0, letterSpacing: '0.5px' }}>
+            Where Little Hearts Feel at Home.
+          </p>
         </div>
       </section>
 

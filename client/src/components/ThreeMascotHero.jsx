@@ -2161,7 +2161,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
                   <h1 className="hero-actions-title">
                     <span className="hero-brand-name">JLH Nursery</span>
-                    <span className="hero-actions-tagline">Where Little Hearts Feel at Home</span>
+                    <span className="hero-actions-tagline">A Nurturing Nursery in Ajman Where Little Hearts Feel at Home</span>
                   </h1>
                 </div>
 
