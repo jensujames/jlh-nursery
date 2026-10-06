@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ThreeMascotHero from '../components/ThreeMascotHero';
-import FullWidthCurvedGallery from '../components/FullWidthCurvedGallery';
 import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
 import { 
@@ -676,8 +675,6 @@ export default function HomePage({ onBookVisitClick }) {
         </div>
       </section>
 
-      {/* 7. Gallery on Home */}
-      <FullWidthCurvedGallery onBookVisitClick={onBookVisitClick} />
 
       {/* 8. Why Parents Choose Just Like Home */}
       <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
