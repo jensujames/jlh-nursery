@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import { 
@@ -9,9 +9,9 @@ import {
 const ARTICLES = [
   {
     title: 'How to Choose the Right Nursery in Ajman',
-    desc: 'Key factors to consider when choosing an early years nursery, from care philosophy and safety to daily routines.',
+    note: 'Links to About, Facilities, Programs and Contact.',
     links: [
-      { label: 'About Us', url: '/about-us' },
+      { label: 'About', url: '/about-us' },
       { label: 'Facilities', url: '/facilities' },
       { label: 'Programs', url: '/programs' },
       { label: 'Contact', url: '/contact' }
@@ -19,22 +19,22 @@ const ARTICLES = [
   },
   {
     title: 'How to Prepare Your Child for Their First Day at Nursery',
-    desc: 'Gentle, practical settling-in strategies that help young children transition comfortably from home to nursery.',
+    note: 'Links to Admissions and About.',
     links: [
       { label: 'Admissions', url: '/admissions' },
-      { label: 'About Us', url: '/about-us' }
+      { label: 'About', url: '/about-us' }
     ]
   },
   {
     title: 'What Is EYFS and How Does It Support Early Learning?',
-    desc: 'An overview of the Early Years Foundation Stage framework and how it guides play-based learning.',
+    note: 'Links to EYFS & Learning.',
     links: [
       { label: 'EYFS & Learning', url: '/eyfs-learning' }
     ]
   },
   {
     title: 'Nursery vs Preschool: What\'s the Difference?',
-    desc: 'Understanding the distinctions in developmental stages, routines and focus areas between nursery and preschool.',
+    note: 'Links to Programs and Preschool.',
     links: [
       { label: 'Programs', url: '/programs' },
       { label: 'Preschool', url: '/preschool-school-readiness' }
@@ -42,22 +42,22 @@ const ARTICLES = [
   },
   {
     title: 'How Play-Based Learning Helps Young Children Develop',
-    desc: 'Why active play, hands-on discovery and conversation form the foundation for lasting cognitive and social skills.',
+    note: 'Links to EYFS and Activities.',
     links: [
-      { label: 'EYFS & Learning', url: '/eyfs-learning' },
+      { label: 'EYFS', url: '/eyfs-learning' },
       { label: 'Activities', url: '/nursery-activities' }
     ]
   },
   {
     title: 'Simple Ways to Build Independence Before Starting School',
-    desc: 'Everyday self-help habits, communication opportunities and routines that build school readiness.',
+    note: 'Links to Preschool & School Readiness.',
     links: [
       { label: 'Preschool & School Readiness', url: '/preschool-school-readiness' }
     ]
   },
   {
     title: 'Why Sensory Play Matters in the Early Years',
-    desc: 'How investigating materials, textures and hands-on environments supports early brain development and motor skills.',
+    note: 'Links to Activities and Facilities.',
     links: [
       { label: 'Activities', url: '/nursery-activities' },
       { label: 'Facilities', url: '/facilities' }
@@ -65,7 +65,7 @@ const ARTICLES = [
   },
   {
     title: 'Questions to Ask When Visiting a Nursery',
-    desc: 'A parent guide to assessing safety, communication, educator interaction and environment during a campus visit.',
+    note: 'Links to Facilities, Admissions and Contact.',
     links: [
       { label: 'Facilities', url: '/facilities' },
       { label: 'Admissions', url: '/admissions' },
@@ -75,34 +75,93 @@ const ARTICLES = [
 ];
 
 export default function BlogPage() {
+  useEffect(() => {
+    document.title = "Parent Resources & Early Years Advice | Just Like Home";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Read practical early-years guidance for parents, including nursery readiness, play-based learning, preschool development and choosing a nursery in Ajman.");
+    }
+  }, []);
+
   return (
-    <div className="blog-page">
-      {/* 1. HERO */}
-      <section className="page-hero-section">
-        <div className="hero-atmosphere">
-          <div className="hero-sun-glow"></div>
-        </div>
-        <div className="container relative z-10">
+    <div className="blog-page" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F', minHeight: '100vh' }}>
+      {/* 1. HERO & INTRODUCTION */}
+      <section className="page-hero-section" style={{ padding: '80px 20px 60px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div className="page-hero-content text-center max-w-4xl mx-auto">
-              <span className="badge badge-primary mb-4 inline-flex items-center gap-2">
-                <BookOpen size={14} /> Parent Resources / Blog · Ajman
+            <div>
+              <span style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '6px 18px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                letterSpacing: '0.5px',
+                marginBottom: '20px'
+              }}>
+                <BookOpen size={14} />
+                PARENT RESOURCES / BLOG · LONG-TERM ORGANIC VISIBILITY AND PARENT EDUCATION
               </span>
-              <h1 className="hero-title text-3xl md:text-5xl font-black text-warm-navy mb-6 leading-tight">
+
+              <h1 style={{
+                fontSize: 'clamp(32px, 5vw, 50px)',
+                fontWeight: '900',
+                color: '#721024',
+                lineHeight: 1.2,
+                margin: '0 0 24px 0'
+              }}>
                 Helpful Ideas for Your Child's Early Years
               </h1>
-              <div className="space-y-4 text-lg md:text-xl text-stone-600 leading-relaxed font-normal">
-                <p>
+
+              <div style={{ fontSize: '17.5px', lineHeight: 1.8, color: '#475569', margin: '0 auto 36px', maxWidth: '780px' }}>
+                <p style={{ margin: 0 }}>
                   The early years bring exciting milestones and plenty of questions. Our parent resources share practical ideas to help families understand learning, support growing independence and prepare children for nursery and school.
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-4 mt-8">
-                <Link to="/contact" className="btn btn-primary shadow-lg shadow-orange-500/20">
+
+              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Link
+                  to="/contact"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 28px',
+                    borderRadius: '999px',
+                    backgroundColor: '#721024',
+                    color: '#ffffff',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
                   <Calendar size={18} />
-                  Book a Visit
+                  <span>BOOK A VISIT</span>
                 </Link>
-                <Link to="/about-us" className="btn btn-secondary">
-                  About Our Philosophy
+                <Link
+                  to="/about-us"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 28px',
+                    borderRadius: '999px',
+                    backgroundColor: '#ffffff',
+                    color: '#721024',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    border: '1.5px solid #721024',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
+                  <span>ABOUT OUR NURSERY</span>
                   <ArrowRight size={18} />
                 </Link>
               </div>
@@ -112,42 +171,77 @@ export default function BlogPage() {
       </section>
 
       {/* 2. RECOMMENDED LAUNCH ARTICLES */}
-      <section className="section bg-white border-y border-stone-100">
-        <div className="container">
+      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="badge badge-accent mb-3">Parent Guidance</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy mb-4">
+            <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
+              <span style={{
+                display: 'inline-block',
+                padding: '6px 16px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                marginBottom: '14px'
+              }}>
+                PARENT GUIDES
+              </span>
+              <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: '900', color: '#721024', margin: 0 }}>
                 Recommended Launch Articles
               </h2>
-              <p className="text-stone-600 text-lg">
-                Practical insights and guidance written to support your child's growth and development.
-              </p>
             </div>
           </RevealOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '24px'
+          }}>
             {ARTICLES.map((article, index) => (
-              <RevealOnScroll key={index} delay={index * 40}>
-                <div className="h-full p-8 rounded-3xl bg-[#FFFDF7] border border-stone-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+              <RevealOnScroll key={index} delay={index * 35}>
+                <div style={{
+                  background: '#FFFDF7',
+                  borderRadius: '24px',
+                  padding: '32px 28px',
+                  border: '1.5px solid #ffede4',
+                  boxShadow: '0 4px 14px rgba(0,0,0,0.02)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  height: '100%',
+                  transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                }}>
                   <div>
-                    <h3 className="text-2xl font-bold text-warm-navy mb-3 leading-snug">
+                    <h3 style={{ fontSize: '20px', fontWeight: '850', color: '#1e293b', marginBottom: '14px', lineHeight: 1.4 }}>
                       {article.title}
                     </h3>
-                    <p className="text-stone-600 text-base leading-relaxed mb-6">
-                      {article.desc}
+                    <p style={{ fontSize: '14.5px', color: '#64748b', fontStyle: 'italic', marginBottom: '20px' }}>
+                      {article.note}
                     </p>
                   </div>
-                  <div className="pt-4 border-t border-stone-200/60">
-                    <p className="text-xs font-bold uppercase tracking-wider text-stone-400 mb-2">Related Sections</p>
-                    <div className="flex flex-wrap gap-2">
+
+                  <div style={{ paddingTop: '18px', borderTop: '1px solid #f1f5f9' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                       {article.links.map((link, lIdx) => (
                         <Link
                           key={lIdx}
                           to={link.url}
-                          className="inline-flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-full bg-white border border-stone-200 text-[#F15A29] hover:bg-orange-50 transition-colors"
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '4px',
+                            fontSize: '13px',
+                            fontWeight: '700',
+                            padding: '6px 14px',
+                            borderRadius: '999px',
+                            backgroundColor: '#ffffff',
+                            border: '1px solid #fed7aa',
+                            color: '#721024',
+                            textDecoration: 'none'
+                          }}
                         >
-                          {link.label}
+                          <span>{link.label}</span>
                           <ArrowRight size={12} />
                         </Link>
                       ))}
@@ -161,21 +255,121 @@ export default function BlogPage() {
       </section>
 
       {/* 3. EDITORIAL DIRECTION */}
-      <section className="section bg-[#FFFDF7]">
-        <div className="container max-w-3xl mx-auto">
-          <div className="p-8 rounded-3xl bg-white border border-stone-200 shadow-sm text-center">
-            <RevealOnScroll>
-              <div className="w-12 h-12 rounded-2xl bg-orange-50 text-[#F15A29] flex items-center justify-center mx-auto mb-4">
-                <Info size={24} />
+      <section style={{ padding: '80px 20px', backgroundColor: '#FFFDF7' }}>
+        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
+          <RevealOnScroll>
+            <div style={{
+              background: '#ffffff',
+              borderRadius: '28px',
+              padding: '48px 36px',
+              border: '1.5px solid rgba(114, 16, 36, 0.12)',
+              boxShadow: '0 10px 30px rgba(114, 16, 36, 0.04)',
+              textAlign: 'center'
+            }}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                borderRadius: '20px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 24px'
+              }}>
+                <Info size={30} />
               </div>
-              <h3 className="text-2xl font-bold text-warm-navy mb-3">
+              <h2 style={{ fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: '900', color: '#721024', marginBottom: '18px' }}>
                 Editorial Direction
-              </h3>
-              <p className="text-stone-700 text-base md:text-lg leading-relaxed">
+              </h2>
+              <p style={{ fontSize: '17px', lineHeight: 1.75, color: '#475569', maxWidth: '720px', margin: '0 auto 32px' }}>
                 Articles should answer real parent questions clearly and naturally. Avoid repetitive location keywords, generic AI-style introductions and unsupported claims. Each article should include one primary search topic, original insight from the nursery team, relevant internal links and a gentle invitation to book a visit.
               </p>
-            </RevealOnScroll>
-          </div>
+              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Link
+                  to="/contact"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 30px',
+                    borderRadius: '999px',
+                    backgroundColor: '#721024',
+                    color: '#ffffff',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
+                  <Calendar size={18} />
+                  <span>BOOK A VISIT</span>
+                </Link>
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* 4. CLOSING CTA BANNER */}
+      <section style={{
+        padding: '80px 20px',
+        background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
+        color: '#ffffff',
+        textAlign: 'center'
+      }}>
+        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <RevealOnScroll>
+            <h2 style={{ fontSize: 'clamp(28px, 4.5vw, 40px)', fontWeight: '900', margin: '0 0 20px 0', lineHeight: 1.25 }}>
+              Helpful Ideas for Your Child's Early Years
+            </h2>
+            <p style={{ fontSize: '17px', lineHeight: 1.75, opacity: 0.95, margin: '0 auto 36px', maxWidth: '680px' }}>
+              The early years bring exciting milestones and plenty of questions. Our parent resources share practical ideas to help families understand learning, support growing independence and prepare children for nursery and school.
+            </p>
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link
+                to="/contact"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '15px 34px',
+                  borderRadius: '999px',
+                  backgroundColor: '#ffffff',
+                  color: '#721024',
+                  fontWeight: '800',
+                  fontSize: '15.5px',
+                  textDecoration: 'none',
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
+                  transition: 'all 0.25s ease'
+                }}
+              >
+                <Calendar size={18} />
+                <span>BOOK A VISIT</span>
+              </Link>
+              <Link
+                to="/about-us"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '15px 34px',
+                  borderRadius: '999px',
+                  backgroundColor: 'rgba(255,255,255,0.12)',
+                  color: '#ffffff',
+                  fontWeight: '800',
+                  fontSize: '15.5px',
+                  textDecoration: 'none',
+                  border: '1.5px solid rgba(255,255,255,0.4)',
+                  transition: 'all 0.25s ease'
+                }}
+              >
+                <span>ABOUT OUR NURSERY</span>
+                <ArrowRight size={18} />
+              </Link>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
     </div>
