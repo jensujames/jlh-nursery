@@ -30,7 +30,7 @@ export default function AboutSection({ onBookVisitClick }) {
       color: "#7b1127"
     },
     {
-      title: "Kindness, Patience & Motherly Respect",
+      title: "Kindness, Patience & Caring Respect",
       desc: "Treating every single child with boundless patience, unconditional warmth, dignity, and deep emotional understanding.",
       icon: Heart,
       color: "#aa1e3d"
@@ -157,7 +157,7 @@ export default function AboutSection({ onBookVisitClick }) {
                 marginBottom: '1rem',
                 fontFamily: 'var(--font-heading)'
               }}>
-                Preparing children for life with motherly care and attention.
+                Preparing children for life with loving care and attention.
               </h3>
 
               <p style={{ color: '#57524e', fontSize: '0.98rem', lineHeight: '1.7' }}>

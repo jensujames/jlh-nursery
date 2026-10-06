@@ -64,16 +64,16 @@ const VISION_MISSION_DATA = {
     icon: Compass,
     accentColor: '#721024',
     badgeBg: '#FFF1F2',
-    image: '/images/hero-about.jpg',
-    imageAlt: 'Educators and children exploring together at Just Like Home Nursery',
+    image: '/images/classroom.jpg',
+    imageAlt: 'Nurturing classroom environment with caring educators and happy children at Just Like Home Nursery',
     imageBadge: 'Villa No. 47, Al Rashidiya 2, Ajman',
     imageTag: 'Preparing Children For Life',
-    statement: 'Preparing children for life with motherly care and attention.',
-    footerTag: 'Motherly Care & Attention',
+    statement: 'Preparing children for life with loving care, patience and personal attention.',
+    footerTag: 'Nurturing Care & Attention',
     footerIcon: Heart,
     points: [
       {
-        title: 'Motherly Care & Warmth',
+        title: 'Nurturing Care & Warmth',
         desc: 'Every child receives tender, compassionate attention, ensuring they feel loved, secure and confident from day one.'
       },
       {
@@ -125,7 +125,7 @@ export default function AboutPage({ onBookVisitClick }) {
     document.title = "About Just Like Home Nursery | Early Years Nursery Ajman";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Meet Just Like Home Nursery in Ajman and discover our nurturing philosophy, motherly care, play-based approach and commitment to every child's development.");
+      metaDesc.setAttribute("content", "Meet Just Like Home Nursery in Ajman and discover our nurturing philosophy, loving care, play-based approach and commitment to every child's development.");
     }
   }, []);
 
@@ -286,14 +286,11 @@ export default function AboutPage({ onBookVisitClick }) {
                         <span>{currentData.imageTag}</span>
                       </div>
 
-                      {/* Bottom Caption Card */}
+                      {/* Bottom Caption Badge */}
                       <div className="about-vm-image-bottom-caption">
                         <div className="about-vm-caption-tag">
                           {currentData.imageBadge}
                         </div>
-                        <p className="about-vm-caption-text">
-                          {currentData.statement}
-                        </p>
                       </div>
                     </div>
                   </RevealOnScroll>
