@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import { 
@@ -63,40 +63,99 @@ const ADMISSION_FAQS = [
 ];
 
 export default function AdmissionsPage() {
-  const [openFaq, setOpenFaq] = useState(null);
+  const [openFaq, setOpenFaq] = useState(0);
+
+  useEffect(() => {
+    document.title = "Nursery Admissions in Ajman | Book a Visit";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Start your child's journey at Just Like Home Nursery in Ajman. Ask about availability, book a nursery tour and receive guidance through the admissions process.");
+    }
+  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
   return (
-    <div className="admissions-page">
-      {/* 1. HERO */}
-      <section className="page-hero-section">
-        <div className="hero-atmosphere">
-          <div className="hero-sun-glow"></div>
-        </div>
-        <div className="container relative z-10">
+    <div className="admissions-page" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F', minHeight: '100vh' }}>
+      {/* 1. HERO & INTRODUCTION */}
+      <section className="page-hero-section" style={{ padding: '80px 20px 60px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div className="page-hero-content text-center max-w-4xl mx-auto">
-              <span className="badge badge-primary mb-4 inline-flex items-center gap-2">
-                <FileText size={14} /> Nursery Admissions · Ajman
+            <div>
+              <span style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '6px 18px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                letterSpacing: '0.5px',
+                marginBottom: '20px'
+              }}>
+                <FileText size={14} />
+                ADMISSIONS · CLEAR ENQUIRY-TO-ENROLMENT PATHWAY
               </span>
-              <h1 className="hero-title text-3xl md:text-5xl font-black text-warm-navy mb-6 leading-tight">
+
+              <h1 style={{
+                fontSize: 'clamp(32px, 5vw, 50px)',
+                fontWeight: '900',
+                color: '#721024',
+                lineHeight: 1.2,
+                margin: '0 0 24px 0'
+              }}>
                 A Warm Welcome Starts Here
               </h1>
-              <div className="space-y-4 text-lg md:text-xl text-stone-600 leading-relaxed font-normal">
-                <p>
+
+              <div style={{ fontSize: '17.5px', lineHeight: 1.8, color: '#475569', margin: '0 auto 36px', maxWidth: '780px' }}>
+                <p style={{ margin: 0 }}>
                   Choosing a nursery is personal. We want families to have the opportunity to ask questions, understand the environment and decide whether Just Like Home Nursery is the right fit for their child.
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-4 mt-8">
-                <Link to="/contact" className="btn btn-primary shadow-lg shadow-orange-500/20">
+
+              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Link
+                  to="/contact"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 28px',
+                    borderRadius: '999px',
+                    backgroundColor: '#721024',
+                    color: '#ffffff',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
                   <Calendar size={18} />
-                  Book a Visit
+                  <span>BOOK A VISIT</span>
                 </Link>
-                <Link to="/contact" className="btn btn-secondary">
-                  Start an Enquiry
+                <Link
+                  to="/contact"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 28px',
+                    borderRadius: '999px',
+                    backgroundColor: '#ffffff',
+                    color: '#721024',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    border: '1.5px solid #721024',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
+                  <span>START AN ENQUIRY</span>
                   <ArrowRight size={18} />
                 </Link>
               </div>
@@ -106,32 +165,62 @@ export default function AdmissionsPage() {
       </section>
 
       {/* 2. YOUR ADMISSIONS JOURNEY */}
-      <section className="section bg-white border-y border-stone-100">
-        <div className="container">
+      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
+        <div style={{ maxWidth: '980px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="badge badge-accent mb-3">Simple Steps</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy mb-4">
+            <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
+              <span style={{
+                display: 'inline-block',
+                padding: '6px 16px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                marginBottom: '14px'
+              }}>
+                STEP-BY-STEP PROCESS
+              </span>
+              <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: '900', color: '#721024', margin: 0 }}>
                 Your Admissions Journey
               </h2>
-              <p className="text-stone-600 text-lg">
-                We make joining our nursery family transparent, smooth and personal.
-              </p>
             </div>
           </RevealOnScroll>
 
-          <div className="max-w-4xl mx-auto space-y-4">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
             {JOURNEY_STEPS.map((stepItem, index) => (
-              <RevealOnScroll key={index} delay={index * 50}>
-                <div className="flex items-start gap-5 p-6 rounded-3xl bg-[#FFFDF7] border border-stone-200/80 shadow-sm hover:border-orange-300 transition-colors">
-                  <div className="w-12 h-12 rounded-2xl bg-orange-50 text-[#F15A29] flex items-center justify-center font-black text-xl shrink-0">
+              <RevealOnScroll key={index} delay={index * 40}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: '22px',
+                  padding: '26px 28px',
+                  borderRadius: '24px',
+                  backgroundColor: '#FFFDF7',
+                  border: '1.5px solid #ffede4',
+                  boxShadow: '0 4px 14px rgba(0,0,0,0.02)',
+                  transition: 'all 0.25s ease'
+                }}>
+                  <div style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '16px',
+                    backgroundColor: '#fff1f2',
+                    color: '#721024',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: '900',
+                    fontSize: '20px',
+                    flexShrink: 0
+                  }}>
                     {stepItem.step}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-warm-navy mb-2">
-                      {stepItem.step}. {stepItem.title}
+                    <h3 style={{ fontSize: '20px', fontWeight: '850', color: '#1e293b', margin: '0 0 8px 0' }}>
+                      {stepItem.title}
                     </h3>
-                    <p className="text-stone-600 text-base md:text-lg leading-relaxed">
+                    <p style={{ fontSize: '15.5px', lineHeight: 1.7, color: '#475569', margin: 0 }}>
                       {stepItem.desc}
                     </p>
                   </div>
@@ -143,96 +232,177 @@ export default function AdmissionsPage() {
       </section>
 
       {/* 3. INFORMATION TO SHARE IN YOUR ENQUIRY */}
-      <section className="section bg-[#FFFDF7]">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-5xl mx-auto">
-            <div className="lg:col-span-6 space-y-4">
-              <RevealOnScroll>
-                <span className="badge badge-primary mb-2">Helpful Checklist</span>
-                <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy">
+      <section style={{ padding: '80px 20px', backgroundColor: '#FFFDF7' }}>
+        <div style={{ maxWidth: '980px', margin: '0 auto' }}>
+          <RevealOnScroll>
+            <div style={{
+              background: '#ffffff',
+              borderRadius: '28px',
+              padding: '48px 36px',
+              border: '1.5px solid rgba(114, 16, 36, 0.12)',
+              boxShadow: '0 10px 30px rgba(114, 16, 36, 0.04)'
+            }}>
+              <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+                <span style={{
+                  display: 'inline-block',
+                  padding: '6px 16px',
+                  borderRadius: '999px',
+                  backgroundColor: '#fff1f2',
+                  color: '#721024',
+                  fontSize: '13px',
+                  fontWeight: '800',
+                  marginBottom: '14px'
+                }}>
+                  ENQUIRY DETAILS
+                </span>
+                <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 36px)', fontWeight: '900', color: '#721024', margin: 0 }}>
                   Information to Share in Your Enquiry
                 </h2>
-                <p className="text-stone-600 text-lg leading-relaxed">
-                  When getting in touch, sharing these details helps us provide clear information on availability and class groupings:
-                </p>
-              </RevealOnScroll>
-            </div>
+              </div>
 
-            <div className="lg:col-span-6">
-              <RevealOnScroll delay={100}>
-                <div className="p-8 rounded-3xl bg-white border border-stone-200 shadow-sm space-y-3">
-                  {ENQUIRY_INFO_POINTS.map((item, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
-                        <CheckCircle2 size={14} />
-                      </div>
-                      <span className="text-stone-700 font-medium text-base">
-                        {item}
-                      </span>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '16px'
+              }}>
+                {ENQUIRY_INFO_POINTS.map((item, index) => (
+                  <div key={index} style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '12px',
+                    padding: '16px 18px',
+                    borderRadius: '16px',
+                    backgroundColor: '#FFFDF7',
+                    border: '1px solid #ffede4'
+                  }}>
+                    <div style={{
+                      width: '24px',
+                      height: '24px',
+                      borderRadius: '50%',
+                      backgroundColor: '#fff1f2',
+                      color: '#721024',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                      marginTop: '2px'
+                    }}>
+                      <CheckCircle2 size={15} />
                     </div>
-                  ))}
-                </div>
-              </RevealOnScroll>
+                    <span style={{ fontSize: '15px', fontWeight: '600', color: '#334155', lineHeight: 1.5 }}>
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
       {/* 4. DOCUMENTS & FEES */}
-      <section className="section bg-white border-y border-stone-100">
-        <div className="container">
-          <div className="max-w-3xl mx-auto p-8 rounded-3xl bg-amber-50/60 border border-amber-200/80 text-center">
-            <RevealOnScroll>
-              <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center mx-auto mb-4">
-                <AlertCircle size={24} />
+      <section style={{ padding: '0 20px 80px', backgroundColor: '#FFFDF7' }}>
+        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
+          <RevealOnScroll>
+            <div style={{
+              background: '#fffbf5',
+              borderRadius: '24px',
+              padding: '38px 32px',
+              border: '1.5px solid #fed7aa',
+              textAlign: 'center'
+            }}>
+              <div style={{
+                width: '54px',
+                height: '54px',
+                borderRadius: '18px',
+                backgroundColor: '#ffedd5',
+                color: '#c2410c',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 20px'
+              }}>
+                <AlertCircle size={28} />
               </div>
-              <h3 className="text-2xl font-bold text-warm-navy mb-3">
-                Documents & Fees
+              <h3 style={{ fontSize: '24px', fontWeight: '850', color: '#721024', marginBottom: '14px' }}>
+                Documents &amp; Fees
               </h3>
-              <p className="text-stone-700 text-base md:text-lg leading-relaxed">
+              <p style={{ fontSize: '16px', lineHeight: 1.75, color: '#475569', margin: 0, maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
                 The exact registration documents, fee schedule, payment terms, refund policy and required medical information must be supplied and approved by nursery management before they are published on this page.
               </p>
-              <div className="mt-6">
-                <Link to="/contact" className="btn btn-primary inline-flex items-center gap-2">
-                  <Phone size={16} /> Contact Team for Current Details
-                </Link>
-              </div>
-            </RevealOnScroll>
-          </div>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
       {/* 5. FREQUENTLY ASKED ADMISSIONS QUESTIONS */}
-      <section className="section bg-[#FFFDF7]">
-        <div className="container max-w-4xl">
+      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
+        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div className="text-center mb-12">
-              <span className="badge badge-accent mb-3">Parent FAQs</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy">
+            <div style={{ textAlign: 'center', marginBottom: '44px' }}>
+              <span style={{
+                display: 'inline-block',
+                padding: '6px 16px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                marginBottom: '14px'
+              }}>
+                FAQS
+              </span>
+              <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: '900', color: '#721024', margin: 0 }}>
                 Frequently Asked Admissions Questions
               </h2>
             </div>
           </RevealOnScroll>
 
-          <div className="space-y-4">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {ADMISSION_FAQS.map((faq, index) => (
-              <RevealOnScroll key={index} delay={index * 50}>
+              <RevealOnScroll key={index} delay={index * 40}>
                 <div 
-                  className="rounded-2xl bg-white border border-stone-200 shadow-sm overflow-hidden transition-all cursor-pointer"
+                  style={{
+                    borderRadius: '20px',
+                    backgroundColor: '#FFFDF7',
+                    border: '1.5px solid #ffede4',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                    transition: 'all 0.25s ease'
+                  }}
                   onClick={() => toggleFaq(index)}
                 >
-                  <div className="p-6 flex items-center justify-between gap-4">
-                    <h3 className="font-bold text-lg text-warm-navy flex items-center gap-3">
-                      <HelpCircle size={20} className="text-[#F15A29] shrink-0" />
+                  <div style={{
+                    padding: '22px 24px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: '16px'
+                  }}>
+                    <h3 style={{
+                      fontSize: '17px',
+                      fontWeight: '800',
+                      color: '#1e293b',
+                      margin: 0,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '12px'
+                    }}>
+                      <HelpCircle size={20} style={{ color: '#721024', flexShrink: 0 }} />
                       {faq.q}
                     </h3>
-                    <div className="text-stone-400">
+                    <div style={{ color: '#721024' }}>
                       {openFaq === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                     </div>
                   </div>
                   {openFaq === index && (
-                    <div className="px-6 pb-6 pt-0 text-stone-600 text-base leading-relaxed border-t border-stone-100 mt-2">
-                      <p className="pt-4">{faq.a}</p>
+                    <div style={{
+                      padding: '0 24px 22px 56px',
+                      fontSize: '15.5px',
+                      lineHeight: 1.7,
+                      color: '#475569'
+                    }}>
+                      <p style={{ margin: 0 }}>{faq.a}</p>
                     </div>
                   )}
                 </div>
@@ -242,23 +412,60 @@ export default function AdmissionsPage() {
         </div>
       </section>
 
-      {/* 6. CLOSING CTA */}
-      <section className="py-16 bg-gradient-to-r from-[#F15A29] to-[#C62828] text-white">
-        <div className="container text-center max-w-3xl mx-auto">
+      {/* 6. CLOSING CTA BANNER: START AN ENQUIRY | BOOK A VISIT */}
+      <section style={{
+        padding: '80px 20px',
+        background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
+        color: '#ffffff',
+        textAlign: 'center'
+      }}>
+        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-              Begin Your Child's Journey Today
+            <h2 style={{ fontSize: 'clamp(28px, 4.5vw, 40px)', fontWeight: '900', margin: '0 0 20px 0', lineHeight: 1.25 }}>
+              A Warm Welcome Starts Here
             </h2>
-            <p className="text-lg text-white/90 mb-8 leading-relaxed">
-              We look forward to meeting your family and showing you around our warm, home-like environment in Ajman.
+            <p style={{ fontSize: '17px', lineHeight: 1.75, opacity: 0.95, margin: '0 auto 36px', maxWidth: '680px' }}>
+              Choosing a nursery is personal. We want families to have the opportunity to ask questions, understand the environment and decide whether Just Like Home Nursery is the right fit for their child.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/contact" className="btn bg-white text-stone-900 hover:bg-stone-100 font-bold px-8 py-3 rounded-full shadow-lg">
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link
+                to="/contact"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '15px 34px',
+                  borderRadius: '999px',
+                  backgroundColor: '#ffffff',
+                  color: '#721024',
+                  fontWeight: '800',
+                  fontSize: '15.5px',
+                  textDecoration: 'none',
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
+                  transition: 'all 0.25s ease'
+                }}
+              >
                 <Calendar size={18} />
-                Book a Visit
+                <span>BOOK A VISIT</span>
               </Link>
-              <Link to="/contact" className="btn bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold px-8 py-3 rounded-full">
-                Start an Enquiry
+              <Link
+                to="/contact"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '15px 34px',
+                  borderRadius: '999px',
+                  backgroundColor: 'rgba(255,255,255,0.12)',
+                  color: '#ffffff',
+                  fontWeight: '800',
+                  fontSize: '15.5px',
+                  textDecoration: 'none',
+                  border: '1.5px solid rgba(255,255,255,0.4)',
+                  transition: 'all 0.25s ease'
+                }}
+              >
+                <span>START AN ENQUIRY</span>
                 <ArrowRight size={18} />
               </Link>
             </div>
