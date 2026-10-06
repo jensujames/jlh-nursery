@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import RevealOnScroll from '../components/RevealOnScroll';
 import { getApiUrl } from '../config/api';
 import { 
   MapPin, Phone, Mail, MessageCircle, Calendar, 
-  CheckCircle2, Send, ExternalLink, Navigation 
+  CheckCircle2, Send, Navigation, Info, ArrowRight 
 } from 'lucide-react';
 
 export default function ContactPage() {
+  useEffect(() => {
+    document.title = "Contact Just Like Home Nursery | Al Rashidiya 2, Ajman";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Contact Just Like Home Nursery at Villa 47, Al Rashidiya 2, Ajman. Call, WhatsApp or book a visit to explore our nurturing early-years environment.");
+    }
+  }, []);
+
   const [formData, setFormData] = useState({
     parentName: '',
     phone: '',
@@ -61,7 +69,7 @@ export default function ContactPage() {
 
       setSubmitted(true);
     } catch (err) {
-      // Fallback graceful success so user experience isn't blocked even if backend is offline
+      // Fallback graceful success so user experience is smooth even if backend is offline
       setSubmitted(true);
     } finally {
       setIsSubmitting(false);
@@ -73,39 +81,109 @@ export default function ContactPage() {
   );
 
   return (
-    <div className="contact-page">
-      {/* 1. HERO */}
-      <section className="page-hero-section">
-        <div className="hero-atmosphere">
-          <div className="hero-sun-glow"></div>
-        </div>
-        <div className="container relative z-10">
+    <div className="contact-page" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F', minHeight: '100vh' }}>
+      {/* 1. HERO & INTRODUCTION */}
+      <section className="page-hero-section" style={{ padding: '80px 20px 60px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div className="page-hero-content text-center max-w-4xl mx-auto">
-              <span className="badge badge-primary mb-4 inline-flex items-center gap-2">
-                <MapPin size={14} /> Contact & Book a Visit · Al Rashidiya 2, Ajman
+            <div>
+              <span style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '6px 18px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                letterSpacing: '0.5px',
+                marginBottom: '20px'
+              }}>
+                <MapPin size={14} />
+                CONTACT &amp; BOOK A VISIT · LOCAL CONVERSION PAGE
               </span>
-              <h1 className="hero-title text-3xl md:text-5xl font-black text-warm-navy mb-6 leading-tight">
+
+              <h1 style={{
+                fontSize: 'clamp(32px, 5vw, 50px)',
+                fontWeight: '900',
+                color: '#721024',
+                lineHeight: 1.2,
+                margin: '0 0 24px 0'
+              }}>
                 Come and Experience Just Like Home
               </h1>
-              <div className="space-y-4 text-lg md:text-xl text-stone-600 leading-relaxed font-normal">
-                <p>
+
+              <div style={{ fontSize: '17.5px', lineHeight: 1.8, color: '#475569', margin: '0 auto 36px', maxWidth: '780px' }}>
+                <p style={{ margin: 0 }}>
                   The best way to understand whether a nursery feels right is to experience it. Book a visit to meet our team, explore the environment and ask questions about your child's care and learning.
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-4 mt-8">
-                <a href="#visit-form" className="btn btn-primary shadow-lg shadow-orange-500/20">
-                  <Calendar size={18} />
-                  Book a Visit
+
+              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <a
+                  href="tel:0502005346"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 28px',
+                    borderRadius: '999px',
+                    backgroundColor: '#721024',
+                    color: '#ffffff',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
+                  <Phone size={18} />
+                  <span>CALL US</span>
                 </a>
                 <a 
                   href={`https://wa.me/971502005346?text=${whatsappMessage}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="btn btn-secondary"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 28px',
+                    borderRadius: '999px',
+                    backgroundColor: '#ffffff',
+                    color: '#721024',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    border: '1.5px solid #721024',
+                    transition: 'all 0.25s ease'
+                  }}
                 >
                   <MessageCircle size={18} />
-                  WhatsApp Us
+                  <span>WHATSAPP US</span>
+                </a>
+                <a 
+                  href="https://maps.google.com/?q=Villa+47+Al+Rashidiya+2+Ajman" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 28px',
+                    borderRadius: '999px',
+                    backgroundColor: '#ffffff',
+                    color: '#721024',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    border: '1.5px solid #721024',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
+                  <Navigation size={18} />
+                  <span>GET DIRECTIONS</span>
                 </a>
               </div>
             </div>
@@ -113,53 +191,130 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* 2. CONTACT DETAILS & DIRECT ACTION BAR */}
-      <section className="section bg-white border-y border-stone-100">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+      {/* 2. CONTACT DETAILS */}
+      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
+        <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
+          <RevealOnScroll>
+            <div style={{ textAlign: 'center', marginBottom: '44px' }}>
+              <span style={{
+                display: 'inline-block',
+                padding: '6px 16px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                marginBottom: '14px'
+              }}>
+                DIRECT DETAILS
+              </span>
+              <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: '900', color: '#721024', margin: 0 }}>
+                Contact Details
+              </h2>
+            </div>
+          </RevealOnScroll>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '24px'
+          }}>
             <RevealOnScroll>
-              <div className="p-8 rounded-3xl bg-[#FFFDF7] border border-stone-200/80 text-center h-full flex flex-col justify-between">
+              <div style={{
+                padding: '36px 30px',
+                borderRadius: '24px',
+                backgroundColor: '#FFFDF7',
+                border: '1.5px solid #ffede4',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+              }}>
                 <div>
-                  <div className="w-14 h-14 rounded-2xl bg-orange-50 text-[#F15A29] flex items-center justify-center mx-auto mb-5">
-                    <MapPin size={28} />
+                  <div style={{
+                    width: '54px',
+                    height: '54px',
+                    borderRadius: '16px',
+                    backgroundColor: '#fff1f2',
+                    color: '#721024',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '20px'
+                  }}>
+                    <MapPin size={26} />
                   </div>
-                  <h3 className="text-xl font-bold text-warm-navy mb-2">Our Location</h3>
-                  <p className="text-stone-700 font-medium">Just Like Home Nursery</p>
-                  <p className="text-stone-600 text-sm mt-1">Villa No. 47, Al Rashidiya 2, Ajman</p>
+                  <h3 style={{ fontSize: '20px', fontWeight: '850', color: '#1e293b', marginBottom: '10px' }}>
+                    Just Like Home Nursery
+                  </h3>
+                  <p style={{ fontSize: '16px', lineHeight: 1.65, color: '#475569', margin: 0 }}>
+                    Villa No. 47, Al Rashidiya 2, Ajman
+                  </p>
                 </div>
-                <div className="mt-6">
+                <div style={{ marginTop: '24px', paddingTop: '18px', borderTop: '1px solid #f1f5f9' }}>
                   <a 
                     href="https://maps.google.com/?q=Villa+47+Al+Rashidiya+2+Ajman" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-bold text-[#F15A29] hover:underline"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      color: '#721024',
+                      fontWeight: '800',
+                      fontSize: '14px',
+                      textDecoration: 'none'
+                    }}
                   >
-                    <Navigation size={14} /> Get Directions
+                    <Navigation size={15} />
+                    <span>Get Directions</span>
                   </a>
                 </div>
               </div>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={100}>
-              <div className="p-8 rounded-3xl bg-[#FFFDF7] border border-stone-200/80 text-center h-full flex flex-col justify-between">
+            <RevealOnScroll delay={50}>
+              <div style={{
+                padding: '36px 30px',
+                borderRadius: '24px',
+                backgroundColor: '#FFFDF7',
+                border: '1.5px solid #ffede4',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+              }}>
                 <div>
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-5">
-                    <Phone size={28} />
+                  <div style={{
+                    width: '54px',
+                    height: '54px',
+                    borderRadius: '16px',
+                    backgroundColor: '#fff1f2',
+                    color: '#721024',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '20px'
+                  }}>
+                    <Phone size={26} />
                   </div>
-                  <h3 className="text-xl font-bold text-warm-navy mb-2">Phone & WhatsApp</h3>
-                  <p className="text-stone-700 font-bold text-lg">050 200 5346</p>
-                  <p className="text-stone-500 text-xs mt-1">Available for calls and messages</p>
+                  <h3 style={{ fontSize: '20px', fontWeight: '850', color: '#1e293b', marginBottom: '10px' }}>
+                    Phone / WhatsApp
+                  </h3>
+                  <p style={{ fontSize: '18px', fontWeight: '800', color: '#721024', margin: 0 }}>
+                    050 200 5346
+                  </p>
                 </div>
-                <div className="mt-6 flex justify-center gap-4">
-                  <a href="tel:0502005346" className="text-xs font-bold text-emerald-600 hover:underline">
+                <div style={{ marginTop: '24px', paddingTop: '18px', borderTop: '1px solid #f1f5f9', display: 'flex', gap: '16px' }}>
+                  <a href="tel:0502005346" style={{ color: '#721024', fontWeight: '800', fontSize: '14px', textDecoration: 'none' }}>
                     Call Us
                   </a>
-                  <span className="text-stone-300">|</span>
+                  <span style={{ color: '#cbd5e1' }}>|</span>
                   <a 
                     href={`https://wa.me/971502005346?text=${whatsappMessage}`}
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-xs font-bold text-emerald-600 hover:underline"
+                    style={{ color: '#721024', fontWeight: '800', fontSize: '14px', textDecoration: 'none' }}
                   >
                     WhatsApp Us
                   </a>
@@ -167,18 +322,43 @@ export default function ContactPage() {
               </div>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={200}>
-              <div className="p-8 rounded-3xl bg-[#FFFDF7] border border-stone-200/80 text-center h-full flex flex-col justify-between">
+            <RevealOnScroll delay={100}>
+              <div style={{
+                padding: '36px 30px',
+                borderRadius: '24px',
+                backgroundColor: '#FFFDF7',
+                border: '1.5px solid #ffede4',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+              }}>
                 <div>
-                  <div className="w-14 h-14 rounded-2xl bg-sky-50 text-[#0284c7] flex items-center justify-center mx-auto mb-5">
-                    <Mail size={28} />
+                  <div style={{
+                    width: '54px',
+                    height: '54px',
+                    borderRadius: '16px',
+                    backgroundColor: '#fff1f2',
+                    color: '#721024',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '20px'
+                  }}>
+                    <Mail size={26} />
                   </div>
-                  <h3 className="text-xl font-bold text-warm-navy mb-2">Email Address</h3>
-                  <p className="text-stone-700 font-medium text-sm break-all">nurseryjustlikehome@gmail.com</p>
-                  <p className="text-stone-500 text-xs mt-1">For admissions & enquiries</p>
+                  <h3 style={{ fontSize: '20px', fontWeight: '850', color: '#1e293b', marginBottom: '10px' }}>
+                    Email
+                  </h3>
+                  <p style={{ fontSize: '15px', fontWeight: '600', color: '#475569', margin: 0, wordBreak: 'break-all' }}>
+                    nurseryjustlikehome@gmail.com
+                  </p>
                 </div>
-                <div className="mt-6">
-                  <a href="mailto:nurseryjustlikehome@gmail.com" className="text-xs font-bold text-[#0284c7] hover:underline">
+                <div style={{ marginTop: '24px', paddingTop: '18px', borderTop: '1px solid #f1f5f9' }}>
+                  <a 
+                    href="mailto:nurseryjustlikehome@gmail.com" 
+                    style={{ color: '#721024', fontWeight: '800', fontSize: '14px', textDecoration: 'none' }}
+                  >
                     Send Email
                   </a>
                 </div>
@@ -189,48 +369,99 @@ export default function ContactPage() {
       </section>
 
       {/* 3. BOOK-A-VISIT FORM */}
-      <section id="visit-form" className="section bg-[#FFFDF7]">
-        <div className="container max-w-4xl">
-          <div className="bg-white rounded-3xl p-8 md:p-12 border border-stone-200 shadow-xl">
+      <section id="visit-form" style={{ padding: '80px 20px', backgroundColor: '#FFFDF7' }}>
+        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <div style={{
+            background: '#ffffff',
+            borderRadius: '28px',
+            padding: '48px 36px',
+            border: '1.5px solid rgba(114, 16, 36, 0.12)',
+            boxShadow: '0 10px 30px rgba(114, 16, 36, 0.04)'
+          }}>
             <RevealOnScroll>
-              <div className="text-center mb-8">
-                <span className="badge badge-primary mb-3">Enquiry Form</span>
-                <h2 className="text-3xl font-extrabold text-warm-navy">
-                  Book a Visit
+              <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+                <span style={{
+                  display: 'inline-block',
+                  padding: '6px 16px',
+                  borderRadius: '999px',
+                  backgroundColor: '#fff1f2',
+                  color: '#721024',
+                  fontSize: '13px',
+                  fontWeight: '800',
+                  marginBottom: '14px'
+                }}>
+                  ENQUIRY
+                </span>
+                <h2 style={{ fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: '900', color: '#721024', margin: '0 0 12px 0' }}>
+                  Book-a-Visit Form
                 </h2>
-                <p className="text-stone-600 text-base mt-2">
-                  Fill in your details below and our team will get in touch to confirm your tour.
+                <p style={{ fontSize: '16px', lineHeight: 1.7, color: '#475569', margin: 0 }}>
+                  Recommended fields to help us prepare your visit.
                 </p>
               </div>
 
               {submitted ? (
-                <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                    <CheckCircle2 size={36} />
+                <div style={{
+                  padding: '36px 28px',
+                  borderRadius: '20px',
+                  backgroundColor: '#f0fdf4',
+                  border: '1.5px solid #bbf7d0',
+                  textAlign: 'center'
+                }}>
+                  <div style={{
+                    width: '60px',
+                    height: '60px',
+                    borderRadius: '50%',
+                    backgroundColor: '#dcfce7',
+                    color: '#16a34a',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '0 auto 20px'
+                  }}>
+                    <CheckCircle2 size={32} />
                   </div>
-                  <h3 className="text-2xl font-bold text-emerald-900">Enquiry Received</h3>
-                  <p className="text-emerald-800 text-lg leading-relaxed max-w-xl mx-auto">
+                  <h3 style={{ fontSize: '22px', fontWeight: '850', color: '#166534', marginBottom: '14px' }}>
+                    Form Confirmation Message
+                  </h3>
+                  <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#15803d', maxWidth: '600px', margin: '0 auto 24px' }}>
                     Thank you for contacting Just Like Home Nursery. We have received your enquiry and a member of our team will get in touch to help arrange your visit.
                   </p>
                   <button 
                     onClick={() => { setSubmitted(false); setFormData({ parentName: '', phone: '', email: '', childAge: '', startDate: '', programInterest: 'Nursery Program', preferredVisit: '', message: '', consent: false }); }}
-                    className="btn btn-secondary mt-4"
+                    style={{
+                      padding: '12px 28px',
+                      borderRadius: '999px',
+                      backgroundColor: '#721024',
+                      color: '#ffffff',
+                      fontWeight: '800',
+                      fontSize: '14px',
+                      border: 'none',
+                      cursor: 'pointer'
+                    }}
                   >
                     Submit Another Enquiry
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
                   {errorMessage && (
-                    <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm">
+                    <div style={{
+                      padding: '14px 18px',
+                      borderRadius: '12px',
+                      backgroundColor: '#fef2f2',
+                      border: '1px solid #fecaca',
+                      color: '#b91c1c',
+                      fontSize: '14px'
+                    }}>
                       {errorMessage}
                     </div>
                   )}
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
                     <div>
-                      <label className="block text-sm font-bold text-stone-700 mb-2">
-                        Parent / Guardian Name *
+                      <label style={{ display: 'block', fontSize: '14px', fontWeight: '750', color: '#334155', marginBottom: '8px' }}>
+                        Parent / guardian name *
                       </label>
                       <input
                         type="text"
@@ -238,14 +469,22 @@ export default function ContactPage() {
                         required
                         value={formData.parentName}
                         onChange={handleChange}
-                        placeholder="e.g. Sarah Ahmed"
-                        className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#F15A29]"
+                        placeholder="e.g. Fatima Ali"
+                        style={{
+                          width: '100%',
+                          padding: '13px 16px',
+                          borderRadius: '14px',
+                          border: '1.5px solid #e2e8f0',
+                          fontSize: '15px',
+                          outline: 'none',
+                          backgroundColor: '#FFFDF7'
+                        }}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-bold text-stone-700 mb-2">
-                        Phone Number *
+                      <label style={{ display: 'block', fontSize: '14px', fontWeight: '750', color: '#334155', marginBottom: '8px' }}>
+                        Phone number *
                       </label>
                       <input
                         type="tel"
@@ -253,30 +492,46 @@ export default function ContactPage() {
                         required
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="e.g. 050 123 4567"
-                        className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#F15A29]"
+                        placeholder="e.g. 050 200 5346"
+                        style={{
+                          width: '100%',
+                          padding: '13px 16px',
+                          borderRadius: '14px',
+                          border: '1.5px solid #e2e8f0',
+                          fontSize: '15px',
+                          outline: 'none',
+                          backgroundColor: '#FFFDF7'
+                        }}
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
                     <div>
-                      <label className="block text-sm font-bold text-stone-700 mb-2">
-                        Email Address (optional)
+                      <label style={{ display: 'block', fontSize: '14px', fontWeight: '750', color: '#334155', marginBottom: '8px' }}>
+                        Email address (optional)
                       </label>
                       <input
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="e.g. sarah@example.com"
-                        className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#F15A29]"
+                        placeholder="e.g. parent@example.com"
+                        style={{
+                          width: '100%',
+                          padding: '13px 16px',
+                          borderRadius: '14px',
+                          border: '1.5px solid #e2e8f0',
+                          fontSize: '15px',
+                          outline: 'none',
+                          backgroundColor: '#FFFDF7'
+                        }}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-bold text-stone-700 mb-2">
-                        Child's Age or Date of Birth *
+                      <label style={{ display: 'block', fontSize: '14px', fontWeight: '750', color: '#334155', marginBottom: '8px' }}>
+                        Child's age or date of birth *
                       </label>
                       <input
                         type="text"
@@ -284,36 +539,52 @@ export default function ContactPage() {
                         required
                         value={formData.childAge}
                         onChange={handleChange}
-                        placeholder="e.g. 2 years old / Jan 2024"
-                        className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#F15A29]"
+                        placeholder="e.g. 2 years old / Date of Birth"
+                        style={{
+                          width: '100%',
+                          padding: '13px 16px',
+                          borderRadius: '14px',
+                          border: '1.5px solid #e2e8f0',
+                          fontSize: '15px',
+                          outline: 'none',
+                          backgroundColor: '#FFFDF7'
+                        }}
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
                     <div>
-                      <label className="block text-sm font-bold text-stone-700 mb-2">
-                        Program Interest
+                      <label style={{ display: 'block', fontSize: '14px', fontWeight: '750', color: '#334155', marginBottom: '8px' }}>
+                        Program interest
                       </label>
                       <select
                         name="programInterest"
                         value={formData.programInterest}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#F15A29] bg-white"
+                        style={{
+                          width: '100%',
+                          padding: '13px 16px',
+                          borderRadius: '14px',
+                          border: '1.5px solid #e2e8f0',
+                          fontSize: '15px',
+                          outline: 'none',
+                          backgroundColor: '#FFFDF7',
+                          color: '#334155'
+                        }}
                       >
                         <option value="Early Years Foundation">Early Years Foundation</option>
                         <option value="Nursery Program">Nursery Program</option>
                         <option value="Preschool Program">Preschool Program</option>
                         <option value="School Readiness">School Readiness</option>
-                        <option value="Full-Day Care">Full-Day Care</option>
-                        <option value="Half-Day Care">Half-Day Care</option>
+                        <option value="Full-Day & Half-Day Care">Full-Day & Half-Day Care</option>
                         <option value="Holiday & Summer Camps">Holiday & Summer Camps</option>
                       </select>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-bold text-stone-700 mb-2">
-                        Preferred Start Date
+                      <label style={{ display: 'block', fontSize: '14px', fontWeight: '750', color: '#334155', marginBottom: '8px' }}>
+                        Preferred start date
                       </label>
                       <input
                         type="text"
@@ -321,59 +592,100 @@ export default function ContactPage() {
                         value={formData.startDate}
                         onChange={handleChange}
                         placeholder="e.g. Next month / Immediately"
-                        className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#F15A29]"
+                        style={{
+                          width: '100%',
+                          padding: '13px 16px',
+                          borderRadius: '14px',
+                          border: '1.5px solid #e2e8f0',
+                          fontSize: '15px',
+                          outline: 'none',
+                          backgroundColor: '#FFFDF7'
+                        }}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-stone-700 mb-2">
-                      Preferred Visit Date / Time
+                    <label style={{ display: 'block', fontSize: '14px', fontWeight: '750', color: '#334155', marginBottom: '8px' }}>
+                      Preferred visit date/time
                     </label>
                     <input
                       type="text"
                       name="preferredVisit"
                       value={formData.preferredVisit}
                       onChange={handleChange}
-                      placeholder="e.g. Tuesday morning around 10:00 AM"
-                      className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#F15A29]"
+                      placeholder="e.g. Wednesday 10:00 AM"
+                      style={{
+                        width: '100%',
+                        padding: '13px 16px',
+                        borderRadius: '14px',
+                        border: '1.5px solid #e2e8f0',
+                        fontSize: '15px',
+                        outline: 'none',
+                        backgroundColor: '#FFFDF7'
+                      }}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-stone-700 mb-2">
-                      Message or Question
+                    <label style={{ display: 'block', fontSize: '14px', fontWeight: '750', color: '#334155', marginBottom: '8px' }}>
+                      Message or question
                     </label>
                     <textarea
                       name="message"
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Please share any questions or initial care/learning information relevant to your enquiry."
-                      className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#F15A29]"
+                      placeholder="Please share any questions or initial information relevant to your enquiry."
+                      style={{
+                        width: '100%',
+                        padding: '13px 16px',
+                        borderRadius: '14px',
+                        border: '1.5px solid #e2e8f0',
+                        fontSize: '15px',
+                        outline: 'none',
+                        backgroundColor: '#FFFDF7',
+                        resize: 'vertical'
+                      }}
                     ></textarea>
                   </div>
 
-                  <div className="flex items-start gap-3">
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                     <input
                       type="checkbox"
                       id="consent"
                       name="consent"
                       checked={formData.consent}
                       onChange={handleChange}
-                      className="mt-1 w-4 h-4 text-[#F15A29] rounded border-stone-300 focus:ring-[#F15A29]"
+                      style={{ marginTop: '4px', width: '18px', height: '18px', accentColor: '#721024' }}
                     />
-                    <label htmlFor="consent" className="text-sm text-stone-600 leading-snug">
-                      I consent to Just Like Home Nursery contacting me regarding this enquiry.
+                    <label htmlFor="consent" style={{ fontSize: '14.5px', color: '#475569', lineHeight: 1.5, cursor: 'pointer' }}>
+                      Consent checkbox for contact regarding this enquiry
                     </label>
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full btn btn-primary py-4 font-bold text-base shadow-lg shadow-orange-500/20"
+                    style={{
+                      width: '100%',
+                      padding: '16px 28px',
+                      borderRadius: '999px',
+                      backgroundColor: '#721024',
+                      color: '#ffffff',
+                      fontWeight: '800',
+                      fontSize: '16px',
+                      border: 'none',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px',
+                      boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
+                      transition: 'all 0.25s ease'
+                    }}
                   >
-                    {isSubmitting ? 'Sending Enquiry...' : 'Book a Visit'}
+                    <span>{isSubmitting ? 'Sending Enquiry...' : 'Book a Visit'}</span>
                     <Send size={18} />
                   </button>
                 </form>
@@ -384,20 +696,38 @@ export default function ContactPage() {
       </section>
 
       {/* 4. MAP & DIRECTIONS */}
-      <section className="section bg-white border-t border-stone-100">
-        <div className="container max-w-5xl">
+      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
+        <div style={{ maxWidth: '980px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div className="text-center mb-10">
-              <span className="badge badge-primary mb-3">Map & Directions</span>
-              <h2 className="text-3xl font-extrabold text-warm-navy mb-2">
-                Find Just Like Home Nursery
+            <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+              <span style={{
+                display: 'inline-block',
+                padding: '6px 16px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                marginBottom: '14px'
+              }}>
+                LOCATION
+              </span>
+              <h2 style={{ fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: '900', color: '#721024', margin: '0 0 12px 0' }}>
+                Map &amp; Directions
               </h2>
-              <p className="text-stone-600 text-base">
-                Villa No. 47, Al Rashidiya 2, Ajman
+              <p style={{ fontSize: '15px', color: '#64748b', margin: 0 }}>
+                Embed the verified Google Business Profile map and add a clear Get Directions button. Confirm the exact map pin before launch.
               </p>
             </div>
 
-            <div className="rounded-3xl overflow-hidden border border-stone-200 shadow-md h-[400px] relative">
+            <div style={{
+              borderRadius: '24px',
+              overflow: 'hidden',
+              border: '1.5px solid #ffede4',
+              boxShadow: '0 6px 24px rgba(0,0,0,0.04)',
+              height: '420px',
+              position: 'relative'
+            }}>
               <iframe
                 title="Just Like Home Nursery Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3605.3424168050965!2d55.45187127599554!3d25.399222523727766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f1310!3m3!1m2!1s0x3e5f583e7428f52f%3A0xb30e8c160c87285c!2sAl%20Rashidiya%202%20-%20Ajman!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
@@ -410,15 +740,67 @@ export default function ContactPage() {
               ></iframe>
             </div>
 
-            <div className="text-center mt-6">
+            <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', marginTop: '30px', flexWrap: 'wrap' }}>
               <a 
                 href="https://maps.google.com/?q=Villa+47+Al+Rashidiya+2+Ajman" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="btn btn-primary inline-flex items-center gap-2"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '14px 30px',
+                  borderRadius: '999px',
+                  backgroundColor: '#721024',
+                  color: '#ffffff',
+                  fontWeight: '800',
+                  fontSize: '15px',
+                  textDecoration: 'none',
+                  boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)'
+                }}
               >
                 <Navigation size={18} />
-                Get Directions
+                <span>GET DIRECTIONS</span>
+              </a>
+              <a 
+                href="tel:0502005346" 
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '14px 30px',
+                  borderRadius: '999px',
+                  backgroundColor: '#ffffff',
+                  color: '#721024',
+                  fontWeight: '800',
+                  fontSize: '15px',
+                  textDecoration: 'none',
+                  border: '1.5px solid #721024'
+                }}
+              >
+                <Phone size={18} />
+                <span>CALL US</span>
+              </a>
+              <a 
+                href={`https://wa.me/971502005346?text=${whatsappMessage}`}
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '14px 30px',
+                  borderRadius: '999px',
+                  backgroundColor: '#ffffff',
+                  color: '#721024',
+                  fontWeight: '800',
+                  fontSize: '15px',
+                  textDecoration: 'none',
+                  border: '1.5px solid #721024'
+                }}
+              >
+                <MessageCircle size={18} />
+                <span>WHATSAPP US</span>
               </a>
             </div>
           </RevealOnScroll>
