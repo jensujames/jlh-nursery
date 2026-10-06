@@ -363,60 +363,123 @@ export default function HomePage({ onBookVisitClick }) {
       </section>
 
       {/* 5. Philosophy Spotlight ("We Don't Just Educate Children. We Nurture Little Hearts.") */}
-      <section style={{ padding: 'clamp(48px, 6vw, 72px) 20px', maxWidth: '1080px', margin: '0 auto', textAlign: 'center' }}>
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 20px', maxWidth: '1280px', margin: '0 auto' }}>
         <RevealOnScroll>
-          <div
-            style={{
-              background: 'linear-gradient(135deg, #fff1f2 0%, #fff8f5 100%)',
-              borderRadius: '32px',
-              padding: 'clamp(40px, 6vw, 64px) clamp(24px, 4vw, 48px)',
-              border: '2px solid rgba(114, 16, 36, 0.15)',
-              boxShadow: '0 16px 40px rgba(114, 16, 36, 0.06)'
-            }}
-          >
-            <span
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '6px 18px',
-                borderRadius: '999px',
-                backgroundColor: '#721024',
-                color: '#ffffff',
-                fontSize: '13px',
-                fontWeight: '800',
-                marginBottom: '20px'
-              }}
-            >
-              <Heart size={14} className="fill-current" />
-              OUR CARE PHILOSOPHY
-            </span>
-            <h2
-              style={{
-                fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                fontSize: 'clamp(26px, 3.8vw, 38px)',
-                fontWeight: '900',
-                color: '#721024',
-                margin: '0 0 20px 0',
-                lineHeight: 1.25
-              }}
-            >
-              We Don't Just Educate Children. We Nurture Little Hearts.
-            </h2>
-            <p style={{ fontSize: '18px', lineHeight: 1.8, color: '#475569', maxWidth: '840px', margin: '0 auto 24px auto', fontWeight: '500' }}>
-              We don't just educate children we nurture little hearts, build confidence, encourage curiosity, and create happy memories that last a lifetime. At Just Like Home Nursery, every child deserves to feel safe, valued, respected and encouraged.
-            </p>
-            <p
-              style={{
-                fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                fontSize: '19px',
-                fontWeight: '850',
-                color: '#721024',
-                margin: 0
-              }}
-            >
-              “Where Little Hearts Feel at Home.”
-            </p>
+          <div className="philosophy-showcase-grid">
+            
+            {/* Left Column: Heading Top Left + Image Bottom Left */}
+            <div className="philosophy-col-left">
+              <div>
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '6px 18px',
+                    borderRadius: '999px',
+                    backgroundColor: '#fff1f2',
+                    color: '#721024',
+                    fontSize: '12.5px',
+                    fontWeight: '800',
+                    letterSpacing: '0.5px',
+                    border: '1px solid rgba(114, 16, 36, 0.12)',
+                    marginBottom: '16px'
+                  }}
+                >
+                  <Heart size={13} className="fill-current" />
+                  OUR CARE PHILOSOPHY
+                </span>
+                <h2
+                  style={{
+                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                    fontSize: 'clamp(26px, 3.2vw, 36px)',
+                    fontWeight: '900',
+                    color: '#721024',
+                    margin: '0 0 14px 0',
+                    lineHeight: 1.22
+                  }}
+                >
+                  We Don't Just Educate Children. We Nurture Little Hearts.
+                </h2>
+                <p style={{ fontSize: '15.5px', lineHeight: 1.72, color: '#475569', margin: 0 }}>
+                  We don't just educate children we nurture little hearts, build confidence, encourage curiosity, and create happy memories that last a lifetime. At Just Like Home Nursery, every child deserves to feel safe, valued, respected and encouraged.
+                </p>
+              </div>
+
+              {/* Bottom Left Image */}
+              <div className="philosophy-card-img-wrap">
+                <img
+                  src="/images/activity-mini-stem.jpg"
+                  alt="Happy kids exploring sensory learning activities"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Center Column: Tall Portrait of Radiant Happy Child */}
+            <div className="philosophy-col-center">
+              <div className="philosophy-center-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=85"
+                  alt="Radiant smiling child discovering books and learning toys"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Right Column: Image Top Right + Content Bottom Right */}
+            <div className="philosophy-col-right">
+              {/* Top Right Image */}
+              <div className="philosophy-card-img-wrap">
+                <img
+                  src="/images/activity-creative-play.jpg"
+                  alt="Children happily playing and crafting together"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Bottom Right Content */}
+              <div>
+                <h3
+                  style={{
+                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                    fontSize: 'clamp(24px, 2.8vw, 32px)',
+                    fontWeight: '900',
+                    color: '#1e293b',
+                    margin: '0 0 14px 0',
+                    lineHeight: 1.25
+                  }}
+                >
+                  Where Little Hearts Feel at Home
+                </h3>
+                <p style={{ fontSize: '15.5px', lineHeight: 1.72, color: '#475569', marginBottom: '22px' }}>
+                  We create a joyful space filled with colorful classrooms, exciting activities, and caring guidance — a place where kids can imagine, discover, grow, and build lasting friendships with confidence.
+                </p>
+                <button
+                  type="button"
+                  onClick={onBookVisitClick}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    padding: '13px 28px',
+                    borderRadius: '14px',
+                    background: 'linear-gradient(135deg, #ff6a42 0%, #F15A29 100%)',
+                    color: '#ffffff',
+                    fontWeight: '800',
+                    fontSize: '14.5px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    boxShadow: '0 8px 24px rgba(241, 90, 41, 0.28)',
+                    transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                  }}
+                >
+                  <span>Book a Visit</span>
+                  <ArrowRight size={17} />
+                </button>
+              </div>
+            </div>
+
           </div>
         </RevealOnScroll>
       </section>
