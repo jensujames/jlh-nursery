@@ -77,16 +77,88 @@ export default function HomePage({ onBookVisitClick }) {
     }
   ];
 
-  // 2. Activities from document
+  // 2. Activities from document (CONTENT STRICTLY PRESERVED - NO EXTRA CONTENT)
   const ACTIVITIES = [
-    { title: 'Phonics & Literacy', icon: BookOpen, color: '#721024', bg: '#FFF1F2' },
-    { title: 'Early Numeracy', icon: Sparkles, color: '#0284c7', bg: '#F0F9FF' },
-    { title: 'Arabic Learning', icon: Compass, color: '#16a34a', bg: '#F0FDF4' },
-    { title: 'Arts & Creativity', icon: Smile, color: '#d97706', bg: '#FFFBEB' },
-    { title: 'Music, Rhymes & Stories', icon: Heart, color: '#e11d48', bg: '#FFF1F2' },
-    { title: 'Sensory Exploration', icon: Baby, color: '#0d9488', bg: '#F0FDFA' },
-    { title: 'Physical & Outdoor Play', icon: Sun, color: '#ea580c', bg: '#FFF7ED' },
-    { title: 'Life Skills & Independence', icon: ShieldCheck, color: '#721024', bg: '#FFF1F2' }
+    {
+      title: 'Phonics & Literacy',
+      desc: 'Sounds, songs, stories, conversation and mark-making help develop listening, vocabulary and early literacy.',
+      image: '/images/hero-preschool.jpg',
+      tag: 'Phonics & Reading',
+      icon: BookOpen,
+      color: '#721024',
+      bg: '#FFF1F2',
+      border: '#fecdd3'
+    },
+    {
+      title: 'Early Numeracy',
+      desc: 'Counting, sorting, matching, shapes, patterns and practical games make mathematical ideas easier to understand.',
+      image: '/images/activity-mini-stem.jpg',
+      tag: 'Numbers & Logic',
+      icon: Sparkles,
+      color: '#0284c7',
+      bg: '#F0F9FF',
+      border: '#bae6fd'
+    },
+    {
+      title: 'Arabic Learning',
+      desc: 'Age-appropriate Arabic experiences introduce children to language through engaging activities and familiar repetition.',
+      image: '/images/growing-minds-center.jpg',
+      tag: 'Arabic Language',
+      icon: Compass,
+      color: '#16a34a',
+      bg: '#F0FDF4',
+      border: '#bbf7d0'
+    },
+    {
+      title: 'Arts & Creativity',
+      desc: 'Painting, drawing, collage and making give children freedom to express ideas while developing fine-motor skills.',
+      image: '/images/activity-little-artists.jpg',
+      tag: 'Art & Expression',
+      icon: Smile,
+      color: '#d97706',
+      bg: '#FFFBEB',
+      border: '#fde68a'
+    },
+    {
+      title: 'Music, Rhymes & Stories',
+      desc: 'Books, songs and rhythm strengthen memory, listening, language and joyful participation.',
+      image: '/images/hero-about.jpg',
+      tag: 'Music & Stories',
+      icon: Heart,
+      color: '#e11d48',
+      bg: '#FFF1F2',
+      border: '#fecdd3'
+    },
+    {
+      title: 'Sensory Exploration',
+      desc: 'Hands-on play invites children to investigate textures, materials, movement, cause and effect.',
+      image: '/images/activity-creative-play.jpg',
+      tag: 'Sensory Lab',
+      icon: Baby,
+      color: '#0d9488',
+      bg: '#F0FDFA',
+      border: '#99f6e4'
+    },
+    {
+      title: 'Physical & Outdoor Play',
+      desc: 'Movement supports coordination, strength, balance, confidence and healthy habits.',
+      image: '/images/outdoor.jpg',
+      tag: 'Outdoor Movement',
+      icon: Sun,
+      color: '#ea580c',
+      bg: '#FFF7ED',
+      border: '#fed7aa'
+    },
+    {
+      title: 'Life Skills & Independence',
+      desc: 'Practical routines encourage responsibility, self-help skills, good manners and confidence.',
+      image: '/images/hero-programs.jpg',
+      tag: 'Life Skills',
+      icon: ShieldCheck,
+      color: '#721024',
+      bg: '#FFF1F2',
+      border: '#fecdd3'
+    }
   ];
 
   // 3. Facilities from document
@@ -496,46 +568,130 @@ export default function HomePage({ onBookVisitClick }) {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-              gap: '20px',
-              marginBottom: '40px'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
+              gap: '24px',
+              marginBottom: '44px'
             }}
           >
             {ACTIVITIES.map((act, idx) => {
               const Icon = act.icon;
               return (
-                <RevealOnScroll key={idx} delay={idx * 25}>
+                <RevealOnScroll key={idx} delay={idx * 30}>
                   <div
                     style={{
                       background: '#ffffff',
-                      borderRadius: '22px',
-                      padding: '24px 22px',
+                      borderRadius: '24px',
+                      padding: '16px',
+                      border: `1.5px solid ${act.border}`,
+                      boxShadow: '0 8px 24px rgba(15, 23, 42, 0.04)',
                       display: 'flex',
-                      alignItems: 'center',
-                      gap: '16px',
-                      boxShadow: '0 4px 16px rgba(114, 16, 36, 0.02)',
-                      border: '1.5px solid #ffede4',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      height: '100%',
                       transition: 'transform 0.25s ease, box-shadow 0.25s ease'
                     }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-6px)';
+                      e.currentTarget.style.boxShadow = '0 16px 32px rgba(15, 23, 42, 0.08)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(15, 23, 42, 0.04)';
+                    }}
                   >
-                    <div
+                    <div>
+                      {/* Top Image with Floating Tag Badge */}
+                      <div
+                        style={{
+                          position: 'relative',
+                          borderRadius: '18px',
+                          overflow: 'hidden',
+                          height: '190px',
+                          marginBottom: '16px',
+                          backgroundColor: act.bg
+                        }}
+                      >
+                        <img
+                          src={act.image}
+                          alt={act.title}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            display: 'block'
+                          }}
+                        />
+                        <div
+                          style={{
+                            position: 'absolute',
+                            top: '12px',
+                            left: '12px',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            padding: '4px 12px',
+                            borderRadius: '999px',
+                            backgroundColor: 'rgba(255, 255, 255, 0.94)',
+                            backdropFilter: 'blur(8px)',
+                            WebkitBackdropFilter: 'blur(8px)',
+                            color: act.color,
+                            fontSize: '11.5px',
+                            fontWeight: '800',
+                            letterSpacing: '0.3px',
+                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)'
+                          }}
+                        >
+                          <Icon size={13} />
+                          <span>{act.tag}</span>
+                        </div>
+                      </div>
+
+                      {/* Exact Title from Document */}
+                      <h3
+                        style={{
+                          fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                          fontSize: '19px',
+                          fontWeight: '850',
+                          color: '#1e293b',
+                          marginBottom: '8px',
+                          lineHeight: 1.3
+                        }}
+                      >
+                        {act.title}
+                      </h3>
+
+                      {/* Exact Description from Document - Strictly Preserved */}
+                      <p
+                        style={{
+                          fontSize: '14px',
+                          lineHeight: 1.62,
+                          color: '#475569',
+                          margin: '0 0 16px 0'
+                        }}
+                      >
+                        {act.desc}
+                      </p>
+                    </div>
+
+                    {/* Bottom Action Link */}
+                    <Link
+                      to="/nursery-activities"
                       style={{
-                        width: '48px',
-                        height: '48px',
-                        borderRadius: '14px',
-                        backgroundColor: act.bg,
-                        color: act.color,
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0
+                        justifyContent: 'space-between',
+                        paddingTop: '12px',
+                        borderTop: '1px dashed #e2e8f0',
+                        color: act.color,
+                        textDecoration: 'none',
+                        fontSize: '13.5px',
+                        fontWeight: '800',
+                        transition: 'opacity 0.2s ease'
                       }}
                     >
-                      <Icon size={24} />
-                    </div>
-                    <span style={{ fontWeight: '800', fontSize: '16px', color: '#1e293b' }}>
-                      {act.title}
-                    </span>
+                      <span>Explore Activities</span>
+                      <ArrowRight size={15} />
+                    </Link>
                   </div>
                 </RevealOnScroll>
               );
