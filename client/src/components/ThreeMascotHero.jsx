@@ -1650,6 +1650,9 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       });
     }
 
+    let characterBaseScale = 0.70;
+    let characterBasePosY = -0.98 * (1.0 - characterBaseScale);
+
     function updateResponsiveLayout() {
       const width = window.innerWidth;
       const height = window.innerHeight;
@@ -1660,13 +1663,15 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       if (aspect < 0.85) {
         const aspectFactor = Math.max(0.42, aspect) / 0.85;
         camera.fov = Math.min(68, 54 + (1.0 - aspectFactor) * 16);
-        defaultCamPos.set(0.0, 0.38, 6.5 + (1.0 - aspectFactor) * 1.6);
-        defaultTarget.set(0.0, 0.08, 0.0);
+        defaultCamPos.set(0.0, 0.32, 6.5 + (1.0 - aspectFactor) * 1.6);
+        defaultTarget.set(0.0, 0.02, 0.0);
 
-        characterRoot.position.set(0.0, 0.05, 0.0);
-        characterRoot.scale.setScalar(0.78);
+        characterBaseScale = 0.54;
+        characterBasePosY = -0.98 * (1.0 - characterBaseScale);
+        characterRoot.position.set(0.0, characterBasePosY, 0.0);
+        characterRoot.scale.setScalar(characterBaseScale);
         shadowMesh.position.set(0.0, -0.975, 0.0);
-        shadowMesh.scale.setScalar(0.78);
+        shadowMesh.scale.setScalar(characterBaseScale);
 
         blockRig[0].scatter.x = -0.66; blockRig[0].scatter.z = 0.55;
         blockRig[1].scatter.x = -0.22; blockRig[1].scatter.z = 0.62;
@@ -1683,13 +1688,15 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         duckShadow.position.set(0.95, -0.975, 0.95);
       } else if (aspect < 1.25) {
         camera.fov = 54;
-        defaultCamPos.set(0.0, 0.38, 6.0);
-        defaultTarget.set(0.0, 0.10, 0.0);
+        defaultCamPos.set(0.0, 0.32, 6.0);
+        defaultTarget.set(0.0, 0.04, 0.0);
 
-        characterRoot.position.set(0.0, -0.05, 0.0);
-        characterRoot.scale.setScalar(1.0);
+        characterBaseScale = 0.64;
+        characterBasePosY = -0.98 * (1.0 - characterBaseScale);
+        characterRoot.position.set(0.0, characterBasePosY, 0.0);
+        characterRoot.scale.setScalar(characterBaseScale);
         shadowMesh.position.set(0.0, -0.975, 0.0);
-        shadowMesh.scale.setScalar(1.0);
+        shadowMesh.scale.setScalar(characterBaseScale);
 
         blockRig[0].scatter.x = -0.78; blockRig[0].scatter.z = 0.62;
         blockRig[1].scatter.x = -0.26; blockRig[1].scatter.z = 0.70;
@@ -1706,13 +1713,15 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         duckShadow.position.set(1.10, -0.975, 1.00);
       } else {
         camera.fov = 50;
-        defaultCamPos.set(0.0, 0.40, 5.8);
-        defaultTarget.set(0.0, 0.10, 0.0);
+        defaultCamPos.set(0.0, 0.34, 5.8);
+        defaultTarget.set(0.0, 0.04, 0.0);
 
-        characterRoot.position.set(0.0, -0.05, 0.0);
-        characterRoot.scale.setScalar(1.06);
+        characterBaseScale = 0.70;
+        characterBasePosY = -0.98 * (1.0 - characterBaseScale);
+        characterRoot.position.set(0.0, characterBasePosY, 0.0);
+        characterRoot.scale.setScalar(characterBaseScale);
         shadowMesh.position.set(0.0, -0.975, 0.0);
-        shadowMesh.scale.setScalar(1.06);
+        shadowMesh.scale.setScalar(characterBaseScale);
 
         blockRig[0].scatter.x = -0.84; blockRig[0].scatter.z = 0.65;
         blockRig[1].scatter.x = -0.28; blockRig[1].scatter.z = 0.72;
@@ -2094,8 +2103,9 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       }
 
       const breath = Math.sin(t * 1.8) * 0.015;
-      characterRoot.position.y = breath;
-      characterRoot.scale.set(1 + breath * 0.25, 1 - breath * 0.25, 1 + breath * 0.25);
+      characterRoot.position.y = characterBasePosY + breath;
+      const s = characterBaseScale;
+      characterRoot.scale.set(s * (1 + breath * 0.25), s * (1 - breath * 0.25), s * (1 + breath * 0.25));
 
       controls.update();
       heroRenderer.render(scene, camera);
