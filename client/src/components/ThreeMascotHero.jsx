@@ -9,6 +9,7 @@ import {
   ChevronLeft, Play, Star, Rocket, Clock
 } from 'lucide-react';
 import FullWidthCurvedGallery from './FullWidthCurvedGallery';
+import FactCarousel from './FactCarousel';
 import { Link } from 'react-router-dom';
 
 const ACTIVITY_BOXES = [
@@ -2694,6 +2695,26 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   <p className="hero-actions-desc">
                     At Just Like Home Nursery, we create a warm and welcoming environment where children feel safe to explore, confident to learn and happy to be themselves.
                   </p>
+                  
+                  {/* Organized Colorful Offerings Badges */}
+                  <div className="hero-offerings-tags-grid">
+                    <span className="hero-offering-tag tag-eyfs">
+                      <span className="tag-dot" />
+                      <span>EYFS Approach</span>
+                    </span>
+                    <span className="hero-offering-tag tag-care">
+                      <span className="tag-dot" />
+                      <span>Full–Day &amp; Half–Day Care</span>
+                    </span>
+                    <span className="hero-offering-tag tag-preschool">
+                      <span className="tag-dot" />
+                      <span>Preschool</span>
+                    </span>
+                    <span className="hero-offering-tag tag-readiness">
+                      <span className="tag-dot" />
+                      <span>School Readiness</span>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2827,6 +2848,9 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
             </div>
           </div>
         </section>
+
+        {/* Minimal Fact Carousel (Matching Reference Design) */}
+        <FactCarousel />
 
         {/* SECTION 2: 4 Core Nursery Pillars & Synchronized 3D Pedestals */}
         <section className="content-section" id="section-2">

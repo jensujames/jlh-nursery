@@ -89,67 +89,31 @@ export default function AboutPage({ onBookVisitClick }) {
       />
 
       {/* 2. OUR STORY */}
-      <section 
-        style={{ 
-          padding: 'clamp(64px, 7vw, 90px) 20px', 
-          backgroundColor: '#f8faf8', 
-          backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 40%)',
-          borderBottom: '1px solid #f1f5f9',
-          position: 'relative',
-          overflow: 'hidden'
-        }}
-      >
-        <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: 'clamp(36px, 5vw, 56px)',
-              alignItems: 'center'
-            }}
-          >
-            <div>
+      {/* 2. OUR STORY - EDITORIAL OVERLAPPING DESIGN */}
+      <section className="about-story-section">
+        <div className="about-story-container">
+          
+          {/* Horizontal Pastel Backdrop Band */}
+          <div className="about-story-backdrop-band" aria-hidden="true" />
+
+          {/* Layered Composition Container */}
+          <div className="about-story-composition">
+            
+            {/* Left: Elevated Photo Card */}
+            <div className="about-story-image-wrap">
               <RevealOnScroll>
-                <div
-                  style={{
-                    position: 'relative',
-                    borderRadius: '2rem',
-                    overflow: 'hidden',
-                    boxShadow: '0 20px 48px rgba(114, 16, 36, 0.12), 0 2px 10px rgba(255, 255, 255, 0.8) inset',
-                    border: '3px solid rgba(255, 255, 255, 0.95)'
-                  }}
-                >
+                <div className="about-story-image-card">
                   <img 
                     src="/images/nurturing-hero.jpg" 
                     alt="Caring educators and children at Just Like Home Nursery" 
-                    style={{ width: '100%', height: '440px', objectFit: 'cover', display: 'block' }}
+                    className="about-story-img"
                   />
-                  <div
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      background: 'linear-gradient(to top, rgba(114, 16, 36, 0.82) 0%, rgba(114, 16, 36, 0.2) 50%, transparent 75%)'
-                    }}
-                  />
-                  <div style={{ position: 'absolute', bottom: '28px', left: '28px', right: '28px', color: '#ffffff' }}>
-                    <span 
-                      style={{ 
-                        display: 'inline-block',
-                        padding: '4px 12px',
-                        borderRadius: '999px',
-                        backgroundColor: 'rgba(255, 255, 255, 0.22)',
-                        backdropFilter: 'blur(10px)',
-                        fontSize: '11px', 
-                        fontWeight: '800', 
-                        textTransform: 'uppercase', 
-                        letterSpacing: '0.8px', 
-                        color: '#fef08a',
-                        marginBottom: '8px'
-                      }}
-                    >
+                  <div className="about-story-img-gradient" />
+                  <div className="about-story-img-badge-box">
+                    <span className="about-story-img-pill">
                       Villa No. 47, Al Rashidiya 2, Ajman
                     </span>
-                    <p style={{ margin: 0, fontSize: '21px', fontWeight: '900', fontFamily: 'var(--font-heading, "Outfit", sans-serif)' }}>
+                    <p className="about-story-img-tagline">
                       Where Little Hearts Feel at Home
                     </p>
                   </div>
@@ -157,59 +121,31 @@ export default function AboutPage({ onBookVisitClick }) {
               </RevealOnScroll>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <RevealOnScroll delay={100}>
-                <div
-                  style={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.92)',
-                    backdropFilter: 'blur(24px)',
-                    WebkitBackdropFilter: 'blur(24px)',
-                    borderRadius: '2rem',
-                    padding: 'clamp(28px, 4vw, 40px)',
-                    border: '1.5px solid rgba(255, 255, 255, 0.95)',
-                    boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset'
-                  }}
-                >
-                  <span
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '7px',
-                      padding: '6px 18px',
-                      borderRadius: '999px',
-                      backgroundColor: '#ffffff',
-                      color: '#721024',
-                      fontSize: '13px',
-                      fontWeight: '800',
-                      letterSpacing: '0.5px',
-                      border: '1.5px solid rgba(114, 16, 36, 0.16)',
-                      marginBottom: '16px',
-                      boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
-                    }}
-                  >
-                    <Sparkles size={14} /> OUR BACKGROUND
-                  </span>
-                  <h2
-                    style={{
-                      fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                      fontSize: 'clamp(28px, 4vw, 40px)',
-                      fontWeight: '900',
-                      color: '#721024',
-                      margin: '0 0 16px 0',
-                      lineHeight: 1.25
-                    }}
-                  >
+            {/* Right: Overlapping Luxury Content Card */}
+            <div className="about-story-card-wrap">
+              <RevealOnScroll delay={120}>
+                <div className="about-story-content-card">
+                  <div className="about-story-header-row">
+                    <span className="about-story-eyebrow-pill">
+                      <Sparkles size={14} /> OUR BACKGROUND
+                    </span>
+                    <div className="about-story-accent-line" />
+                  </div>
+
+                  <h2 className="about-story-title">
                     Our Story
                   </h2>
-                  <p style={{ fontSize: '16.5px', lineHeight: 1.78, color: '#475569', marginBottom: '16px' }}>
+
+                  <p className="about-story-paragraph">
                     The early years shape how children see themselves and the world around them. These years deserve more than supervision and lessons; they deserve patience, meaningful relationships and joyful opportunities to discover.
                   </p>
-                  <p style={{ fontSize: '16.5px', lineHeight: 1.78, color: '#475569', margin: 0 }}>
+                  <p className="about-story-paragraph" style={{ margin: 0 }}>
                     At Just Like Home Nursery in Ajman, we bring care and learning together. Every part of the child's day — from play and conversation to meals, movement, stories and friendships — can become an opportunity to grow.
                   </p>
                 </div>
               </RevealOnScroll>
             </div>
+
           </div>
         </div>
       </section>

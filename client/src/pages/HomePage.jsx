@@ -4,7 +4,6 @@ import ThreeMascotHero from '../components/ThreeMascotHero';
 import RevealOnScroll from '../components/RevealOnScroll';
 import ReviewsSection from '../components/ReviewsSection';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
-import FactCarousel from '../components/FactCarousel';
 import { 
   Heart, Sparkles, BookOpen, Sun, Compass, ShieldCheck, 
   Baby, Smile, Users, MapPin, Phone, Mail, ArrowRight, 
@@ -722,67 +721,6 @@ export default function HomePage({ onBookVisitClick }) {
             >
               <span>View All Nursery Activities</span>
               <ArrowRight size={17} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 4.5. Continuous Fact Carousel & Core Learning Offerings */}
-      <section 
-        style={{ 
-          backgroundColor: '#FFFDF9', 
-          borderTop: '1px solid #f1f5f9', 
-          borderBottom: '1px solid #f1f5f9', 
-          padding: '44px 0 40px',
-          position: 'relative'
-        }}
-      >
-        <FactCarousel />
-
-        <div style={{ maxWidth: '960px', margin: '32px auto 0', padding: '0 20px', textAlign: 'center' }}>
-          <p style={{ 
-            fontSize: '16.5px', 
-            lineHeight: 1.7, 
-            color: '#475569', 
-            fontWeight: '500', 
-            maxWidth: '680px', 
-            margin: '0 auto 20px auto' 
-          }}>
-            At Just Like Home Nursery, we create a warm and welcoming environment where children feel safe to explore, confident to learn and happy to be themselves.
-          </p>
-          
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center', alignItems: 'center' }}>
-            <Link 
-              to="/eyfs-learning" 
-              className="hero-offering-tag tag-eyfs" 
-              style={{ textDecoration: 'none', padding: '9px 20px', fontSize: '13px' }}
-            >
-              <span className="tag-dot" />
-              <span>EYFS Approach</span>
-            </Link>
-            <Link 
-              to="/daycare-ajman" 
-              className="hero-offering-tag tag-care" 
-              style={{ textDecoration: 'none', padding: '9px 20px', fontSize: '13px' }}
-            >
-              <span className="tag-dot" />
-              <span>Full–Day &amp; Half–Day Care</span>
-            </Link>
-            <Link 
-              to="/preschool-school-readiness" 
-              className="hero-offering-tag tag-preschool" 
-              style={{ textDecoration: 'none', padding: '9px 20px', fontSize: '13px' }}
-            >
-              <span className="tag-dot" />
-              <span>Preschool</span>
-            </Link>
-            <Link 
-              to="/preschool-school-readiness" 
-              className="hero-offering-tag tag-readiness" 
-              style={{ textDecoration: 'none', padding: '9px 20px', fontSize: '13px' }}
-            >
-              <span className="tag-dot" />
-              <span>School Readiness</span>
             </Link>
           </div>
         </div>
