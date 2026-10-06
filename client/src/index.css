@@ -1173,8 +1173,7 @@ textarea {
   transform: translate(-50%, -50%);
   font-size: clamp(68px, 13vw, 160px);
   font-weight: 900;
-  letter-spacing: 2px;
-  word-spacing: clamp(36px, 5.5vw, 84px);
+  letter-spacing: clamp(6px, 1.2vw, 16px);
   color: rgba(255, 255, 255, 0.52);
   text-transform: uppercase;
   white-space: nowrap;
@@ -1191,8 +1190,7 @@ textarea {
   .hero-giant-bg-text {
     top: 10%;
     font-size: clamp(48px, 12vw, 84px);
-    letter-spacing: 1px;
-    word-spacing: clamp(20px, 4vw, 36px);
+    letter-spacing: clamp(3px, 0.8vw, 6px);
   }
 }
 
