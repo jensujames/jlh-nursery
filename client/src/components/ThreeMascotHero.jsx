@@ -273,20 +273,20 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
   const playMusicalBoing = () => {};
   const playPopSound = () => {};
 
-  // Main 4 Nursery Services Showcase Data with Warmth, Trust, Growth, Joy
+  // Main 4 Nursery Pillars Showcase Data (Warmth, Trust, Growth, Joy)
   const pillarShowcaseData = [
     {
-      pillarKey: "Warmth",
-      pillarName: "Early Years Education",
-      title: "Motherly Care & Play-Based EYFS",
+      pillarName: "WARMTH",
+      serviceName: "Early Years Education",
+      title: "Motherly Care & Warm Attention",
       counter: "01 / 04",
-      desc: "Play-based experiences supporting communication, social, emotional, physical and cognitive development in our nurturing Ajman environment.",
+      desc: "Dedicated caregivers who know every child by name, creating a gentle and loving home away from home.",
       tagColor: "#F15A29",
-      highlights: ["Communication & Speech", "Emotional Wellbeing", "Sensory Discovery Tables"],
+      highlights: ["Dedicated 1:4 Care", "Gentle Acclimatization", "Warm Loving Environment"],
       infoCard: {
-        title: "Early Years Learning Space",
-        bg: "#fff7ed",
-        accent: "#ea580c"
+        title: "Working Hours",
+        bg: "#edf7e8",
+        accent: "#2e7d32"
       },
       smallImage: "/images/activity-mini-stem.jpg",
       smallAlt: "Happy child exploring sensory wooden toys and learning games",
@@ -296,15 +296,15 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       tallAlt: "Joyful smiling child happily playing with colorful toys"
     },
     {
-      pillarKey: "Trust",
-      pillarName: "Nursery & Preschool",
-      title: "Curiosity & Friendships",
+      pillarName: "TRUST",
+      serviceName: "Nursery & Preschool",
+      title: "Transparent & Safe Partnership",
       counter: "02 / 04",
-      desc: "A stimulating environment that encourages curiosity, friendships, creativity and a positive relationship with learning.",
+      desc: "A secure, transparent partnership with families built on mutual respect and daily open communication.",
       tagColor: "#0284c7",
       highlights: ["Creative Play & Arts", "First Friendships", "Montessori Learning Easels"],
       infoCard: {
-        title: "Preschool Learning Space",
+        title: "Villa 47 Security",
         bg: "#f0f9ff",
         accent: "#0284c7"
       },
@@ -316,15 +316,15 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       tallAlt: "Children laughing and joyfully building colorful blocks together"
     },
     {
-      pillarKey: "Growth",
-      pillarName: "School Readiness",
-      title: "Foundations & Confidence",
+      pillarName: "GROWTH",
+      serviceName: "School Readiness",
+      title: "Holistic EYFS Development",
       counter: "03 / 04",
-      desc: "Building the confidence, routines and foundational skills children need for their next step into school with ease.",
+      desc: "Nurturing whole-child social, emotional, motor, cognitive, and early academic milestones.",
       tagColor: "#16a34a",
       highlights: ["Phonics, Literacy & Math", "Independence & Good Manners", "Daily Structured Routines"],
       infoCard: {
-        title: "Smooth School Transition",
+        title: "British EYFS Core",
         bg: "#f0fdf4",
         accent: "#16a34a"
       },
@@ -336,15 +336,15 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       tallAlt: "Happy active child discovering books and learning materials"
     },
     {
-      pillarKey: "Joy",
-      pillarName: "Full-Day & Half-Day Care",
-      title: "Flexible Care & Joyful Routines",
+      pillarName: "JOY",
+      serviceName: "Full-Day & Half-Day Care",
+      title: "Joyful Childhood Memories",
       counter: "04 / 04",
-      desc: "Flexible care options designed around the needs of young children and their families in Al Rashidiya 2, Ajman.",
+      desc: "Play-based learning that protects the natural wonder, curiosity, and joyful laughter of childhood.",
       tagColor: "#721024",
       highlights: ["Flexible Hours & Pick-Up", "Healthy Meals & Quiet Nap Times", "Safe 24/7 Monitored Campus"],
       infoCard: {
-        title: "Flexible Daycare Hours",
+        title: "Creative Arts & Fun",
         bg: "#fff1f2",
         accent: "#721024"
       },
@@ -2457,7 +2457,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                 {/* 4 Pillar Cards with Pedestal Slots & Light Background Numbers 1 to 4 */}
                 <div className="pillars-stack-container" id="pillars-stack">
                   
-                  {/* Service 0: WARMTH | EARLY YEARS EDUCATION */}
+                  {/* Pillar 0: WARMTH */}
                   <div 
                     className={`pillar-stack-card ${activePillar === 0 ? 'active' : ''}`}
                     id="pillar-card-0"
@@ -2468,15 +2468,12 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                       <div className="slot-pedestal-ring" />
                     </div>
                     <div className="pillar-card-text">
-                      <div className="pillar-badge-pill" style={{ color: '#F15A29', backgroundColor: 'rgba(241, 90, 41, 0.1)', border: '1px solid rgba(241, 90, 41, 0.2)' }}>
-                        <span>WARMTH</span>
-                      </div>
-                      <h4>EARLY YEARS EDUCATION</h4>
-                      <p>Motherly care, patience, and genuine personal attention at the heart of play-based experiences supporting communication, social, emotional, physical and cognitive development.</p>
+                      <h4>WARMTH</h4>
+                      <p>Motherly care, patience, and genuine personal attention at the heart of every daily interaction.</p>
                     </div>
                   </div>
 
-                  {/* Service 1: TRUST | NURSERY & PRESCHOOL */}
+                  {/* Pillar 1: TRUST */}
                   <div 
                     className={`pillar-stack-card ${activePillar === 1 ? 'active' : ''}`}
                     id="pillar-card-1"
@@ -2487,15 +2484,12 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                       <div className="slot-pedestal-ring" />
                     </div>
                     <div className="pillar-card-text">
-                      <div className="pillar-badge-pill" style={{ color: '#0284c7', backgroundColor: 'rgba(2, 132, 199, 0.1)', border: '1px solid rgba(2, 132, 199, 0.2)' }}>
-                        <span>TRUST</span>
-                      </div>
-                      <h4>NURSERY & PRESCHOOL</h4>
-                      <p>A secure, transparent partnership with families and a stimulating environment that encourages curiosity, friendships, creativity and a positive relationship with learning.</p>
+                      <h4>TRUST</h4>
+                      <p>A secure, transparent partnership with families built on mutual respect and daily open communication.</p>
                     </div>
                   </div>
 
-                  {/* Service 2: GROWTH | SCHOOL READINESS */}
+                  {/* Pillar 2: GROWTH */}
                   <div 
                     className={`pillar-stack-card ${activePillar === 2 ? 'active' : ''}`}
                     id="pillar-card-2"
@@ -2506,15 +2500,12 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                       <div className="slot-pedestal-ring" />
                     </div>
                     <div className="pillar-card-text">
-                      <div className="pillar-badge-pill" style={{ color: '#16a34a', backgroundColor: 'rgba(22, 163, 74, 0.1)', border: '1px solid rgba(22, 163, 74, 0.2)' }}>
-                        <span>GROWTH</span>
-                      </div>
-                      <h4>SCHOOL READINESS</h4>
-                      <p>Nurturing whole-child social, emotional, motor, cognitive, and early academic milestones, building the confidence, routines and foundational skills children need for their next step into school.</p>
+                      <h4>GROWTH</h4>
+                      <p>Nurturing whole-child social, emotional, motor, cognitive, and early academic milestones.</p>
                     </div>
                   </div>
 
-                  {/* Service 3: JOY | FULL-DAY & HALF-DAY CARE */}
+                  {/* Pillar 3: JOY */}
                   <div 
                     className={`pillar-stack-card ${activePillar === 3 ? 'active' : ''}`}
                     id="pillar-card-3"
@@ -2525,11 +2516,8 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                       <div className="slot-pedestal-ring" />
                     </div>
                     <div className="pillar-card-text">
-                      <div className="pillar-badge-pill" style={{ color: '#C62828', backgroundColor: 'rgba(198, 40, 40, 0.1)', border: '1px solid rgba(198, 40, 40, 0.2)' }}>
-                        <span>JOY</span>
-                      </div>
-                      <h4>FULL-DAY & HALF-DAY CARE</h4>
-                      <p>Play-based learning that protects the natural wonder and joyful laughter of childhood, with flexible care options designed around the needs of young children and their families in Ajman.</p>
+                      <h4>JOY</h4>
+                      <p>Play-based learning that protects the natural wonder, curiosity, and joyful laughter of childhood.</p>
                     </div>
                   </div>
                 </div>
@@ -2588,7 +2576,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                           }}
                         >
                           <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: currentPillar.tagColor }} />
-                          <span>{currentPillar.counter} &bull; {currentPillar.pillarKey}: {currentPillar.pillarName}</span>
+                          <span>{currentPillar.counter} &bull; {currentPillar.pillarName}</span>
                         </span>
                         <span style={{ fontSize: '0.82rem', fontWeight: '700', color: '#64748b' }} className="pillars-desktop-title-snippet">
                           {currentPillar.title}
@@ -2784,7 +2772,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                                   }}
                                 >
                                   <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.tagColor }} />
-                                  <span>{item.pillarKey} &bull; {item.pillarName}</span>
+                                  <span>{item.counter} &bull; {item.pillarName}</span>
                                 </div>
                               </div>
                             </div>
@@ -2797,7 +2785,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                     <div className="media-caption-area pillars-caption-area pillars-desktop-hide">
                       <div className="media-caption-title pillars-caption-title" id="media-caption-title">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                          <h4>{currentPillar.pillarKey} &bull; {currentPillar.pillarName}</h4>
+                          <h4>{currentPillar.pillarName}</h4>
                         </div>
                         <div className="pillars-controls-cluster" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                           <span 
