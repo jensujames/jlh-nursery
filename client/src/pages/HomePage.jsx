@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ThreeMascotHero from '../components/ThreeMascotHero';
 import RevealOnScroll from '../components/RevealOnScroll';
@@ -12,35 +12,68 @@ import {
 } from 'lucide-react';
 
 export default function HomePage({ onBookVisitClick }) {
-  // 1. Programs from document
+  const [likedPrograms, setLikedPrograms] = useState({});
+
+  const toggleProgramLike = (idx) => {
+    setLikedPrograms(prev => ({
+      ...prev,
+      [idx]: !prev[idx]
+    }));
+  };
+
+  // 1. Programs from document (CONTENT STRICTLY PRESERVED)
   const PROGRAMS = [
     {
       title: 'Early Years Education',
       desc: 'Play-based experiences supporting communication, social, emotional, physical and cognitive development.',
-      icon: Baby,
-      color: '#721024',
-      bg: '#FFF1F2'
+      subtitle: 'NURTURING LITTLE HEARTS',
+      stat: '1:4',
+      statLabel: 'LOW CARER RATIO',
+      icon: Heart,
+      color: '#e11d48',
+      border: 'rgba(225, 29, 72, 0.28)',
+      glow: 'rgba(225, 29, 72, 0.22)',
+      badgeBg: '#ffe4e6',
+      badgeColor: '#9f1239'
     },
     {
       title: 'Nursery & Preschool',
       desc: 'A stimulating environment that encourages curiosity, friendships, creativity and a positive relationship with learning.',
-      icon: Sparkles,
-      color: '#0284c7',
-      bg: '#F0F9FF'
+      subtitle: 'PURE PEACE OF MIND',
+      stat: '100%',
+      statLabel: 'CCTV & CLINIC',
+      icon: ShieldCheck,
+      color: '#059669',
+      border: 'rgba(5, 150, 105, 0.28)',
+      glow: 'rgba(5, 150, 105, 0.22)',
+      badgeBg: '#dcfce7',
+      badgeColor: '#14532d'
     },
     {
       title: 'School Readiness',
       desc: 'Building the confidence, routines and foundational skills children need for their next step into school.',
+      subtitle: 'CONFIDENCE & ROUTINES',
+      stat: 'EYFS',
+      statLabel: 'BRITISH STANDARDS',
       icon: Award,
-      color: '#16a34a',
-      bg: '#F0FDF4'
+      color: '#0284c7',
+      border: 'rgba(2, 132, 199, 0.28)',
+      glow: 'rgba(2, 132, 199, 0.22)',
+      badgeBg: '#e0f2fe',
+      badgeColor: '#075985'
     },
     {
       title: 'Full-Day & Half-Day Care',
       desc: 'Flexible care options designed around the needs of young children and their families.',
+      subtitle: 'FOR WORKING FAMILIES',
+      stat: '11 Hrs',
+      statLabel: 'FLEXIBLE TIMINGS',
       icon: Clock,
-      color: '#721024',
-      bg: '#FFF1F2'
+      color: '#d97706',
+      border: 'rgba(217, 119, 6, 0.28)',
+      glow: 'rgba(217, 119, 6, 0.22)',
+      badgeBg: '#fef3c7',
+      badgeColor: '#78350f'
     }
   ];
 
@@ -156,8 +189,44 @@ export default function HomePage({ onBookVisitClick }) {
 
 
       {/* 3. Early Years Programs for Every Little Step */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#f8faf8', 
+          backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 40%)',
+          borderTop: '1px solid #f1f5f9', 
+          borderBottom: '1px solid #f1f5f9',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        {/* Soft decorative background elements from reference */}
+        <div 
+          style={{
+            position: 'absolute',
+            top: '45%',
+            left: '2%',
+            width: '45px',
+            height: '45px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(16, 185, 129, 0.35) 0%, transparent 70%)',
+            boxShadow: '0 0 25px rgba(16, 185, 129, 0.3)',
+            pointerEvents: 'none'
+          }} 
+        />
+        <div 
+          style={{
+            position: 'absolute',
+            top: '50%',
+            right: '2.5%',
+            pointerEvents: 'none',
+            filter: 'drop-shadow(0 4px 12px rgba(225, 29, 72, 0.25))'
+          }}
+        >
+          <Heart size={32} color="#e11d48" fill="#e11d48" style={{ opacity: 0.8 }} />
+        </div>
+
+        <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <RevealOnScroll>
             <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
               <span
@@ -165,13 +234,14 @@ export default function HomePage({ onBookVisitClick }) {
                   display: 'inline-block',
                   padding: '6px 18px',
                   borderRadius: '999px',
-                  backgroundColor: '#fff1f2',
+                  backgroundColor: '#ffffff',
                   color: '#721024',
                   fontSize: '13px',
                   fontWeight: '800',
                   letterSpacing: '0.5px',
-                  border: '1px solid rgba(114, 16, 36, 0.12)',
-                  marginBottom: '14px'
+                  border: '1.5px solid rgba(114, 16, 36, 0.16)',
+                  marginBottom: '14px',
+                  boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
                 }}
               >
                 OUR PROGRAMS
@@ -196,57 +266,162 @@ export default function HomePage({ onBookVisitClick }) {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-              gap: '26px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
+              gap: '1.85rem',
               marginBottom: '40px'
             }}
           >
             {PROGRAMS.map((prog, idx) => {
-              const Icon = prog.icon;
+              const IconComponent = prog.icon;
+              const isLiked = !!likedPrograms[idx];
+              const pillarAnim = idx === 0 ? 'from-left' : idx === 3 ? 'from-right' : 'from-bottom';
+              const pillarDelay = idx === 0 ? 50 : idx === 1 ? 120 : idx === 2 ? 190 : 260;
               return (
-                <RevealOnScroll key={idx} delay={idx * 40}>
+                <RevealOnScroll key={prog.title} animation={pillarAnim} delay={pillarDelay}>
                   <div
                     style={{
-                      background: '#FFFDF7',
-                      borderRadius: '26px',
-                      padding: '36px 26px',
-                      border: '1.5px solid #ffede4',
-                      boxShadow: '0 8px 24px rgba(114, 16, 36, 0.03)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.88)',
+                      backdropFilter: 'blur(24px)',
+                      WebkitBackdropFilter: 'blur(24px)',
+                      borderRadius: '2rem',
+                      padding: '2.25rem 1.85rem 2rem 1.85rem',
+                      border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                      boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                      height: '100%',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'space-between',
-                      height: '100%',
-                      transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                      position: 'relative',
+                      transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+                      overflow: 'hidden'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                      e.currentTarget.style.boxShadow = `0 24px 50px ${prog.glow}, 0 2px 12px rgba(255, 255, 255, 0.9) inset`;
+                      e.currentTarget.style.borderColor = prog.color;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                      e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                     }}
                   >
                     <div>
+                      {/* Icon, Stat & Like Button */}
                       <div
                         style={{
-                          width: '56px',
-                          height: '56px',
-                          borderRadius: '16px',
-                          backgroundColor: prog.bg,
-                          color: prog.color,
                           display: 'flex',
                           alignItems: 'center',
-                          justifyContent: 'center',
-                          marginBottom: '20px'
+                          justifyContent: 'space-between',
+                          marginBottom: '1.4rem'
                         }}
                       >
-                        <Icon size={28} />
+                        <div
+                          style={{
+                            width: '56px',
+                            height: '56px',
+                            borderRadius: '1.15rem',
+                            backgroundColor: '#ffffff',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: prog.color,
+                            border: `2px solid ${prog.border}`,
+                            boxShadow: `0 8px 18px ${prog.glow}`
+                          }}
+                        >
+                          <IconComponent size={28} strokeWidth={2.3} />
+                        </div>
+
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                          <div style={{ textAlign: 'right' }}>
+                            <div
+                              style={{
+                                fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                                fontSize: '1.3rem',
+                                fontWeight: '900',
+                                color: prog.color,
+                                lineHeight: 1
+                              }}
+                            >
+                              {prog.stat}
+                            </div>
+                            <div
+                              style={{
+                                fontSize: '0.72rem',
+                                fontWeight: '800',
+                                color: '#78716c',
+                                textTransform: 'uppercase'
+                              }}
+                            >
+                              {prog.statLabel}
+                            </div>
+                          </div>
+
+                          {/* Interactive Heart Button */}
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleProgramLike(idx);
+                            }}
+                            title="Love this feature"
+                            style={{
+                              width: '34px',
+                              height: '34px',
+                              borderRadius: '50%',
+                              border: isLiked ? `1.5px solid ${prog.color}` : '1.5px solid rgba(0,0,0,0.08)',
+                              backgroundColor: isLiked ? prog.badgeBg : '#ffffff',
+                              color: isLiked ? prog.color : '#a8a29e',
+                              cursor: 'pointer',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              transition: 'all 0.2s ease',
+                              padding: 0
+                            }}
+                          >
+                            <Heart size={16} fill={isLiked ? prog.color : 'none'} />
+                          </button>
+                        </div>
                       </div>
+
+                      {/* Title - STRICTLY UNCHANGED FROM DOCUMENT */}
                       <h3
                         style={{
                           fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                          fontSize: '20px',
-                          fontWeight: '850',
-                          color: '#721024',
-                          marginBottom: '12px'
+                          fontSize: '1.32rem',
+                          fontWeight: '900',
+                          color: '#0f172a',
+                          marginBottom: '0.45rem',
+                          lineHeight: 1.25
                         }}
                       >
                         {prog.title}
                       </h3>
-                      <p style={{ fontSize: '15px', lineHeight: 1.68, color: '#475569', margin: 0 }}>
+
+                      {/* Subtitle Kicker */}
+                      <div
+                        style={{
+                          fontSize: '0.82rem',
+                          fontWeight: '800',
+                          color: prog.color,
+                          marginBottom: '1rem',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.04em'
+                        }}
+                      >
+                        {prog.subtitle}
+                      </div>
+
+                      {/* Description - STRICTLY UNCHANGED FROM DOCUMENT */}
+                      <p
+                        style={{
+                          fontSize: '0.94rem',
+                          color: '#475569',
+                          lineHeight: 1.65,
+                          margin: 0
+                        }}
+                      >
                         {prog.desc}
                       </p>
                     </div>
