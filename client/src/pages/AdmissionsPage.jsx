@@ -101,8 +101,16 @@ export default function AdmissionsPage({ onBookVisitClick }) {
       />
 
       {/* 2. YOUR ADMISSIONS JOURNEY */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderBottom: '1px solid #f1f5f9' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#f8faf8',
+          backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 40%)',
+          borderBottom: '1px solid #f1f5f9',
+          position: 'relative'
+        }}
+      >
+        <div style={{ maxWidth: '1040px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <RevealOnScroll>
             <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
               <span
@@ -110,13 +118,14 @@ export default function AdmissionsPage({ onBookVisitClick }) {
                   display: 'inline-block',
                   padding: '6px 18px',
                   borderRadius: '999px',
-                  backgroundColor: '#fff1f2',
+                  backgroundColor: '#ffffff',
                   color: '#721024',
                   fontSize: '13px',
                   fontWeight: '800',
                   letterSpacing: '0.5px',
-                  border: '1px solid rgba(114, 16, 36, 0.12)',
-                  marginBottom: '14px'
+                  border: '1.5px solid rgba(114, 16, 36, 0.16)',
+                  marginBottom: '14px',
+                  boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
                 }}
               >
                 STEP-BY-STEP PROCESS
@@ -127,96 +136,133 @@ export default function AdmissionsPage({ onBookVisitClick }) {
                   fontSize: 'clamp(28px, 4vw, 42px)',
                   fontWeight: '900',
                   color: '#721024',
-                  margin: 0
+                  margin: '0 0 16px 0'
                 }}
               >
                 Your Admissions Journey
               </h2>
+              <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
+                A straightforward, supportive pathway designed to help you make the best decision for your family.
+              </p>
             </div>
           </RevealOnScroll>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-            {JOURNEY_STEPS.map((stepItem, index) => (
-              <RevealOnScroll key={index} delay={index * 35}>
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '22px',
-                    padding: '26px 28px',
-                    borderRadius: '24px',
-                    backgroundColor: '#FFFDF7',
-                    border: '1.5px solid #ffede4',
-                    boxShadow: '0 4px 14px rgba(114, 16, 36, 0.02)',
-                    transition: 'transform 0.25s ease, box-shadow 0.25s ease'
-                  }}
-                >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+            {JOURNEY_STEPS.map((stepItem, index) => {
+              const formattedStep = String(index + 1).padStart(2, '0');
+              return (
+                <RevealOnScroll key={index} delay={index * 35}>
                   <div
                     style={{
-                      width: '48px',
-                      height: '48px',
-                      borderRadius: '16px',
-                      backgroundColor: '#fff1f2',
-                      color: '#721024',
+                      backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                      backdropFilter: 'blur(24px)',
+                      WebkitBackdropFilter: 'blur(24px)',
+                      borderRadius: '2rem',
+                      padding: '2rem 2.2rem',
+                      border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                      boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
                       display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontWeight: '900',
-                      fontSize: '20px',
-                      flexShrink: 0
+                      alignItems: 'flex-start',
+                      gap: '24px',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-6px) scale(1.008)';
+                      e.currentTarget.style.boxShadow = '0 24px 50px rgba(114, 16, 36, 0.12), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                      e.currentTarget.style.borderColor = '#721024';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                      e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                     }}
                   >
-                    {stepItem.step}
-                  </div>
-                  <div>
-                    <h3
+                    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
+                    <div
                       style={{
-                        fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                        fontSize: '20px',
-                        fontWeight: '850',
+                        width: '56px',
+                        height: '56px',
+                        borderRadius: '1.15rem',
+                        backgroundColor: '#ffffff',
                         color: '#721024',
-                        margin: '0 0 8px 0'
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontWeight: '900',
+                        fontSize: '20px',
+                        flexShrink: 0,
+                        border: '2px solid rgba(114, 16, 36, 0.18)',
+                        boxShadow: '0 8px 18px rgba(114, 16, 36, 0.08)'
                       }}
                     >
-                      {stepItem.title}
-                    </h3>
-                    <p style={{ fontSize: '15.5px', lineHeight: 1.7, color: '#475569', margin: 0 }}>
-                      {stepItem.desc}
-                    </p>
+                      {formattedStep}
+                    </div>
+                    <div>
+                      <h3
+                        style={{
+                          fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                          fontSize: '20px',
+                          fontWeight: '850',
+                          color: '#721024',
+                          margin: '0 0 8px 0',
+                          lineHeight: 1.3
+                        }}
+                      >
+                        {stepItem.title}
+                      </h3>
+                      <p style={{ fontSize: '15.5px', lineHeight: 1.7, color: '#475569', margin: 0 }}>
+                        {stepItem.desc}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </RevealOnScroll>
-            ))}
+                </RevealOnScroll>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* 3. INFORMATION TO SHARE IN YOUR ENQUIRY */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#FFFDF7' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#FFFDF9',
+          backgroundImage: 'radial-gradient(circle at 85% 15%, rgba(241, 90, 41, 0.04) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(114, 16, 36, 0.03) 0%, transparent 45%)'
+        }}
+      >
+        <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div
               style={{
-                background: '#ffffff',
-                borderRadius: '28px',
-                padding: 'clamp(36px, 5vw, 52px) clamp(24px, 4vw, 44px)',
-                border: '1.5px solid #ffede4',
-                boxShadow: '0 10px 30px rgba(114, 16, 36, 0.04)'
+                backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
+                borderRadius: '2.5rem',
+                padding: 'clamp(38px, 5vw, 56px) clamp(24px, 4vw, 48px)',
+                border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                boxShadow: '0 16px 44px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                position: 'relative',
+                overflow: 'hidden'
               }}
             >
-              <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
+              
+              <div style={{ textAlign: 'center', marginBottom: '36px' }}>
                 <span
                   style={{
                     display: 'inline-block',
                     padding: '6px 18px',
                     borderRadius: '999px',
-                    backgroundColor: '#fff1f2',
+                    backgroundColor: '#ffffff',
                     color: '#721024',
                     fontSize: '13px',
                     fontWeight: '800',
                     letterSpacing: '0.5px',
-                    border: '1px solid rgba(114, 16, 36, 0.12)',
-                    marginBottom: '14px'
+                    border: '1.5px solid rgba(114, 16, 36, 0.16)',
+                    marginBottom: '14px',
+                    boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
                   }}
                 >
                   ENQUIRY DETAILS
@@ -224,7 +270,7 @@ export default function AdmissionsPage({ onBookVisitClick }) {
                 <h2
                   style={{
                     fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                    fontSize: 'clamp(26px, 3.5vw, 36px)',
+                    fontSize: 'clamp(26px, 3.5vw, 38px)',
                     fontWeight: '900',
                     color: '#721024',
                     margin: 0
@@ -247,17 +293,27 @@ export default function AdmissionsPage({ onBookVisitClick }) {
                     style={{
                       display: 'flex',
                       alignItems: 'flex-start',
-                      gap: '12px',
-                      padding: '16px 18px',
-                      borderRadius: '16px',
-                      backgroundColor: '#FFFDF7',
-                      border: '1px solid #ffede4'
+                      gap: '14px',
+                      padding: '18px 20px',
+                      borderRadius: '1.25rem',
+                      backgroundColor: '#ffffff',
+                      border: '1.5px solid rgba(114, 16, 36, 0.08)',
+                      boxShadow: '0 4px 14px rgba(74, 14, 26, 0.02)',
+                      transition: 'all 0.25s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = '#721024';
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(114, 16, 36, 0.08)';
+                      e.currentTarget.style.transform = 'translateY(0)';
                     }}
                   >
                     <div
                       style={{
-                        width: '24px',
-                        height: '24px',
+                        width: '28px',
+                        height: '28px',
                         borderRadius: '50%',
                         backgroundColor: '#fff1f2',
                         color: '#721024',
@@ -265,12 +321,12 @@ export default function AdmissionsPage({ onBookVisitClick }) {
                         alignItems: 'center',
                         justifyContent: 'center',
                         flexShrink: 0,
-                        marginTop: '2px'
+                        marginTop: '1px'
                       }}
                     >
-                      <CheckCircle2 size={15} />
+                      <CheckCircle2 size={16} />
                     </div>
-                    <span style={{ fontSize: '15px', fontWeight: '600', color: '#334155', lineHeight: 1.5 }}>
+                    <span style={{ fontSize: '15px', fontWeight: '650', color: '#334155', lineHeight: 1.5 }}>
                       {item}
                     </span>
                   </div>
@@ -282,29 +338,38 @@ export default function AdmissionsPage({ onBookVisitClick }) {
       </section>
 
       {/* 4. DOCUMENTS & FEES */}
-      <section style={{ padding: '0 20px clamp(48px, 6vw, 72px)', backgroundColor: '#FFFDF7' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+      <section style={{ padding: '0 20px clamp(48px, 6vw, 72px)', backgroundColor: '#FFFDF9' }}>
+        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div
               style={{
-                background: '#fffbf5',
-                borderRadius: '24px',
-                padding: '38px 32px',
-                border: '1.5px solid #fed7aa',
-                textAlign: 'center'
+                backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
+                borderRadius: '2.5rem',
+                padding: '40px 36px',
+                border: '1.5px solid rgba(245, 158, 11, 0.3)',
+                boxShadow: '0 16px 40px rgba(217, 119, 6, 0.06)',
+                textAlign: 'center',
+                position: 'relative',
+                overflow: 'hidden'
               }}
             >
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #d97706, #f59e0b)' }} />
+              
               <div
                 style={{
-                  width: '54px',
-                  height: '54px',
-                  borderRadius: '18px',
-                  backgroundColor: '#ffedd5',
-                  color: '#c2410c',
+                  width: '56px',
+                  height: '56px',
+                  borderRadius: '1.15rem',
+                  backgroundColor: '#fffbeb',
+                  color: '#d97706',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  margin: '0 auto 20px'
+                  margin: '0 auto 20px',
+                  border: '2px solid rgba(217, 119, 6, 0.22)',
+                  boxShadow: '0 8px 18px rgba(217, 119, 6, 0.1)'
                 }}
               >
                 <AlertCircle size={28} />
@@ -320,7 +385,7 @@ export default function AdmissionsPage({ onBookVisitClick }) {
               >
                 Documents &amp; Fees
               </h3>
-              <p style={{ fontSize: '16px', lineHeight: 1.75, color: '#475569', margin: 0, maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
+              <p style={{ fontSize: '16px', lineHeight: 1.75, color: '#475569', margin: 0, maxWidth: '720px', marginLeft: 'auto', marginRight: 'auto' }}>
                 The exact registration documents, fee schedule, payment terms, refund policy and required medical information must be supplied and approved by nursery management before they are published on this page.
               </p>
             </div>
@@ -329,8 +394,15 @@ export default function AdmissionsPage({ onBookVisitClick }) {
       </section>
 
       {/* 5. FREQUENTLY ASKED ADMISSIONS QUESTIONS */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#f8faf8',
+          backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 40%)',
+          borderTop: '1px solid #f1f5f9' 
+        }}
+      >
+        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div style={{ textAlign: 'center', marginBottom: '44px' }}>
               <span
@@ -338,13 +410,14 @@ export default function AdmissionsPage({ onBookVisitClick }) {
                   display: 'inline-block',
                   padding: '6px 18px',
                   borderRadius: '999px',
-                  backgroundColor: '#fff1f2',
+                  backgroundColor: '#ffffff',
                   color: '#721024',
                   fontSize: '13px',
                   fontWeight: '800',
                   letterSpacing: '0.5px',
-                  border: '1px solid rgba(114, 16, 36, 0.12)',
-                  marginBottom: '14px'
+                  border: '1.5px solid rgba(114, 16, 36, 0.16)',
+                  marginBottom: '14px',
+                  boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
                 }}
               >
                 FAQS
@@ -363,23 +436,26 @@ export default function AdmissionsPage({ onBookVisitClick }) {
             </div>
           </RevealOnScroll>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {ADMISSION_FAQS.map((faq, index) => (
               <RevealOnScroll key={index} delay={index * 35}>
                 <div 
                   style={{
-                    borderRadius: '20px',
-                    backgroundColor: '#FFFDF7',
-                    border: '1.5px solid #ffede4',
+                    borderRadius: '1.5rem',
+                    backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
+                    border: openFaq === index ? '1.5px solid #721024' : '1.5px solid rgba(255, 255, 255, 0.95)',
+                    boxShadow: '0 10px 30px rgba(74, 14, 26, 0.04)',
                     overflow: 'hidden',
                     cursor: 'pointer',
-                    transition: 'all 0.25s ease'
+                    transition: 'all 0.3s ease'
                   }}
                   onClick={() => toggleFaq(index)}
                 >
                   <div
                     style={{
-                      padding: '22px 24px',
+                      padding: '24px 28px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
@@ -388,26 +464,53 @@ export default function AdmissionsPage({ onBookVisitClick }) {
                   >
                     <h3
                       style={{
-                        fontSize: '17px',
-                        fontWeight: '800',
-                        color: '#1e293b',
+                        fontSize: '17.5px',
+                        fontWeight: '850',
+                        color: openFaq === index ? '#721024' : '#1e293b',
                         margin: 0,
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '12px'
+                        gap: '14px',
+                        transition: 'color 0.2s ease'
                       }}
                     >
-                      <HelpCircle size={20} style={{ color: '#721024', flexShrink: 0 }} />
+                      <div
+                        style={{
+                          width: '36px',
+                          height: '36px',
+                          borderRadius: '10px',
+                          backgroundColor: openFaq === index ? '#fff1f2' : '#f8fafc',
+                          color: '#721024',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexShrink: 0
+                        }}
+                      >
+                        <HelpCircle size={18} />
+                      </div>
                       {faq.q}
                     </h3>
-                    <div style={{ color: '#721024' }}>
-                      {openFaq === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                    <div 
+                      style={{ 
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '50%',
+                        backgroundColor: '#fff1f2',
+                        color: '#721024',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0
+                      }}
+                    >
+                      {openFaq === index ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                     </div>
                   </div>
                   {openFaq === index && (
                     <div
                       style={{
-                        padding: '0 24px 22px 56px',
+                        padding: '0 28px 24px 78px',
                         fontSize: '15.5px',
                         lineHeight: 1.7,
                         color: '#475569'

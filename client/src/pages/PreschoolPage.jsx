@@ -52,102 +52,194 @@ export default function PreschoolPage() {
       />
 
       {/* 2. WHAT CHILDREN DEVELOP */}
-      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
-        <div style={{ maxWidth: '980px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#f8faf8', 
+          backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 40%)',
+          borderTop: '1px solid #f1f5f9', 
+          borderBottom: '1px solid #f1f5f9',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        <div style={{ maxWidth: '1160px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <RevealOnScroll>
             <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
-              <span style={{
-                display: 'inline-block',
-                padding: '6px 16px',
-                borderRadius: '999px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                fontSize: '13px',
-                fontWeight: '800',
-                marginBottom: '14px'
-              }}>
+              <span 
+                style={{
+                  display: 'inline-block',
+                  padding: '6px 18px',
+                  borderRadius: '999px',
+                  backgroundColor: '#ffffff',
+                  color: '#721024',
+                  fontSize: '13px',
+                  fontWeight: '800',
+                  letterSpacing: '0.5px',
+                  border: '1.5px solid rgba(114, 16, 36, 0.16)',
+                  marginBottom: '14px',
+                  boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
+                }}
+              >
                 CORE CAPABILITIES
               </span>
-              <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: '900', color: '#721024', margin: 0 }}>
+              <h2 
+                style={{ 
+                  fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                  fontSize: 'clamp(28px, 4vw, 42px)', 
+                  fontWeight: '900', 
+                  color: '#721024', 
+                  margin: '0 0 16px 0' 
+                }}
+              >
                 What Children Develop
               </h2>
+              <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
+                Essential cognitive, social, emotional and physical foundations designed to prepare every child for a seamless transition into primary school.
+              </p>
             </div>
           </RevealOnScroll>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '16px'
-          }}>
-            {DEVELOPMENTS.map((item, index) => (
-              <RevealOnScroll key={index} delay={index * 30}>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: '14px',
-                  padding: '20px 22px',
-                  borderRadius: '18px',
-                  backgroundColor: '#FFFDF7',
-                  border: '1.5px solid #ffede4',
-                  boxShadow: '0 4px 14px rgba(0,0,0,0.02)'
-                }}>
-                  <div style={{
-                    width: '26px',
-                    height: '26px',
-                    borderRadius: '50%',
-                    backgroundColor: '#fff1f2',
-                    color: '#721024',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                    marginTop: '2px'
-                  }}>
-                    <CheckCircle2 size={16} />
+          <div 
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '20px'
+            }}
+          >
+            {DEVELOPMENTS.map((item, index) => {
+              const counter = String(index + 1).padStart(2, '0');
+              return (
+                <RevealOnScroll key={index} delay={index * 35}>
+                  <div 
+                    style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '16px',
+                      padding: '24px 22px',
+                      borderRadius: '1.5rem',
+                      backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)',
+                      border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                      boxShadow: '0 8px 24px rgba(74, 14, 26, 0.04), 0 1px 4px rgba(0,0,0,0.02)',
+                      transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                      height: '100%',
+                      boxSizing: 'border-box'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-5px)';
+                      e.currentTarget.style.boxShadow = '0 16px 36px rgba(114, 16, 36, 0.10)';
+                      e.currentTarget.style.borderColor = 'rgba(114, 16, 36, 0.3)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(74, 14, 26, 0.04), 0 1px 4px rgba(0,0,0,0.02)';
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                    }}
+                  >
+                    <div 
+                      style={{
+                        width: '38px',
+                        height: '38px',
+                        borderRadius: '12px',
+                        backgroundColor: '#fff1f2',
+                        color: '#721024',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                        border: '1px solid rgba(114, 16, 36, 0.15)',
+                        fontSize: '12px',
+                        fontWeight: '900',
+                        fontFamily: 'var(--font-heading, "Outfit", sans-serif)'
+                      }}
+                    >
+                      {counter}
+                    </div>
+                    <p style={{ margin: 0, fontSize: '15.5px', fontWeight: '650', color: '#1e293b', lineHeight: 1.6 }}>
+                      {item}
+                    </p>
                   </div>
-                  <p style={{ margin: 0, fontSize: '15.5px', fontWeight: '700', color: '#1e293b', lineHeight: 1.5 }}>
-                    {item}
-                  </p>
-                </div>
-              </RevealOnScroll>
-            ))}
+                </RevealOnScroll>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* 3. LEARNING WITHOUT LOSING THE JOY & A SMOOTH TRANSITION */}
-      <section style={{ padding: '80px 20px', backgroundColor: '#FFFDF7' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '30px'
-          }}>
-            <RevealOnScroll>
-              <div style={{
-                background: '#ffffff',
-                borderRadius: '24px',
-                padding: '38px 32px',
-                border: '1.5px solid rgba(114, 16, 36, 0.1)',
-                boxShadow: '0 6px 20px rgba(114, 16, 36, 0.03)',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column'
-              }}>
-                <div style={{
-                  width: '52px',
-                  height: '52px',
-                  borderRadius: '16px',
-                  backgroundColor: '#fff1f2',
-                  color: '#721024',
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#FFFDF9',
+          backgroundImage: 'radial-gradient(circle at 85% 15%, rgba(241, 90, 41, 0.04) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(114, 16, 36, 0.03) 0%, transparent 45%)',
+          borderBottom: '1px solid #f1f5f9'
+        }}
+      >
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <div 
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '30px'
+            }}
+          >
+            <RevealOnScroll animation="from-left">
+              <div 
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.5rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                  height: '100%',
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '20px'
-                }}>
-                  <Smile size={26} />
+                  flexDirection: 'column',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(114, 16, 36, 0.14), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                  e.currentTarget.style.borderColor = '#721024';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                }}
+              >
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
+                <div 
+                  style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '1.15rem',
+                    backgroundColor: '#ffffff',
+                    color: '#721024',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '20px',
+                    border: '2px solid rgba(114, 16, 36, 0.18)',
+                    boxShadow: '0 8px 18px rgba(114, 16, 36, 0.08)'
+                  }}
+                >
+                  <Smile size={28} />
                 </div>
-                <h3 style={{ fontSize: '24px', fontWeight: '850', color: '#721024', marginBottom: '16px' }}>
+                <h3 
+                  style={{ 
+                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                    fontSize: '24px', 
+                    fontWeight: '850', 
+                    color: '#721024', 
+                    marginBottom: '16px' 
+                  }}
+                >
                   Learning Without Losing the Joy
                 </h3>
                 <p style={{ fontSize: '16px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
@@ -156,31 +248,61 @@ export default function PreschoolPage() {
               </div>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={100}>
-              <div style={{
-                background: '#ffffff',
-                borderRadius: '24px',
-                padding: '38px 32px',
-                border: '1.5px solid rgba(114, 16, 36, 0.1)',
-                boxShadow: '0 6px 20px rgba(114, 16, 36, 0.03)',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column'
-              }}>
-                <div style={{
-                  width: '52px',
-                  height: '52px',
-                  borderRadius: '16px',
-                  backgroundColor: '#fff1f2',
-                  color: '#721024',
+            <RevealOnScroll delay={100} animation="from-right">
+              <div 
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.5rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                  height: '100%',
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '20px'
-                }}>
-                  <GraduationCap size={26} />
+                  flexDirection: 'column',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(2, 132, 199, 0.16), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                  e.currentTarget.style.borderColor = '#0284c7';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                }}
+              >
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #0284c7, #38bdf8)' }} />
+                <div 
+                  style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '1.15rem',
+                    backgroundColor: '#ffffff',
+                    color: '#0284c7',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '20px',
+                    border: '2px solid rgba(2, 132, 199, 0.22)',
+                    boxShadow: '0 8px 18px rgba(2, 132, 199, 0.12)'
+                  }}
+                >
+                  <GraduationCap size={28} />
                 </div>
-                <h3 style={{ fontSize: '24px', fontWeight: '850', color: '#721024', marginBottom: '16px' }}>
+                <h3 
+                  style={{ 
+                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                    fontSize: '24px', 
+                    fontWeight: '850', 
+                    color: '#0284c7', 
+                    marginBottom: '16px' 
+                  }}
+                >
                   A Smooth Transition
                 </h3>
                 <p style={{ fontSize: '16px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
@@ -193,15 +315,45 @@ export default function PreschoolPage() {
       </section>
 
       {/* 4. CLOSING CTA: ASK ABOUT PRESCHOOL | BOOK A VISIT */}
-      <section style={{
-        padding: '80px 20px',
-        background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-        color: '#ffffff',
-        textAlign: 'center'
-      }}>
-        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+      <section 
+        style={{
+          padding: 'clamp(64px, 7vw, 90px) 20px',
+          background: 'linear-gradient(135deg, #721024 0%, #8f152f 50%, #590d1c 100%)',
+          color: '#ffffff',
+          textAlign: 'center',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        <div style={{ maxWidth: '820px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <RevealOnScroll>
-            <h2 style={{ fontSize: 'clamp(28px, 4.5vw, 40px)', fontWeight: '900', margin: '0 0 20px 0', lineHeight: 1.25 }}>
+            <span
+              style={{
+                display: 'inline-block',
+                padding: '6px 18px',
+                borderRadius: '999px',
+                backgroundColor: 'rgba(255, 255, 255, 0.16)',
+                backdropFilter: 'blur(10px)',
+                color: '#fef08a',
+                fontSize: '13px',
+                fontWeight: '800',
+                letterSpacing: '0.8px',
+                textTransform: 'uppercase',
+                border: '1px solid rgba(255, 255, 255, 0.25)',
+                marginBottom: '18px'
+              }}
+            >
+              ENROLL FOR PRESCHOOL
+            </span>
+            <h2 
+              style={{ 
+                fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                fontSize: 'clamp(28px, 4.5vw, 42px)', 
+                fontWeight: '900', 
+                margin: '0 0 20px 0', 
+                lineHeight: 1.25 
+              }}
+            >
               Preparing Confident, Curious Children for Their Next Step
             </h2>
             <p style={{ fontSize: '17px', lineHeight: 1.75, opacity: 0.95, margin: '0 auto 36px', maxWidth: '680px' }}>
@@ -221,9 +373,9 @@ export default function PreschoolPage() {
                   backgroundColor: '#ffffff',
                   color: '#721024',
                   fontWeight: '800',
-                  fontSize: '15.5px',
+                  fontSize: '15px',
                   textDecoration: 'none',
-                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.22)',
                   transition: 'all 0.25s ease'
                 }}
               >
@@ -238,12 +390,13 @@ export default function PreschoolPage() {
                   gap: '8px',
                   padding: '15px 34px',
                   borderRadius: '999px',
-                  backgroundColor: 'rgba(255,255,255,0.12)',
+                  backgroundColor: 'rgba(255,255,255,0.14)',
+                  backdropFilter: 'blur(10px)',
                   color: '#ffffff',
                   fontWeight: '800',
-                  fontSize: '15.5px',
+                  fontSize: '15px',
                   textDecoration: 'none',
-                  border: '1.5px solid rgba(255,255,255,0.4)',
+                  border: '1.5px solid rgba(255,255,255,0.5)',
                   transition: 'all 0.25s ease'
                 }}
               >

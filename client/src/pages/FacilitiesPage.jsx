@@ -13,72 +13,114 @@ const FACILITIES = [
   {
     title: 'Safe & Welcoming Classrooms',
     desc: 'Child-friendly learning spaces designed for participation, comfort and age-appropriate experiences.',
-    icon: Building2
+    icon: Building2,
+    color: '#721024',
+    gradient: 'linear-gradient(90deg, #721024, #F15A29)',
+    border: 'rgba(114, 16, 36, 0.22)'
   },
   {
     title: 'Indoor Play Area',
     desc: 'A dedicated space for movement, social play and engaging activities.',
-    icon: Sparkles
+    icon: Sparkles,
+    color: '#d97706',
+    gradient: 'linear-gradient(90deg, #d97706, #f59e0b)',
+    border: 'rgba(217, 119, 6, 0.22)'
   },
   {
     title: 'Outdoor Play Area',
     desc: 'Opportunities for fresh air, physical development and active exploration.',
-    icon: Trees
+    icon: Trees,
+    color: '#059669',
+    gradient: 'linear-gradient(90deg, #059669, #10b981)',
+    border: 'rgba(5, 150, 105, 0.22)'
   },
   {
     title: 'Baby Care & Quiet Room',
     desc: 'A calmer environment to support age-appropriate care, rest and comfort.',
-    icon: Moon
+    icon: Moon,
+    color: '#8b5cf6',
+    gradient: 'linear-gradient(90deg, #8b5cf6, #a855f7)',
+    border: 'rgba(139, 92, 246, 0.22)'
   },
   {
     title: 'Sensory & Exploration Spaces',
     desc: 'Hands-on areas where children can investigate materials and learn through their senses.',
-    icon: Sparkles
+    icon: Sparkles,
+    color: '#0d9488',
+    gradient: 'linear-gradient(90deg, #0d9488, #14b8a6)',
+    border: 'rgba(13, 148, 136, 0.22)'
   },
   {
     title: 'Reading & Story Corner',
     desc: 'An inviting place to enjoy books, conversation, imagination and quiet moments.',
-    icon: BookOpen
+    icon: BookOpen,
+    color: '#0284c7',
+    gradient: 'linear-gradient(90deg, #0284c7, #38bdf8)',
+    border: 'rgba(2, 132, 199, 0.22)'
   },
   {
     title: 'Life-Skills Activity Areas',
     desc: 'Practical experiences that encourage independence, confidence and everyday responsibility.',
-    icon: Award
+    icon: Award,
+    color: '#ea580c',
+    gradient: 'linear-gradient(90deg, #ea580c, #f97316)',
+    border: 'rgba(234, 88, 12, 0.22)'
   },
   {
     title: 'Child-Friendly Washrooms',
     desc: 'Facilities designed to support safety, dignity and growing self-care skills.',
-    icon: Bath
+    icon: Bath,
+    color: '#06b6d4',
+    gradient: 'linear-gradient(90deg, #06b6d4, #22d3ee)',
+    border: 'rgba(6, 182, 212, 0.22)'
   },
   {
     title: 'Kitchen & Meal Preparation Area',
     desc: 'A designated area supporting nursery meal and snack routines, subject to current nursery provision.',
-    icon: Utensils
+    icon: Utensils,
+    color: '#d97706',
+    gradient: 'linear-gradient(90deg, #d97706, #f59e0b)',
+    border: 'rgba(217, 119, 6, 0.22)'
   },
   {
     title: 'First-Aid / Clinic Facility',
     desc: 'A dedicated point for first-aid support and wellbeing needs.',
-    icon: HeartPulse
+    icon: HeartPulse,
+    color: '#e11d48',
+    gradient: 'linear-gradient(90deg, #e11d48, #fb7185)',
+    border: 'rgba(225, 29, 72, 0.22)'
   },
   {
     title: 'Doctor Visits',
     desc: 'Doctor visits are provided as part of the nursery\'s health-support practices; frequency and scope should be confirmed before publication.',
-    icon: Stethoscope
+    icon: Stethoscope,
+    color: '#2563eb',
+    gradient: 'linear-gradient(90deg, #2563eb, #3b82f6)',
+    border: 'rgba(37, 99, 235, 0.22)'
   },
   {
     title: 'Secure Reception',
     desc: 'A controlled welcome point for visitors, families and daily arrivals.',
-    icon: Lock
+    icon: Lock,
+    color: '#475569',
+    gradient: 'linear-gradient(90deg, #475569, #64748b)',
+    border: 'rgba(71, 85, 105, 0.22)'
   },
   {
     title: 'Safe & Child-Friendly Environment',
     desc: 'Every corner is thoughtfully planned with rounded edges, non-toxic materials, and clean, welcoming surroundings.',
-    icon: ShieldCheck
+    icon: ShieldCheck,
+    color: '#16a34a',
+    gradient: 'linear-gradient(90deg, #16a34a, #22c55e)',
+    border: 'rgba(22, 163, 74, 0.22)'
   },
   {
     title: 'CCTV Monitoring for Enhanced Safety',
     desc: 'Continuous CCTV monitoring supports heightened safety and peace of mind within nursery approved policies.',
-    icon: Video
+    icon: Video,
+    color: '#721024',
+    gradient: 'linear-gradient(90deg, #721024, #F15A29)',
+    border: 'rgba(114, 16, 36, 0.22)'
   }
 ];
 
@@ -113,8 +155,52 @@ export default function FacilitiesPage({ onBookVisitClick }) {
       />
 
       {/* 2. THE 14 FACILITIES */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderBottom: '1px solid #f1f5f9' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#f8faf8',
+          backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 40%)',
+          borderBottom: '1px solid #f1f5f9',
+          position: 'relative'
+        }}
+      >
+        <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+          <RevealOnScroll>
+            <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 48px' }}>
+              <span
+                style={{
+                  display: 'inline-block',
+                  padding: '6px 18px',
+                  borderRadius: '999px',
+                  backgroundColor: '#ffffff',
+                  color: '#721024',
+                  fontSize: '13px',
+                  fontWeight: '800',
+                  letterSpacing: '0.5px',
+                  border: '1.5px solid rgba(114, 16, 36, 0.16)',
+                  marginBottom: '14px',
+                  boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
+                }}
+              >
+                CAMPUS &amp; AMENITIES
+              </span>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                  fontSize: 'clamp(28px, 4vw, 42px)',
+                  fontWeight: '900',
+                  color: '#721024',
+                  margin: '0 0 16px 0'
+                }}
+              >
+                Fourteen Purpose-Built Spaces
+              </h2>
+              <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
+                Every corner is thoughtfully planned with rounded edges, clean welcoming surroundings, and heightened security.
+              </p>
+            </div>
+          </RevealOnScroll>
+
           <div
             style={{
               display: 'grid',
@@ -124,48 +210,85 @@ export default function FacilitiesPage({ onBookVisitClick }) {
           >
             {FACILITIES.map((facility, index) => {
               const Icon = facility.icon;
+              const formattedIndex = String(index + 1).padStart(2, '0');
               return (
-                <RevealOnScroll key={index} delay={index * 25}>
+                <RevealOnScroll key={index} delay={index * 20}>
                   <div
                     style={{
-                      background: '#FFFDF7',
-                      borderRadius: '24px',
-                      padding: '34px 28px',
-                      border: '1.5px solid #ffede4',
-                      boxShadow: '0 8px 24px rgba(114, 16, 36, 0.03)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                      backdropFilter: 'blur(24px)',
+                      WebkitBackdropFilter: 'blur(24px)',
+                      borderRadius: '2rem',
+                      padding: '2.4rem 2rem',
+                      border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                      boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'flex-start',
                       height: '100%',
-                      transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                      boxSizing: 'border-box',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                      e.currentTarget.style.boxShadow = `0 24px 50px rgba(114, 16, 36, 0.12), 0 2px 12px rgba(255, 255, 255, 0.9) inset`;
+                      e.currentTarget.style.borderColor = facility.color;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                      e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                     }}
                   >
-                    <div
-                      style={{
-                        width: '54px',
-                        height: '54px',
-                        borderRadius: '16px',
-                        backgroundColor: '#FFF1F2',
-                        color: '#721024',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginBottom: '20px'
-                      }}
-                    >
-                      <Icon size={26} />
+                    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: facility.gradient }} />
+                    
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+                      <div
+                        style={{
+                          width: '56px',
+                          height: '56px',
+                          borderRadius: '1.15rem',
+                          backgroundColor: '#ffffff',
+                          color: facility.color,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          border: `2px solid ${facility.border}`,
+                          boxShadow: '0 8px 18px rgba(114, 16, 36, 0.06)'
+                        }}
+                      >
+                        <Icon size={26} />
+                      </div>
+                      <span
+                        style={{
+                          fontSize: '13px',
+                          fontWeight: '850',
+                          color: facility.color,
+                          backgroundColor: '#ffffff',
+                          padding: '4px 12px',
+                          borderRadius: '999px',
+                          border: `1.5px solid ${facility.border}`,
+                          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)'
+                        }}
+                      >
+                        {formattedIndex}
+                      </span>
                     </div>
-                    <h2
+
+                    <h3
                       style={{
                         fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
                         fontSize: '21px',
                         fontWeight: '850',
                         color: '#721024',
-                        marginBottom: '12px'
+                        marginBottom: '12px',
+                        lineHeight: 1.3
                       }}
                     >
                       {facility.title}
-                    </h2>
+                    </h3>
                     <p style={{ fontSize: '15.5px', lineHeight: 1.7, color: '#475569', margin: 0 }}>
                       {facility.desc}
                     </p>
@@ -178,38 +301,52 @@ export default function FacilitiesPage({ onBookVisitClick }) {
       </section>
 
       {/* 3. SAFETY IS A DAILY PRACTICE */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#FFFDF7' }}>
-        <div style={{ maxWidth: '920px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#FFFDF9',
+          backgroundImage: 'radial-gradient(circle at 85% 15%, rgba(241, 90, 41, 0.04) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(114, 16, 36, 0.03) 0%, transparent 45%)'
+        }}
+      >
+        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div
               style={{
-                background: '#ffffff',
-                borderRadius: '30px',
-                padding: 'clamp(36px, 5vw, 54px) clamp(24px, 4vw, 44px)',
-                border: '1.5px solid #ffede4',
-                boxShadow: '0 12px 36px rgba(114, 16, 36, 0.04)',
-                textAlign: 'center'
+                backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
+                borderRadius: '2.5rem',
+                padding: 'clamp(40px, 6vw, 60px) clamp(24px, 5vw, 50px)',
+                border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                boxShadow: '0 20px 50px rgba(114, 16, 36, 0.06), 0 2px 12px rgba(255, 255, 255, 0.9) inset',
+                textAlign: 'center',
+                position: 'relative',
+                overflow: 'hidden'
               }}
             >
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
+              
               <div
                 style={{
-                  width: '60px',
-                  height: '60px',
-                  borderRadius: '18px',
-                  backgroundColor: '#fff1f2',
+                  width: '64px',
+                  height: '64px',
+                  borderRadius: '1.25rem',
+                  backgroundColor: '#ffffff',
                   color: '#721024',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  margin: '0 auto 24px'
+                  margin: '0 auto 24px',
+                  border: '2px solid rgba(114, 16, 36, 0.18)',
+                  boxShadow: '0 10px 22px rgba(114, 16, 36, 0.08)'
                 }}
               >
-                <ShieldCheck size={30} />
+                <ShieldCheck size={32} />
               </div>
               <h2
                 style={{
                   fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                  fontSize: 'clamp(28px, 4vw, 38px)',
+                  fontSize: 'clamp(28px, 4vw, 40px)',
                   fontWeight: '900',
                   color: '#721024',
                   marginBottom: '18px'
@@ -217,26 +354,28 @@ export default function FacilitiesPage({ onBookVisitClick }) {
               >
                 Safety Is a Daily Practice
               </h2>
-              <p style={{ fontSize: '17px', lineHeight: 1.75, color: '#475569', maxWidth: '740px', margin: '0 auto 32px' }}>
+              <p style={{ fontSize: '17px', lineHeight: 1.75, color: '#475569', maxWidth: '740px', margin: '0 auto 36px' }}>
                 A safe environment depends on more than equipment. It also depends on careful supervision, clear routines, cleanliness, responsible access and communication with families. During your visit, our team will be happy to explain the current safety and wellbeing procedures that apply at the nursery.
               </p>
-              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
                 <Link
                   to="/contact"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 30px',
+                    gap: '10px',
+                    padding: '15px 34px',
                     borderRadius: '999px',
                     background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
                     color: '#ffffff',
                     fontWeight: '800',
                     fontSize: '15px',
                     textDecoration: 'none',
-                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
-                    transition: 'transform 0.2s ease'
+                    boxShadow: '0 8px 24px rgba(114, 16, 36, 0.28)',
+                    transition: 'all 0.25s ease'
                   }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
                 >
                   <Calendar size={18} />
                   <span>ARRANGE A NURSERY TOUR</span>
@@ -246,17 +385,20 @@ export default function FacilitiesPage({ onBookVisitClick }) {
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 30px',
+                    gap: '10px',
+                    padding: '15px 34px',
                     borderRadius: '999px',
                     backgroundColor: '#ffffff',
                     color: '#721024',
                     fontWeight: '800',
                     fontSize: '15px',
                     textDecoration: 'none',
-                    border: '1.5px solid #721024',
-                    transition: 'transform 0.2s ease'
+                    border: '2px solid #721024',
+                    boxShadow: '0 6px 18px rgba(114, 16, 36, 0.08)',
+                    transition: 'all 0.25s ease'
                   }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
                 >
                   <Phone size={18} />
                   <span>CONTACT US</span>

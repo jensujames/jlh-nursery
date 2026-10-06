@@ -89,8 +89,17 @@ export default function AboutPage({ onBookVisitClick }) {
       />
 
       {/* 2. OUR STORY */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderBottom: '1px solid #f1f5f9' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#f8faf8', 
+          backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 40%)',
+          borderBottom: '1px solid #f1f5f9',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <div
             style={{
               display: 'grid',
@@ -104,29 +113,43 @@ export default function AboutPage({ onBookVisitClick }) {
                 <div
                   style={{
                     position: 'relative',
-                    borderRadius: '28px',
+                    borderRadius: '2rem',
                     overflow: 'hidden',
-                    boxShadow: '0 16px 40px rgba(114, 16, 36, 0.08)',
-                    border: '4px solid #ffffff'
+                    boxShadow: '0 20px 48px rgba(114, 16, 36, 0.12), 0 2px 10px rgba(255, 255, 255, 0.8) inset',
+                    border: '3px solid rgba(255, 255, 255, 0.95)'
                   }}
                 >
                   <img 
                     src="/images/nurturing-hero.jpg" 
                     alt="Caring educators and children at Just Like Home Nursery" 
-                    style={{ width: '100%', height: '420px', objectFit: 'cover', display: 'block' }}
+                    style={{ width: '100%', height: '440px', objectFit: 'cover', display: 'block' }}
                   />
                   <div
                     style={{
                       position: 'absolute',
                       inset: 0,
-                      background: 'linear-gradient(to top, rgba(114, 16, 36, 0.75) 0%, transparent 60%)'
+                      background: 'linear-gradient(to top, rgba(114, 16, 36, 0.82) 0%, rgba(114, 16, 36, 0.2) 50%, transparent 75%)'
                     }}
                   />
-                  <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', color: '#ffffff' }}>
-                    <p style={{ margin: 0, fontSize: '11.5px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.8px', color: '#fef08a' }}>
+                  <div style={{ position: 'absolute', bottom: '28px', left: '28px', right: '28px', color: '#ffffff' }}>
+                    <span 
+                      style={{ 
+                        display: 'inline-block',
+                        padding: '4px 12px',
+                        borderRadius: '999px',
+                        backgroundColor: 'rgba(255, 255, 255, 0.22)',
+                        backdropFilter: 'blur(10px)',
+                        fontSize: '11px', 
+                        fontWeight: '800', 
+                        textTransform: 'uppercase', 
+                        letterSpacing: '0.8px', 
+                        color: '#fef08a',
+                        marginBottom: '8px'
+                      }}
+                    >
                       Villa No. 47, Al Rashidiya 2, Ajman
-                    </p>
-                    <p style={{ margin: '4px 0 0 0', fontSize: '19px', fontWeight: '800' }}>
+                    </span>
+                    <p style={{ margin: 0, fontSize: '21px', fontWeight: '900', fontFamily: 'var(--font-heading, "Outfit", sans-serif)' }}>
                       Where Little Hearts Feel at Home
                     </p>
                   </div>
@@ -136,41 +159,55 @@ export default function AboutPage({ onBookVisitClick }) {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <RevealOnScroll delay={100}>
-                <span
+                <div
                   style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '7px',
-                    padding: '6px 16px',
-                    borderRadius: '999px',
-                    backgroundColor: '#fff1f2',
-                    color: '#721024',
-                    fontSize: '13px',
-                    fontWeight: '800',
-                    border: '1px solid rgba(114, 16, 36, 0.12)',
-                    width: 'fit-content'
+                    backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                    backdropFilter: 'blur(24px)',
+                    WebkitBackdropFilter: 'blur(24px)',
+                    borderRadius: '2rem',
+                    padding: 'clamp(28px, 4vw, 40px)',
+                    border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                    boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset'
                   }}
                 >
-                  <Sparkles size={14} /> Our Background
-                </span>
-                <h2
-                  style={{
-                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                    fontSize: 'clamp(28px, 4vw, 42px)',
-                    fontWeight: '900',
-                    color: '#721024',
-                    margin: '8px 0 16px 0',
-                    lineHeight: 1.2
-                  }}
-                >
-                  Our Story
-                </h2>
-                <p style={{ fontSize: '16.5px', lineHeight: 1.78, color: '#475569', marginBottom: '16px' }}>
-                  The early years shape how children see themselves and the world around them. These years deserve more than supervision and lessons; they deserve patience, meaningful relationships and joyful opportunities to discover.
-                </p>
-                <p style={{ fontSize: '16.5px', lineHeight: 1.78, color: '#475569', margin: 0 }}>
-                  At Just Like Home Nursery in Ajman, we bring care and learning together. Every part of the child's day — from play and conversation to meals, movement, stories and friendships — can become an opportunity to grow.
-                </p>
+                  <span
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '7px',
+                      padding: '6px 18px',
+                      borderRadius: '999px',
+                      backgroundColor: '#ffffff',
+                      color: '#721024',
+                      fontSize: '13px',
+                      fontWeight: '800',
+                      letterSpacing: '0.5px',
+                      border: '1.5px solid rgba(114, 16, 36, 0.16)',
+                      marginBottom: '16px',
+                      boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
+                    }}
+                  >
+                    <Sparkles size={14} /> OUR BACKGROUND
+                  </span>
+                  <h2
+                    style={{
+                      fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                      fontSize: 'clamp(28px, 4vw, 40px)',
+                      fontWeight: '900',
+                      color: '#721024',
+                      margin: '0 0 16px 0',
+                      lineHeight: 1.25
+                    }}
+                  >
+                    Our Story
+                  </h2>
+                  <p style={{ fontSize: '16.5px', lineHeight: 1.78, color: '#475569', marginBottom: '16px' }}>
+                    The early years shape how children see themselves and the world around them. These years deserve more than supervision and lessons; they deserve patience, meaningful relationships and joyful opportunities to discover.
+                  </p>
+                  <p style={{ fontSize: '16.5px', lineHeight: 1.78, color: '#475569', margin: 0 }}>
+                    At Just Like Home Nursery in Ajman, we bring care and learning together. Every part of the child's day — from play and conversation to meals, movement, stories and friendships — can become an opportunity to grow.
+                  </p>
+                </div>
               </RevealOnScroll>
             </div>
           </div>
@@ -178,22 +215,30 @@ export default function AboutPage({ onBookVisitClick }) {
       </section>
 
       {/* 3. OUR VISION & OUR MISSION */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#FFFDF7' }}>
-        <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#FFFDF9',
+          backgroundImage: 'radial-gradient(circle at 85% 15%, rgba(241, 90, 41, 0.04) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(114, 16, 36, 0.03) 0%, transparent 45%)',
+          borderBottom: '1px solid #f1f5f9'
+        }}
+      >
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 48px' }}>
+            <div style={{ textAlign: 'center', maxWidth: '740px', margin: '0 auto 48px' }}>
               <span
                 style={{
                   display: 'inline-block',
                   padding: '6px 18px',
                   borderRadius: '999px',
-                  backgroundColor: '#fff1f2',
+                  backgroundColor: '#ffffff',
                   color: '#721024',
                   fontSize: '13px',
                   fontWeight: '800',
                   letterSpacing: '0.5px',
-                  border: '1px solid rgba(114, 16, 36, 0.12)',
-                  marginBottom: '14px'
+                  border: '1.5px solid rgba(114, 16, 36, 0.16)',
+                  marginBottom: '14px',
+                  boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
                 }}
               >
                 PURPOSE &amp; VALUES
@@ -201,14 +246,17 @@ export default function AboutPage({ onBookVisitClick }) {
               <h2
                 style={{
                   fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                  fontSize: 'clamp(28px, 4vw, 40px)',
+                  fontSize: 'clamp(28px, 4vw, 42px)',
                   fontWeight: '900',
                   color: '#721024',
-                  margin: 0
+                  margin: '0 0 16px 0'
                 }}
               >
                 Our Vision &amp; Mission
               </h2>
+              <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
+                Guiding every moment of care, learning and development at Just Like Home Nursery.
+              </p>
             </div>
           </RevealOnScroll>
 
@@ -220,39 +268,75 @@ export default function AboutPage({ onBookVisitClick }) {
             }}
           >
             {/* Vision Card */}
-            <RevealOnScroll delay={100}>
+            <RevealOnScroll delay={100} animation="from-left">
               <div
                 style={{
-                  background: '#ffffff',
-                  borderRadius: '28px',
-                  padding: '38px 32px',
-                  border: '1.5px solid #ffede4',
-                  boxShadow: '0 8px 30px rgba(114, 16, 36, 0.04)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.5rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   position: 'relative',
                   overflow: 'hidden',
-                  transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(114, 16, 36, 0.16), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                  e.currentTarget.style.borderColor = '#721024';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                 }}
               >
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #c9a84c)' }} />
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
                 <div>
                   <div
                     style={{
-                      width: '56px',
-                      height: '56px',
-                      borderRadius: '16px',
-                      backgroundColor: '#fff1f2',
-                      color: '#721024',
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '20px'
+                      justifyContent: 'space-between',
+                      marginBottom: '1.5rem'
                     }}
                   >
-                    <Compass size={28} />
+                    <div
+                      style={{
+                        width: '56px',
+                        height: '56px',
+                        borderRadius: '1.15rem',
+                        backgroundColor: '#ffffff',
+                        color: '#721024',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        border: '2px solid rgba(114, 16, 36, 0.2)',
+                        boxShadow: '0 8px 18px rgba(114, 16, 36, 0.12)'
+                      }}
+                    >
+                      <Compass size={28} />
+                    </div>
+                    <span 
+                      style={{ 
+                        fontSize: '11.5px', 
+                        fontWeight: '800', 
+                        letterSpacing: '0.6px', 
+                        textTransform: 'uppercase', 
+                        padding: '5px 12px', 
+                        borderRadius: '999px', 
+                        backgroundColor: '#FFF1F2', 
+                        color: '#721024' 
+                      }}
+                    >
+                      OUR VISION
+                    </span>
                   </div>
                   <h3
                     style={{
@@ -272,7 +356,7 @@ export default function AboutPage({ onBookVisitClick }) {
                 <div
                   style={{
                     marginTop: '28px',
-                    paddingTop: '16px',
+                    paddingTop: '18px',
                     borderTop: '1px solid #f8e8e8',
                     display: 'flex',
                     alignItems: 'center',
@@ -289,39 +373,75 @@ export default function AboutPage({ onBookVisitClick }) {
             </RevealOnScroll>
 
             {/* Mission Card */}
-            <RevealOnScroll delay={200}>
+            <RevealOnScroll delay={200} animation="from-right">
               <div
                 style={{
-                  background: '#ffffff',
-                  borderRadius: '28px',
-                  padding: '38px 32px',
-                  border: '1.5px solid #ffede4',
-                  boxShadow: '0 8px 30px rgba(114, 16, 36, 0.04)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.5rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   position: 'relative',
                   overflow: 'hidden',
-                  transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(201, 168, 76, 0.22), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                  e.currentTarget.style.borderColor = '#c9a84c';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #c9a84c, #721024)' }} />
                 <div>
                   <div
                     style={{
-                      width: '56px',
-                      height: '56px',
-                      borderRadius: '16px',
-                      backgroundColor: '#fef9e7',
-                      color: '#c9a84c',
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '20px'
+                      justifyContent: 'space-between',
+                      marginBottom: '1.5rem'
                     }}
                   >
-                    <Heart size={28} />
+                    <div
+                      style={{
+                        width: '56px',
+                        height: '56px',
+                        borderRadius: '1.15rem',
+                        backgroundColor: '#ffffff',
+                        color: '#c9a84c',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        border: '2px solid rgba(201, 168, 76, 0.25)',
+                        boxShadow: '0 8px 18px rgba(201, 168, 76, 0.14)'
+                      }}
+                    >
+                      <Heart size={28} />
+                    </div>
+                    <span 
+                      style={{ 
+                        fontSize: '11.5px', 
+                        fontWeight: '800', 
+                        letterSpacing: '0.6px', 
+                        textTransform: 'uppercase', 
+                        padding: '5px 12px', 
+                        borderRadius: '999px', 
+                        backgroundColor: '#fef9e7', 
+                        color: '#c9a84c' 
+                      }}
+                    >
+                      OUR MISSION
+                    </span>
                   </div>
                   <h3
                     style={{
@@ -341,7 +461,7 @@ export default function AboutPage({ onBookVisitClick }) {
                 <div
                   style={{
                     marginTop: '28px',
-                    paddingTop: '16px',
+                    paddingTop: '18px',
                     borderTop: '1px solid #f8e8e8',
                     display: 'flex',
                     alignItems: 'center',
@@ -361,8 +481,15 @@ export default function AboutPage({ onBookVisitClick }) {
       </section>
 
       {/* 4. WHAT WE PROMISE FAMILIES */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
-        <div style={{ maxWidth: '980px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#f8faf8', 
+          backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 40%)',
+          borderBottom: '1px solid #f1f5f9' 
+        }}
+      >
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 48px' }}>
               <span
@@ -370,13 +497,14 @@ export default function AboutPage({ onBookVisitClick }) {
                   display: 'inline-block',
                   padding: '6px 18px',
                   borderRadius: '999px',
-                  backgroundColor: '#fff1f2',
+                  backgroundColor: '#ffffff',
                   color: '#721024',
                   fontSize: '13px',
                   fontWeight: '800',
                   letterSpacing: '0.5px',
-                  border: '1px solid rgba(114, 16, 36, 0.12)',
-                  marginBottom: '14px'
+                  border: '1.5px solid rgba(114, 16, 36, 0.16)',
+                  marginBottom: '14px',
+                  boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
                 }}
               >
                 COMMITMENT TO FAMILIES
@@ -384,7 +512,7 @@ export default function AboutPage({ onBookVisitClick }) {
               <h2
                 style={{
                   fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                  fontSize: 'clamp(28px, 4vw, 40px)',
+                  fontSize: 'clamp(28px, 4vw, 42px)',
                   fontWeight: '900',
                   color: '#721024',
                   margin: '0 0 16px 0'
@@ -398,50 +526,83 @@ export default function AboutPage({ onBookVisitClick }) {
             </div>
           </RevealOnScroll>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            {PROMISES.map((promise, index) => (
-              <RevealOnScroll key={index} delay={index * 35}>
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '16px',
-                    padding: '20px 24px',
-                    borderRadius: '20px',
-                    backgroundColor: '#FFFDF7',
-                    border: '1.5px solid #ffede4',
-                    boxShadow: '0 4px 14px rgba(114, 16, 36, 0.02)',
-                    transition: 'transform 0.2s ease, border-color 0.2s ease'
-                  }}
-                >
+          <div 
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+              gap: '20px' 
+            }}
+          >
+            {PROMISES.map((promise, index) => {
+              const counter = String(index + 1).padStart(2, '0');
+              return (
+                <RevealOnScroll key={index} delay={index * 40}>
                   <div
                     style={{
-                      width: '32px',
-                      height: '32px',
-                      borderRadius: '50%',
-                      backgroundColor: '#fff1f2',
-                      color: '#721024',
                       display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                      marginTop: '2px'
+                      alignItems: 'flex-start',
+                      gap: '16px',
+                      padding: '24px 22px',
+                      borderRadius: '1.5rem',
+                      backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)',
+                      border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                      boxShadow: '0 8px 24px rgba(74, 14, 26, 0.04), 0 1px 4px rgba(0,0,0,0.02)',
+                      transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                      height: '100%',
+                      boxSizing: 'border-box'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-5px)';
+                      e.currentTarget.style.boxShadow = '0 16px 36px rgba(114, 16, 36, 0.10)';
+                      e.currentTarget.style.borderColor = 'rgba(114, 16, 36, 0.3)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(74, 14, 26, 0.04), 0 1px 4px rgba(0,0,0,0.02)';
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                     }}
                   >
-                    <CheckCircle2 size={18} />
+                    <div
+                      style={{
+                        width: '38px',
+                        height: '38px',
+                        borderRadius: '12px',
+                        backgroundColor: '#fff1f2',
+                        color: '#721024',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                        border: '1px solid rgba(114, 16, 36, 0.15)',
+                        fontSize: '12px',
+                        fontWeight: '900',
+                        fontFamily: 'var(--font-heading, "Outfit", sans-serif)'
+                      }}
+                    >
+                      {counter}
+                    </div>
+                    <p style={{ margin: 0, fontSize: '15.5px', lineHeight: 1.65, color: '#1e293b', fontWeight: '600' }}>
+                      {promise}
+                    </p>
                   </div>
-                  <p style={{ margin: 0, fontSize: '16px', lineHeight: 1.65, color: '#1e293b', fontWeight: '600' }}>
-                    {promise}
-                  </p>
-                </div>
-              </RevealOnScroll>
-            ))}
+                </RevealOnScroll>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* 5. EVERY CHILD IS UNIQUE & A PARTNERSHIP WITH PARENTS */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#FFFDF7' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#FFFDF9',
+          backgroundImage: 'radial-gradient(circle at 15% 15%, rgba(5, 150, 105, 0.03) 0%, transparent 45%), radial-gradient(circle at 85% 85%, rgba(114, 16, 36, 0.03) 0%, transparent 45%)',
+          borderBottom: '1px solid #f1f5f9'
+        }}
+      >
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <div
             style={{
@@ -450,31 +611,46 @@ export default function AboutPage({ onBookVisitClick }) {
               gap: '32px'
             }}
           >
-            <RevealOnScroll>
+            <RevealOnScroll animation="from-left">
               <div
                 style={{
-                  background: '#ffffff',
-                  borderRadius: '28px',
-                  padding: '38px 32px',
-                  border: '1.5px solid #ffede4',
-                  boxShadow: '0 8px 30px rgba(114, 16, 36, 0.03)',
-                  height: '100%'
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.5rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                  height: '100%',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(114, 16, 36, 0.14), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                  e.currentTarget.style.borderColor = '#721024';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                 }}
               >
                 <div
                   style={{
-                    width: '52px',
-                    height: '52px',
-                    borderRadius: '16px',
-                    backgroundColor: '#fff1f2',
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '1.15rem',
+                    backgroundColor: '#ffffff',
                     color: '#721024',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginBottom: '20px'
+                    marginBottom: '20px',
+                    border: '2px solid rgba(114, 16, 36, 0.18)',
+                    boxShadow: '0 8px 18px rgba(114, 16, 36, 0.08)'
                   }}
                 >
-                  <Smile size={26} />
+                  <Smile size={28} />
                 </div>
                 <h3
                   style={{
@@ -493,38 +669,53 @@ export default function AboutPage({ onBookVisitClick }) {
               </div>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={100}>
+            <RevealOnScroll delay={100} animation="from-right">
               <div
                 style={{
-                  background: '#ffffff',
-                  borderRadius: '28px',
-                  padding: '38px 32px',
-                  border: '1.5px solid #ffede4',
-                  boxShadow: '0 8px 30px rgba(114, 16, 36, 0.03)',
-                  height: '100%'
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.5rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                  height: '100%',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(2, 132, 199, 0.16), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                  e.currentTarget.style.borderColor = '#0284c7';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                 }}
               >
                 <div
                   style={{
-                    width: '52px',
-                    height: '52px',
-                    borderRadius: '16px',
-                    backgroundColor: '#e0f2fe',
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '1.15rem',
+                    backgroundColor: '#ffffff',
                     color: '#0284c7',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginBottom: '20px'
+                    marginBottom: '20px',
+                    border: '2px solid rgba(2, 132, 199, 0.22)',
+                    boxShadow: '0 8px 18px rgba(2, 132, 199, 0.12)'
                   }}
                 >
-                  <Users size={26} />
+                  <Users size={28} />
                 </div>
                 <h3
                   style={{
                     fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
                     fontSize: '24px',
                     fontWeight: '850',
-                    color: '#1e293b',
+                    color: '#0284c7',
                     marginBottom: '16px'
                   }}
                 >
@@ -540,7 +731,14 @@ export default function AboutPage({ onBookVisitClick }) {
       </section>
 
       {/* 6. OUR SERVICES & FACILITIES */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#f8faf8', 
+          backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 40%)',
+          borderBottom: '1px solid #f1f5f9' 
+        }}
+      >
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
@@ -549,13 +747,14 @@ export default function AboutPage({ onBookVisitClick }) {
                   display: 'inline-block',
                   padding: '6px 18px',
                   borderRadius: '999px',
-                  backgroundColor: '#fff1f2',
+                  backgroundColor: '#ffffff',
                   color: '#721024',
                   fontSize: '13px',
                   fontWeight: '800',
                   letterSpacing: '0.5px',
-                  border: '1px solid rgba(114, 16, 36, 0.12)',
-                  marginBottom: '14px'
+                  border: '1.5px solid rgba(114, 16, 36, 0.16)',
+                  marginBottom: '14px',
+                  boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
                 }}
               >
                 SERVICES &amp; FACILITIES
@@ -566,11 +765,14 @@ export default function AboutPage({ onBookVisitClick }) {
                   fontSize: 'clamp(28px, 4vw, 42px)',
                   fontWeight: '900',
                   color: '#721024',
-                  margin: 0
+                  margin: '0 0 16px 0'
                 }}
               >
                 Everything Your Child Needs to Flourish
               </h2>
+              <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
+                Thoughtfully equipped spaces and comprehensive care options created for happiness and peace of mind.
+              </p>
             </div>
           </RevealOnScroll>
 
@@ -582,19 +784,46 @@ export default function AboutPage({ onBookVisitClick }) {
             }}
           >
             {/* Services Card */}
-            <RevealOnScroll>
+            <RevealOnScroll animation="from-left">
               <div
                 style={{
-                  background: '#FFFDF7',
-                  borderRadius: '28px',
-                  padding: '38px 32px',
-                  border: '1.5px solid #ffede4',
-                  boxShadow: '0 8px 30px rgba(114, 16, 36, 0.03)',
-                  height: '100%'
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.5rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                  height: '100%',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-6px)';
+                  e.currentTarget.style.boxShadow = '0 20px 45px rgba(114, 16, 36, 0.10)';
+                  e.currentTarget.style.borderColor = '#721024';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-                  <span style={{ fontSize: '26px' }}>🌟</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
+                  <div
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: '14px',
+                      backgroundColor: '#fff1f2',
+                      color: '#721024',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '22px'
+                    }}
+                  >
+                    🌟
+                  </div>
                   <h3
                     style={{
                       fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
@@ -607,10 +836,21 @@ export default function AboutPage({ onBookVisitClick }) {
                     Our Services
                   </h3>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '13px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   {SERVICES_LIST.map((srv, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '11px' }}>
-                      <CheckCircle2 size={16} color="#721024" style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <div 
+                      key={idx} 
+                      style={{ 
+                        display: 'flex', 
+                        alignItems: 'flex-start', 
+                        gap: '12px',
+                        padding: '10px 14px',
+                        borderRadius: '12px',
+                        backgroundColor: '#FFFDF9',
+                        border: '1px solid #ffede4'
+                      }}
+                    >
+                      <CheckCircle2 size={17} color="#721024" style={{ marginTop: '2px', flexShrink: 0 }} />
                       <span style={{ fontSize: '15px', fontWeight: '650', color: '#334155', lineHeight: 1.5 }}>
                         {srv}
                       </span>
@@ -621,35 +861,73 @@ export default function AboutPage({ onBookVisitClick }) {
             </RevealOnScroll>
 
             {/* Facilities Card */}
-            <RevealOnScroll delay={100}>
+            <RevealOnScroll delay={100} animation="from-right">
               <div
                 style={{
-                  background: '#FFFDF7',
-                  borderRadius: '28px',
-                  padding: '38px 32px',
-                  border: '1.5px solid #ffede4',
-                  boxShadow: '0 8px 30px rgba(114, 16, 36, 0.03)',
-                  height: '100%'
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.5rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                  height: '100%',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-6px)';
+                  e.currentTarget.style.boxShadow = '0 20px 45px rgba(5, 150, 105, 0.12)';
+                  e.currentTarget.style.borderColor = '#059669';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-                  <span style={{ fontSize: '26px' }}>🏠</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
+                  <div
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: '14px',
+                      backgroundColor: '#dcfce7',
+                      color: '#059669',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '22px'
+                    }}
+                  >
+                    🏠
+                  </div>
                   <h3
                     style={{
                       fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
                       fontSize: '24px',
                       fontWeight: '850',
-                      color: '#721024',
+                      color: '#059669',
                       margin: 0
                     }}
                   >
                     Our Facilities
                   </h3>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '13px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   {FACILITIES_LIST.map((fac, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '11px' }}>
-                      <CheckCircle2 size={16} color="#721024" style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <div 
+                      key={idx} 
+                      style={{ 
+                        display: 'flex', 
+                        alignItems: 'flex-start', 
+                        gap: '12px',
+                        padding: '10px 14px',
+                        borderRadius: '12px',
+                        backgroundColor: '#F0FDF4',
+                        border: '1px solid #bbf7d0'
+                      }}
+                    >
+                      <CheckCircle2 size={17} color="#059669" style={{ marginTop: '2px', flexShrink: 0 }} />
                       <span style={{ fontSize: '15px', fontWeight: '650', color: '#334155', lineHeight: 1.5 }}>
                         {fac}
                       </span>

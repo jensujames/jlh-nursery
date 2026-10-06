@@ -80,8 +80,17 @@ export default function EyfsPage({ onBookVisitClick }) {
       />
 
       {/* 2. THE AREAS OF DEVELOPMENT WE SUPPORT */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderBottom: '1px solid #f1f5f9' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#f8faf8', 
+          backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 40%)',
+          borderBottom: '1px solid #f1f5f9',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <RevealOnScroll>
             <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 48px' }}>
               <span
@@ -89,13 +98,14 @@ export default function EyfsPage({ onBookVisitClick }) {
                   display: 'inline-block',
                   padding: '6px 18px',
                   borderRadius: '999px',
-                  backgroundColor: '#fff1f2',
+                  backgroundColor: '#ffffff',
                   color: '#721024',
                   fontSize: '13px',
                   fontWeight: '800',
                   letterSpacing: '0.5px',
-                  border: '1px solid rgba(114, 16, 36, 0.12)',
-                  marginBottom: '14px'
+                  border: '1.5px solid rgba(114, 16, 36, 0.16)',
+                  marginBottom: '14px',
+                  boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
                 }}
               >
                 AREAS OF GROWTH
@@ -106,11 +116,14 @@ export default function EyfsPage({ onBookVisitClick }) {
                   fontSize: 'clamp(28px, 4vw, 42px)',
                   fontWeight: '900',
                   color: '#721024',
-                  margin: 0
+                  margin: '0 0 16px 0'
                 }}
               >
                 The Areas of Development We Support
               </h2>
+              <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
+                Following British EYFS standards, we nurture holistic cognitive, emotional, social, and physical milestones through joyful, play-based inquiry.
+              </p>
             </div>
           </RevealOnScroll>
 
@@ -124,31 +137,49 @@ export default function EyfsPage({ onBookVisitClick }) {
             {DEVELOPMENT_AREAS.map((area, index) => {
               const Icon = area.icon;
               return (
-                <RevealOnScroll key={index} delay={index * 35}>
+                <RevealOnScroll key={index} delay={index * 40}>
                   <div
                     style={{
-                      background: '#FFFDF7',
-                      borderRadius: '24px',
-                      padding: '34px 28px',
-                      border: '1.5px solid #ffede4',
-                      boxShadow: '0 8px 24px rgba(114, 16, 36, 0.03)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                      backdropFilter: 'blur(24px)',
+                      WebkitBackdropFilter: 'blur(24px)',
+                      borderRadius: '2rem',
+                      padding: '2.5rem 2rem',
+                      border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                      boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'flex-start',
                       height: '100%',
-                      transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                      boxSizing: 'border-box',
+                      transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+                      position: 'relative',
+                      overflow: 'hidden'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                      e.currentTarget.style.boxShadow = '0 24px 50px rgba(114, 16, 36, 0.14), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                      e.currentTarget.style.borderColor = '#721024';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                      e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                     }}
                   >
+                    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
                     <div
                       style={{
-                        width: '54px',
-                        height: '54px',
-                        borderRadius: '16px',
-                        backgroundColor: '#FFF1F2',
+                        width: '56px',
+                        height: '56px',
+                        borderRadius: '1.15rem',
+                        backgroundColor: '#ffffff',
                         color: '#721024',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
+                        border: '2px solid rgba(114, 16, 36, 0.18)',
+                        boxShadow: '0 8px 18px rgba(114, 16, 36, 0.08)',
                         marginBottom: '20px'
                       }}
                     >
@@ -177,8 +208,15 @@ export default function EyfsPage({ onBookVisitClick }) {
       </section>
 
       {/* 3. MORE THAN A LESSON & OBSERVATION AND INDIVIDUAL SUPPORT */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#FFFDF7' }}>
-        <div style={{ maxWidth: '1120px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#FFFDF9',
+          backgroundImage: 'radial-gradient(circle at 85% 15%, rgba(241, 90, 41, 0.04) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(114, 16, 36, 0.03) 0%, transparent 45%)',
+          borderBottom: '1px solid #f1f5f9'
+        }}
+      >
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <div
             style={{
               display: 'grid',
@@ -186,30 +224,48 @@ export default function EyfsPage({ onBookVisitClick }) {
               gap: '30px'
             }}
           >
-            <RevealOnScroll>
+            <RevealOnScroll animation="from-left">
               <div
                 style={{
-                  background: '#ffffff',
-                  borderRadius: '28px',
-                  padding: '38px 32px',
-                  border: '1.5px solid #ffede4',
-                  boxShadow: '0 8px 30px rgba(114, 16, 36, 0.03)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.5rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
                   height: '100%',
                   display: 'flex',
-                  flexDirection: 'column'
+                  flexDirection: 'column',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(114, 16, 36, 0.14), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                  e.currentTarget.style.borderColor = '#721024';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                 }}
               >
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
                 <div
                   style={{
-                    width: '52px',
-                    height: '52px',
-                    borderRadius: '16px',
-                    backgroundColor: '#fff1f2',
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '1.15rem',
+                    backgroundColor: '#ffffff',
                     color: '#721024',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginBottom: '20px'
+                    marginBottom: '20px',
+                    border: '2px solid rgba(114, 16, 36, 0.18)',
+                    boxShadow: '0 8px 18px rgba(114, 16, 36, 0.08)'
                   }}
                 >
                   <Sparkles size={26} />
@@ -231,30 +287,48 @@ export default function EyfsPage({ onBookVisitClick }) {
               </div>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={100}>
+            <RevealOnScroll delay={100} animation="from-right">
               <div
                 style={{
-                  background: '#ffffff',
-                  borderRadius: '28px',
-                  padding: '38px 32px',
-                  border: '1.5px solid #ffede4',
-                  boxShadow: '0 8px 30px rgba(114, 16, 36, 0.03)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.5rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
                   height: '100%',
                   display: 'flex',
-                  flexDirection: 'column'
+                  flexDirection: 'column',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(225, 29, 72, 0.16), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                  e.currentTarget.style.borderColor = '#e11d48';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                 }}
               >
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #e11d48, #fb7185)' }} />
                 <div
                   style={{
-                    width: '52px',
-                    height: '52px',
-                    borderRadius: '16px',
-                    backgroundColor: '#fff1f2',
-                    color: '#721024',
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '1.15rem',
+                    backgroundColor: '#ffffff',
+                    color: '#e11d48',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginBottom: '20px'
+                    marginBottom: '20px',
+                    border: '2px solid rgba(225, 29, 72, 0.22)',
+                    boxShadow: '0 8px 18px rgba(225, 29, 72, 0.12)'
                   }}
                 >
                   <Heart size={26} />

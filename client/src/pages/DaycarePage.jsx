@@ -37,107 +37,248 @@ export default function DaycarePage() {
         whatsappText="Hello, I would like to check availability for full-day and half-day care options at Just Like Home Nursery."
       />
 
-      {/* 2. THREE CORE SECTIONS: A BALANCED NURSERY DAY / CARE THAT SUPPORTS DEVELOPMENT / KEEPING PARENTS CONNECTED */}
-      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '24px'
-          }}>
-            <RevealOnScroll>
-              <div style={{
-                background: '#FFFDF7',
-                borderRadius: '24px',
-                padding: '36px 30px',
-                border: '1.5px solid #ffede4',
-                boxShadow: '0 4px 14px rgba(0,0,0,0.02)',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column'
-              }}>
-                <div style={{
-                  width: '54px',
-                  height: '54px',
-                  borderRadius: '16px',
-                  backgroundColor: '#fff1f2',
+      {/* 2. THREE CORE SECTIONS */}
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#f8faf8', 
+          backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 40%)',
+          borderTop: '1px solid #f1f5f9', 
+          borderBottom: '1px solid #f1f5f9',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+          <RevealOnScroll>
+            <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
+              <span
+                style={{
+                  display: 'inline-block',
+                  padding: '6px 18px',
+                  borderRadius: '999px',
+                  backgroundColor: '#ffffff',
                   color: '#721024',
+                  fontSize: '13px',
+                  fontWeight: '800',
+                  letterSpacing: '0.5px',
+                  border: '1.5px solid rgba(114, 16, 36, 0.16)',
+                  marginBottom: '14px',
+                  boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
+                }}
+              >
+                SCHEDULES &amp; ROUTINES
+              </span>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                  fontSize: 'clamp(28px, 4vw, 42px)',
+                  fontWeight: '900',
+                  color: '#721024',
+                  margin: '0 0 16px 0'
+                }}
+              >
+                Care That Nurtures the Whole Day
+              </h2>
+              <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
+                Structured flexibility designed to meet the real schedules of working families while keeping childhood joyful and unhurried.
+              </p>
+            </div>
+          </RevealOnScroll>
+
+          <div 
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '28px'
+            }}
+          >
+            <RevealOnScroll animation="from-left">
+              <div 
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.5rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                  height: '100%',
+                  boxSizing: 'border-box',
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '20px'
-                }}>
-                  <Sun size={26} />
+                  flexDirection: 'column',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(217, 119, 6, 0.16), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                  e.currentTarget.style.borderColor = '#d97706';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                }}
+              >
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #d97706, #f59e0b)' }} />
+                <div 
+                  style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '1.15rem',
+                    backgroundColor: '#ffffff',
+                    color: '#d97706',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '20px',
+                    border: '2px solid rgba(217, 119, 6, 0.22)',
+                    boxShadow: '0 8px 18px rgba(217, 119, 6, 0.12)'
+                  }}
+                >
+                  <Sun size={28} />
                 </div>
-                <h2 style={{ fontSize: '22px', fontWeight: '850', color: '#1e293b', marginBottom: '14px' }}>
+                <h3 
+                  style={{ 
+                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                    fontSize: '22px', 
+                    fontWeight: '850', 
+                    color: '#1e293b', 
+                    marginBottom: '14px' 
+                  }}
+                >
                   A Balanced Nursery Day
-                </h2>
+                </h3>
                 <p style={{ fontSize: '15.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
                   Depending on the child's program and attendance hours, the day may include welcome routines, child-led play, guided activities, stories and music, physical movement, outdoor experiences, meals or snacks, quiet time and preparation for home.
                 </p>
               </div>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={50}>
-              <div style={{
-                background: '#FFFDF7',
-                borderRadius: '24px',
-                padding: '36px 30px',
-                border: '1.5px solid #ffede4',
-                boxShadow: '0 4px 14px rgba(0,0,0,0.02)',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column'
-              }}>
-                <div style={{
-                  width: '54px',
-                  height: '54px',
-                  borderRadius: '16px',
-                  backgroundColor: '#fff1f2',
-                  color: '#721024',
+            <RevealOnScroll delay={50} animation="from-bottom">
+              <div 
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.5rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                  height: '100%',
+                  boxSizing: 'border-box',
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '20px'
-                }}>
-                  <Heart size={26} />
+                  flexDirection: 'column',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(225, 29, 72, 0.16), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                  e.currentTarget.style.borderColor = '#e11d48';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                }}
+              >
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #e11d48, #f43f5e)' }} />
+                <div 
+                  style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '1.15rem',
+                    backgroundColor: '#ffffff',
+                    color: '#e11d48',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '20px',
+                    border: '2px solid rgba(225, 29, 72, 0.22)',
+                    boxShadow: '0 8px 18px rgba(225, 29, 72, 0.12)'
+                  }}
+                >
+                  <Heart size={28} />
                 </div>
-                <h2 style={{ fontSize: '22px', fontWeight: '850', color: '#1e293b', marginBottom: '14px' }}>
+                <h3 
+                  style={{ 
+                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                    fontSize: '22px', 
+                    fontWeight: '850', 
+                    color: '#1e293b', 
+                    marginBottom: '14px' 
+                  }}
+                >
                   Care That Supports Development
-                </h2>
+                </h3>
                 <p style={{ fontSize: '15.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
                   Care routines are not separate from learning. Conversations during meals, tidying after play, choosing an activity and managing personal belongings all help children build communication, responsibility and independence.
                 </p>
               </div>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={100}>
-              <div style={{
-                background: '#FFFDF7',
-                borderRadius: '24px',
-                padding: '36px 30px',
-                border: '1.5px solid #ffede4',
-                boxShadow: '0 4px 14px rgba(0,0,0,0.02)',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column'
-              }}>
-                <div style={{
-                  width: '54px',
-                  height: '54px',
-                  borderRadius: '16px',
-                  backgroundColor: '#fff1f2',
-                  color: '#721024',
+            <RevealOnScroll delay={100} animation="from-right">
+              <div 
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.5rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                  height: '100%',
+                  boxSizing: 'border-box',
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '20px'
-                }}>
-                  <MessageCircle size={26} />
+                  flexDirection: 'column',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(2, 132, 199, 0.16), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                  e.currentTarget.style.borderColor = '#0284c7';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                }}
+              >
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #0284c7, #38bdf8)' }} />
+                <div 
+                  style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '1.15rem',
+                    backgroundColor: '#ffffff',
+                    color: '#0284c7',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '20px',
+                    border: '2px solid rgba(2, 132, 199, 0.22)',
+                    boxShadow: '0 8px 18px rgba(2, 132, 199, 0.12)'
+                  }}
+                >
+                  <MessageCircle size={28} />
                 </div>
-                <h2 style={{ fontSize: '22px', fontWeight: '850', color: '#1e293b', marginBottom: '14px' }}>
+                <h3 
+                  style={{ 
+                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                    fontSize: '22px', 
+                    fontWeight: '850', 
+                    color: '#1e293b', 
+                    marginBottom: '14px' 
+                  }}
+                >
                   Keeping Parents Connected
-                </h2>
+                </h3>
                 <p style={{ fontSize: '15.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
                   We understand that trust matters when children spend part of their day away from home. Regular parent communication helps families remain informed and gives educators useful insight into routines, preferences and changes that may affect the child.
                 </p>
@@ -148,31 +289,54 @@ export default function DaycarePage() {
       </section>
 
       {/* 3. CHOOSE THE RIGHT OPTION */}
-      <section style={{ padding: '80px 20px', backgroundColor: '#FFFDF7' }}>
-        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#FFFDF9',
+          backgroundImage: 'radial-gradient(circle at 85% 15%, rgba(241, 90, 41, 0.04) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(114, 16, 36, 0.03) 0%, transparent 45%)',
+          borderBottom: '1px solid #f1f5f9'
+        }}
+      >
+        <div style={{ maxWidth: '920px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div style={{
-              background: '#ffffff',
-              borderRadius: '28px',
-              padding: '48px 36px',
-              border: '1.5px solid rgba(114, 16, 36, 0.12)',
-              boxShadow: '0 10px 30px rgba(114, 16, 36, 0.04)',
-              textAlign: 'center'
-            }}>
-              <div style={{
-                width: '60px',
-                height: '60px',
-                borderRadius: '20px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 24px'
-              }}>
-                <Clock size={30} />
+            <div 
+              style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
+                borderRadius: '2.5rem',
+                padding: 'clamp(36px, 5vw, 54px) clamp(24px, 4vw, 44px)',
+                border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                boxShadow: '0 16px 45px rgba(74, 14, 26, 0.06), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                textAlign: 'center'
+              }}
+            >
+              <div 
+                style={{
+                  width: '64px',
+                  height: '64px',
+                  borderRadius: '1.25rem',
+                  backgroundColor: '#ffffff',
+                  color: '#721024',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 24px',
+                  border: '2px solid rgba(114, 16, 36, 0.18)',
+                  boxShadow: '0 8px 22px rgba(114, 16, 36, 0.10)'
+                }}
+              >
+                <Clock size={32} />
               </div>
-              <h2 style={{ fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: '900', color: '#721024', marginBottom: '18px' }}>
+              <h2 
+                style={{ 
+                  fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                  fontSize: 'clamp(28px, 4vw, 38px)', 
+                  fontWeight: '900', 
+                  color: '#721024', 
+                  marginBottom: '18px' 
+                }}
+              >
                 Choose the Right Option
               </h2>
               <p style={{ fontSize: '17px', lineHeight: 1.75, color: '#475569', maxWidth: '720px', margin: '0 auto 32px' }}>
@@ -185,14 +349,14 @@ export default function DaycarePage() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
-                    padding: '14px 30px',
+                    padding: '14px 32px',
                     borderRadius: '999px',
                     backgroundColor: '#721024',
                     color: '#ffffff',
                     fontWeight: '800',
                     fontSize: '15px',
                     textDecoration: 'none',
-                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
+                    boxShadow: '0 8px 24px rgba(114, 16, 36, 0.25)',
                     transition: 'all 0.25s ease'
                   }}
                 >
@@ -207,14 +371,15 @@ export default function DaycarePage() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
-                    padding: '14px 30px',
+                    padding: '14px 32px',
                     borderRadius: '999px',
                     backgroundColor: '#ffffff',
                     color: '#721024',
                     fontWeight: '800',
                     fontSize: '15px',
                     textDecoration: 'none',
-                    border: '1.5px solid #721024',
+                    border: '1.5px solid rgba(114, 16, 36, 0.3)',
+                    boxShadow: '0 4px 14px rgba(0, 0, 0, 0.04)',
                     transition: 'all 0.25s ease'
                   }}
                 >
@@ -227,16 +392,46 @@ export default function DaycarePage() {
         </div>
       </section>
 
-      {/* 4. CLOSING CTA BANNER: CHECK AVAILABILITY | WHATSAPP US */}
-      <section style={{
-        padding: '80px 20px',
-        background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-        color: '#ffffff',
-        textAlign: 'center'
-      }}>
-        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+      {/* 4. CLOSING CTA BANNER */}
+      <section 
+        style={{
+          padding: 'clamp(64px, 7vw, 90px) 20px',
+          background: 'linear-gradient(135deg, #721024 0%, #8f152f 50%, #590d1c 100%)',
+          color: '#ffffff',
+          textAlign: 'center',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        <div style={{ maxWidth: '820px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <RevealOnScroll>
-            <h2 style={{ fontSize: 'clamp(28px, 4.5vw, 40px)', fontWeight: '900', margin: '0 0 20px 0', lineHeight: 1.25 }}>
+            <span
+              style={{
+                display: 'inline-block',
+                padding: '6px 18px',
+                borderRadius: '999px',
+                backgroundColor: 'rgba(255, 255, 255, 0.16)',
+                backdropFilter: 'blur(10px)',
+                color: '#fef08a',
+                fontSize: '13px',
+                fontWeight: '800',
+                letterSpacing: '0.8px',
+                textTransform: 'uppercase',
+                border: '1px solid rgba(255, 255, 255, 0.25)',
+                marginBottom: '18px'
+              }}
+            >
+              DAYCARE IN AJMAN
+            </span>
+            <h2 
+              style={{ 
+                fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                fontSize: 'clamp(28px, 4.5vw, 42px)', 
+                fontWeight: '900', 
+                margin: '0 0 20px 0', 
+                lineHeight: 1.25 
+              }}
+            >
               Flexible Care With a Consistent Sense of Belonging
             </h2>
             <p style={{ fontSize: '17px', lineHeight: 1.75, opacity: 0.95, margin: '0 auto 36px', maxWidth: '680px' }}>
@@ -254,9 +449,9 @@ export default function DaycarePage() {
                   backgroundColor: '#ffffff',
                   color: '#721024',
                   fontWeight: '800',
-                  fontSize: '15.5px',
+                  fontSize: '15px',
                   textDecoration: 'none',
-                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.22)',
                   transition: 'all 0.25s ease'
                 }}
               >
@@ -273,12 +468,13 @@ export default function DaycarePage() {
                   gap: '8px',
                   padding: '15px 34px',
                   borderRadius: '999px',
-                  backgroundColor: 'rgba(255,255,255,0.12)',
+                  backgroundColor: 'rgba(255,255,255,0.14)',
+                  backdropFilter: 'blur(10px)',
                   color: '#ffffff',
                   fontWeight: '800',
-                  fontSize: '15.5px',
+                  fontSize: '15px',
                   textDecoration: 'none',
-                  border: '1.5px solid rgba(255,255,255,0.4)',
+                  border: '1.5px solid rgba(255,255,255,0.5)',
                   transition: 'all 0.25s ease'
                 }}
               >

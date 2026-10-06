@@ -5,7 +5,7 @@ import LuxuryPageHero from '../components/LuxuryPageHero';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
 import { 
   Camera, Calendar, X, ChevronLeft, ChevronRight, 
-  Sparkles, ArrowRight, Info, Compass 
+  Sparkles, ArrowRight, Info, Compass, Building2, Heart 
 } from 'lucide-react';
 
 const FILTERS = [
@@ -130,33 +130,75 @@ export default function GalleryPage({ onBookVisitClick }) {
       />
 
       {/* 2. GALLERY INTRO CAPTIONS & PHOTO GRID */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderBottom: '1px solid #f1f5f9' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(64px, 7vw, 90px) 20px', 
+          backgroundColor: '#f8faf8',
+          backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 40%)',
+          borderBottom: '1px solid #f1f5f9',
+          position: 'relative'
+        }}
+      >
+        <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
           {/* 3 Intro Captions */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '24px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '26px',
               marginBottom: '48px'
             }}
           >
             <RevealOnScroll>
               <div
                 style={{
-                  padding: '30px 26px',
-                  borderRadius: '24px',
-                  backgroundColor: '#FFFDF7',
-                  border: '1.5px solid #ffede4',
-                  boxShadow: '0 4px 14px rgba(114, 16, 36, 0.02)',
-                  height: '100%'
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.2rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                  height: '100%',
+                  boxSizing: 'border-box',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-6px) scale(1.01)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(114, 16, 36, 0.12), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                  e.currentTarget.style.borderColor = '#721024';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                 }}
               >
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
+                <div
+                  style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '1.15rem',
+                    backgroundColor: '#ffffff',
+                    color: '#721024',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '18px',
+                    border: '2px solid rgba(114, 16, 36, 0.18)',
+                    boxShadow: '0 8px 18px rgba(114, 16, 36, 0.08)'
+                  }}
+                >
+                  <Building2 size={26} />
+                </div>
                 <h3
                   style={{
                     fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                    fontSize: '20px',
+                    fontSize: '21px',
                     fontWeight: '850',
                     color: '#721024',
                     marginBottom: '10px'
@@ -164,7 +206,7 @@ export default function GalleryPage({ onBookVisitClick }) {
                 >
                   Our Spaces
                 </h3>
-                <p style={{ fontSize: '15px', lineHeight: 1.65, color: '#475569', margin: 0 }}>
+                <p style={{ fontSize: '15.5px', lineHeight: 1.7, color: '#475569', margin: 0 }}>
                   Explore classrooms and activity areas created for safe, happy learning.
                 </p>
               </div>
@@ -173,18 +215,52 @@ export default function GalleryPage({ onBookVisitClick }) {
             <RevealOnScroll delay={50}>
               <div
                 style={{
-                  padding: '30px 26px',
-                  borderRadius: '24px',
-                  backgroundColor: '#FFFDF7',
-                  border: '1.5px solid #ffede4',
-                  boxShadow: '0 4px 14px rgba(114, 16, 36, 0.02)',
-                  height: '100%'
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.2rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                  height: '100%',
+                  boxSizing: 'border-box',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-6px) scale(1.01)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(217, 119, 6, 0.14), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                  e.currentTarget.style.borderColor = '#d97706';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                 }}
               >
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #d97706, #f59e0b)' }} />
+                <div
+                  style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '1.15rem',
+                    backgroundColor: '#ffffff',
+                    color: '#d97706',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '18px',
+                    border: '2px solid rgba(217, 119, 6, 0.22)',
+                    boxShadow: '0 8px 18px rgba(217, 119, 6, 0.1)'
+                  }}
+                >
+                  <Sparkles size={26} />
+                </div>
                 <h3
                   style={{
                     fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                    fontSize: '20px',
+                    fontSize: '21px',
                     fontWeight: '850',
                     color: '#721024',
                     marginBottom: '10px'
@@ -192,7 +268,7 @@ export default function GalleryPage({ onBookVisitClick }) {
                 >
                   Learning in Action
                 </h3>
-                <p style={{ fontSize: '15px', lineHeight: 1.65, color: '#475569', margin: 0 }}>
+                <p style={{ fontSize: '15.5px', lineHeight: 1.7, color: '#475569', margin: 0 }}>
                   See how play, stories, exploration and conversation turn everyday moments into learning.
                 </p>
               </div>
@@ -201,18 +277,52 @@ export default function GalleryPage({ onBookVisitClick }) {
             <RevealOnScroll delay={100}>
               <div
                 style={{
-                  padding: '30px 26px',
-                  borderRadius: '24px',
-                  backgroundColor: '#FFFDF7',
-                  border: '1.5px solid #ffede4',
-                  boxShadow: '0 4px 14px rgba(114, 16, 36, 0.02)',
-                  height: '100%'
+                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '2rem',
+                  padding: '2.2rem 2rem',
+                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                  height: '100%',
+                  boxSizing: 'border-box',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-6px) scale(1.01)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(225, 29, 72, 0.14), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
+                  e.currentTarget.style.borderColor = '#e11d48';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                 }}
               >
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #e11d48, #fb7185)' }} />
+                <div
+                  style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '1.15rem',
+                    backgroundColor: '#ffffff',
+                    color: '#e11d48',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '18px',
+                    border: '2px solid rgba(225, 29, 72, 0.22)',
+                    boxShadow: '0 8px 18px rgba(225, 29, 72, 0.1)'
+                  }}
+                >
+                  <Heart size={26} />
+                </div>
                 <h3
                   style={{
                     fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                    fontSize: '20px',
+                    fontSize: '21px',
                     fontWeight: '850',
                     color: '#721024',
                     marginBottom: '10px'
@@ -220,7 +330,7 @@ export default function GalleryPage({ onBookVisitClick }) {
                 >
                   Special Moments
                 </h3>
-                <p style={{ fontSize: '15px', lineHeight: 1.65, color: '#475569', margin: 0 }}>
+                <p style={{ fontSize: '15.5px', lineHeight: 1.7, color: '#475569', margin: 0 }}>
                   From theme days to creative celebrations, shared experiences help build happy nursery memories.
                 </p>
               </div>
@@ -233,8 +343,8 @@ export default function GalleryPage({ onBookVisitClick }) {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              gap: '10px',
-              marginBottom: '40px'
+              gap: '12px',
+              marginBottom: '44px'
             }}
           >
             {FILTERS.map((f) => {
@@ -244,16 +354,30 @@ export default function GalleryPage({ onBookVisitClick }) {
                   key={f.id}
                   onClick={() => setActiveFilter(f.id)}
                   style={{
-                    padding: '10px 22px',
+                    padding: '11px 24px',
                     borderRadius: '999px',
                     fontSize: '14px',
-                    fontWeight: '700',
+                    fontWeight: '800',
                     cursor: 'pointer',
                     transition: 'all 0.25s ease',
-                    border: isActive ? '1.5px solid #721024' : '1.5px solid #ffede4',
-                    backgroundColor: isActive ? '#721024' : '#FFFDF7',
+                    border: isActive ? '1.5px solid #721024' : '1.5px solid rgba(114, 16, 36, 0.14)',
+                    backgroundColor: isActive ? '#721024' : '#ffffff',
                     color: isActive ? '#ffffff' : '#475569',
-                    boxShadow: isActive ? '0 4px 14px rgba(114, 16, 36, 0.2)' : 'none'
+                    boxShadow: isActive ? '0 6px 20px rgba(114, 16, 36, 0.25)' : '0 2px 8px rgba(0,0,0,0.03)'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.borderColor = '#721024';
+                      e.currentTarget.style.color = '#721024';
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.borderColor = 'rgba(114, 16, 36, 0.14)';
+                      e.currentTarget.style.color = '#475569';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                    }
                   }}
                 >
                   {f.label}
@@ -267,7 +391,7 @@ export default function GalleryPage({ onBookVisitClick }) {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '24px'
+              gap: '26px'
             }}
           >
             {filteredImages.map((img, index) => (
@@ -276,22 +400,22 @@ export default function GalleryPage({ onBookVisitClick }) {
                 onClick={() => openLightbox(index)}
                 style={{
                   position: 'relative',
-                  borderRadius: '24px',
+                  borderRadius: '2rem',
                   overflow: 'hidden',
                   cursor: 'pointer',
                   aspectRatio: '4 / 3',
                   backgroundColor: '#f1f5f9',
-                  boxShadow: '0 6px 20px rgba(114, 16, 36, 0.04)',
+                  boxShadow: '0 10px 30px rgba(74, 14, 26, 0.06)',
                   border: '3px solid #ffffff',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = '0 14px 30px rgba(114, 16, 36, 0.12)';
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.015)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(114, 16, 36, 0.16)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(114, 16, 36, 0.04)';
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(74, 14, 26, 0.06)';
                 }}
               >
                 <img
@@ -301,7 +425,8 @@ export default function GalleryPage({ onBookVisitClick }) {
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
-                    display: 'block'
+                    display: 'block',
+                    transition: 'transform 0.5s ease'
                   }}
                   loading="lazy"
                 />
@@ -309,14 +434,14 @@ export default function GalleryPage({ onBookVisitClick }) {
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(to top, rgba(114, 16, 36, 0.85) 0%, rgba(0,0,0,0) 60%)',
+                    background: 'linear-gradient(to top, rgba(114, 16, 36, 0.88) 0%, rgba(114, 16, 36, 0.2) 45%, transparent 70%)',
                     display: 'flex',
                     alignItems: 'flex-end',
-                    padding: '20px',
+                    padding: '24px',
                     color: '#ffffff'
                   }}
                 >
-                  <p style={{ margin: 0, fontSize: '14px', fontWeight: '600', lineHeight: 1.4 }}>
+                  <p style={{ margin: 0, fontSize: '14.5px', fontWeight: '700', lineHeight: 1.45, textShadow: '0 2px 6px rgba(0,0,0,0.3)' }}>
                     {img.caption}
                   </p>
                 </div>
@@ -328,49 +453,63 @@ export default function GalleryPage({ onBookVisitClick }) {
       </section>
 
       {/* 3. IMAGE PUBLISHING NOTE */}
-      <section style={{ padding: 'clamp(48px, 6vw, 72px) 20px', backgroundColor: '#FFFDF7' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+      <section 
+        style={{ 
+          padding: 'clamp(48px, 6vw, 72px) 20px', 
+          backgroundColor: '#FFFDF9',
+          backgroundImage: 'radial-gradient(circle at 85% 15%, rgba(241, 90, 41, 0.04) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(114, 16, 36, 0.03) 0%, transparent 45%)'
+        }}
+      >
+        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div
               style={{
                 display: 'flex',
                 alignItems: 'flex-start',
-                gap: '18px',
-                padding: '26px 30px',
-                borderRadius: '24px',
-                backgroundColor: '#ffffff',
-                border: '1.5px solid #ffede4',
-                boxShadow: '0 6px 20px rgba(114, 16, 36, 0.03)'
+                gap: '22px',
+                padding: '28px 34px',
+                borderRadius: '2rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
+                border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                boxShadow: '0 12px 34px rgba(74, 14, 26, 0.04), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                position: 'relative',
+                overflow: 'hidden'
               }}
             >
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
+              
               <div
                 style={{
-                  width: '42px',
-                  height: '42px',
-                  borderRadius: '14px',
-                  backgroundColor: '#fff1f2',
+                  width: '52px',
+                  height: '52px',
+                  borderRadius: '1.15rem',
+                  backgroundColor: '#ffffff',
                   color: '#721024',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  flexShrink: 0
+                  flexShrink: 0,
+                  border: '2px solid rgba(114, 16, 36, 0.18)',
+                  boxShadow: '0 8px 18px rgba(114, 16, 36, 0.08)'
                 }}
               >
-                <Info size={22} />
+                <Info size={24} />
               </div>
               <div>
                 <h4
                   style={{
                     fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                    fontSize: '16px',
+                    fontSize: '18px',
                     fontWeight: '850',
                     color: '#721024',
-                    margin: '0 0 6px 0'
+                    margin: '0 0 8px 0'
                   }}
                 >
                   Image Publishing Note
                 </h4>
-                <p style={{ fontSize: '14.5px', lineHeight: 1.65, color: '#475569', margin: 0 }}>
+                <p style={{ fontSize: '15px', lineHeight: 1.7, color: '#475569', margin: 0 }}>
                   Use original nursery photography wherever possible. File names and alt text should describe the genuine activity or space without identifying individual children. Publish images of children only when valid consent has been obtained and documented.
                 </p>
               </div>
