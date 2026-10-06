@@ -582,6 +582,9 @@ export default function PageHeader({
         }}
         aria-hidden="true"
       />
+
+      {/* Shiny Royal Thick Burgundy Hero Border */}
+      <div className="royal-hero-bottom-border" aria-hidden="true" />
     </div>
   );
 }

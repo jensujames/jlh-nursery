@@ -349,7 +349,7 @@ export default function HomeMomentsPreview() {
                 padding: '0.8rem 1.8rem',
                 borderRadius: '999px',
                 background: 'linear-gradient(135deg, #721024 0%, #5e1020 100%)',
-                color: '#ffffff',
+                color: '#FAF5EB',
                 textDecoration: 'none',
                 fontWeight: '800',
                 fontSize: '0.92rem',

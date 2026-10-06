@@ -1,95 +1,64 @@
 import React, { useState } from 'react';
 import { 
-  Star, 
-  Users, 
-  Trophy, 
-  Clock, 
+  Sparkles,
+  Clock,
   Heart,
-  Armchair
+  Trophy
 } from 'lucide-react';
 import './FactCarousel.css';
 
+// ONLY the 4 previous core nursery offerings
 const FACTS = [
   {
-    id: 1,
-    icon: Armchair,
-    number: '12+',
-    label: 'Dedicated Learning Spaces',
+    id: 'eyfs',
+    icon: Sparkles,
+    name: 'EYFS Approach',
     theme: 'blue',
     accentColor: '#0284c7',
     iconBg: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)',
-    shadowColor: 'rgba(2, 132, 199, 0.22)',
-    badgeBg: 'rgba(2, 132, 199, 0.08)'
+    shadowColor: 'rgba(2, 132, 199, 0.18)'
   },
   {
-    id: 2,
-    icon: Users,
-    number: '500+',
-    label: 'Happy Little Graduates',
+    id: 'care',
+    icon: Clock,
+    name: 'Full–Day & Half–Day Care',
     theme: 'coral',
     accentColor: '#F15A29',
     iconBg: 'linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%)',
-    shadowColor: 'rgba(241, 90, 41, 0.22)',
-    badgeBg: 'rgba(241, 90, 41, 0.08)'
+    shadowColor: 'rgba(241, 90, 41, 0.18)'
   },
   {
-    id: 3,
-    icon: Star,
-    number: '10+',
-    label: 'Years of Loving Care',
-    theme: 'gold',
-    accentColor: '#d97706',
-    iconBg: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)',
-    shadowColor: 'rgba(217, 119, 6, 0.22)',
-    badgeBg: 'rgba(217, 119, 6, 0.08)'
-  },
-  {
-    id: 4,
-    icon: Trophy,
-    number: '100%',
-    label: 'MOHAP & EYFS Approved',
-    theme: 'green',
-    accentColor: '#16a34a',
-    iconBg: 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)',
-    shadowColor: 'rgba(22, 163, 74, 0.22)',
-    badgeBg: 'rgba(22, 163, 74, 0.08)'
-  },
-  {
-    id: 5,
+    id: 'preschool',
     icon: Heart,
-    number: '1 : 3',
-    label: 'Infant-to-Caregiver Ratio',
+    name: 'Preschool',
     theme: 'rose',
     accentColor: '#e11d48',
     iconBg: 'linear-gradient(135deg, #ffe4e6 0%, #fecdd3 100%)',
-    shadowColor: 'rgba(225, 29, 72, 0.22)',
-    badgeBg: 'rgba(225, 29, 72, 0.08)'
+    shadowColor: 'rgba(225, 29, 72, 0.18)'
   },
   {
-    id: 6,
-    icon: Clock,
-    number: '7am – 6pm',
-    label: 'Extended Daycare Support',
-    theme: 'purple',
-    accentColor: '#7c3aed',
-    iconBg: 'linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%)',
-    shadowColor: 'rgba(124, 58, 237, 0.22)',
-    badgeBg: 'rgba(124, 58, 237, 0.08)'
+    id: 'readiness',
+    icon: Trophy,
+    name: 'School Readiness',
+    theme: 'green',
+    accentColor: '#059669',
+    iconBg: 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)',
+    shadowColor: 'rgba(5, 150, 105, 0.18)'
   }
 ];
 
 export default function FactCarousel() {
   const [isPaused, setIsPaused] = useState(false);
 
-  // Duplicate facts array for seamless continuous infinite marquee
-  const continuousFacts = [...FACTS, ...FACTS];
+  // Seamless continuous infinite marquee repeating the 4 points
+  const continuousFacts = [...FACTS, ...FACTS, ...FACTS, ...FACTS];
 
   return (
     <section 
       className="fact-carousel-section"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      aria-label="Nursery key facts ticker"
+      aria-label="Nursery key offerings ticker"
     >
       {/* Warm Ambient Floating Glows */}
       <div className="fact-ambient-glow fact-glow-1" />
@@ -108,37 +77,33 @@ export default function FactCarousel() {
                 style={{
                   '--accent-color': item.accentColor,
                   '--icon-bg': item.iconBg,
-                  '--shadow-color': item.shadowColor,
-                  '--badge-bg': item.badgeBg
+                  '--shadow-color': item.shadowColor
                 }}
               >
-                {/* 3D Tactile Clay Icon Squircle */}
+                {/* 3D Tactile Mini Icon Squircle/Circle */}
                 <div 
                   className="fact-icon-wrap"
                   style={{
                     background: item.iconBg,
-                    boxShadow: `0 6px 16px ${item.shadowColor}, inset 0 2px 4px rgba(255, 255, 255, 0.95)`
+                    boxShadow: `0 2px 6px ${item.shadowColor}, inset 0 1px 2px rgba(255, 255, 255, 0.95)`
                   }}
                 >
                   <IconComponent 
-                    size={24} 
+                    size={15} 
                     strokeWidth={2.2} 
                     style={{ color: item.accentColor }}
                   />
                 </div>
                 
-                {/* Horizontal Stat Text Info */}
-                <div className="fact-text-block">
-                  <div className="fact-number">
-                    {item.number}
-                  </div>
-                  <div className="fact-label">
-                    {item.label}
-                  </div>
+                {/* Very Minimal Main Heading - Reduced Thickness & No Subheading */}
+                <div className="fact-number">
+                  <span 
+                    className="fact-item-dot" 
+                    style={{ backgroundColor: item.accentColor }} 
+                    aria-hidden="true"
+                  />
+                  <span>{item.name}</span>
                 </div>
-
-                {/* Subtle Edge Ambient Shimmer */}
-                <div className="fact-card-corner-glow" />
               </div>
             );
           })}

@@ -33,7 +33,7 @@ export default function LuxuryClosingCta({
               borderRadius: '32px',
               padding: 'clamp(44px, 6vw, 68px) clamp(24px, 5vw, 56px)',
               background: 'linear-gradient(135deg, #721024 0%, #8b1a2f 50%, #5e1020 100%)',
-              color: '#ffffff',
+              color: '#FAF5EB',
               textAlign: 'center',
               boxShadow: '0 20px 50px rgba(114, 16, 36, 0.28)',
               overflow: 'hidden',
@@ -82,7 +82,7 @@ export default function LuxuryClosingCta({
                     borderRadius: '999px',
                     backgroundColor: 'rgba(255, 255, 255, 0.18)',
                     backdropFilter: 'blur(8px)',
-                    color: '#ffffff',
+                    color: '#FAF5EB',
                     fontSize: '12.5px',
                     fontWeight: '800',
                     letterSpacing: '0.6px',
@@ -102,7 +102,7 @@ export default function LuxuryClosingCta({
                   fontWeight: '900',
                   lineHeight: 1.22,
                   letterSpacing: '-0.01em',
-                  color: '#ffffff',
+                  color: '#FAF5EB',
                   margin: '0 0 18px 0'
                 }}
               >
@@ -114,7 +114,7 @@ export default function LuxuryClosingCta({
                 style={{
                   fontSize: 'clamp(15.5px, 1.8vw, 17px)',
                   lineHeight: 1.75,
-                  color: 'rgba(255, 255, 255, 0.92)',
+                  color: '#EFE4D6',
                   maxWidth: '720px',
                   margin: '0 auto 34px'
                 }}
@@ -124,6 +124,7 @@ export default function LuxuryClosingCta({
 
               {/* Action Buttons Row */}
               <div
+                className="luxury-closing-cta-actions-row"
                 style={{
                   display: 'flex',
                   gap: '14px',
@@ -136,6 +137,7 @@ export default function LuxuryClosingCta({
                 {onPrimaryClick ? (
                   <button
                     type="button"
+                    className="luxury-closing-cta-btn luxury-closing-cta-btn-primary"
                     onClick={onPrimaryClick}
                     style={{
                       display: 'inline-flex',
@@ -167,6 +169,7 @@ export default function LuxuryClosingCta({
                 ) : primaryLink ? (
                   <Link
                     to={primaryLink}
+                    className="luxury-closing-cta-btn luxury-closing-cta-btn-primary"
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -198,6 +201,7 @@ export default function LuxuryClosingCta({
                 {secondaryLink ? (
                   <Link
                     to={secondaryLink}
+                    className="luxury-closing-cta-btn luxury-closing-cta-btn-secondary"
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -206,7 +210,7 @@ export default function LuxuryClosingCta({
                       borderRadius: '999px',
                       backgroundColor: 'rgba(255, 255, 255, 0.16)',
                       backdropFilter: 'blur(8px)',
-                      color: '#ffffff',
+                      color: '#FAF5EB',
                       fontWeight: '800',
                       fontSize: '15px',
                       textDecoration: 'none',
@@ -230,6 +234,7 @@ export default function LuxuryClosingCta({
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="luxury-closing-cta-btn luxury-closing-cta-btn-secondary"
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -238,7 +243,7 @@ export default function LuxuryClosingCta({
                       borderRadius: '999px',
                       backgroundColor: 'rgba(255, 255, 255, 0.16)',
                       backdropFilter: 'blur(8px)',
-                      color: '#ffffff',
+                      color: '#FAF5EB',
                       fontWeight: '800',
                       fontSize: '15px',
                       textDecoration: 'none',
@@ -266,7 +271,7 @@ export default function LuxuryClosingCta({
                   style={{
                     fontSize: '14.5px',
                     fontWeight: '800',
-                    color: 'rgba(255, 255, 255, 0.88)',
+                    color: '#EFE4D6',
                     letterSpacing: '0.4px',
                     margin: 0
                   }}

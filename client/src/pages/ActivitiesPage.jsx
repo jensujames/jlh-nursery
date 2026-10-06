@@ -212,17 +212,12 @@ export default function ActivitiesPage({ onBookVisitClick }) {
                     
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
                       <div
+                        className="luxury-icon-box"
                         style={{
-                          width: '56px',
-                          height: '56px',
-                          borderRadius: '1.15rem',
-                          backgroundColor: '#ffffff',
+                          backgroundColor: `${act.color}12`,
                           color: act.color,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          border: `2px solid ${act.border}`,
-                          boxShadow: '0 8px 18px rgba(114, 16, 36, 0.06)'
+                          border: `1.5px solid ${act.border}`,
+                          boxShadow: `0 8px 18px ${act.color}15`
                         }}
                       >
                         <Icon size={26} />
@@ -333,7 +328,7 @@ export default function ActivitiesPage({ onBookVisitClick }) {
                     padding: '15px 34px',
                     borderRadius: '999px',
                     background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-                    color: '#ffffff',
+                    color: '#FAF5EB',
                     fontWeight: '800',
                     fontSize: '15px',
                     textDecoration: 'none',

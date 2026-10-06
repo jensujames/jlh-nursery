@@ -189,10 +189,14 @@ export default function LuxuryPageHero({
               </div>
 
               {/* Action Buttons Row */}
-              <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
+              <div 
+                className="luxury-hero-actions-row"
+                style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}
+              >
                 {onPrimaryClick ? (
                   <button
                     type="button"
+                    className="luxury-hero-btn luxury-hero-btn-primary"
                     onClick={onPrimaryClick}
                     style={{
                       display: 'inline-flex',
@@ -201,7 +205,7 @@ export default function LuxuryPageHero({
                       padding: '13px 28px',
                       borderRadius: '999px',
                       background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-                      color: '#ffffff',
+                      color: '#FAF5EB',
                       fontWeight: '800',
                       fontSize: '14.5px',
                       border: 'none',
@@ -224,6 +228,7 @@ export default function LuxuryPageHero({
                 ) : primaryLink ? (
                   <Link
                     to={primaryLink}
+                    className="luxury-hero-btn luxury-hero-btn-primary"
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -231,7 +236,7 @@ export default function LuxuryPageHero({
                       padding: '13px 28px',
                       borderRadius: '999px',
                       background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-                      color: '#ffffff',
+                      color: '#FAF5EB',
                       fontWeight: '800',
                       fontSize: '14.5px',
                       textDecoration: 'none',
@@ -255,6 +260,7 @@ export default function LuxuryPageHero({
                 {secondaryLink ? (
                   <Link
                     to={secondaryLink}
+                    className="luxury-hero-btn luxury-hero-btn-secondary"
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -289,6 +295,7 @@ export default function LuxuryPageHero({
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="luxury-hero-btn luxury-hero-btn-wa"
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -325,6 +332,7 @@ export default function LuxuryPageHero({
 
       {/* 4. Subtle Floating Campus Badge on Bottom Right */}
       <div
+        className="luxury-hero-campus-badge"
         style={{
           position: 'absolute',
           bottom: '36px',
@@ -369,32 +377,8 @@ export default function LuxuryPageHero({
         <span style={{ fontSize: '20px' }}>🏡</span>
       </div>
 
-      {/* 5. Playful Bottom Scalloped Cloud Wave */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '24px',
-          overflow: 'hidden',
-          zIndex: 4,
-          pointerEvents: 'none',
-          lineHeight: 0
-        }}
-        aria-hidden="true"
-      >
-        <svg
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          style={{ width: '100%', height: '100%', display: 'block' }}
-        >
-          <path
-            d="M0,0 C150,90 350,-40 500,40 C650,120 900,10 1200,40 L1200,120 L0,120 Z"
-            fill="#FFFDF7"
-          />
-        </svg>
-      </div>
+      {/* Shiny Royal Thick Burgundy Hero Border */}
+      <div className="royal-hero-bottom-border" aria-hidden="true" />
     </div>
   );
 }

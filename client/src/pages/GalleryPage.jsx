@@ -152,8 +152,9 @@ export default function GalleryPage({ onBookVisitClick }) {
           >
             <RevealOnScroll>
               <div
+                className="luxury-creative-card"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(24px)',
                   WebkitBackdropFilter: 'blur(24px)',
                   borderRadius: '2rem',
@@ -163,34 +164,16 @@ export default function GalleryPage({ onBookVisitClick }) {
                   height: '100%',
                   boxSizing: 'border-box',
                   position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-6px) scale(1.01)';
-                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(114, 16, 36, 0.12), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
-                  e.currentTarget.style.borderColor = '#721024';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                  overflow: 'hidden'
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
                 <div
+                  className="luxury-icon-box luxury-icon-burgundy"
                   style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '1.15rem',
-                    backgroundColor: '#ffffff',
-                    color: '#721024',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '18px',
-                    border: '2px solid rgba(114, 16, 36, 0.18)',
-                    boxShadow: '0 8px 18px rgba(114, 16, 36, 0.08)'
+                    width: '58px',
+                    height: '58px',
+                    marginBottom: '18px'
                   }}
                 >
                   <Building2 size={26} />
@@ -214,8 +197,9 @@ export default function GalleryPage({ onBookVisitClick }) {
 
             <RevealOnScroll delay={50}>
               <div
+                className="luxury-creative-card"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(24px)',
                   WebkitBackdropFilter: 'blur(24px)',
                   borderRadius: '2rem',
@@ -225,34 +209,16 @@ export default function GalleryPage({ onBookVisitClick }) {
                   height: '100%',
                   boxSizing: 'border-box',
                   position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-6px) scale(1.01)';
-                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(217, 119, 6, 0.14), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
-                  e.currentTarget.style.borderColor = '#d97706';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                  overflow: 'hidden'
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #d97706, #f59e0b)' }} />
                 <div
+                  className="luxury-icon-box luxury-icon-gold"
                   style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '1.15rem',
-                    backgroundColor: '#ffffff',
-                    color: '#d97706',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '18px',
-                    border: '2px solid rgba(217, 119, 6, 0.22)',
-                    boxShadow: '0 8px 18px rgba(217, 119, 6, 0.1)'
+                    width: '58px',
+                    height: '58px',
+                    marginBottom: '18px'
                   }}
                 >
                   <Sparkles size={26} />
@@ -276,8 +242,9 @@ export default function GalleryPage({ onBookVisitClick }) {
 
             <RevealOnScroll delay={100}>
               <div
+                className="luxury-creative-card"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(24px)',
                   WebkitBackdropFilter: 'blur(24px)',
                   borderRadius: '2rem',
@@ -287,34 +254,16 @@ export default function GalleryPage({ onBookVisitClick }) {
                   height: '100%',
                   boxSizing: 'border-box',
                   position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-6px) scale(1.01)';
-                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(225, 29, 72, 0.14), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
-                  e.currentTarget.style.borderColor = '#e11d48';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                  overflow: 'hidden'
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #e11d48, #fb7185)' }} />
                 <div
+                  className="luxury-icon-box luxury-icon-coral"
                   style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '1.15rem',
-                    backgroundColor: '#ffffff',
-                    color: '#e11d48',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '18px',
-                    border: '2px solid rgba(225, 29, 72, 0.22)',
-                    boxShadow: '0 8px 18px rgba(225, 29, 72, 0.1)'
+                    width: '58px',
+                    height: '58px',
+                    marginBottom: '18px'
                   }}
                 >
                   <Heart size={26} />
@@ -362,7 +311,7 @@ export default function GalleryPage({ onBookVisitClick }) {
                     transition: 'all 0.25s ease',
                     border: isActive ? '1.5px solid #721024' : '1.5px solid rgba(114, 16, 36, 0.14)',
                     backgroundColor: isActive ? '#721024' : '#ffffff',
-                    color: isActive ? '#ffffff' : '#475569',
+                    color: isActive ? '#FAF5EB' : '#475569',
                     boxShadow: isActive ? '0 6px 20px rgba(114, 16, 36, 0.25)' : '0 2px 8px rgba(0,0,0,0.03)'
                   }}
                   onMouseEnter={(e) => {
@@ -463,13 +412,14 @@ export default function GalleryPage({ onBookVisitClick }) {
         <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div
+              className="luxury-creative-card"
               style={{
                 display: 'flex',
                 alignItems: 'flex-start',
                 gap: '22px',
                 padding: '28px 34px',
                 borderRadius: '2rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                backgroundColor: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(24px)',
                 WebkitBackdropFilter: 'blur(24px)',
                 border: '1.5px solid rgba(255, 255, 255, 0.95)',
@@ -481,18 +431,11 @@ export default function GalleryPage({ onBookVisitClick }) {
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
               
               <div
+                className="luxury-icon-box luxury-icon-burgundy"
                 style={{
-                  width: '52px',
-                  height: '52px',
-                  borderRadius: '1.15rem',
-                  backgroundColor: '#ffffff',
-                  color: '#721024',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                  border: '2px solid rgba(114, 16, 36, 0.18)',
-                  boxShadow: '0 8px 18px rgba(114, 16, 36, 0.08)'
+                  width: '54px',
+                  height: '54px',
+                  flexShrink: 0
                 }}
               >
                 <Info size={24} />

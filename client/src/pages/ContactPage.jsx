@@ -191,21 +191,7 @@ export default function ContactPage() {
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
                 <div>
-                  <div
-                    style={{
-                      width: '56px',
-                      height: '56px',
-                      borderRadius: '1.15rem',
-                      backgroundColor: '#ffffff',
-                      color: '#721024',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '20px',
-                      border: '2px solid rgba(114, 16, 36, 0.18)',
-                      boxShadow: '0 8px 18px rgba(114, 16, 36, 0.08)'
-                    }}
-                  >
+                  <div className="luxury-icon-box luxury-icon-burgundy" style={{ marginBottom: '20px' }}>
                     <MapPin size={26} />
                   </div>
                   <h3
@@ -277,22 +263,7 @@ export default function ContactPage() {
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #059669, #10b981)' }} />
-                <div>
-                  <div
-                    style={{
-                      width: '56px',
-                      height: '56px',
-                      borderRadius: '1.15rem',
-                      backgroundColor: '#ffffff',
-                      color: '#059669',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '20px',
-                      border: '2px solid rgba(5, 150, 105, 0.22)',
-                      boxShadow: '0 8px 18px rgba(5, 150, 105, 0.08)'
-                    }}
-                  >
+                <div>                  <div className="luxury-icon-box luxury-icon-emerald" style={{ marginBottom: '20px' }}>
                     <Phone size={26} />
                   </div>
                   <h3
@@ -318,7 +289,7 @@ export default function ContactPage() {
                   <a 
                     href={`https://wa.me/971502005346?text=${whatsappMessage}`}
                     target="_blank" 
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer" 
                     style={{ color: '#059669', fontWeight: '800', fontSize: '14.5px', textDecoration: 'none' }}
                   >
                     WhatsApp Us
@@ -360,21 +331,7 @@ export default function ContactPage() {
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #0284c7, #38bdf8)' }} />
                 <div>
-                  <div
-                    style={{
-                      width: '56px',
-                      height: '56px',
-                      borderRadius: '1.15rem',
-                      backgroundColor: '#ffffff',
-                      color: '#0284c7',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '20px',
-                      border: '2px solid rgba(2, 132, 199, 0.22)',
-                      boxShadow: '0 8px 18px rgba(2, 132, 199, 0.08)'
-                    }}
-                  >
+                  <div className="luxury-icon-box luxury-icon-sky" style={{ marginBottom: '20px' }}>
                     <Mail size={26} />
                   </div>
                   <h3
@@ -511,7 +468,7 @@ export default function ContactPage() {
                       padding: '14px 34px',
                       borderRadius: '999px',
                       background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-                      color: '#ffffff',
+                      color: '#FAF5EB',
                       fontWeight: '800',
                       fontSize: '15px',
                       border: 'none',
@@ -777,7 +734,7 @@ export default function ContactPage() {
                       padding: '16px 28px',
                       borderRadius: '999px',
                       background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-                      color: '#ffffff',
+                      color: '#FAF5EB',
                       fontWeight: '850',
                       fontSize: '16px',
                       border: 'none',
@@ -881,7 +838,7 @@ export default function ContactPage() {
                   padding: '15px 34px',
                   borderRadius: '999px',
                   background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-                  color: '#ffffff',
+                  color: '#FAF5EB',
                   fontWeight: '800',
                   fontSize: '15px',
                   textDecoration: 'none',

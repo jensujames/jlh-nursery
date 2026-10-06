@@ -8,7 +8,7 @@ import {
   Heart, Sparkles, BookOpen, Sun, Compass, ShieldCheck, 
   Baby, Smile, Users, MapPin, Phone, Mail, ArrowRight, 
   MessageCircle, Calendar, CheckCircle2, Award, Clock,
-  Camera, Navigation, ChevronRight 
+  Camera, Navigation, ChevronRight, Trophy
 } from 'lucide-react';
 
 const GMB_URL = 'https://share.google/AbZVHOBinruNYkwDg';
@@ -516,7 +516,7 @@ export default function HomePage({ onBookVisitClick }) {
                 padding: '14px 34px',
                 borderRadius: '999px',
                 background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-                color: '#ffffff',
+                color: '#FAF5EB',
                 fontWeight: '800',
                 fontSize: '15px',
                 textDecoration: 'none',
@@ -723,6 +723,61 @@ export default function HomePage({ onBookVisitClick }) {
               <ArrowRight size={17} />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* LUXURY BURGUNDY "IMPACT IN NUMBERS" BANNER (Matching Reference Design) */}
+      <section className="home-impact-banner" aria-label="Our impact and achievements in numbers">
+        <div className="home-impact-ambient-glow" />
+        <div className="home-impact-container">
+          <RevealOnScroll>
+            <div className="home-impact-grid">
+              {/* Stat 1: Years of Loving Care */}
+              <div className="home-impact-col">
+                <div className="home-impact-icon-badge" aria-hidden="true">
+                  <Trophy size={22} strokeWidth={2.2} />
+                </div>
+                <div className="home-impact-value">10+</div>
+                <div className="home-impact-label">Years of Loving Care</div>
+              </div>
+
+              {/* Stat 2: Happy Little Graduates */}
+              <div className="home-impact-col">
+                <div className="home-impact-icon-badge" aria-hidden="true">
+                  <Users size={22} strokeWidth={2.2} />
+                </div>
+                <div className="home-impact-value">500+</div>
+                <div className="home-impact-label">Happy Little Graduates</div>
+              </div>
+
+              {/* Stat 3: Dedicated Learning Spaces */}
+              <div className="home-impact-col">
+                <div className="home-impact-icon-badge" aria-hidden="true">
+                  <Sparkles size={22} strokeWidth={2.2} />
+                </div>
+                <div className="home-impact-value">12+</div>
+                <div className="home-impact-label">Learning &amp; Play Zones</div>
+              </div>
+
+              {/* Stat 4: Low Nurturing Carer Ratio */}
+              <div className="home-impact-col">
+                <div className="home-impact-icon-badge" aria-hidden="true">
+                  <Heart size={22} strokeWidth={2.2} />
+                </div>
+                <div className="home-impact-value">1 : 3</div>
+                <div className="home-impact-label">Nurturing Carer Ratio</div>
+              </div>
+
+              {/* Stat 5: Parent Satisfaction Rate */}
+              <div className="home-impact-col">
+                <div className="home-impact-icon-badge" aria-hidden="true">
+                  <Award size={22} strokeWidth={2.2} />
+                </div>
+                <div className="home-impact-value">98%</div>
+                <div className="home-impact-label">Parent Satisfaction Rate</div>
+              </div>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
@@ -940,7 +995,7 @@ export default function HomePage({ onBookVisitClick }) {
               padding: '13px 30px',
               borderRadius: '999px',
               background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-              color: '#ffffff',
+              color: '#FAF5EB',
               fontWeight: '800',
               fontSize: '14.5px',
               textDecoration: 'none',
@@ -1368,7 +1423,7 @@ export default function HomePage({ onBookVisitClick }) {
                       padding: '13px 28px',
                       borderRadius: '999px',
                       background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-                      color: '#ffffff',
+                      color: '#FAF5EB',
                       fontWeight: '800',
                       fontSize: '14.5px',
                       border: 'none',
@@ -1520,7 +1575,7 @@ export default function HomePage({ onBookVisitClick }) {
                     padding: '13px 26px',
                     borderRadius: '999px',
                     background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-                    color: '#ffffff',
+                    color: '#FAF5EB',
                     fontWeight: '800',
                     fontSize: '14.5px',
                     textDecoration: 'none',

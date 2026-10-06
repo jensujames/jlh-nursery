@@ -95,8 +95,9 @@ export default function DaycarePage() {
           >
             <RevealOnScroll animation="from-left">
               <div 
+                className="luxury-creative-card"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(24px)',
                   WebkitBackdropFilter: 'blur(24px)',
                   borderRadius: '2rem',
@@ -108,34 +109,16 @@ export default function DaycarePage() {
                   display: 'flex',
                   flexDirection: 'column',
                   position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
-                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(217, 119, 6, 0.16), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
-                  e.currentTarget.style.borderColor = '#d97706';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                  overflow: 'hidden'
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #d97706, #f59e0b)' }} />
                 <div 
+                  className="luxury-icon-box luxury-icon-gold"
                   style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '1.15rem',
-                    backgroundColor: '#ffffff',
-                    color: '#d97706',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '20px',
-                    border: '2px solid rgba(217, 119, 6, 0.22)',
-                    boxShadow: '0 8px 18px rgba(217, 119, 6, 0.12)'
+                    width: '60px',
+                    height: '60px',
+                    marginBottom: '20px'
                   }}
                 >
                   <Sun size={28} />
@@ -159,8 +142,9 @@ export default function DaycarePage() {
 
             <RevealOnScroll delay={50} animation="from-bottom">
               <div 
+                className="luxury-creative-card"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(24px)',
                   WebkitBackdropFilter: 'blur(24px)',
                   borderRadius: '2rem',
@@ -172,34 +156,16 @@ export default function DaycarePage() {
                   display: 'flex',
                   flexDirection: 'column',
                   position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
-                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(225, 29, 72, 0.16), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
-                  e.currentTarget.style.borderColor = '#e11d48';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                  overflow: 'hidden'
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #e11d48, #f43f5e)' }} />
                 <div 
+                  className="luxury-icon-box luxury-icon-coral"
                   style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '1.15rem',
-                    backgroundColor: '#ffffff',
-                    color: '#e11d48',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '20px',
-                    border: '2px solid rgba(225, 29, 72, 0.22)',
-                    boxShadow: '0 8px 18px rgba(225, 29, 72, 0.12)'
+                    width: '60px',
+                    height: '60px',
+                    marginBottom: '20px'
                   }}
                 >
                   <Heart size={28} />
@@ -223,8 +189,9 @@ export default function DaycarePage() {
 
             <RevealOnScroll delay={100} animation="from-right">
               <div 
+                className="luxury-creative-card"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(24px)',
                   WebkitBackdropFilter: 'blur(24px)',
                   borderRadius: '2rem',
@@ -236,34 +203,16 @@ export default function DaycarePage() {
                   display: 'flex',
                   flexDirection: 'column',
                   position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
-                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(2, 132, 199, 0.16), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
-                  e.currentTarget.style.borderColor = '#0284c7';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                  overflow: 'hidden'
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #0284c7, #38bdf8)' }} />
                 <div 
+                  className="luxury-icon-box luxury-icon-sky"
                   style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '1.15rem',
-                    backgroundColor: '#ffffff',
-                    color: '#0284c7',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '20px',
-                    border: '2px solid rgba(2, 132, 199, 0.22)',
-                    boxShadow: '0 8px 18px rgba(2, 132, 199, 0.12)'
+                    width: '60px',
+                    height: '60px',
+                    marginBottom: '20px'
                   }}
                 >
                   <MessageCircle size={28} />
@@ -300,8 +249,9 @@ export default function DaycarePage() {
         <div style={{ maxWidth: '920px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div 
+              className="luxury-creative-card"
               style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                backgroundColor: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(24px)',
                 WebkitBackdropFilter: 'blur(24px)',
                 borderRadius: '2.5rem',
@@ -312,18 +262,11 @@ export default function DaycarePage() {
               }}
             >
               <div 
+                className="luxury-icon-box luxury-icon-burgundy"
                 style={{
-                  width: '64px',
-                  height: '64px',
-                  borderRadius: '1.25rem',
-                  backgroundColor: '#ffffff',
-                  color: '#721024',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 24px',
-                  border: '2px solid rgba(114, 16, 36, 0.18)',
-                  boxShadow: '0 8px 22px rgba(114, 16, 36, 0.10)'
+                  width: '68px',
+                  height: '68px',
+                  margin: '0 auto 24px'
                 }}
               >
                 <Clock size={32} />
@@ -352,7 +295,7 @@ export default function DaycarePage() {
                     padding: '14px 32px',
                     borderRadius: '999px',
                     backgroundColor: '#721024',
-                    color: '#ffffff',
+                    color: '#FAF5EB',
                     fontWeight: '800',
                     fontSize: '15px',
                     textDecoration: 'none',
@@ -397,7 +340,7 @@ export default function DaycarePage() {
         style={{
           padding: 'clamp(64px, 7vw, 90px) 20px',
           background: 'linear-gradient(135deg, #721024 0%, #8f152f 50%, #590d1c 100%)',
-          color: '#ffffff',
+          color: '#FAF5EB',
           textAlign: 'center',
           position: 'relative',
           overflow: 'hidden'
@@ -428,13 +371,14 @@ export default function DaycarePage() {
                 fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
                 fontSize: 'clamp(28px, 4.5vw, 42px)', 
                 fontWeight: '900', 
+                color: '#FAF5EB',
                 margin: '0 0 20px 0', 
                 lineHeight: 1.25 
               }}
             >
               Flexible Care With a Consistent Sense of Belonging
             </h2>
-            <p style={{ fontSize: '17px', lineHeight: 1.75, opacity: 0.95, margin: '0 auto 36px', maxWidth: '680px' }}>
+            <p style={{ fontSize: '17px', lineHeight: 1.75, color: '#EFE4D6', opacity: 0.95, margin: '0 auto 36px', maxWidth: '680px' }}>
               Our full-day and half-day options are designed to provide a caring routine while supporting learning, play, rest and social development.
             </p>
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -470,7 +414,7 @@ export default function DaycarePage() {
                   borderRadius: '999px',
                   backgroundColor: 'rgba(255,255,255,0.14)',
                   backdropFilter: 'blur(10px)',
-                  color: '#ffffff',
+                  color: '#FAF5EB',
                   fontWeight: '800',
                   fontSize: '15px',
                   textDecoration: 'none',

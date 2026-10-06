@@ -154,8 +154,9 @@ export default function CampsPage({ onBookVisitClick }) {
               return (
                 <RevealOnScroll key={index} delay={index * 30}>
                   <div
+                    className="luxury-creative-card"
                     style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.95)',
                       backdropFilter: 'blur(24px)',
                       WebkitBackdropFilter: 'blur(24px)',
                       borderRadius: '2rem',
@@ -168,31 +169,17 @@ export default function CampsPage({ onBookVisitClick }) {
                       height: '100%',
                       boxSizing: 'border-box',
                       position: 'relative',
-                      overflow: 'hidden',
-                      transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
-                      e.currentTarget.style.boxShadow = `0 24px 50px rgba(114, 16, 36, 0.12), 0 2px 12px rgba(255, 255, 255, 0.9) inset`;
-                      e.currentTarget.style.borderColor = item.color;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                      e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                      overflow: 'hidden'
                     }}
                   >
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: item.gradient }} />
                     <div
+                      className="luxury-icon-box"
                       style={{
-                        width: '56px',
-                        height: '56px',
-                        borderRadius: '1.15rem',
+                        width: '58px',
+                        height: '58px',
                         backgroundColor: '#ffffff',
                         color: item.color,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
                         border: `2px solid ${item.border}`,
                         boxShadow: `0 8px 18px rgba(114, 16, 36, 0.06)`,
                         flexShrink: 0
@@ -244,8 +231,9 @@ export default function CampsPage({ onBookVisitClick }) {
         <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div
+              className="luxury-creative-card"
               style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                backgroundColor: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(24px)',
                 WebkitBackdropFilter: 'blur(24px)',
                 borderRadius: '2.5rem',
@@ -260,18 +248,11 @@ export default function CampsPage({ onBookVisitClick }) {
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
               
               <div
+                className="luxury-icon-box luxury-icon-burgundy"
                 style={{
-                  width: '64px',
-                  height: '64px',
-                  borderRadius: '1.25rem',
-                  backgroundColor: '#ffffff',
-                  color: '#721024',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 24px',
-                  border: '2px solid rgba(114, 16, 36, 0.18)',
-                  boxShadow: '0 10px 22px rgba(114, 16, 36, 0.08)'
+                  width: '68px',
+                  height: '68px',
+                  margin: '0 auto 24px'
                 }}
               >
                 <Calendar size={32} />
@@ -300,7 +281,7 @@ export default function CampsPage({ onBookVisitClick }) {
                     padding: '15px 34px',
                     borderRadius: '999px',
                     background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-                    color: '#ffffff',
+                    color: '#FAF5EB',
                     fontWeight: '800',
                     fontSize: '15px',
                     textDecoration: 'none',

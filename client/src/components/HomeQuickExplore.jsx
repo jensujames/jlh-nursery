@@ -326,7 +326,7 @@ export default function HomeQuickExplore() {
                   style={{
                     border: isSelected ? '2px solid #721024' : '1.5px solid rgba(114, 16, 36, 0.15)',
                     backgroundColor: isSelected ? '#721024' : '#ffffff',
-                    color: isSelected ? '#ffffff' : '#4a0e1a',
+                    color: isSelected ? '#FAF5EB' : '#4a0e1a',
                     padding: '0.55rem 1.25rem',
                     borderRadius: '999px',
                     fontSize: '0.86rem',

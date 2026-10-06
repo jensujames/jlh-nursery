@@ -31,7 +31,7 @@ export default function HomeVisitBanner({ onBookVisitClick }) {
               position: 'relative',
               borderRadius: '2rem',
               background: 'linear-gradient(135deg, #721024 0%, #4a0e1a 45%, #2e0d12 100%)',
-              color: '#ffffff',
+              color: '#FAF5EB',
               padding: 'clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3.5rem)',
               boxShadow: '0 25px 60px rgba(74, 14, 26, 0.28)',
               border: '2px solid rgba(201, 168, 76, 0.35)',
@@ -86,13 +86,13 @@ export default function HomeVisitBanner({ onBookVisitClick }) {
                 fontFamily: 'var(--font-heading)',
                 fontSize: 'clamp(2.1rem, 4vw, 3.2rem)',
                 fontWeight: '800',
-                color: '#ffffff',
+                color: '#FAF5EB',
                 lineHeight: 1.18,
                 marginBottom: '1.25rem'
               }}>
                 Book a Private Morning Tour at{' '}
                 <span style={{
-                  background: 'linear-gradient(135deg, #e8c96a 0%, #ffffff 50%, #f0b8c4 100%)',
+                  background: 'linear-gradient(135deg, #e8c96a 0%, #FAF5EB 50%, #f0b8c4 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent'
                 }}>
@@ -102,8 +102,8 @@ export default function HomeVisitBanner({ onBookVisitClick }) {
 
               <p style={{
                 fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
-                color: '#fdfbf4',
-                opacity: 0.92,
+                color: '#EFE4D6',
+                opacity: 0.95,
                 lineHeight: 1.65,
                 maxWidth: '680px',
                 margin: '0 auto 2.25rem auto'
@@ -128,6 +128,7 @@ export default function HomeVisitBanner({ onBookVisitClick }) {
                   padding: '0.5rem 1rem',
                   borderRadius: '999px',
                   fontSize: '0.85rem',
+                  color: '#FAF5EB',
                   border: '1px solid rgba(255, 255, 255, 0.15)'
                 }}>
                   <MapPin size={15} color="#e8c96a" />
@@ -143,6 +144,7 @@ export default function HomeVisitBanner({ onBookVisitClick }) {
                   padding: '0.5rem 1rem',
                   borderRadius: '999px',
                   fontSize: '0.85rem',
+                  color: '#FAF5EB',
                   border: '1px solid rgba(255, 255, 255, 0.15)'
                 }}>
                   <Clock size={15} color="#e8c96a" />

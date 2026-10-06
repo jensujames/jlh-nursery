@@ -96,7 +96,7 @@ export default function NotFoundPage() {
               padding: '14px 32px',
               borderRadius: '999px',
               background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-              color: '#ffffff',
+              color: '#FAF5EB',
               fontWeight: '800',
               fontSize: '14.5px',
               textDecoration: 'none',

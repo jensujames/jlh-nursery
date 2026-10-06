@@ -180,23 +180,7 @@ export default function AdmissionsPage({ onBookVisitClick }) {
                     }}
                   >
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
-                    <div
-                      style={{
-                        width: '56px',
-                        height: '56px',
-                        borderRadius: '1.15rem',
-                        backgroundColor: '#ffffff',
-                        color: '#721024',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontWeight: '900',
-                        fontSize: '20px',
-                        flexShrink: 0,
-                        border: '2px solid rgba(114, 16, 36, 0.18)',
-                        boxShadow: '0 8px 18px rgba(114, 16, 36, 0.08)'
-                      }}
-                    >
+                    <div className="luxury-icon-box luxury-icon-burgundy" style={{ fontWeight: '900', fontSize: '20px' }}>
                       {formattedStep}
                     </div>
                     <div>

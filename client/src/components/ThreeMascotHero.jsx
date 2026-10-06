@@ -6,7 +6,7 @@ import {
   ShieldCheck, Video, Lock, Trees, Sun, 
   Moon, CloudMoon, Heart, HeartPulse, Stethoscope, 
   ArrowRight, Shield, Award, CheckCircle2, ChevronRight, Activity, Footprints,
-  ChevronLeft, Play, Star, Rocket, Clock
+  ChevronLeft, Play, Star, Rocket, Clock, MessageCircle
 } from 'lucide-react';
 import FullWidthCurvedGallery from './FullWidthCurvedGallery';
 import FactCarousel from './FactCarousel';
@@ -428,8 +428,8 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
           currentDiff = Math.abs(cRect.top + cRect.height / 2 - focalY);
         }
 
-        // Hysteresis of 20px prevents any micro-jitter at scroll boundary
-        if (closestIdx !== activePillarRef.current && (currentDiff - minDiff > 20)) {
+        // Hysteresis of 10px prevents any micro-jitter at scroll boundary while staying responsive
+        if (closestIdx !== activePillarRef.current && (currentDiff - minDiff > 10)) {
           activePillarRef.current = closestIdx;
           setActivePillar(closestIdx);
           if (triggerCubeActionRef.current) {
@@ -440,8 +440,56 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Also attach to window.lenis smooth scroll engine
+    let unbindLenis = null;
+    if (window.lenis) {
+      window.lenis.on('scroll', onScroll);
+      unbindLenis = () => window.lenis?.off('scroll', onScroll);
+    } else {
+      const checkLenis = setInterval(() => {
+        if (window.lenis) {
+          window.lenis.on('scroll', onScroll);
+          unbindLenis = () => window.lenis?.off('scroll', onScroll);
+          clearInterval(checkLenis);
+        }
+      }, 200);
+      setTimeout(() => clearInterval(checkLenis), 3000);
+    }
+
+    // IntersectionObserver for 4 cards
+    const observer = new IntersectionObserver((entries) => {
+      if (isInteractingRef.current) return;
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          const match = id.match(/pillar-card-(\d+)/);
+          if (match) {
+            const idx = parseInt(match[1], 10);
+            if (!isNaN(idx) && idx !== activePillarRef.current) {
+              activePillarRef.current = idx;
+              setActivePillar(idx);
+              if (triggerCubeActionRef.current) {
+                triggerCubeActionRef.current(idx);
+              }
+            }
+          }
+        }
+      });
+    }, {
+      rootMargin: '-25% 0px -40% 0px',
+      threshold: 0.15
+    });
+
+    for (let i = 0; i < 4; i++) {
+      const card = document.getElementById(`pillar-card-${i}`);
+      if (card) observer.observe(card);
+    }
+
     return () => {
       window.removeEventListener('scroll', onScroll);
+      if (unbindLenis) unbindLenis();
+      observer.disconnect();
       if (interactionTimerRef.current) clearTimeout(interactionTimerRef.current);
     };
   }, []);
@@ -2690,68 +2738,40 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   </h1>
                 </div>
 
-                {/* Sub-content */}
+                {/* Sub-content & CTA Buttons directly below */}
                 <div className="hero-bottom-actions-group">
                   <p className="hero-actions-desc">
                     At Just Like Home Nursery, we create a warm and welcoming environment where children feel safe to explore, confident to learn and happy to be themselves.
                   </p>
-                  
-                  {/* Organized Colorful Offerings Badges */}
-                  <div className="hero-offerings-tags-grid">
-                    <span className="hero-offering-tag tag-eyfs">
-                      <span className="tag-dot" />
-                      <span>EYFS Approach</span>
-                    </span>
-                    <span className="hero-offering-tag tag-care">
-                      <span className="tag-dot" />
-                      <span>Full–Day &amp; Half–Day Care</span>
-                    </span>
-                    <span className="hero-offering-tag tag-preschool">
-                      <span className="tag-dot" />
-                      <span>Preschool</span>
-                    </span>
-                    <span className="hero-offering-tag tag-readiness">
-                      <span className="tag-dot" />
-                      <span>School Readiness</span>
-                    </span>
+
+                  <div className="hero-actions-btns-row" id="hero-actions-btns-row">
+                    <button 
+                      className="hero-cta-btn hero-btn-book" 
+                      type="button" 
+                      id="hero-book-now-btn"
+                      onClick={() => {
+                        playPopSound(580);
+                        onBookVisitClick();
+                      }}
+                    >
+                      <Calendar size={16} />
+                      <span>Book Now</span>
+                    </button>
+                    
+                    <a 
+                      href="https://wa.me/971502005346?text=Hello%20Just%20Like%20Home%20Nursery%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20nursery." 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="hero-cta-btn hero-btn-whatsapp" 
+                      id="hero-whatsapp-btn"
+                      onClick={() => playPopSound(540)}
+                    >
+                      <MessageCircle size={16} />
+                      <span>WhatsApp</span>
+                    </a>
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Center CTA Buttons (Positioned directly below the 3D PLAY cubes) */}
-            <div className="hero-center-cta-wrap animate-entrance-up delay-200" id="hero-center-cta-wrap">
-              <button 
-                className="hero-cta-btn hero-btn-book" 
-                type="button" 
-                id="hero-book-now-btn"
-                onClick={() => {
-                  playPopSound(580);
-                  onBookVisitClick();
-                }}
-              >
-                <svg className="hero-btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                  <line x1="16" y1="2" x2="16" y2="6"/>
-                  <line x1="8" y1="2" x2="8" y2="6"/>
-                  <line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                <span>Book a Visit</span>
-              </button>
-              
-              <a 
-                href="https://wa.me/971502005346?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Just%20Like%20Home%20Nursery." 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="hero-cta-btn hero-btn-contact" 
-                id="hero-contact-us-btn"
-                onClick={() => playPopSound(540)}
-              >
-                <svg className="hero-btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-                </svg>
-                <span>WhatsApp Us</span>
-              </a>
             </div>
 
             {/* Center Floating Pill Badge (Enters from Top) */}
@@ -2847,6 +2867,9 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
               <span className="scroll-text">Scroll to Explore</span>
             </div>
           </div>
+
+          {/* Shiny Royal Thick Burgundy Hero Border */}
+          <div className="royal-hero-bottom-border" aria-hidden="true" />
         </section>
 
         {/* Minimal Fact Carousel (Matching Reference Design) */}
@@ -2856,7 +2879,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         <section className="content-section" id="section-2">
           <div className="section2-transition-overlay" id="transition-overlay" />
           <div className="content-wrapper">
-            <div className="pillars-interactive-split" style={{ alignItems: 'start' }}>
+            <div className="pillars-interactive-split">
               
               {/* Left Column: Heading Content + 4 Pillar Cards with Pedestal Slots */}
               <div className="pillars-left-column" data-reveal="left" style={{ display: 'flex', flexDirection: 'column', gap: '32px', width: '100%' }}>
@@ -2881,7 +2904,10 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   <p style={{ fontSize: '16px', lineHeight: 1.72, color: '#475569', marginBottom: '24px' }}>
                     Our approach combines early-years learning with the care, patience and personal attention of a nurturing home environment. Children are encouraged to discover the world through play, creativity, movement and hands-on experiences while developing confidence at their own pace.
                   </p>
-                  <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
+                  <div 
+                    className="three-mascot-about-actions"
+                    style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'flex-start' }}
+                  >
                     <Link
                       to="/about-us"
                       style={{
@@ -2891,7 +2917,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                         padding: '12px 26px',
                         borderRadius: '999px',
                         background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-                        color: '#ffffff',
+                        color: '#FAF5EB',
                         fontWeight: '800',
                         fontSize: '14px',
                         textDecoration: 'none',
@@ -3011,16 +3037,16 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                 };
 
                 return (
-                  <div 
-                    className="pillars-media-showcase" 
-                    id="pillars-media-showcase" 
-                    data-reveal="right"
-                    style={{
-                      borderColor: `${currentPillar.tagColor}40`,
-                      boxShadow: `0 24px 60px -15px ${currentPillar.tagColor}28, 0 4px 16px rgba(0, 0, 0, 0.04)`,
-                      paddingBottom: '36px'
-                    }}
-                  >
+                  <div className="pillars-right-column">
+                    <div 
+                      className="pillars-media-showcase" 
+                      id="pillars-media-showcase" 
+                      style={{
+                        borderColor: `${currentPillar.tagColor}40`,
+                        boxShadow: `0 24px 60px -15px ${currentPillar.tagColor}28, 0 4px 16px rgba(0, 0, 0, 0.04)`,
+                        paddingBottom: '36px'
+                      }}
+                    >
                     {/* Top Bar: Scroll Progress & Pillar Identity */}
                     <div 
                       className="pillars-showcase-progress-bar"
@@ -3322,7 +3348,8 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                       ))}
                     </div>
                   </div>
-                );
+                </div>
+              );
               })()}
             </div>
           </div>

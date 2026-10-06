@@ -476,6 +476,9 @@ export default function Hero({ onBookVisitClick }) {
         </RevealOnScroll>
 
       </div>
+
+      {/* Shiny Royal Thick Burgundy Hero Border */}
+      <div className="royal-hero-bottom-border" aria-hidden="true" />
     </section>
   );
 }

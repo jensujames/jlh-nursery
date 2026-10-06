@@ -112,45 +112,29 @@ export default function PreschoolPage() {
               return (
                 <RevealOnScroll key={index} delay={index * 35}>
                   <div 
+                    className="luxury-creative-card"
                     style={{
                       display: 'flex',
                       alignItems: 'flex-start',
                       gap: '16px',
                       padding: '24px 22px',
                       borderRadius: '1.5rem',
-                      backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.95)',
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
                       border: '1.5px solid rgba(255, 255, 255, 0.95)',
                       boxShadow: '0 8px 24px rgba(74, 14, 26, 0.04), 0 1px 4px rgba(0,0,0,0.02)',
-                      transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                       height: '100%',
                       boxSizing: 'border-box'
                     }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-5px)';
-                      e.currentTarget.style.boxShadow = '0 16px 36px rgba(114, 16, 36, 0.10)';
-                      e.currentTarget.style.borderColor = 'rgba(114, 16, 36, 0.3)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(74, 14, 26, 0.04), 0 1px 4px rgba(0,0,0,0.02)';
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
-                    }}
                   >
                     <div 
+                      className="luxury-icon-box luxury-icon-burgundy"
                       style={{
-                        width: '38px',
-                        height: '38px',
-                        borderRadius: '12px',
-                        backgroundColor: '#fff1f2',
-                        color: '#721024',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
+                        width: '42px',
+                        height: '42px',
                         flexShrink: 0,
-                        border: '1px solid rgba(114, 16, 36, 0.15)',
-                        fontSize: '12px',
+                        fontSize: '13px',
                         fontWeight: '900',
                         fontFamily: 'var(--font-heading, "Outfit", sans-serif)'
                       }}
@@ -187,8 +171,9 @@ export default function PreschoolPage() {
           >
             <RevealOnScroll animation="from-left">
               <div 
+                className="luxury-creative-card"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(24px)',
                   WebkitBackdropFilter: 'blur(24px)',
                   borderRadius: '2rem',
@@ -199,34 +184,16 @@ export default function PreschoolPage() {
                   display: 'flex',
                   flexDirection: 'column',
                   position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
-                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(114, 16, 36, 0.14), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
-                  e.currentTarget.style.borderColor = '#721024';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                  overflow: 'hidden'
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
                 <div 
+                  className="luxury-icon-box luxury-icon-burgundy"
                   style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '1.15rem',
-                    backgroundColor: '#ffffff',
-                    color: '#721024',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '20px',
-                    border: '2px solid rgba(114, 16, 36, 0.18)',
-                    boxShadow: '0 8px 18px rgba(114, 16, 36, 0.08)'
+                    width: '60px',
+                    height: '60px',
+                    marginBottom: '20px'
                   }}
                 >
                   <Smile size={28} />
@@ -250,8 +217,9 @@ export default function PreschoolPage() {
 
             <RevealOnScroll delay={100} animation="from-right">
               <div 
+                className="luxury-creative-card"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(24px)',
                   WebkitBackdropFilter: 'blur(24px)',
                   borderRadius: '2rem',
@@ -262,34 +230,16 @@ export default function PreschoolPage() {
                   display: 'flex',
                   flexDirection: 'column',
                   position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
-                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(2, 132, 199, 0.16), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
-                  e.currentTarget.style.borderColor = '#0284c7';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                  overflow: 'hidden'
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #0284c7, #38bdf8)' }} />
                 <div 
+                  className="luxury-icon-box luxury-icon-sky"
                   style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '1.15rem',
-                    backgroundColor: '#ffffff',
-                    color: '#0284c7',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '20px',
-                    border: '2px solid rgba(2, 132, 199, 0.22)',
-                    boxShadow: '0 8px 18px rgba(2, 132, 199, 0.12)'
+                    width: '60px',
+                    height: '60px',
+                    marginBottom: '20px'
                   }}
                 >
                   <GraduationCap size={28} />
@@ -319,7 +269,7 @@ export default function PreschoolPage() {
         style={{
           padding: 'clamp(64px, 7vw, 90px) 20px',
           background: 'linear-gradient(135deg, #721024 0%, #8f152f 50%, #590d1c 100%)',
-          color: '#ffffff',
+          color: '#FAF5EB',
           textAlign: 'center',
           position: 'relative',
           overflow: 'hidden'
@@ -350,13 +300,14 @@ export default function PreschoolPage() {
                 fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
                 fontSize: 'clamp(28px, 4.5vw, 42px)', 
                 fontWeight: '900', 
+                color: '#FAF5EB',
                 margin: '0 0 20px 0', 
                 lineHeight: 1.25 
               }}
             >
               Preparing Confident, Curious Children for Their Next Step
             </h2>
-            <p style={{ fontSize: '17px', lineHeight: 1.75, opacity: 0.95, margin: '0 auto 36px', maxWidth: '680px' }}>
+            <p style={{ fontSize: '17px', lineHeight: 1.75, color: '#EFE4D6', opacity: 0.95, margin: '0 auto 36px', maxWidth: '680px' }}>
               Our preschool and school-readiness experiences build these foundations through purposeful play and age-appropriate learning.
             </p>
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -392,7 +343,7 @@ export default function PreschoolPage() {
                   borderRadius: '999px',
                   backgroundColor: 'rgba(255,255,255,0.14)',
                   backdropFilter: 'blur(10px)',
-                  color: '#ffffff',
+                  color: '#FAF5EB',
                   fontWeight: '800',
                   fontSize: '15px',
                   textDecoration: 'none',

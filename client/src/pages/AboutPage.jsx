@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryPageHero from '../components/LuxuryPageHero';
@@ -55,7 +55,72 @@ const FACILITIES_LIST = [
   'CCTV monitoring for enhanced safety'
 ];
 
+const VISION_MISSION_DATA = {
+  vision: {
+    id: 'vision',
+    tabLabel: 'Our Vision',
+    badge: 'OUR VISION',
+    title: 'Our Vision',
+    icon: Compass,
+    accentColor: '#721024',
+    badgeBg: '#FFF1F2',
+    image: '/images/hero-about.jpg',
+    imageAlt: 'Educators and children exploring together at Just Like Home Nursery',
+    imageBadge: 'Villa No. 47, Al Rashidiya 2, Ajman',
+    imageTag: 'Preparing Children For Life',
+    statement: 'Preparing children for life with motherly care and attention.',
+    footerTag: 'Motherly Care & Attention',
+    footerIcon: Heart,
+    points: [
+      {
+        title: 'Motherly Care & Warmth',
+        desc: 'Every child receives tender, compassionate attention, ensuring they feel loved, secure and confident from day one.'
+      },
+      {
+        title: 'Holistic Life Preparation',
+        desc: 'Developing social skills, emotional independence, manners and communication skills that lay the foundation for lifelong success.'
+      },
+      {
+        title: 'Safe & Stimulating Environment',
+        desc: 'Purpose-built spaces and welcoming classrooms designed to let little hearts flourish at their own natural pace.'
+      }
+    ]
+  },
+  mission: {
+    id: 'mission',
+    tabLabel: 'Our Mission',
+    badge: 'OUR MISSION',
+    title: 'Our Mission',
+    icon: Heart,
+    accentColor: '#c9a84c',
+    badgeBg: '#fef9e7',
+    image: '/images/activity-creative-play.jpg',
+    imageAlt: 'Happy children playing and building together at Just Like Home Nursery',
+    imageBadge: 'Creativity, Play & Friendships',
+    imageTag: 'Nurturing Little Hearts Daily',
+    statement: "We don't just educate children we nurture little hearts, build confidence, encourage curiosity, and create happy memories that last a lifetime.",
+    footerTag: 'Curiosity, Confidence & Happy Memories',
+    footerIcon: Sparkles,
+    points: [
+      {
+        title: 'Nurturing Little Hearts',
+        desc: 'We prioritize happiness and emotional wellbeing, creating an encouraging haven where children love to learn and explore.'
+      },
+      {
+        title: 'Inspiring Natural Curiosity',
+        desc: 'Through hands-on sensory exploration, storytelling, and creative play, we ignite children’s innate desire to discover the world.'
+      },
+      {
+        title: 'Cherished Childhood Memories',
+        desc: 'Every day is filled with laughter, songs, friendships, and celebrations that create joyful memories to treasure forever.'
+      }
+    ]
+  }
+};
+
 export default function AboutPage({ onBookVisitClick }) {
+  const [activeVmTab, setActiveVmTab] = useState('vision');
+
   useEffect(() => {
     document.title = "About Just Like Home Nursery | Early Years Nursery Ajman";
     const metaDesc = document.querySelector('meta[name="description"]');
@@ -88,60 +153,88 @@ export default function AboutPage({ onBookVisitClick }) {
         whatsappText="Hello Just Like Home Nursery, I would like to learn more about your early-years nursery in Ajman."
       />
 
-      {/* 2. OUR STORY */}
-      {/* 2. OUR STORY - EDITORIAL OVERLAPPING DESIGN */}
-      <section className="about-story-section">
-        <div className="about-story-container">
-          
-          {/* Horizontal Pastel Backdrop Band */}
-          <div className="about-story-backdrop-band" aria-hidden="true" />
-
-          {/* Layered Composition Container */}
-          <div className="about-story-composition">
+      {/* 2. OUR STORY - ARCHITECTURAL 3-COLUMN EDITORIAL DESIGN (Matching Reference) */}
+      <section className="about-editorial-section">
+        <div className="about-editorial-container">
+          <div className="about-editorial-grid">
             
-            {/* Left: Elevated Photo Card */}
-            <div className="about-story-image-wrap">
-              <RevealOnScroll>
-                <div className="about-story-image-card">
+            {/* Column 1: Left Editorial Text & Link */}
+            <div className="about-editorial-col-text">
+              <RevealOnScroll animation="from-left">
+                <div className="about-editorial-eyebrow-row">
+                  <span className="about-editorial-eyebrow">ABOUT US</span>
+                  <span className="about-editorial-dash" />
+                </div>
+
+                <h2 className="about-editorial-heading">
+                  Our Story
+                </h2>
+
+                <p className="about-editorial-p">
+                  The early years shape how children see themselves and the world around them. These years deserve more than supervision and lessons; they deserve patience, meaningful relationships and joyful opportunities to discover.
+                </p>
+
+                <p className="about-editorial-p">
+                  At Just Like Home Nursery in Ajman, we bring care and learning together. Every part of the child's day — from play and conversation to meals, movement, stories and friendships — can become an opportunity to grow.
+                </p>
+
+                <div className="about-editorial-cta-wrap">
+                  <Link 
+                    to="/programs" 
+                    className="about-editorial-cta-link"
+                  >
+                    <span>Our Story</span>
+                    <ArrowRight size={16} className="about-editorial-arrow-icon" />
+                  </Link>
+                </div>
+              </RevealOnScroll>
+            </div>
+
+            {/* Column 2: Architectural Portrait Nursery Photo */}
+            <div className="about-editorial-col-image">
+              <RevealOnScroll delay={100}>
+                <div className="about-editorial-image-frame">
                   <img 
                     src="/images/nurturing-hero.jpg" 
                     alt="Caring educators and children at Just Like Home Nursery" 
-                    className="about-story-img"
+                    className="about-editorial-img"
                   />
-                  <div className="about-story-img-gradient" />
-                  <div className="about-story-img-badge-box">
-                    <span className="about-story-img-pill">
-                      Villa No. 47, Al Rashidiya 2, Ajman
-                    </span>
-                    <p className="about-story-img-tagline">
-                      Where Little Hearts Feel at Home
-                    </p>
+                  <div className="about-editorial-img-badge">
+                    <span className="about-editorial-img-pin">Villa No. 47, Al Rashidiya 2, Ajman</span>
                   </div>
                 </div>
               </RevealOnScroll>
             </div>
 
-            {/* Right: Overlapping Luxury Content Card */}
-            <div className="about-story-card-wrap">
-              <RevealOnScroll delay={120}>
-                <div className="about-story-content-card">
-                  <div className="about-story-header-row">
-                    <span className="about-story-eyebrow-pill">
-                      <Sparkles size={14} /> OUR BACKGROUND
-                    </span>
-                    <div className="about-story-accent-line" />
+            {/* Column 3: Faint Numeral Watermark, Vertical Divider Track & Key Stats */}
+            <div className="about-editorial-col-stats">
+              <RevealOnScroll delay={180} animation="from-right">
+                {/* Large Subtle Watermark Numeral */}
+                <div className="about-editorial-watermark-num">
+                  01
+                </div>
+
+                {/* Vertical Divider Track with Accent Dot */}
+                <div className="about-editorial-stats-track">
+                  <div className="about-editorial-track-dot" />
+
+                  {/* Stat 1 */}
+                  <div className="about-editorial-stat-item">
+                    <div className="about-editorial-stat-value">10+</div>
+                    <div className="about-editorial-stat-title">Years of Experience</div>
                   </div>
 
-                  <h2 className="about-story-title">
-                    Our Story
-                  </h2>
+                  {/* Stat 2 */}
+                  <div className="about-editorial-stat-item">
+                    <div className="about-editorial-stat-value">500+</div>
+                    <div className="about-editorial-stat-title">Happy Little Graduates</div>
+                  </div>
 
-                  <p className="about-story-paragraph">
-                    The early years shape how children see themselves and the world around them. These years deserve more than supervision and lessons; they deserve patience, meaningful relationships and joyful opportunities to discover.
-                  </p>
-                  <p className="about-story-paragraph" style={{ margin: 0 }}>
-                    At Just Like Home Nursery in Ajman, we bring care and learning together. Every part of the child's day — from play and conversation to meals, movement, stories and friendships — can become an opportunity to grow.
-                  </p>
+                  {/* Stat 3 */}
+                  <div className="about-editorial-stat-item">
+                    <div className="about-editorial-stat-value">98%</div>
+                    <div className="about-editorial-stat-title">Satisfaction Rate</div>
+                  </div>
                 </div>
               </RevealOnScroll>
             </div>
@@ -150,269 +243,154 @@ export default function AboutPage({ onBookVisitClick }) {
         </div>
       </section>
 
-      {/* 3. OUR VISION & OUR MISSION */}
-      <section 
-        style={{ 
-          padding: 'clamp(64px, 7vw, 90px) 20px', 
-          backgroundColor: '#FFFDF9',
-          backgroundImage: 'radial-gradient(circle at 85% 15%, rgba(241, 90, 41, 0.04) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(114, 16, 36, 0.03) 0%, transparent 45%)',
-          borderBottom: '1px solid #f1f5f9'
-        }}
-      >
-        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
+      {/* 3. OUR VISION & OUR MISSION - INTERACTIVE IMAGE LEFT & TABS RIGHT */}
+      <section className="about-vm-section" id="vision-mission-section">
+        <div className="about-vm-container">
           <RevealOnScroll>
-            <div style={{ textAlign: 'center', maxWidth: '740px', margin: '0 auto 48px' }}>
-              <span
-                style={{
-                  display: 'inline-block',
-                  padding: '6px 18px',
-                  borderRadius: '999px',
-                  backgroundColor: '#ffffff',
-                  color: '#721024',
-                  fontSize: '13px',
-                  fontWeight: '800',
-                  letterSpacing: '0.5px',
-                  border: '1.5px solid rgba(114, 16, 36, 0.16)',
-                  marginBottom: '14px',
-                  boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
-                }}
-              >
-                PURPOSE &amp; VALUES
+            <div className="about-vm-header">
+              <span className="about-vm-eyebrow-pill">
+                <Sparkles size={14} /> PURPOSE &amp; VALUES
               </span>
-              <h2
-                style={{
-                  fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                  fontSize: 'clamp(28px, 4vw, 42px)',
-                  fontWeight: '900',
-                  color: '#721024',
-                  margin: '0 0 16px 0'
-                }}
-              >
+              <h2 className="about-vm-heading">
                 Our Vision &amp; Mission
               </h2>
-              <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
+              <p className="about-vm-subheading">
                 Guiding every moment of care, learning and development at Just Like Home Nursery.
               </p>
             </div>
           </RevealOnScroll>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '28px'
-            }}
-          >
-            {/* Vision Card */}
-            <RevealOnScroll delay={100} animation="from-left">
-              <div
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
-                  backdropFilter: 'blur(24px)',
-                  WebkitBackdropFilter: 'blur(24px)',
-                  borderRadius: '2rem',
-                  padding: '2.5rem 2rem',
-                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
-                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
-                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(114, 16, 36, 0.16), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
-                  e.currentTarget.style.borderColor = '#721024';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
-                }}
-              >
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
-                <div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      marginBottom: '1.5rem'
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: '56px',
-                        height: '56px',
-                        borderRadius: '1.15rem',
-                        backgroundColor: '#ffffff',
-                        color: '#721024',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        border: '2px solid rgba(114, 16, 36, 0.2)',
-                        boxShadow: '0 8px 18px rgba(114, 16, 36, 0.12)'
-                      }}
-                    >
-                      <Compass size={28} />
-                    </div>
-                    <span 
-                      style={{ 
-                        fontSize: '11.5px', 
-                        fontWeight: '800', 
-                        letterSpacing: '0.6px', 
-                        textTransform: 'uppercase', 
-                        padding: '5px 12px', 
-                        borderRadius: '999px', 
-                        backgroundColor: '#FFF1F2', 
-                        color: '#721024' 
-                      }}
-                    >
-                      OUR VISION
-                    </span>
-                  </div>
-                  <h3
-                    style={{
-                      fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                      fontSize: '24px',
-                      fontWeight: '850',
-                      color: '#721024',
-                      marginBottom: '14px'
-                    }}
-                  >
-                    Our Vision
-                  </h3>
-                  <p style={{ fontSize: '17.5px', lineHeight: 1.7, color: '#1e293b', fontWeight: '600', margin: 0 }}>
-                    Preparing children for life with motherly care and attention.
-                  </p>
-                </div>
-                <div
-                  style={{
-                    marginTop: '28px',
-                    paddingTop: '18px',
-                    borderTop: '1px solid #f8e8e8',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    fontSize: '13.5px',
-                    fontWeight: '750',
-                    color: '#721024'
-                  }}
-                >
-                  <Heart size={16} className="fill-current text-[#721024]" />
-                  <span>Motherly Care &amp; Attention</span>
-                </div>
-              </div>
-            </RevealOnScroll>
+          {(() => {
+            const currentData = VISION_MISSION_DATA[activeVmTab];
+            const ActiveIcon = currentData.icon;
+            const FooterIcon = currentData.footerIcon;
 
-            {/* Mission Card */}
-            <RevealOnScroll delay={200} animation="from-right">
-              <div
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
-                  backdropFilter: 'blur(24px)',
-                  WebkitBackdropFilter: 'blur(24px)',
-                  borderRadius: '2rem',
-                  padding: '2.5rem 2rem',
-                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
-                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
-                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(201, 168, 76, 0.22), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
-                  e.currentTarget.style.borderColor = '#c9a84c';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
-                }}
-              >
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #c9a84c, #721024)' }} />
-                <div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      marginBottom: '1.5rem'
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: '56px',
-                        height: '56px',
-                        borderRadius: '1.15rem',
-                        backgroundColor: '#ffffff',
-                        color: '#c9a84c',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        border: '2px solid rgba(201, 168, 76, 0.25)',
-                        boxShadow: '0 8px 18px rgba(201, 168, 76, 0.14)'
-                      }}
-                    >
-                      <Heart size={28} />
+            return (
+              <div className="about-vm-split-grid">
+                
+                {/* Left Side: Interactive Dynamic Image Showcase */}
+                <div className="about-vm-image-col">
+                  <RevealOnScroll animation="from-left">
+                    <div className="about-vm-image-frame">
+                      <img 
+                        key={currentData.id}
+                        src={currentData.image} 
+                        alt={currentData.imageAlt} 
+                        className="about-vm-img"
+                      />
+                      <div className="about-vm-image-overlay" />
+                      
+                      {/* Top Floating Badge */}
+                      <div className="about-vm-image-top-badge">
+                        <span className="about-vm-pulse-dot" />
+                        <span>{currentData.imageTag}</span>
+                      </div>
+
+                      {/* Bottom Caption Card */}
+                      <div className="about-vm-image-bottom-caption">
+                        <div className="about-vm-caption-tag">
+                          {currentData.imageBadge}
+                        </div>
+                        <p className="about-vm-caption-text">
+                          {currentData.statement}
+                        </p>
+                      </div>
                     </div>
-                    <span 
-                      style={{ 
-                        fontSize: '11.5px', 
-                        fontWeight: '800', 
-                        letterSpacing: '0.6px', 
-                        textTransform: 'uppercase', 
-                        padding: '5px 12px', 
-                        borderRadius: '999px', 
-                        backgroundColor: '#fef9e7', 
-                        color: '#c9a84c' 
-                      }}
-                    >
-                      OUR MISSION
-                    </span>
-                  </div>
-                  <h3
-                    style={{
-                      fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                      fontSize: '24px',
-                      fontWeight: '850',
-                      color: '#1e293b',
-                      marginBottom: '14px'
-                    }}
-                  >
-                    Our Vision &amp; Mission
-                  </h3>
-                  <p style={{ fontSize: '17px', lineHeight: 1.7, color: '#334155', fontWeight: '600', margin: 0 }}>
-                    We don't just educate children we nurture little hearts, build confidence, encourage curiosity, and create happy memories that last a lifetime.
-                  </p>
+                  </RevealOnScroll>
                 </div>
-                <div
-                  style={{
-                    marginTop: '28px',
-                    paddingTop: '18px',
-                    borderTop: '1px solid #f8e8e8',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    fontSize: '13.5px',
-                    fontWeight: '750',
-                    color: '#c9a84c'
-                  }}
-                >
-                  <Sparkles size={16} />
-                  <span>Curiosity, Confidence &amp; Happy Memories</span>
+
+                {/* Right Side: Interactive Vision & Mission Tabs */}
+                <div className="about-vm-tabs-col">
+                  <RevealOnScroll delay={120} animation="from-right">
+                    {/* Tab Switcher Control */}
+                    <div className="about-vm-tab-switcher-wrap" role="tablist" aria-label="Vision and Mission tabs">
+                      <button
+                        type="button"
+                        role="tab"
+                        aria-selected={activeVmTab === 'vision'}
+                        className={`about-vm-tab-btn ${activeVmTab === 'vision' ? 'is-active' : ''}`}
+                        onClick={() => setActiveVmTab('vision')}
+                      >
+                        <Compass size={17} />
+                        <span>Our Vision</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        role="tab"
+                        aria-selected={activeVmTab === 'mission'}
+                        className={`about-vm-tab-btn ${activeVmTab === 'mission' ? 'is-active is-mission' : ''}`}
+                        onClick={() => setActiveVmTab('mission')}
+                      >
+                        <Heart size={17} />
+                        <span>Our Mission</span>
+                      </button>
+                    </div>
+
+                    {/* Active Tab Content Card */}
+                    <div className="about-vm-content-card" key={currentData.id}>
+                      <div>
+                        {/* Header Row: Icon + Badge */}
+                        <div className="about-vm-card-header">
+                          <div 
+                            className="about-vm-icon-box"
+                            style={{ 
+                              color: currentData.accentColor,
+                              border: `2px solid ${currentData.accentColor}33`
+                            }}
+                          >
+                            <ActiveIcon size={26} />
+                          </div>
+
+                          <span 
+                            className="about-vm-tag-pill"
+                            style={{
+                              backgroundColor: currentData.badgeBg,
+                              color: currentData.accentColor
+                            }}
+                          >
+                            {currentData.badge}
+                          </span>
+                        </div>
+
+                        {/* Statement Box */}
+                        <div 
+                          className="about-vm-statement-box"
+                          style={{ borderLeftColor: currentData.accentColor }}
+                        >
+                          <h3 
+                            className="about-vm-statement-title"
+                            style={{ color: currentData.accentColor }}
+                          >
+                            {currentData.title}
+                          </h3>
+                          <p className="about-vm-statement-desc">
+                            {currentData.statement}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Card Footer Tag */}
+                      <div className="about-vm-footer-bar">
+                        <div 
+                          className="about-vm-footer-tag"
+                          style={{ color: currentData.accentColor }}
+                        >
+                          <FooterIcon size={16} />
+                          <span>{currentData.footerTag}</span>
+                        </div>
+
+                        <span style={{ fontSize: '12px', fontWeight: '750', color: '#94a3b8' }}>
+                          Just Like Home Nursery
+                        </span>
+                      </div>
+                    </div>
+                  </RevealOnScroll>
                 </div>
+
               </div>
-            </RevealOnScroll>
-          </div>
+            );
+          })()}
         </div>
       </section>
 
@@ -474,45 +452,29 @@ export default function AboutPage({ onBookVisitClick }) {
               return (
                 <RevealOnScroll key={index} delay={index * 40}>
                   <div
+                    className="luxury-creative-card"
                     style={{
                       display: 'flex',
                       alignItems: 'flex-start',
                       gap: '16px',
                       padding: '24px 22px',
                       borderRadius: '1.5rem',
-                      backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.95)',
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
                       border: '1.5px solid rgba(255, 255, 255, 0.95)',
                       boxShadow: '0 8px 24px rgba(74, 14, 26, 0.04), 0 1px 4px rgba(0,0,0,0.02)',
-                      transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                       height: '100%',
                       boxSizing: 'border-box'
                     }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-5px)';
-                      e.currentTarget.style.boxShadow = '0 16px 36px rgba(114, 16, 36, 0.10)';
-                      e.currentTarget.style.borderColor = 'rgba(114, 16, 36, 0.3)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(74, 14, 26, 0.04), 0 1px 4px rgba(0,0,0,0.02)';
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
-                    }}
                   >
                     <div
+                      className="luxury-icon-box luxury-icon-burgundy"
                       style={{
-                        width: '38px',
-                        height: '38px',
-                        borderRadius: '12px',
-                        backgroundColor: '#fff1f2',
-                        color: '#721024',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
+                        width: '42px',
+                        height: '42px',
                         flexShrink: 0,
-                        border: '1px solid rgba(114, 16, 36, 0.15)',
-                        fontSize: '12px',
+                        fontSize: '13px',
                         fontWeight: '900',
                         fontFamily: 'var(--font-heading, "Outfit", sans-serif)'
                       }}
@@ -531,137 +493,49 @@ export default function AboutPage({ onBookVisitClick }) {
       </section>
 
       {/* 5. EVERY CHILD IS UNIQUE & A PARTNERSHIP WITH PARENTS */}
-      <section 
-        style={{ 
-          padding: 'clamp(64px, 7vw, 90px) 20px', 
-          backgroundColor: '#FFFDF9',
-          backgroundImage: 'radial-gradient(circle at 15% 15%, rgba(5, 150, 105, 0.03) 0%, transparent 45%), radial-gradient(circle at 85% 85%, rgba(114, 16, 36, 0.03) 0%, transparent 45%)',
-          borderBottom: '1px solid #f1f5f9'
-        }}
-      >
-        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '32px'
-            }}
-          >
-            <RevealOnScroll animation="from-left">
-              <div
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
-                  backdropFilter: 'blur(24px)',
-                  WebkitBackdropFilter: 'blur(24px)',
-                  borderRadius: '2rem',
-                  padding: '2.5rem 2rem',
-                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
-                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
-                  height: '100%',
-                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
-                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(114, 16, 36, 0.14), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
-                  e.currentTarget.style.borderColor = '#721024';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
-                }}
-              >
-                <div
-                  style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '1.15rem',
-                    backgroundColor: '#ffffff',
-                    color: '#721024',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '20px',
-                    border: '2px solid rgba(114, 16, 36, 0.18)',
-                    boxShadow: '0 8px 18px rgba(114, 16, 36, 0.08)'
-                  }}
-                >
-                  <Smile size={28} />
+      <section className="about-centerchild-section">
+        <div className="about-centerchild-container">
+          <div className="about-centerchild-layout">
+            {/* Left Card: Every Child Is Unique */}
+            <div className="about-centerchild-side about-centerchild-side--left">
+              <RevealOnScroll animation="from-left">
+                <div className="about-centerchild-card about-centerchild-card--unique">
+                  <div className="about-centerchild-icon-box about-centerchild-icon-box--unique">
+                    <Smile size={28} />
+                  </div>
+                  <h3 className="about-centerchild-title about-centerchild-title--unique">
+                    Every Child Is Unique
+                  </h3>
+                  <p className="about-centerchild-text">
+                    Children do not all learn, communicate or gain confidence in the same way. Our role is to observe, listen and create the right opportunities for each child to participate and progress. We celebrate small steps because those small steps often become the foundations of lifelong confidence.
+                  </p>
                 </div>
-                <h3
-                  style={{
-                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                    fontSize: '24px',
-                    fontWeight: '850',
-                    color: '#721024',
-                    marginBottom: '16px'
-                  }}
-                >
-                  Every Child Is Unique
-                </h3>
-                <p style={{ fontSize: '16.5px', lineHeight: 1.78, color: '#475569', margin: 0 }}>
-                  Children do not all learn, communicate or gain confidence in the same way. Our role is to observe, listen and create the right opportunities for each child to participate and progress. We celebrate small steps because those small steps often become the foundations of lifelong confidence.
-                </p>
-              </div>
-            </RevealOnScroll>
+              </RevealOnScroll>
+            </div>
 
-            <RevealOnScroll delay={100} animation="from-right">
-              <div
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
-                  backdropFilter: 'blur(24px)',
-                  WebkitBackdropFilter: 'blur(24px)',
-                  borderRadius: '2rem',
-                  padding: '2.5rem 2rem',
-                  border: '1.5px solid rgba(255, 255, 255, 0.95)',
-                  boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
-                  height: '100%',
-                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
-                  e.currentTarget.style.boxShadow = '0 24px 50px rgba(2, 132, 199, 0.16), 0 2px 12px rgba(255, 255, 255, 0.9) inset';
-                  e.currentTarget.style.borderColor = '#0284c7';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
-                }}
-              >
-                <div
-                  style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '1.15rem',
-                    backgroundColor: '#ffffff',
-                    color: '#0284c7',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '20px',
-                    border: '2px solid rgba(2, 132, 199, 0.22)',
-                    boxShadow: '0 8px 18px rgba(2, 132, 199, 0.12)'
-                  }}
-                >
-                  <Users size={28} />
+            {/* Middle Aperture: Highlights the happily playing child in the background */}
+            <div className="about-centerchild-aperture" aria-hidden="true">
+              <span className="about-centerchild-badge">
+                <Sparkles size={15} /> Joyful Early Learning
+              </span>
+            </div>
+
+            {/* Right Card: A Partnership With Parents */}
+            <div className="about-centerchild-side about-centerchild-side--right">
+              <RevealOnScroll delay={120} animation="from-right">
+                <div className="about-centerchild-card about-centerchild-card--parents">
+                  <div className="about-centerchild-icon-box about-centerchild-icon-box--parents">
+                    <Users size={28} />
+                  </div>
+                  <h3 className="about-centerchild-title about-centerchild-title--parents">
+                    A Partnership With Parents
+                  </h3>
+                  <p className="about-centerchild-text">
+                    Trust grows through communication. We value parents' knowledge of their children and aim to build a respectful partnership from the first enquiry onwards. Regular communication helps nursery and home work together around each child's routines, interests, development and wellbeing.
+                  </p>
                 </div>
-                <h3
-                  style={{
-                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                    fontSize: '24px',
-                    fontWeight: '850',
-                    color: '#0284c7',
-                    marginBottom: '16px'
-                  }}
-                >
-                  A Partnership With Parents
-                </h3>
-                <p style={{ fontSize: '16.5px', lineHeight: 1.78, color: '#475569', margin: 0 }}>
-                  Trust grows through communication. We value parents' knowledge of their children and aim to build a respectful partnership from the first enquiry onwards. Regular communication helps nursery and home work together around each child's routines, interests, development and wellbeing.
-                </p>
-              </div>
-            </RevealOnScroll>
+              </RevealOnScroll>
+            </div>
           </div>
         </div>
       </section>
@@ -722,39 +596,24 @@ export default function AboutPage({ onBookVisitClick }) {
             {/* Services Card */}
             <RevealOnScroll animation="from-left">
               <div
+                className="luxury-creative-card"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(24px)',
                   WebkitBackdropFilter: 'blur(24px)',
                   borderRadius: '2rem',
                   padding: '2.5rem 2rem',
                   border: '1.5px solid rgba(255, 255, 255, 0.95)',
                   boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
-                  height: '100%',
-                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-6px)';
-                  e.currentTarget.style.boxShadow = '0 20px 45px rgba(114, 16, 36, 0.10)';
-                  e.currentTarget.style.borderColor = '#721024';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                  height: '100%'
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
                   <div
+                    className="luxury-icon-box luxury-icon-burgundy"
                     style={{
-                      width: '48px',
-                      height: '48px',
-                      borderRadius: '14px',
-                      backgroundColor: '#fff1f2',
-                      color: '#721024',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
+                      width: '54px',
+                      height: '54px',
                       fontSize: '22px'
                     }}
                   >
@@ -799,39 +658,24 @@ export default function AboutPage({ onBookVisitClick }) {
             {/* Facilities Card */}
             <RevealOnScroll delay={100} animation="from-right">
               <div
+                className="luxury-creative-card"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(24px)',
                   WebkitBackdropFilter: 'blur(24px)',
                   borderRadius: '2rem',
                   padding: '2.5rem 2rem',
                   border: '1.5px solid rgba(255, 255, 255, 0.95)',
                   boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
-                  height: '100%',
-                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-6px)';
-                  e.currentTarget.style.boxShadow = '0 20px 45px rgba(5, 150, 105, 0.12)';
-                  e.currentTarget.style.borderColor = '#059669';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
+                  height: '100%'
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
                   <div
+                    className="luxury-icon-box luxury-icon-emerald"
                     style={{
-                      width: '48px',
-                      height: '48px',
-                      borderRadius: '14px',
-                      backgroundColor: '#dcfce7',
-                      color: '#059669',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
+                      width: '54px',
+                      height: '54px',
                       fontSize: '22px'
                     }}
                   >
