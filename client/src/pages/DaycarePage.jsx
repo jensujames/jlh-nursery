@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
+import LuxuryPageHero from '../components/LuxuryPageHero';
 import { 
   Clock, Sun, Moon, Heart, MessageCircle, Calendar, 
   Sparkles, CheckCircle2, ArrowRight, ShieldCheck 
@@ -21,92 +22,20 @@ export default function DaycarePage() {
 
   return (
     <div className="daycare-page" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F', minHeight: '100vh' }}>
-      {/* 1. HERO & INTRODUCTION */}
-      <section className="page-hero-section" style={{ padding: '80px 20px 60px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
-          <RevealOnScroll>
-            <div>
-              <span style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '6px 18px',
-                borderRadius: '999px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                fontSize: '13px',
-                fontWeight: '800',
-                letterSpacing: '0.5px',
-                marginBottom: '20px'
-              }}>
-                <Clock size={14} />
-                FULL-DAY &amp; HALF-DAY CARE · FLEXIBLE CARE SEARCH INTENT
-              </span>
-
-              <h1 style={{
-                fontSize: 'clamp(32px, 5vw, 50px)',
-                fontWeight: '900',
-                color: '#721024',
-                lineHeight: 1.2,
-                margin: '0 0 24px 0'
-              }}>
-                Flexible Care With a Consistent Sense of Belonging
-              </h1>
-
-              <div style={{ fontSize: '17.5px', lineHeight: 1.8, color: '#475569', margin: '0 auto 36px', maxWidth: '800px' }}>
-                <p style={{ margin: 0 }}>
-                  Families have different schedules, but every child needs consistency, reassurance and meaningful experiences throughout the day. Our full-day and half-day options are designed to provide a caring routine while supporting learning, play, rest and social development.
-                </p>
-              </div>
-
-              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <Link
-                  to="/contact"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 28px',
-                    borderRadius: '999px',
-                    backgroundColor: '#721024',
-                    color: '#ffffff',
-                    fontWeight: '800',
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <Calendar size={18} />
-                  <span>CHECK AVAILABILITY</span>
-                </Link>
-                <a 
-                  href={`https://wa.me/971502005346?text=${whatsappMessage}`}
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 28px',
-                    borderRadius: '999px',
-                    backgroundColor: '#ffffff',
-                    color: '#721024',
-                    fontWeight: '800',
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                    border: '1.5px solid #721024',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <MessageCircle size={18} />
-                  <span>WHATSAPP US</span>
-                </a>
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+      {/* 1. LUXURY HERO BANNER */}
+      <LuxuryPageHero
+        badge="FULL-DAY & HALF-DAY CARE · FLEXIBLE CARE SEARCH INTENT"
+        badgeIcon={Clock}
+        title="Flexible Care With a Consistent Sense of Belonging"
+        description="Families have different schedules, but every child needs consistency, reassurance and meaningful experiences throughout the day. Our full-day and half-day options are designed to provide a caring routine while supporting learning, play, rest and social development."
+        image="/images/hero-about.jpg"
+        imageAlt="Full-day and half-day daycare at Just Like Home Nursery"
+        primaryCtaText="Check Availability"
+        primaryLink="/contact"
+        secondaryCtaText="Explore Programs"
+        secondaryLink="/programs"
+        whatsappText="Hello, I would like to check availability for full-day and half-day care options at Just Like Home Nursery."
+      />
 
       {/* 2. THREE CORE SECTIONS: A BALANCED NURSERY DAY / CARE THAT SUPPORTS DEVELOPMENT / KEEPING PARENTS CONNECTED */}
       <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>

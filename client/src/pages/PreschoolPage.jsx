@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
+import LuxuryPageHero from '../components/LuxuryPageHero';
 import { 
   GraduationCap, CheckCircle2, Smile, ArrowRight, 
   Calendar, MessageCircle, Sparkles, Compass 
@@ -32,95 +33,23 @@ export default function PreschoolPage() {
 
   return (
     <div className="preschool-page" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F', minHeight: '100vh' }}>
-      {/* 1. HERO & INTRODUCTION */}
-      <section className="page-hero-section" style={{ padding: '80px 20px 60px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
-          <RevealOnScroll>
-            <div>
-              <span style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '6px 18px',
-                borderRadius: '999px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                fontSize: '13px',
-                fontWeight: '800',
-                letterSpacing: '0.5px',
-                marginBottom: '20px'
-              }}>
-                <GraduationCap size={14} />
-                PRESCHOOL &amp; SCHOOL READINESS · HIGH-INTENT PRESCHOOL PAGE
-              </span>
-
-              <h1 style={{
-                fontSize: 'clamp(32px, 5vw, 50px)',
-                fontWeight: '900',
-                color: '#721024',
-                lineHeight: 1.2,
-                margin: '0 0 24px 0'
-              }}>
-                Preparing Confident, Curious Children for Their Next Step
-              </h1>
-
-              <div style={{ fontSize: '17.5px', lineHeight: 1.8, color: '#475569', margin: '0 auto 36px', maxWidth: '800px' }}>
-                <p style={{ marginBottom: '16px' }}>
-                  Starting school is a major milestone. School readiness is not only about knowing letters and numbers; it is also about confidence, communication, independence, listening, routines and the ability to learn alongside others.
-                </p>
-                <p style={{ margin: 0 }}>
-                  Our preschool and school-readiness experiences build these foundations through purposeful play and age-appropriate learning.
-                </p>
-              </div>
-
-              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <a 
-                  href={`https://wa.me/971502005346?text=${whatsappMessage}`}
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 28px',
-                    borderRadius: '999px',
-                    backgroundColor: '#721024',
-                    color: '#ffffff',
-                    fontWeight: '800',
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <MessageCircle size={18} />
-                  <span>ASK ABOUT PRESCHOOL</span>
-                </a>
-                <Link
-                  to="/contact"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 28px',
-                    borderRadius: '999px',
-                    backgroundColor: '#ffffff',
-                    color: '#721024',
-                    fontWeight: '800',
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                    border: '1.5px solid #721024',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <Calendar size={18} />
-                  <span>BOOK A VISIT</span>
-                </Link>
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+      {/* 1. LUXURY HERO BANNER */}
+      <LuxuryPageHero
+        badge="PRESCHOOL & SCHOOL READINESS · HIGH-INTENT PRESCHOOL PAGE"
+        badgeIcon={GraduationCap}
+        title="Preparing Confident, Curious Children for Their Next Step"
+        description={[
+          "Starting school is a major milestone. School readiness is not only about knowing letters and numbers; it is also about confidence, communication, independence, listening, routines and the ability to learn alongside others.",
+          "Our preschool and school-readiness experiences build these foundations through purposeful play and age-appropriate learning."
+        ]}
+        image="/images/hero-preschool.jpg"
+        imageAlt="Preschool and school readiness at Just Like Home Nursery"
+        primaryCtaText="Book a Visit"
+        primaryLink="/contact"
+        secondaryCtaText="Ask About Preschool"
+        secondaryLink="/programs"
+        whatsappText="Hello, I would like to ask about the Preschool and School Readiness program at Just Like Home Nursery."
+      />
 
       {/* 2. WHAT CHILDREN DEVELOP */}
       <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>

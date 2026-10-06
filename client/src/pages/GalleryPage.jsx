@@ -117,7 +117,7 @@ export default function GalleryPage({ onBookVisitClick }) {
         badgeIcon={Camera}
         title="A Little Look Inside Our Nursery"
         description="Discover the spaces, activities and moments that help Just Like Home Nursery feel warm, joyful and welcoming."
-        image="/images/hero.jpg"
+        image="/images/outdoor.jpg"
         imageAlt="Gallery of Just Like Home Nursery in Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"

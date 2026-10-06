@@ -100,7 +100,7 @@ export default function FacilitiesPage({ onBookVisitClick }) {
         badgeIcon={ShieldCheck}
         title="A Safe, Welcoming Space Created for Little Learners"
         description="Children feel more confident when their environment is comfortable, predictable and designed around their needs. Our nursery spaces support active play, focused discovery, social interaction, rest and everyday routines."
-        image="/images/hero.jpg"
+        image="/images/bg-hero-villa.jpg"
         imageAlt="Facilities and Safety at Just Like Home Nursery Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"

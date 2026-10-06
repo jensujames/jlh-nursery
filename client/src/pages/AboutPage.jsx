@@ -76,7 +76,7 @@ export default function AboutPage({ onBookVisitClick }) {
           "Just Like Home Nursery was created with a simple belief: children flourish when they feel safe, loved, respected and understood.",
           "Our name reflects the experience we want every child to have — the reassurance of a familiar, caring environment combined with thoughtful early-years learning that encourages curiosity, confidence and independence."
         ]}
-        image="/images/nurturing-hero.jpg"
+        image="/images/hero-about.jpg"
         imageAlt="About Just Like Home Nursery Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"

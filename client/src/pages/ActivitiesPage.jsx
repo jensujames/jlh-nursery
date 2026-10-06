@@ -79,7 +79,7 @@ export default function ActivitiesPage({ onBookVisitClick }) {
         badgeIcon={Sparkles}
         title="Every Day Brings a New Way to Discover"
         description="Children learn best when experiences feel meaningful, active and enjoyable. Our nursery activities encourage curiosity, communication, imagination, movement and growing independence."
-        image="/images/hero.jpg"
+        image="/images/activity-creative-play.jpg"
         imageAlt="Activities at Just Like Home Nursery Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"

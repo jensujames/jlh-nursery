@@ -8,7 +8,7 @@ export default function LuxuryPageHero({
   badgeIcon: BadgeIcon = Sparkles,
   title,
   description,
-  image = "/images/hero.jpg",
+  image = "/images/hero-about.jpg",
   imageAlt = "Just Like Home Nursery in Ajman",
   imageBadgeTitle = "Villa No. 47, Al Rashidiya 2",
   imageBadgeSubtitle = "Where Little Hearts Feel at Home",
@@ -28,72 +28,66 @@ export default function LuxuryPageHero({
       className="luxury-page-hero"
       style={{
         position: 'relative',
-        backgroundColor: '#fffbf7',
-        backgroundImage: 'radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.08) 0%, transparent 60%), radial-gradient(ellipse at 10% 80%, rgba(114, 16, 36, 0.04) 0%, transparent 60%)',
-        paddingTop: 'clamp(48px, 6vw, 72px)',
-        paddingBottom: 'clamp(56px, 7vw, 84px)',
+        minHeight: 'clamp(480px, 48vw, 580px)',
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: '#eaf4fd',
+        backgroundImage: `url(${image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'right center',
+        backgroundRepeat: 'no-repeat',
         overflow: 'hidden',
-        borderBottomRightRadius: '70px',
-        borderBottom: '1px solid rgba(201, 168, 76, 0.22)'
+        paddingTop: 'clamp(56px, 7vw, 84px)',
+        paddingBottom: 'clamp(68px, 8vw, 96px)'
       }}
     >
-      {/* Ambient Pastel Glow Orbs */}
+      {/* 1. Left-Side Plain/Blurred Minimal Sky Veil for Text Readability */}
       <div
         style={{
           position: 'absolute',
-          top: '-40px',
-          left: '-40px',
-          width: '180px',
-          height: '180px',
-          background: '#bae6fd',
-          borderRadius: '50%',
-          opacity: 0.35,
-          filter: 'blur(30px)',
-          pointerEvents: 'none'
-        }}
-        aria-hidden="true"
-      />
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '-30px',
-          left: '25%',
-          width: '160px',
-          height: '160px',
-          background: '#fecdd3',
-          borderRadius: '50%',
-          opacity: 0.3,
-          filter: 'blur(30px)',
-          pointerEvents: 'none'
-        }}
-        aria-hidden="true"
-      />
-      <div
-        style={{
-          position: 'absolute',
-          top: '20px',
-          right: '10%',
-          width: '200px',
-          height: '200px',
-          background: '#fef08a',
-          borderRadius: '50%',
-          opacity: 0.3,
-          filter: 'blur(35px)',
-          pointerEvents: 'none'
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          background: 'linear-gradient(to right, rgba(235, 245, 255, 0.97) 0%, rgba(235, 245, 255, 0.92) 36%, rgba(235, 245, 255, 0.45) 54%, transparent 72%)',
+          pointerEvents: 'none',
+          zIndex: 1
         }}
         aria-hidden="true"
       />
 
-      <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 20px', position: 'relative', zIndex: 2 }}>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: 'clamp(32px, 5vw, 56px)',
-            alignItems: 'center'
-          }}
-        >
-          {/* Left Column: Pill Badge, Title, Content, Dual CTAs */}
+      {/* 2. Playful Subtle Background Floating Elements (Rainbow & Soft Cloud Accent) */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '24px',
+          left: '8%',
+          pointerEvents: 'none',
+          opacity: 0.65,
+          zIndex: 2
+        }}
+        aria-hidden="true"
+      >
+        <svg width="64" height="38" viewBox="0 0 64 38" fill="none">
+          <path
+            d="M50 32H14C7.37 32 2 26.63 2 20C2 13.9 6.55 8.87 12.44 8.12C14.7 3.32 19.64 0 25.4 0C32.4 0 38.25 4.9 39.7 11.53C41.13 10.55 42.88 10 44.75 10C49.86 10 54 14.14 54 19.25C54 19.8 53.95 20.34 53.85 20.86C59.5 21.6 64 26.4 64 32C64 32 64 32 64 32H50Z"
+            fill="rgba(255, 255, 255, 0.85)"
+          />
+        </svg>
+      </div>
+
+      {/* 3. Main Hero Content Container */}
+      <div
+        style={{
+          maxWidth: '1240px',
+          width: '100%',
+          margin: '0 auto',
+          padding: '0 24px',
+          position: 'relative',
+          zIndex: 3
+        }}
+      >
+        <div style={{ maxWidth: '620px' }}>
           <RevealOnScroll animation="from-left">
             <div>
               {/* Frosted Glass Pill Badge */}
@@ -103,7 +97,7 @@ export default function LuxuryPageHero({
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
                     backdropFilter: 'blur(10px)',
                     WebkitBackdropFilter: 'blur(10px)',
                     color: '#721024',
@@ -111,21 +105,21 @@ export default function LuxuryPageHero({
                     borderRadius: '9999px',
                     fontSize: '13px',
                     fontWeight: '800',
-                    border: '1px solid rgba(201, 168, 76, 0.35)',
-                    boxShadow: '0 4px 14px rgba(114, 16, 36, 0.05)',
+                    border: '1.5px solid rgba(114, 16, 36, 0.15)',
+                    boxShadow: '0 4px 14px rgba(114, 16, 36, 0.06)',
                     letterSpacing: '0.4px'
                   }}
                 >
-                  <BadgeIcon size={14} className="text-[#c9a84c]" />
+                  <BadgeIcon size={14} style={{ color: '#721024' }} />
                   <span>{badge}</span>
                 </span>
               </div>
 
-              {/* Display Heading */}
+              {/* Main Heading */}
               <h1
                 style={{
                   fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                  fontSize: 'clamp(30px, 4.4vw, 48px)',
+                  fontSize: 'clamp(32px, 4.5vw, 50px)',
                   fontWeight: '900',
                   lineHeight: 1.18,
                   letterSpacing: '-0.02em',
@@ -136,11 +130,11 @@ export default function LuxuryPageHero({
                 {title}
               </h1>
 
-              {/* Exact Description (array or node or string) */}
+              {/* Exact Description (array or node or string) - Content Strictly Preserved */}
               <div
                 style={{
                   fontSize: '16.5px',
-                  lineHeight: 1.78,
+                  lineHeight: 1.76,
                   color: '#475569',
                   marginBottom: '28px'
                 }}
@@ -237,7 +231,7 @@ export default function LuxuryPageHero({
                       fontSize: '14.5px',
                       textDecoration: 'none',
                       border: '1.5px solid #721024',
-                      boxShadow: '0 4px 14px rgba(0, 0, 0, 0.04)',
+                      boxShadow: '0 4px 14px rgba(0, 0, 0, 0.05)',
                       transition: 'transform 0.2s ease, background-color 0.2s ease'
                     }}
                     onMouseEnter={(e) => {
@@ -271,7 +265,7 @@ export default function LuxuryPageHero({
                       fontSize: '14.5px',
                       textDecoration: 'none',
                       border: '1.5px solid #059669',
-                      boxShadow: '0 4px 14px rgba(0, 0, 0, 0.04)',
+                      boxShadow: '0 4px 14px rgba(0, 0, 0, 0.05)',
                       transition: 'transform 0.2s ease, background-color 0.2s ease'
                     }}
                     onMouseEnter={(e) => {
@@ -290,83 +284,82 @@ export default function LuxuryPageHero({
               </div>
             </div>
           </RevealOnScroll>
-
-          {/* Right Column: Visual Photo Card with Floating Glass Badge */}
-          <RevealOnScroll animation="from-right" delay={150}>
-            <div style={{ position: 'relative' }}>
-              <div
-                style={{
-                  borderRadius: '28px',
-                  overflow: 'hidden',
-                  boxShadow: '0 18px 45px rgba(114, 16, 36, 0.08)',
-                  border: '4px solid #ffffff'
-                }}
-              >
-                <img
-                  src={image}
-                  alt={imageAlt}
-                  style={{
-                    width: '100%',
-                    height: 'clamp(320px, 38vw, 420px)',
-                    objectFit: 'cover',
-                    display: 'block'
-                  }}
-                  onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = '/images/hero.jpg';
-                  }}
-                />
-              </div>
-
-              {/* Floating Glass Badge */}
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: '18px',
-                  left: '18px',
-                  right: '18px',
-                  padding: '14px 20px',
-                  borderRadius: '18px',
-                  background: 'rgba(255, 255, 255, 0.94)',
-                  backdropFilter: 'blur(12px)',
-                  WebkitBackdropFilter: 'blur(12px)',
-                  boxShadow: '0 10px 28px rgba(0, 0, 0, 0.12)',
-                  border: '1px solid rgba(255, 255, 255, 0.8)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <div>
-                  <p
-                    style={{
-                      margin: 0,
-                      fontSize: '11px',
-                      fontWeight: '800',
-                      textTransform: 'uppercase',
-                      color: '#721024',
-                      letterSpacing: '0.6px'
-                    }}
-                  >
-                    {imageBadgeTitle}
-                  </p>
-                  <p
-                    style={{
-                      margin: '2px 0 0 0',
-                      fontSize: '14px',
-                      fontWeight: '800',
-                      color: '#1e293b'
-                    }}
-                  >
-                    {imageBadgeSubtitle}
-                  </p>
-                </div>
-                <span style={{ fontSize: '22px' }}>🏡</span>
-              </div>
-            </div>
-          </RevealOnScroll>
         </div>
+      </div>
+
+      {/* 4. Subtle Floating Campus Badge on Bottom Right */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '36px',
+          right: '28px',
+          padding: '10px 18px',
+          borderRadius: '16px',
+          background: 'rgba(255, 255, 255, 0.92)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          boxShadow: '0 10px 24px rgba(0, 0, 0, 0.1)',
+          border: '1px solid rgba(255, 255, 255, 0.8)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px',
+          zIndex: 3
+        }}
+      >
+        <div>
+          <p
+            style={{
+              margin: 0,
+              fontSize: '11px',
+              fontWeight: '800',
+              textTransform: 'uppercase',
+              color: '#721024',
+              letterSpacing: '0.6px'
+            }}
+          >
+            {imageBadgeTitle}
+          </p>
+          <p
+            style={{
+              margin: '2px 0 0 0',
+              fontSize: '13.5px',
+              fontWeight: '800',
+              color: '#1e293b'
+            }}
+          >
+            {imageBadgeSubtitle}
+          </p>
+        </div>
+        <span style={{ fontSize: '20px' }}>🏡</span>
+      </div>
+
+      {/* 5. Playful Bottom Scalloped Cloud Wave */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '24px',
+          overflow: 'hidden',
+          zIndex: 4,
+          pointerEvents: 'none',
+          lineHeight: 0
+        }}
+        aria-hidden="true"
+      >
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          style={{ width: '100%', height: '100%', display: 'block' }}
+        >
+          <path
+            d="M0,0 C150,90 350,-40 500,40 C650,120 900,10 1200,40 L1200,120 L0,120 Z"
+            fill="#FFFDF7"
+          />
+        </svg>
       </div>
     </div>
   );
 }
+
