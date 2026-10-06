@@ -21,6 +21,8 @@ import AdmissionsPage from './pages/AdmissionsPage';
 import GalleryPage from './pages/GalleryPage';
 import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
+import PreschoolPage from './pages/PreschoolPage';
+import DaycarePage from './pages/DaycarePage';
 import NotFoundPage from './pages/NotFoundPage';
 
 export default function App() {
@@ -86,17 +88,29 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage onBookVisitClick={handleBookVisit} />} />
             <Route path="/about-us" element={<AboutPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/about-us/" element={<AboutPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/programs" element={<ProgramsPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/programs/" element={<ProgramsPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/eyfs-learning" element={<EyfsPage onBookVisitClick={handleBookVisit} />} />
-            <Route path="/nursery-activities" element={<ActivitiesPage onBookVisitClick={handleBookVisit} />} />
-            <Route path="/facilities" element={<FacilitiesPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/eyfs-learning/" element={<EyfsPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/preschool-school-readiness" element={<PreschoolPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/preschool-school-readiness/" element={<PreschoolPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/daycare-ajman" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/daycare-ajman/" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
             <Route path="/camps" element={<CampsPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/camps/" element={<CampsPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/nursery-activities" element={<ActivitiesPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/nursery-activities/" element={<ActivitiesPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/facilities" element={<FacilitiesPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/facilities/" element={<FacilitiesPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/admissions" element={<AdmissionsPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/admissions/" element={<AdmissionsPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/gallery" element={<GalleryPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/gallery/" element={<GalleryPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/blog" element={<BlogPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/blog/" element={<BlogPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/contact" element={<ContactPage onBookVisitClick={handleBookVisit} />} />
-            <Route path="/preschool-school-readiness" element={<ProgramsPage onBookVisitClick={handleBookVisit} />} />
-            <Route path="/daycare-ajman" element={<ProgramsPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/contact/" element={<ContactPage onBookVisitClick={handleBookVisit} />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
