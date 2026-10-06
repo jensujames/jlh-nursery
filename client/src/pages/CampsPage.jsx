@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import { 
@@ -38,43 +38,99 @@ const CAMP_INCLUSIONS = [
 ];
 
 export default function CampsPage() {
+  useEffect(() => {
+    document.title = "Holiday & Summer Camp in Ajman | Just Like Home Nursery";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Discover fun, nurturing holiday and summer camp experiences in Ajman with creative activities, movement, exploration, stories and social play.");
+    }
+  }, []);
+
   return (
-    <div className="camps-page">
-      {/* 1. HERO */}
-      <section className="page-hero-section">
-        <div className="hero-atmosphere">
-          <div className="hero-sun-glow"></div>
-        </div>
-        <div className="container relative z-10">
+    <div className="camps-page" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F', minHeight: '100vh' }}>
+      {/* 1. HERO & INTRODUCTION */}
+      <section className="page-hero-section" style={{ padding: '80px 20px 60px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div className="page-hero-content text-center max-w-4xl mx-auto">
-              <span className="badge badge-primary mb-4 inline-flex items-center gap-2">
-                <Sun size={14} /> Holiday & Summer Camps · Ajman
+            <div>
+              <span style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '6px 18px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                letterSpacing: '0.5px',
+                marginBottom: '20px'
+              }}>
+                <Sun size={14} />
+                HOLIDAY &amp; SUMMER CAMPS · SEASONAL ENROLMENT
               </span>
-              <h1 className="hero-title text-3xl md:text-5xl font-black text-warm-navy mb-6 leading-tight">
+
+              <h1 style={{
+                fontSize: 'clamp(32px, 5vw, 50px)',
+                fontWeight: '900',
+                color: '#721024',
+                lineHeight: 1.2,
+                margin: '0 0 24px 0'
+              }}>
                 Happy Holidays Filled With Play, Creativity and Discovery
               </h1>
-              <div className="space-y-4 text-lg md:text-xl text-stone-600 leading-relaxed font-normal">
-                <p>
+
+              <div style={{ fontSize: '17px', lineHeight: 1.8, color: '#475569', margin: '0 auto 36px' }}>
+                <p style={{ marginBottom: '16px' }}>
                   School holidays can be a wonderful time for children to try something new, make friends and stay engaged in a safe, familiar environment.
                 </p>
-                <p>
+                <p style={{ margin: 0 }}>
                   Our seasonal camp programs bring together creative projects, stories, music, movement, sensory experiences, themed activities and age-appropriate learning.
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-4 mt-8">
-                <Link to="/contact" className="btn btn-primary shadow-lg shadow-orange-500/20">
+
+              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Link
+                  to="/contact"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 28px',
+                    borderRadius: '999px',
+                    backgroundColor: '#721024',
+                    color: '#ffffff',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
                   <Calendar size={18} />
-                  Ask About the Next Camp
+                  <span>ASK ABOUT THE NEXT CAMP</span>
                 </Link>
                 <a 
                   href="https://wa.me/971502005346?text=Hello,%20I%20would%20like%20to%20ask%20about%20the%20upcoming%20holiday%20and%20summer%20camps%20at%20Just%20Like%20Home%20Nursery." 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="btn btn-secondary"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 28px',
+                    borderRadius: '999px',
+                    backgroundColor: '#ffffff',
+                    color: '#721024',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    border: '1.5px solid #721024',
+                    transition: 'all 0.25s ease'
+                  }}
                 >
                   <MessageCircle size={18} />
-                  WhatsApp Us
+                  <span>WHATSAPP US</span>
                 </a>
               </div>
             </div>
@@ -83,30 +139,68 @@ export default function CampsPage() {
       </section>
 
       {/* 2. WHAT CAMP DAYS MAY INCLUDE */}
-      <section className="section bg-white border-y border-stone-100">
-        <div className="container">
+      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
+        <div style={{ maxWidth: '980px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <span className="badge badge-accent mb-3">Enriching Camp Experiences</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy mb-4">
+            <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
+              <span style={{
+                display: 'inline-block',
+                padding: '6px 16px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                marginBottom: '14px'
+              }}>
+                ACTIVITIES &amp; EXPERIENCES
+              </span>
+              <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: '900', color: '#721024', margin: 0 }}>
                 What Camp Days May Include
               </h2>
-              <p className="text-stone-600 text-lg">
-                Engaging and joyful seasonal activities for happy, active little learners.
-              </p>
             </div>
           </RevealOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '18px'
+          }}>
             {CAMP_INCLUSIONS.map((item, index) => {
               const Icon = item.icon;
               return (
-                <RevealOnScroll key={index} delay={index * 40}>
-                  <div className="flex items-center gap-4 p-5 rounded-2xl bg-[#FFFDF7] border border-stone-200/80 hover:border-orange-300 transition-colors">
-                    <div className="w-10 h-10 rounded-xl bg-orange-100 text-[#F15A29] flex items-center justify-center shrink-0">
-                      <Icon size={20} />
+                <RevealOnScroll key={index} delay={index * 35}>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '16px',
+                    padding: '22px 24px',
+                    borderRadius: '20px',
+                    backgroundColor: '#FFFDF7',
+                    border: '1.5px solid #ffede4',
+                    boxShadow: '0 4px 14px rgba(0,0,0,0.02)',
+                    transition: 'all 0.25s ease'
+                  }}>
+                    <div style={{
+                      width: '46px',
+                      height: '46px',
+                      borderRadius: '14px',
+                      backgroundColor: '#fff1f2',
+                      color: '#721024',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0
+                    }}>
+                      <Icon size={22} />
                     </div>
-                    <p className="text-stone-800 text-base md:text-lg font-medium">
+                    <p style={{
+                      margin: 0,
+                      fontSize: '16px',
+                      fontWeight: '700',
+                      color: '#1e293b',
+                      lineHeight: 1.45
+                    }}>
                       {item.title}
                     </p>
                   </div>
@@ -117,37 +211,146 @@ export default function CampsPage() {
         </div>
       </section>
 
-      {/* 3. CURRENT CAMP INFORMATION & CTA */}
-      <section className="section bg-[#FFFDF7]">
-        <div className="container">
-          <div className="max-w-4xl mx-auto p-8 md:p-12 rounded-3xl bg-white border border-stone-200 shadow-sm text-center">
-            <RevealOnScroll>
-              <div className="w-14 h-14 rounded-2xl bg-orange-50 text-[#F15A29] flex items-center justify-center mx-auto mb-6">
-                <Calendar size={28} />
+      {/* 3. CURRENT CAMP INFORMATION */}
+      <section style={{ padding: '80px 20px', backgroundColor: '#FFFDF7' }}>
+        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
+          <RevealOnScroll>
+            <div style={{
+              background: '#ffffff',
+              borderRadius: '28px',
+              padding: '48px 36px',
+              border: '1.5px solid rgba(114, 16, 36, 0.12)',
+              boxShadow: '0 10px 30px rgba(114, 16, 36, 0.04)',
+              textAlign: 'center'
+            }}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                borderRadius: '20px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 24px'
+              }}>
+                <Calendar size={30} />
               </div>
-              <h2 className="text-3xl font-extrabold text-warm-navy mb-4">
+              <h2 style={{ fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: '900', color: '#721024', marginBottom: '18px' }}>
                 Current Camp Information
               </h2>
-              <p className="text-stone-700 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+              <p style={{ fontSize: '17px', lineHeight: 1.75, color: '#475569', maxWidth: '720px', margin: '0 auto 32px' }}>
                 Camp themes, dates, age eligibility, timings, inclusions and fees may change each season. Contact the nursery for the latest program and availability.
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/contact" className="btn btn-primary shadow-lg shadow-orange-500/20">
+              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Link
+                  to="/contact"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 30px',
+                    borderRadius: '999px',
+                    backgroundColor: '#721024',
+                    color: '#ffffff',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
                   <Calendar size={18} />
-                  Ask About the Next Camp
+                  <span>ASK ABOUT THE NEXT CAMP</span>
                 </Link>
                 <a 
                   href="https://wa.me/971502005346?text=Hello,%20I%20would%20like%20to%20ask%20about%20the%20upcoming%20holiday%20and%20summer%20camps%20at%20Just%20Like%20Home%20Nursery." 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="btn btn-secondary"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 30px',
+                    borderRadius: '999px',
+                    backgroundColor: '#ffffff',
+                    color: '#721024',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    border: '1.5px solid #721024',
+                    transition: 'all 0.25s ease'
+                  }}
                 >
                   <MessageCircle size={18} />
-                  WhatsApp Us
+                  <span>WHATSAPP US</span>
                 </a>
               </div>
-            </RevealOnScroll>
-          </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* 4. CLOSING CTA BANNER */}
+      <section style={{
+        padding: '80px 20px',
+        background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
+        color: '#ffffff',
+        textAlign: 'center'
+      }}>
+        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <RevealOnScroll>
+            <h2 style={{ fontSize: 'clamp(28px, 4.5vw, 40px)', fontWeight: '900', margin: '0 0 20px 0', lineHeight: 1.25 }}>
+              Happy Holidays Filled With Play, Creativity and Discovery
+            </h2>
+            <p style={{ fontSize: '17px', lineHeight: 1.75, opacity: 0.95, margin: '0 auto 36px', maxWidth: '680px' }}>
+              School holidays can be a wonderful time for children to try something new, make friends and stay engaged in a safe, familiar environment.
+            </p>
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link
+                to="/contact"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '15px 34px',
+                  borderRadius: '999px',
+                  backgroundColor: '#ffffff',
+                  color: '#721024',
+                  fontWeight: '800',
+                  fontSize: '15.5px',
+                  textDecoration: 'none',
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
+                  transition: 'all 0.25s ease'
+                }}
+              >
+                <Calendar size={18} />
+                <span>ASK ABOUT THE NEXT CAMP</span>
+              </Link>
+              <a 
+                href="https://wa.me/971502005346?text=Hello,%20I%20would%20like%20to%20ask%20about%20the%20upcoming%20holiday%20and%20summer%20camps%20at%20Just%20Like%20Home%20Nursery." 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '15px 34px',
+                  borderRadius: '999px',
+                  backgroundColor: 'rgba(255,255,255,0.12)',
+                  color: '#ffffff',
+                  fontWeight: '800',
+                  fontSize: '15.5px',
+                  textDecoration: 'none',
+                  border: '1.5px solid rgba(255,255,255,0.4)',
+                  transition: 'all 0.25s ease'
+                }}
+              >
+                <MessageCircle size={18} />
+                <span>WHATSAPP US</span>
+              </a>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
     </div>
