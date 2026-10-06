@@ -88,7 +88,7 @@ export default function AdmissionsPage({ onBookVisitClick }) {
         badgeIcon={FileText}
         title="A Warm Welcome Starts Here"
         description="Choosing a nursery is personal. We want families to have the opportunity to ask questions, understand the environment and decide whether Just Like Home Nursery is the right fit for their child."
-        image="/images/growing-minds-center.jpg"
+        image="/images/hero-admissions.jpg"
         imageAlt="Admissions at Just Like Home Nursery Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"

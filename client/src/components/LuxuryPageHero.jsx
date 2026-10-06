@@ -28,30 +28,66 @@ export default function LuxuryPageHero({
       className="luxury-page-hero"
       style={{
         position: 'relative',
-        minHeight: 'clamp(480px, 48vw, 580px)',
+        minHeight: 'clamp(460px, 44vw, 560px)',
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: '#eaf4fd',
-        backgroundImage: `url(${image})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'right center',
-        backgroundRepeat: 'no-repeat',
+        backgroundColor: '#FFFDF7',
+        backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(241, 90, 41, 0.04) 0%, transparent 40%), linear-gradient(135deg, #fffbf7 0%, #fff7f2 50%, #fdf5ef 100%)',
         overflow: 'hidden',
         paddingTop: 'clamp(56px, 7vw, 84px)',
         paddingBottom: 'clamp(68px, 8vw, 96px)'
       }}
     >
-      {/* 1. Left-Side Plain/Blurred Minimal Sky Veil for Text Readability */}
+      {/* 1. Right-Side Focused Image with Smooth Leftward Fade & Mask */}
       <div
+        className="luxury-hero-right-img-container"
+        style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          bottom: 0,
+          width: '56%',
+          zIndex: 1,
+          overflow: 'hidden',
+          pointerEvents: 'none'
+        }}
+      >
+        <img
+          src={image}
+          alt={imageAlt || title}
+          loading="eager"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center 20%',
+            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 14%, black 46%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 14%, black 46%)'
+          }}
+        />
+        {/* Soft Left-Edge Gradient Veil for pristine blend into minimal left background */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(to right, #FFFDF7 0%, rgba(255, 253, 247, 0.85) 10%, rgba(255, 253, 247, 0.25) 24%, transparent 50%)',
+            pointerEvents: 'none'
+          }}
+        />
+      </div>
+
+      {/* 2. Left-Side Plain Minimal Veil (Ensures zero interference with content on smaller screens) */}
+      <div
+        className="luxury-hero-mobile-veil"
         style={{
           position: 'absolute',
           top: 0,
           left: 0,
           bottom: 0,
           right: 0,
-          background: 'linear-gradient(to right, rgba(235, 245, 255, 0.97) 0%, rgba(235, 245, 255, 0.92) 36%, rgba(235, 245, 255, 0.45) 54%, transparent 72%)',
+          background: 'linear-gradient(to right, #FFFDF7 0%, rgba(255, 253, 247, 0.96) 42%, rgba(255, 253, 247, 0.5) 60%, transparent 78%)',
           pointerEvents: 'none',
-          zIndex: 1
+          zIndex: 2
         }}
         aria-hidden="true"
       />

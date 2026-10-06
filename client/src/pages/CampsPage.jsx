@@ -62,7 +62,7 @@ export default function CampsPage({ onBookVisitClick }) {
           "School holidays can be a wonderful time for children to try something new, make friends and stay engaged in a safe, familiar environment.",
           "Our seasonal camp programs bring together creative projects, stories, music, movement, sensory experiences, themed activities and age-appropriate learning."
         ]}
-        image="/images/bg-hero-camps.jpg"
+        image="/images/hero-camps.jpg"
         imageAlt="Holiday and Summer Camps at Just Like Home Nursery Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"

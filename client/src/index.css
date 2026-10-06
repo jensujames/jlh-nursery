@@ -6160,4 +6160,15 @@ textarea {
   }
 }
 
+/* Luxury Page Hero - Right-Focused Image & Left Plain Content */
+.luxury-hero-right-img-container {
+  transition: opacity 0.35s ease, width 0.35s ease;
+}
+
+@media (max-width: 880px) {
+  .luxury-hero-right-img-container {
+    width: 100% !important;
+    opacity: 0.28 !important;
+  }
+}
 

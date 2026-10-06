@@ -90,7 +90,7 @@ export default function ContactPage() {
         badgeIcon={MapPin}
         title="Come and Experience Just Like Home"
         description="The best way to understand whether a nursery feels right is to experience it. Book a visit to meet our team, explore the environment and ask questions about your child's care and learning."
-        image="/images/bg-hero-villa.jpg"
+        image="/images/hero-contact.jpg"
         imageAlt="Contact Just Like Home Nursery in Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"
