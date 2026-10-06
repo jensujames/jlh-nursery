@@ -1205,53 +1205,208 @@ export default function HomePage({ onBookVisitClick }) {
         </div>
       </section>
 
-      {/* 9. Growing Together With Families */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', maxWidth: '1080px', margin: '0 auto', textAlign: 'center' }}>
-        <RevealOnScroll>
-          <div
+      {/* 9. Growing Together With Families (Full-Width Panoramic Family Banner) */}
+      <section
+        style={{
+          position: 'relative',
+          width: '100%',
+          minHeight: 'clamp(420px, 42vw, 520px)',
+          display: 'flex',
+          alignItems: 'center',
+          backgroundColor: '#eaf4fd',
+          backgroundImage: 'linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 42%, #fffbf7 100%)',
+          overflow: 'hidden',
+          padding: 'clamp(60px, 7vw, 84px) 20px',
+          margin: 'clamp(36px, 5vw, 64px) 0'
+        }}
+      >
+        {/* Right-Side Focused Image with Smooth Leftward Fade */}
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            bottom: 0,
+            width: '58%',
+            zIndex: 1,
+            overflow: 'hidden',
+            pointerEvents: 'none'
+          }}
+        >
+          <img
+            src="/images/testimonial-parent-mom.jpg"
+            alt="Growing together with nursery families"
             style={{
-              background: '#ffffff',
-              borderRadius: '32px',
-              padding: 'clamp(40px, 6vw, 64px) clamp(24px, 4vw, 56px)',
-              border: '1.5px solid #ffede4',
-              boxShadow: '0 12px 36px rgba(114, 16, 36, 0.04)'
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center 20%',
+              maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 15%, black 48%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 15%, black 48%)'
             }}
-          >
-            <span
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '6px 18px',
-                borderRadius: '999px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                fontSize: '13px',
-                fontWeight: '800',
-                letterSpacing: '0.5px',
-                border: '1px solid rgba(114, 16, 36, 0.12)',
-                marginBottom: '18px'
-              }}
-            >
-              <Users size={14} />
-              FAMILY PARTNERSHIP
-            </span>
-            <h2
-              style={{
-                fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                fontSize: 'clamp(26px, 3.8vw, 38px)',
-                fontWeight: '900',
-                color: '#721024',
-                margin: '0 0 18px 0'
-              }}
-            >
-              Growing Together With Families
-            </h2>
-            <p style={{ fontSize: '17px', lineHeight: 1.8, color: '#475569', maxWidth: '820px', margin: '0 auto' }}>
-              Parents know their children better than anyone. That is why we believe early education works best as a partnership. We value open communication and work with families to understand each child's needs, progress, interests and achievements. When nursery and home work together, children have the confidence to thrive.
-            </p>
+          />
+        </div>
+
+        {/* Soft Botanical Leaf Accents on Corners (from reference) */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '-20px',
+            left: '-20px',
+            width: '120px',
+            height: '120px',
+            opacity: 0.45,
+            pointerEvents: 'none',
+            zIndex: 2
+          }}
+          aria-hidden="true"
+        >
+          <svg viewBox="0 0 100 100" fill="none">
+            <path d="M10,80 Q40,10 90,20 Q60,70 10,80 Z" fill="#16a34a" />
+            <path d="M20,90 Q60,30 100,50 Q70,95 20,90 Z" fill="#22c55e" opacity="0.7" />
+          </svg>
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '-20px',
+            right: '-20px',
+            width: '140px',
+            height: '140px',
+            opacity: 0.35,
+            pointerEvents: 'none',
+            zIndex: 2
+          }}
+          aria-hidden="true"
+        >
+          <svg viewBox="0 0 100 100" fill="none">
+            <path d="M90,20 Q60,90 10,80 Q40,30 90,20 Z" fill="#16a34a" />
+          </svg>
+        </div>
+
+        {/* Content Container - Placed on the Left Plain/Blurred Space */}
+        <div
+          style={{
+            maxWidth: '1240px',
+            width: '100%',
+            margin: '0 auto',
+            position: 'relative',
+            zIndex: 3
+          }}
+        >
+          <div style={{ maxWidth: '640px' }}>
+            <RevealOnScroll animation="from-left">
+              <div>
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '6px 18px',
+                    borderRadius: '999px',
+                    backgroundColor: '#ffffff',
+                    color: '#721024',
+                    fontSize: '12.5px',
+                    fontWeight: '800',
+                    letterSpacing: '0.8px',
+                    textTransform: 'uppercase',
+                    border: '1.5px solid rgba(114, 16, 36, 0.15)',
+                    marginBottom: '18px',
+                    boxShadow: '0 4px 12px rgba(114, 16, 36, 0.05)'
+                  }}
+                >
+                  <Users size={14} />
+                  FAMILY PARTNERSHIP
+                </span>
+
+                <h2
+                  style={{
+                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                    fontSize: 'clamp(30px, 4.2vw, 44px)',
+                    fontWeight: '900',
+                    color: '#721024',
+                    lineHeight: 1.18,
+                    margin: '0 0 18px 0'
+                  }}
+                >
+                  Growing Together With Families
+                </h2>
+
+                <p
+                  style={{
+                    fontSize: '16.5px',
+                    lineHeight: 1.76,
+                    color: '#475569',
+                    margin: '0 0 28px 0'
+                  }}
+                >
+                  Parents know their children better than anyone. That is why we believe early education works best as a partnership. We value open communication and work with families to understand each child's needs, progress, interests and achievements. When nursery and home work together, children have the confidence to thrive.
+                </p>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+                  <button
+                    onClick={onBookVisitClick}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '13px 28px',
+                      borderRadius: '999px',
+                      background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
+                      color: '#ffffff',
+                      fontWeight: '800',
+                      fontSize: '14.5px',
+                      border: 'none',
+                      cursor: 'pointer',
+                      boxShadow: '0 8px 22px rgba(114, 16, 36, 0.25)',
+                      transition: 'all 0.2s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.boxShadow = '0 12px 28px rgba(114, 16, 36, 0.35)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 8px 22px rgba(114, 16, 36, 0.25)';
+                    }}
+                  >
+                    <span>Book a Visit</span>
+                    <ArrowRight size={16} />
+                  </button>
+
+                  <Link
+                    to="/contact"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '13px 26px',
+                      borderRadius: '999px',
+                      backgroundColor: '#ffffff',
+                      color: '#721024',
+                      fontWeight: '800',
+                      fontSize: '14.5px',
+                      textDecoration: 'none',
+                      border: '1.5px solid #721024',
+                      boxShadow: '0 4px 14px rgba(0, 0, 0, 0.05)',
+                      transition: 'all 0.2s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.backgroundColor = '#fff1f2';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.backgroundColor = '#ffffff';
+                    }}
+                  >
+                    <span>Learn More</span>
+                  </Link>
+                </div>
+              </div>
+            </RevealOnScroll>
           </div>
-        </RevealOnScroll>
+        </div>
       </section>
 
       {/* Parent Love & Social Proof Spotlight (Reviews) */}
