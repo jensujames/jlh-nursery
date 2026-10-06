@@ -273,89 +273,95 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
   const playMusicalBoing = () => {};
   const playPopSound = () => {};
 
-  // Pillars Data with Asymmetric Collage Content
+  // Main 4 Nursery Services Showcase Data with Happy Kids Playing Images
   const pillarShowcaseData = [
     {
-      pillarName: "WARMTH",
-      title: "Motherly Care & Warm Attention",
+      pillarName: "Early Years Education",
+      title: "Play-Based Early Learning",
       counter: "01 / 04",
-      desc: "Dedicated caregivers who know every child by name, creating a gentle and loving home away from home.",
+      desc: "Play-based experiences supporting communication, social, emotional, physical and cognitive development in our nurturing Ajman environment.",
       tagColor: "#F15A29",
-      highlights: ["Dedicated 1:4 Care", "Gentle Acclimatization", "Warm Loving Environment"],
+      highlights: ["Communication & Speech", "Emotional Wellbeing", "Sensory Discovery Tables"],
+      infoCard: {
+        title: "EYFS British Approach",
+        line1: "Playful Hands-On Exploration",
+        line2: "Sensory & Cognitive Milestones",
+        line3: "Dedicated 1:4 Care Attention",
+        bg: "#fff7ed",
+        accent: "#ea580c"
+      },
+      smallImage: "/images/activity-mini-stem.jpg",
+      smallAlt: "Happy child exploring sensory wooden toys and learning games",
+      smallImgPos: "center 10%",
+      tallImgPos: "center 20%",
+      tallImage: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=85",
+      tallAlt: "Joyful smiling child happily playing with colorful toys"
+    },
+    {
+      pillarName: "Nursery & Preschool",
+      title: "Curiosity & Friendships",
+      counter: "02 / 04",
+      desc: "A stimulating environment that encourages curiosity, friendships, creativity and a positive relationship with learning.",
+      tagColor: "#0284c7",
+      highlights: ["Creative Play & Arts", "First Friendships", "Montessori Learning Easels"],
+      infoCard: {
+        title: "Preschool Learning Space",
+        line1: "Themed Classrooms & Reading Nook",
+        line2: "Peer Play & Cooperative Games",
+        line3: "Music, Rhymes & Movement",
+        bg: "#f0f9ff",
+        accent: "#0284c7"
+      },
+      smallImage: "/images/activity-creative-play.jpg",
+      smallAlt: "Happy kids painting and creating crafts together",
+      smallImgPos: "center",
+      tallImgPos: "center",
+      tallImage: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=85",
+      tallAlt: "Children laughing and joyfully building colorful blocks together"
+    },
+    {
+      pillarName: "School Readiness",
+      title: "Foundations & Confidence",
+      counter: "03 / 04",
+      desc: "Building the confidence, routines and foundational skills children need for their next step into school with ease.",
+      tagColor: "#16a34a",
+      highlights: ["Phonics, Literacy & Math", "Independence & Good Manners", "Daily Structured Routines"],
+      infoCard: {
+        title: "Smooth School Transition",
+        line1: "Early Literacy, Phonics & Numbers",
+        line2: "Self-Care & Daily Good Manners",
+        line3: "Confident Big School Readiness",
+        bg: "#f0fdf4",
+        accent: "#16a34a"
+      },
+      smallImage: "/images/classroom.jpg",
+      smallAlt: "Bright Scandinavian classroom prepared for happy focused learning",
+      smallImgPos: "center",
+      tallImgPos: "center",
+      tallImage: "https://images.unsplash.com/photo-1576495199011-eb94736d05d6?auto=format&fit=crop&w=800&q=85",
+      tallAlt: "Happy active child discovering books and learning materials"
+    },
+    {
+      pillarName: "Full-Day & Half-Day Care",
+      title: "Flexible Daycare & Timings",
+      counter: "04 / 04",
+      desc: "Flexible care options designed around the needs of young children and their families in Al Rashidiya 2, Ajman.",
+      tagColor: "#721024",
+      highlights: ["Flexible Hours & Pick-Up", "Healthy Meals & Quiet Nap Times", "Safe 24/7 Monitored Campus"],
       infoCard: {
         title: "Working Hours",
         line1: "Mon - Fri: 07:30 AM to 05:30 PM",
         line2: "Sat: 08:30 AM to 01:00 PM",
-        line3: "Sunday: Closed",
-        bg: "#edf7e8",
-        accent: "#2e7d32"
+        line3: "Sunday: Closed (Full & Half Day)",
+        bg: "#fff1f2",
+        accent: "#721024"
       },
-      smallImage: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&crop=faces,top&w=600&h=450&q=85",
-      smallAlt: "Smiling teacher holding learning materials",
-      smallImgPos: "center 10%",
-      tallImgPos: "center 20%",
-      tallImage: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=85",
-      tallAlt: "Loving mother and smiling baby experiencing gentle warmth"
-    },
-    {
-      pillarName: "TRUST",
-      title: "Transparent & Safe Partnership",
-      counter: "02 / 04",
-      desc: "Equipped child-safe security, monitored reception, and daily open communication giving parents peace of mind.",
-      tagColor: "#0284c7",
-      highlights: ["24/7 Monitored Campus", "Daily Parent Updates", "Certified Child-Safety"],
-      infoCard: {
-        title: "Villa 47 Security",
-        line1: "24/7 CCTV In All Rooms",
-        line2: "MOH Licensed Pediatric Nurse",
-        line3: "Guarded Biometric Access",
-        bg: "#e0f2fe",
-        accent: "#0369a1"
-      },
-      smallImage: "/images/classroom.jpg",
-      smallAlt: "Sunlit safe Scandinavian classroom in Villa 47",
-      tallImage: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=85",
-      tallAlt: "Caring educator with young child building trust"
-    },
-    {
-      pillarName: "GROWTH",
-      title: "Holistic EYFS Development",
-      counter: "03 / 04",
-      desc: "Fine & gross motor development, sensory discovery tables, and active child-led milestones every week.",
-      tagColor: "#16a34a",
-      highlights: ["Early EYFS Milestones", "Sensory Discovery", "Confidence & Independence"],
-      infoCard: {
-        title: "British EYFS Core",
-        line1: "7 Developmental Milestones",
-        line2: "Daily Phonics & Arabic",
-        line3: "Tactile STEM & Motor Play",
-        bg: "#f0fdf4",
-        accent: "#15803d"
-      },
-      smallImage: "/images/activity-mini-stem.jpg",
-      smallAlt: "Child exploring wooden gear toys and STEM ramps",
-      tallImage: "https://images.unsplash.com/photo-1576495199011-eb94736d05d6?auto=format&fit=crop&w=800&q=85",
-      tallAlt: "Curious child joyfully learning through active play"
-    },
-    {
-      pillarName: "JOY",
-      title: "Joyful Childhood Memories",
-      counter: "04 / 04",
-      desc: "Laughter, creative messy art, phonics songs, and playful curiosity inspiring a lifelong love of learning.",
-      tagColor: "#be123c",
-      highlights: ["Creative Messy Art", "Music & Phonics Fun", "Happy Lifelong Memories"],
-      infoCard: {
-        title: "Creative Arts & Fun",
-        line1: "Messy Paint & Sensory Dough",
-        line2: "UV-Shaded Play Garden",
-        line3: "Music & Rhythmic Circle",
-        bg: "#ffe4e6",
-        accent: "#9f1239"
-      },
-      smallImage: "/images/activity-creative-play.jpg",
-      smallAlt: "Child happily painting with non-toxic colors",
-      tallImage: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=85",
-      tallAlt: "Children laughing and sharing joyful memories"
+      smallImage: "/images/outdoor.jpg",
+      smallAlt: "Kids happily running and playing in shaded outdoor garden",
+      smallImgPos: "center",
+      tallImgPos: "center",
+      tallImage: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=85",
+      tallAlt: "Smiling happy child enjoying a joyful day at nursery"
     }
   ];
 
@@ -2390,7 +2396,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                 {/* 4 Pillar Cards with Pedestal Slots */}
                 <div className="pillars-stack-container" id="pillars-stack">
                   
-                  {/* Pillar 0: WARMTH */}
+                  {/* Service 0: EARLY YEARS EDUCATION */}
                   <div 
                     className={`pillar-stack-card ${activePillar === 0 ? 'active' : ''}`}
                     id="pillar-card-0"
@@ -2400,12 +2406,12 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                       <div className="slot-pedestal-ring" />
                     </div>
                     <div className="pillar-card-text">
-                      <h4>WARMTH</h4>
-                      <p>Motherly care, patience, and genuine personal attention at the heart of every daily interaction.</p>
+                      <h4>EARLY YEARS EDUCATION</h4>
+                      <p>Play-based experiences supporting communication, social, emotional, physical and cognitive development.</p>
                     </div>
                   </div>
 
-                  {/* Pillar 1: TRUST */}
+                  {/* Service 1: NURSERY & PRESCHOOL */}
                   <div 
                     className={`pillar-stack-card ${activePillar === 1 ? 'active' : ''}`}
                     id="pillar-card-1"
@@ -2415,12 +2421,12 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                       <div className="slot-pedestal-ring" />
                     </div>
                     <div className="pillar-card-text">
-                      <h4>TRUST</h4>
-                      <p>A secure, transparent partnership with families built on mutual respect and daily open communication.</p>
+                      <h4>NURSERY & PRESCHOOL</h4>
+                      <p>A stimulating environment that encourages curiosity, friendships, creativity and a positive relationship with learning.</p>
                     </div>
                   </div>
 
-                  {/* Pillar 2: GROWTH */}
+                  {/* Service 2: SCHOOL READINESS */}
                   <div 
                     className={`pillar-stack-card ${activePillar === 2 ? 'active' : ''}`}
                     id="pillar-card-2"
@@ -2430,12 +2436,12 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                       <div className="slot-pedestal-ring" />
                     </div>
                     <div className="pillar-card-text">
-                      <h4>GROWTH</h4>
-                      <p>Nurturing whole-child social, emotional, motor, cognitive, and early academic milestones.</p>
+                      <h4>SCHOOL READINESS</h4>
+                      <p>Building the confidence, routines and foundational skills children need for their next step into school.</p>
                     </div>
                   </div>
 
-                  {/* Pillar 3: JOY */}
+                  {/* Service 3: FULL-DAY & HALF-DAY CARE */}
                   <div 
                     className={`pillar-stack-card ${activePillar === 3 ? 'active' : ''}`}
                     id="pillar-card-3"
@@ -2445,8 +2451,8 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                       <div className="slot-pedestal-ring" />
                     </div>
                     <div className="pillar-card-text">
-                      <h4>JOY</h4>
-                      <p>Play-based learning that protects the natural wonder, curiosity, and joyful laughter of childhood.</p>
+                      <h4>FULL-DAY & HALF-DAY CARE</h4>
+                      <p>Flexible care options designed around the needs of young children and their families in Ajman.</p>
                     </div>
                   </div>
                 </div>
@@ -2720,7 +2726,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                                   }}
                                 >
                                   <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.tagColor }} />
-                                  <span>Pillar: {item.pillarName}</span>
+                                  <span>Service: {item.pillarName}</span>
                                 </div>
                               </div>
                             </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ThreeMascotHero from '../components/ThreeMascotHero';
 import RevealOnScroll from '../components/RevealOnScroll';
+import ReviewsSection from '../components/ReviewsSection';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
 import { 
   Heart, Sparkles, BookOpen, Sun, Compass, ShieldCheck, 
@@ -674,6 +675,9 @@ export default function HomePage({ onBookVisitClick }) {
           </div>
         </RevealOnScroll>
       </section>
+
+      {/* Parent Love & Social Proof Spotlight (Reviews) */}
+      <ReviewsSection />
 
       {/* 10. Visit Just Like Home Nursery in Ajman (Location & Contact) */}
       <section style={{ padding: '0 20px clamp(48px, 6vw, 80px)', maxWidth: '1240px', margin: '0 auto' }}>
