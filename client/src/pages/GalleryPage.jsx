@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
+import LuxuryPageHero from '../components/LuxuryPageHero';
+import LuxuryClosingCta from '../components/LuxuryClosingCta';
 import { 
   Camera, Calendar, X, ChevronLeft, ChevronRight, 
   Sparkles, ArrowRight, Info, Compass 
@@ -79,7 +81,7 @@ const GALLERY_IMAGES = [
   }
 ];
 
-export default function GalleryPage() {
+export default function GalleryPage({ onBookVisitClick }) {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
@@ -107,112 +109,59 @@ export default function GalleryPage() {
   };
 
   return (
-    <div className="gallery-page" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F', minHeight: '100vh' }}>
-      {/* 1. HERO & INTRODUCTION */}
-      <section className="page-hero-section" style={{ padding: '80px 20px 60px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
-          <RevealOnScroll>
-            <div>
-              <span style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '6px 18px',
-                borderRadius: '999px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                fontSize: '13px',
-                fontWeight: '800',
-                letterSpacing: '0.5px',
-                marginBottom: '20px'
-              }}>
-                <Camera size={14} />
-                GALLERY · VISUAL TRUST AND NURSERY FAMILIARITY
-              </span>
-
-              <h1 style={{
-                fontSize: 'clamp(32px, 5vw, 50px)',
-                fontWeight: '900',
-                color: '#721024',
-                lineHeight: 1.2,
-                margin: '0 0 24px 0'
-              }}>
-                A Little Look Inside Our Nursery
-              </h1>
-
-              <div style={{ fontSize: '17.5px', lineHeight: 1.8, color: '#475569', margin: '0 auto 36px', maxWidth: '780px' }}>
-                <p style={{ margin: 0 }}>
-                  Discover the spaces, activities and moments that help Just Like Home Nursery feel warm, joyful and welcoming.
-                </p>
-              </div>
-
-              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <Link
-                  to="/contact"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 28px',
-                    borderRadius: '999px',
-                    backgroundColor: '#721024',
-                    color: '#ffffff',
-                    fontWeight: '800',
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <Calendar size={18} />
-                  <span>BOOK A TOUR</span>
-                </Link>
-                <Link
-                  to="/contact"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 28px',
-                    borderRadius: '999px',
-                    backgroundColor: '#ffffff',
-                    color: '#721024',
-                    fontWeight: '800',
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                    border: '1.5px solid #721024',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <span>VISIT US IN PERSON</span>
-                  <ArrowRight size={18} />
-                </Link>
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+    <div className="gallery-page" style={{ backgroundColor: '#FFFDF7', color: '#2d1f22', minHeight: '100vh' }}>
+      
+      {/* 1. LUXURY HERO BANNER */}
+      <LuxuryPageHero
+        badge="GALLERY · VISUAL TRUST AND NURSERY FAMILIARITY"
+        badgeIcon={Camera}
+        title="A Little Look Inside Our Nursery"
+        description="Discover the spaces, activities and moments that help Just Like Home Nursery feel warm, joyful and welcoming."
+        image="/images/hero.jpg"
+        imageAlt="Gallery of Just Like Home Nursery in Ajman"
+        imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
+        imageBadgeSubtitle="Where Little Hearts Feel at Home"
+        primaryCtaText="Book a Tour"
+        onPrimaryClick={onBookVisitClick}
+        primaryLink={!onBookVisitClick ? "/contact" : undefined}
+        secondaryCtaText="Visit Us in Person"
+        secondaryLink="/contact"
+        whatsappText="Hello Just Like Home Nursery, I would like to book a tour of your nursery."
+      />
 
       {/* 2. GALLERY INTRO CAPTIONS & PHOTO GRID */}
-      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
+      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderBottom: '1px solid #f1f5f9' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
           
           {/* 3 Intro Captions */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '20px',
-            marginBottom: '48px'
-          }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '24px',
+              marginBottom: '48px'
+            }}
+          >
             <RevealOnScroll>
-              <div style={{
-                padding: '28px 24px',
-                borderRadius: '20px',
-                backgroundColor: '#FFFDF7',
-                border: '1.5px solid #ffede4',
-                height: '100%'
-              }}>
-                <h3 style={{ fontSize: '19px', fontWeight: '850', color: '#721024', marginBottom: '10px' }}>
+              <div
+                style={{
+                  padding: '30px 26px',
+                  borderRadius: '24px',
+                  backgroundColor: '#FFFDF7',
+                  border: '1.5px solid #ffede4',
+                  boxShadow: '0 4px 14px rgba(114, 16, 36, 0.02)',
+                  height: '100%'
+                }}
+              >
+                <h3
+                  style={{
+                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                    fontSize: '20px',
+                    fontWeight: '850',
+                    color: '#721024',
+                    marginBottom: '10px'
+                  }}
+                >
                   Our Spaces
                 </h3>
                 <p style={{ fontSize: '15px', lineHeight: 1.65, color: '#475569', margin: 0 }}>
@@ -222,14 +171,25 @@ export default function GalleryPage() {
             </RevealOnScroll>
 
             <RevealOnScroll delay={50}>
-              <div style={{
-                padding: '28px 24px',
-                borderRadius: '20px',
-                backgroundColor: '#FFFDF7',
-                border: '1.5px solid #ffede4',
-                height: '100%'
-              }}>
-                <h3 style={{ fontSize: '19px', fontWeight: '850', color: '#721024', marginBottom: '10px' }}>
+              <div
+                style={{
+                  padding: '30px 26px',
+                  borderRadius: '24px',
+                  backgroundColor: '#FFFDF7',
+                  border: '1.5px solid #ffede4',
+                  boxShadow: '0 4px 14px rgba(114, 16, 36, 0.02)',
+                  height: '100%'
+                }}
+              >
+                <h3
+                  style={{
+                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                    fontSize: '20px',
+                    fontWeight: '850',
+                    color: '#721024',
+                    marginBottom: '10px'
+                  }}
+                >
                   Learning in Action
                 </h3>
                 <p style={{ fontSize: '15px', lineHeight: 1.65, color: '#475569', margin: 0 }}>
@@ -239,14 +199,25 @@ export default function GalleryPage() {
             </RevealOnScroll>
 
             <RevealOnScroll delay={100}>
-              <div style={{
-                padding: '28px 24px',
-                borderRadius: '20px',
-                backgroundColor: '#FFFDF7',
-                border: '1.5px solid #ffede4',
-                height: '100%'
-              }}>
-                <h3 style={{ fontSize: '19px', fontWeight: '850', color: '#721024', marginBottom: '10px' }}>
+              <div
+                style={{
+                  padding: '30px 26px',
+                  borderRadius: '24px',
+                  backgroundColor: '#FFFDF7',
+                  border: '1.5px solid #ffede4',
+                  boxShadow: '0 4px 14px rgba(114, 16, 36, 0.02)',
+                  height: '100%'
+                }}
+              >
+                <h3
+                  style={{
+                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                    fontSize: '20px',
+                    fontWeight: '850',
+                    color: '#721024',
+                    marginBottom: '10px'
+                  }}
+                >
                   Special Moments
                 </h3>
                 <p style={{ fontSize: '15px', lineHeight: 1.65, color: '#475569', margin: 0 }}>
@@ -257,13 +228,15 @@ export default function GalleryPage() {
           </div>
 
           {/* Filter Buttons */}
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '10px',
-            marginBottom: '40px'
-          }}>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '10px',
+              marginBottom: '40px'
+            }}
+          >
             {FILTERS.map((f) => {
               const isActive = activeFilter === f.id;
               return (
@@ -277,8 +250,8 @@ export default function GalleryPage() {
                     fontWeight: '700',
                     cursor: 'pointer',
                     transition: 'all 0.25s ease',
-                    border: isActive ? '1.5px solid #721024' : '1.5px solid #e2e8f0',
-                    backgroundColor: isActive ? '#721024' : '#ffffff',
+                    border: isActive ? '1.5px solid #721024' : '1.5px solid #ffede4',
+                    backgroundColor: isActive ? '#721024' : '#FFFDF7',
                     color: isActive ? '#ffffff' : '#475569',
                     boxShadow: isActive ? '0 4px 14px rgba(114, 16, 36, 0.2)' : 'none'
                   }}
@@ -290,24 +263,35 @@ export default function GalleryPage() {
           </div>
 
           {/* Image Grid */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '24px'
-          }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '24px'
+            }}
+          >
             {filteredImages.map((img, index) => (
               <div
                 key={index}
                 onClick={() => openLightbox(index)}
                 style={{
                   position: 'relative',
-                  borderRadius: '22px',
+                  borderRadius: '24px',
                   overflow: 'hidden',
                   cursor: 'pointer',
                   aspectRatio: '4 / 3',
                   backgroundColor: '#f1f5f9',
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.04)',
+                  boxShadow: '0 6px 20px rgba(114, 16, 36, 0.04)',
+                  border: '3px solid #ffffff',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 14px 30px rgba(114, 16, 36, 0.12)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(114, 16, 36, 0.04)';
                 }}
               >
                 <img
@@ -321,15 +305,17 @@ export default function GalleryPage() {
                   }}
                   loading="lazy"
                 />
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(to top, rgba(114, 16, 36, 0.85) 0%, rgba(0,0,0,0) 60%)',
-                  display: 'flex',
-                  alignItems: 'flex-end',
-                  padding: '20px',
-                  color: '#ffffff'
-                }}>
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(114, 16, 36, 0.85) 0%, rgba(0,0,0,0) 60%)',
+                    display: 'flex',
+                    alignItems: 'flex-end',
+                    padding: '20px',
+                    color: '#ffffff'
+                  }}
+                >
                   <p style={{ margin: 0, fontSize: '14px', fontWeight: '600', lineHeight: 1.4 }}>
                     {img.caption}
                   </p>
@@ -342,34 +328,46 @@ export default function GalleryPage() {
       </section>
 
       {/* 3. IMAGE PUBLISHING NOTE */}
-      <section style={{ padding: '60px 20px', backgroundColor: '#FFFDF7' }}>
-        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(48px, 6vw, 72px) 20px', backgroundColor: '#FFFDF7' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div style={{
-              display: 'flex',
-              alignItems: 'flex-start',
-              gap: '16px',
-              padding: '24px 28px',
-              borderRadius: '20px',
-              backgroundColor: '#ffffff',
-              border: '1.5px solid rgba(114, 16, 36, 0.12)',
-              boxShadow: '0 4px 14px rgba(114, 16, 36, 0.03)'
-            }}>
-              <div style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '12px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
+            <div
+              style={{
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0
-              }}>
+                alignItems: 'flex-start',
+                gap: '18px',
+                padding: '26px 30px',
+                borderRadius: '24px',
+                backgroundColor: '#ffffff',
+                border: '1.5px solid #ffede4',
+                boxShadow: '0 6px 20px rgba(114, 16, 36, 0.03)'
+              }}
+            >
+              <div
+                style={{
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '14px',
+                  backgroundColor: '#fff1f2',
+                  color: '#721024',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}
+              >
                 <Info size={22} />
               </div>
               <div>
-                <h4 style={{ fontSize: '15.5px', fontWeight: '850', color: '#721024', margin: '0 0 6px 0' }}>
+                <h4
+                  style={{
+                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                    fontSize: '16px',
+                    fontWeight: '850',
+                    color: '#721024',
+                    margin: '0 0 6px 0'
+                  }}
+                >
                   Image Publishing Note
                 </h4>
                 <p style={{ fontSize: '14.5px', lineHeight: 1.65, color: '#475569', margin: 0 }}>
@@ -381,79 +379,33 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* 4. CLOSING CTA BANNER: VISIT US IN PERSON | BOOK A TOUR */}
-      <section style={{
-        padding: '80px 20px',
-        background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-        color: '#ffffff',
-        textAlign: 'center'
-      }}>
-        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-          <RevealOnScroll>
-            <h2 style={{ fontSize: 'clamp(28px, 4.5vw, 40px)', fontWeight: '900', margin: '0 0 20px 0', lineHeight: 1.25 }}>
-              A Little Look Inside Our Nursery
-            </h2>
-            <p style={{ fontSize: '17px', lineHeight: 1.75, opacity: 0.95, margin: '0 auto 36px', maxWidth: '680px' }}>
-              Discover the spaces, activities and moments that help Just Like Home Nursery feel warm, joyful and welcoming.
-            </p>
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link
-                to="/contact"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '15px 34px',
-                  borderRadius: '999px',
-                  backgroundColor: '#ffffff',
-                  color: '#721024',
-                  fontWeight: '800',
-                  fontSize: '15.5px',
-                  textDecoration: 'none',
-                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
-                  transition: 'all 0.25s ease'
-                }}
-              >
-                <Calendar size={18} />
-                <span>BOOK A TOUR</span>
-              </Link>
-              <Link
-                to="/contact"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '15px 34px',
-                  borderRadius: '999px',
-                  backgroundColor: 'rgba(255,255,255,0.12)',
-                  color: '#ffffff',
-                  fontWeight: '800',
-                  fontSize: '15.5px',
-                  textDecoration: 'none',
-                  border: '1.5px solid rgba(255,255,255,0.4)',
-                  transition: 'all 0.25s ease'
-                }}
-              >
-                <span>VISIT US IN PERSON</span>
-                <ArrowRight size={18} />
-              </Link>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+      {/* 4. CLOSING CTA BANNER */}
+      <LuxuryClosingCta
+        badge="EXPERIENCE JUST LIKE HOME"
+        title="A Little Look Inside Our Nursery"
+        subtitle="Discover the spaces, activities and moments that help Just Like Home Nursery feel warm, joyful and welcoming."
+        primaryText="BOOK A TOUR"
+        onPrimaryClick={onBookVisitClick}
+        primaryLink={!onBookVisitClick ? "/contact" : undefined}
+        secondaryText="VISIT US IN PERSON"
+        secondaryLink="/contact"
+        tagline="Where Little Hearts Feel at Home."
+      />
 
       {/* Lightbox Modal */}
       {selectedImageIndex !== null && (
-        <div style={{
-          position: 'fixed',
-          inset: 0,
-          zIndex: 9999,
-          backgroundColor: 'rgba(0,0,0,0.92)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '20px'
-        }}>
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 9999,
+            backgroundColor: 'rgba(0,0,0,0.92)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '20px'
+          }}
+        >
           <button
             onClick={closeLightbox}
             style={{

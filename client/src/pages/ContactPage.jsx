@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RevealOnScroll from '../components/RevealOnScroll';
+import LuxuryPageHero from '../components/LuxuryPageHero';
 import { getApiUrl } from '../config/api';
 import { 
   MapPin, Phone, Mail, MessageCircle, Calendar, 
@@ -81,177 +82,114 @@ export default function ContactPage() {
   );
 
   return (
-    <div className="contact-page" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F', minHeight: '100vh' }}>
-      {/* 1. HERO & INTRODUCTION */}
-      <section className="page-hero-section" style={{ padding: '80px 20px 60px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
-          <RevealOnScroll>
-            <div>
-              <span style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '6px 18px',
-                borderRadius: '999px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                fontSize: '13px',
-                fontWeight: '800',
-                letterSpacing: '0.5px',
-                marginBottom: '20px'
-              }}>
-                <MapPin size={14} />
-                CONTACT &amp; BOOK A VISIT · LOCAL CONVERSION PAGE
-              </span>
-
-              <h1 style={{
-                fontSize: 'clamp(32px, 5vw, 50px)',
-                fontWeight: '900',
-                color: '#721024',
-                lineHeight: 1.2,
-                margin: '0 0 24px 0'
-              }}>
-                Come and Experience Just Like Home
-              </h1>
-
-              <div style={{ fontSize: '17.5px', lineHeight: 1.8, color: '#475569', margin: '0 auto 36px', maxWidth: '780px' }}>
-                <p style={{ margin: 0 }}>
-                  The best way to understand whether a nursery feels right is to experience it. Book a visit to meet our team, explore the environment and ask questions about your child's care and learning.
-                </p>
-              </div>
-
-              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <a
-                  href="tel:0502005346"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 28px',
-                    borderRadius: '999px',
-                    backgroundColor: '#721024',
-                    color: '#ffffff',
-                    fontWeight: '800',
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <Phone size={18} />
-                  <span>CALL US</span>
-                </a>
-                <a 
-                  href={`https://wa.me/971502005346?text=${whatsappMessage}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 28px',
-                    borderRadius: '999px',
-                    backgroundColor: '#ffffff',
-                    color: '#721024',
-                    fontWeight: '800',
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                    border: '1.5px solid #721024',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <MessageCircle size={18} />
-                  <span>WHATSAPP US</span>
-                </a>
-                <a 
-                  href="https://maps.google.com/?q=Villa+47+Al+Rashidiya+2+Ajman" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 28px',
-                    borderRadius: '999px',
-                    backgroundColor: '#ffffff',
-                    color: '#721024',
-                    fontWeight: '800',
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                    border: '1.5px solid #721024',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <Navigation size={18} />
-                  <span>GET DIRECTIONS</span>
-                </a>
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+    <div className="contact-page" style={{ backgroundColor: '#FFFDF7', color: '#2d1f22', minHeight: '100vh' }}>
+      
+      {/* 1. LUXURY HERO BANNER */}
+      <LuxuryPageHero
+        badge="CONTACT & BOOK A VISIT · LOCAL CONVERSION PAGE"
+        badgeIcon={MapPin}
+        title="Come and Experience Just Like Home"
+        description="The best way to understand whether a nursery feels right is to experience it. Book a visit to meet our team, explore the environment and ask questions about your child's care and learning."
+        image="/images/hero.jpg"
+        imageAlt="Contact Just Like Home Nursery in Ajman"
+        imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
+        imageBadgeSubtitle="Where Little Hearts Feel at Home"
+        primaryCtaText="Book a Visit Form"
+        primaryLink="#visit-form"
+        secondaryCtaText="Get Directions"
+        secondaryLink="https://maps.google.com/?q=Villa+47+Al+Rashidiya+2+Ajman"
+        whatsappText="Hello, I would like to know more about Just Like Home Nursery. Please share available options and help me book a visit."
+      />
 
       {/* 2. CONTACT DETAILS */}
-      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
-        <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderBottom: '1px solid #f1f5f9' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div style={{ textAlign: 'center', marginBottom: '44px' }}>
-              <span style={{
-                display: 'inline-block',
-                padding: '6px 16px',
-                borderRadius: '999px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                fontSize: '13px',
-                fontWeight: '800',
-                marginBottom: '14px'
-              }}>
+              <span
+                style={{
+                  display: 'inline-block',
+                  padding: '6px 18px',
+                  borderRadius: '999px',
+                  backgroundColor: '#fff1f2',
+                  color: '#721024',
+                  fontSize: '13px',
+                  fontWeight: '800',
+                  letterSpacing: '0.5px',
+                  border: '1px solid rgba(114, 16, 36, 0.12)',
+                  marginBottom: '14px'
+                }}
+              >
                 DIRECT DETAILS
               </span>
-              <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: '900', color: '#721024', margin: 0 }}>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                  fontSize: 'clamp(28px, 4vw, 40px)',
+                  fontWeight: '900',
+                  color: '#721024',
+                  margin: 0
+                }}
+              >
                 Contact Details
               </h2>
             </div>
           </RevealOnScroll>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '24px'
-          }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '26px'
+            }}
+          >
+            {/* Address */}
             <RevealOnScroll>
-              <div style={{
-                padding: '36px 30px',
-                borderRadius: '24px',
-                backgroundColor: '#FFFDF7',
-                border: '1.5px solid #ffede4',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between'
-              }}>
+              <div
+                style={{
+                  padding: '38px 32px',
+                  borderRadius: '26px',
+                  backgroundColor: '#FFFDF7',
+                  border: '1.5px solid #ffede4',
+                  boxShadow: '0 6px 20px rgba(114, 16, 36, 0.03)',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
+                }}
+              >
                 <div>
-                  <div style={{
-                    width: '54px',
-                    height: '54px',
-                    borderRadius: '16px',
-                    backgroundColor: '#fff1f2',
-                    color: '#721024',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '20px'
-                  }}>
+                  <div
+                    style={{
+                      width: '56px',
+                      height: '56px',
+                      borderRadius: '16px',
+                      backgroundColor: '#fff1f2',
+                      color: '#721024',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '20px'
+                    }}
+                  >
                     <MapPin size={26} />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '850', color: '#1e293b', marginBottom: '10px' }}>
+                  <h3
+                    style={{
+                      fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                      fontSize: '20px',
+                      fontWeight: '850',
+                      color: '#721024',
+                      marginBottom: '10px'
+                    }}
+                  >
                     Just Like Home Nursery
                   </h3>
                   <p style={{ fontSize: '16px', lineHeight: 1.65, color: '#475569', margin: 0 }}>
                     Villa No. 47, Al Rashidiya 2, Ajman
                   </p>
                 </div>
-                <div style={{ marginTop: '24px', paddingTop: '18px', borderTop: '1px solid #f1f5f9' }}>
+                <div style={{ marginTop: '24px', paddingTop: '18px', borderTop: '1px solid #f8e8e8' }}>
                   <a 
                     href="https://maps.google.com/?q=Villa+47+Al+Rashidiya+2+Ajman" 
                     target="_blank" 
@@ -273,39 +211,53 @@ export default function ContactPage() {
               </div>
             </RevealOnScroll>
 
+            {/* Phone & WhatsApp */}
             <RevealOnScroll delay={50}>
-              <div style={{
-                padding: '36px 30px',
-                borderRadius: '24px',
-                backgroundColor: '#FFFDF7',
-                border: '1.5px solid #ffede4',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between'
-              }}>
+              <div
+                style={{
+                  padding: '38px 32px',
+                  borderRadius: '26px',
+                  backgroundColor: '#FFFDF7',
+                  border: '1.5px solid #ffede4',
+                  boxShadow: '0 6px 20px rgba(114, 16, 36, 0.03)',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
+                }}
+              >
                 <div>
-                  <div style={{
-                    width: '54px',
-                    height: '54px',
-                    borderRadius: '16px',
-                    backgroundColor: '#fff1f2',
-                    color: '#721024',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '20px'
-                  }}>
+                  <div
+                    style={{
+                      width: '56px',
+                      height: '56px',
+                      borderRadius: '16px',
+                      backgroundColor: '#ecfdf5',
+                      color: '#059669',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '20px'
+                    }}
+                  >
                     <Phone size={26} />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '850', color: '#1e293b', marginBottom: '10px' }}>
+                  <h3
+                    style={{
+                      fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                      fontSize: '20px',
+                      fontWeight: '850',
+                      color: '#1e293b',
+                      marginBottom: '10px'
+                    }}
+                  >
                     Phone / WhatsApp
                   </h3>
-                  <p style={{ fontSize: '18px', fontWeight: '800', color: '#721024', margin: 0 }}>
+                  <p style={{ fontSize: '20px', fontWeight: '850', color: '#721024', margin: 0 }}>
                     050 200 5346
                   </p>
                 </div>
-                <div style={{ marginTop: '24px', paddingTop: '18px', borderTop: '1px solid #f1f5f9', display: 'flex', gap: '16px' }}>
+                <div style={{ marginTop: '24px', paddingTop: '18px', borderTop: '1px solid #f8e8e8', display: 'flex', gap: '16px' }}>
                   <a href="tel:0502005346" style={{ color: '#721024', fontWeight: '800', fontSize: '14px', textDecoration: 'none' }}>
                     Call Us
                   </a>
@@ -314,7 +266,7 @@ export default function ContactPage() {
                     href={`https://wa.me/971502005346?text=${whatsappMessage}`}
                     target="_blank" 
                     rel="noopener noreferrer"
-                    style={{ color: '#721024', fontWeight: '800', fontSize: '14px', textDecoration: 'none' }}
+                    style={{ color: '#059669', fontWeight: '800', fontSize: '14px', textDecoration: 'none' }}
                   >
                     WhatsApp Us
                   </a>
@@ -322,39 +274,53 @@ export default function ContactPage() {
               </div>
             </RevealOnScroll>
 
+            {/* Email */}
             <RevealOnScroll delay={100}>
-              <div style={{
-                padding: '36px 30px',
-                borderRadius: '24px',
-                backgroundColor: '#FFFDF7',
-                border: '1.5px solid #ffede4',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between'
-              }}>
+              <div
+                style={{
+                  padding: '38px 32px',
+                  borderRadius: '26px',
+                  backgroundColor: '#FFFDF7',
+                  border: '1.5px solid #ffede4',
+                  boxShadow: '0 6px 20px rgba(114, 16, 36, 0.03)',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
+                }}
+              >
                 <div>
-                  <div style={{
-                    width: '54px',
-                    height: '54px',
-                    borderRadius: '16px',
-                    backgroundColor: '#fff1f2',
-                    color: '#721024',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '20px'
-                  }}>
+                  <div
+                    style={{
+                      width: '56px',
+                      height: '56px',
+                      borderRadius: '16px',
+                      backgroundColor: '#e0f2fe',
+                      color: '#0284c7',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '20px'
+                    }}
+                  >
                     <Mail size={26} />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '850', color: '#1e293b', marginBottom: '10px' }}>
+                  <h3
+                    style={{
+                      fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                      fontSize: '20px',
+                      fontWeight: '850',
+                      color: '#1e293b',
+                      marginBottom: '10px'
+                    }}
+                  >
                     Email
                   </h3>
                   <p style={{ fontSize: '15px', fontWeight: '600', color: '#475569', margin: 0, wordBreak: 'break-all' }}>
                     nurseryjustlikehome@gmail.com
                   </p>
                 </div>
-                <div style={{ marginTop: '24px', paddingTop: '18px', borderTop: '1px solid #f1f5f9' }}>
+                <div style={{ marginTop: '24px', paddingTop: '18px', borderTop: '1px solid #f8e8e8' }}>
                   <a 
                     href="mailto:nurseryjustlikehome@gmail.com" 
                     style={{ color: '#721024', fontWeight: '800', fontSize: '14px', textDecoration: 'none' }}
@@ -369,30 +335,44 @@ export default function ContactPage() {
       </section>
 
       {/* 3. BOOK-A-VISIT FORM */}
-      <section id="visit-form" style={{ padding: '80px 20px', backgroundColor: '#FFFDF7' }}>
-        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-          <div style={{
-            background: '#ffffff',
-            borderRadius: '28px',
-            padding: '48px 36px',
-            border: '1.5px solid rgba(114, 16, 36, 0.12)',
-            boxShadow: '0 10px 30px rgba(114, 16, 36, 0.04)'
-          }}>
+      <section id="visit-form" style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#FFFDF7' }}>
+        <div style={{ maxWidth: '840px', margin: '0 auto' }}>
+          <div
+            style={{
+              background: '#ffffff',
+              borderRadius: '30px',
+              padding: 'clamp(38px, 5vw, 56px) clamp(24px, 4vw, 48px)',
+              border: '1.5px solid #ffede4',
+              boxShadow: '0 12px 36px rgba(114, 16, 36, 0.04)'
+            }}
+          >
             <RevealOnScroll>
               <div style={{ textAlign: 'center', marginBottom: '36px' }}>
-                <span style={{
-                  display: 'inline-block',
-                  padding: '6px 16px',
-                  borderRadius: '999px',
-                  backgroundColor: '#fff1f2',
-                  color: '#721024',
-                  fontSize: '13px',
-                  fontWeight: '800',
-                  marginBottom: '14px'
-                }}>
+                <span
+                  style={{
+                    display: 'inline-block',
+                    padding: '6px 18px',
+                    borderRadius: '999px',
+                    backgroundColor: '#fff1f2',
+                    color: '#721024',
+                    fontSize: '13px',
+                    fontWeight: '800',
+                    letterSpacing: '0.5px',
+                    border: '1px solid rgba(114, 16, 36, 0.12)',
+                    marginBottom: '14px'
+                  }}
+                >
                   ENQUIRY
                 </span>
-                <h2 style={{ fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: '900', color: '#721024', margin: '0 0 12px 0' }}>
+                <h2
+                  style={{
+                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                    fontSize: 'clamp(28px, 4vw, 38px)',
+                    fontWeight: '900',
+                    color: '#721024',
+                    margin: '0 0 12px 0'
+                  }}
+                >
                   Book-a-Visit Form
                 </h2>
                 <p style={{ fontSize: '16px', lineHeight: 1.7, color: '#475569', margin: 0 }}>
@@ -401,27 +381,39 @@ export default function ContactPage() {
               </div>
 
               {submitted ? (
-                <div style={{
-                  padding: '36px 28px',
-                  borderRadius: '20px',
-                  backgroundColor: '#f0fdf4',
-                  border: '1.5px solid #bbf7d0',
-                  textAlign: 'center'
-                }}>
-                  <div style={{
-                    width: '60px',
-                    height: '60px',
-                    borderRadius: '50%',
-                    backgroundColor: '#dcfce7',
-                    color: '#16a34a',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    margin: '0 auto 20px'
-                  }}>
+                <div
+                  style={{
+                    padding: '36px 28px',
+                    borderRadius: '24px',
+                    backgroundColor: '#f0fdf4',
+                    border: '1.5px solid #bbf7d0',
+                    textAlign: 'center'
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '60px',
+                      height: '60px',
+                      borderRadius: '50%',
+                      backgroundColor: '#dcfce7',
+                      color: '#16a34a',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      margin: '0 auto 20px'
+                    }}
+                  >
                     <CheckCircle2 size={32} />
                   </div>
-                  <h3 style={{ fontSize: '22px', fontWeight: '850', color: '#166534', marginBottom: '14px' }}>
+                  <h3
+                    style={{
+                      fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                      fontSize: '22px',
+                      fontWeight: '850',
+                      color: '#166534',
+                      marginBottom: '14px'
+                    }}
+                  >
                     Form Confirmation Message
                   </h3>
                   <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#15803d', maxWidth: '600px', margin: '0 auto 24px' }}>
@@ -430,14 +422,15 @@ export default function ContactPage() {
                   <button 
                     onClick={() => { setSubmitted(false); setFormData({ parentName: '', phone: '', email: '', childAge: '', startDate: '', programInterest: 'Nursery Program', preferredVisit: '', message: '', consent: false }); }}
                     style={{
-                      padding: '12px 28px',
+                      padding: '13px 30px',
                       borderRadius: '999px',
-                      backgroundColor: '#721024',
+                      background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
                       color: '#ffffff',
                       fontWeight: '800',
-                      fontSize: '14px',
+                      fontSize: '14.5px',
                       border: 'none',
-                      cursor: 'pointer'
+                      cursor: 'pointer',
+                      boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)'
                     }}
                   >
                     Submit Another Enquiry
@@ -446,14 +439,16 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
                   {errorMessage && (
-                    <div style={{
-                      padding: '14px 18px',
-                      borderRadius: '12px',
-                      backgroundColor: '#fef2f2',
-                      border: '1px solid #fecaca',
-                      color: '#b91c1c',
-                      fontSize: '14px'
-                    }}>
+                    <div
+                      style={{
+                        padding: '14px 18px',
+                        borderRadius: '12px',
+                        backgroundColor: '#fef2f2',
+                        border: '1px solid #fecaca',
+                        color: '#b91c1c',
+                        fontSize: '14px'
+                      }}
+                    >
                       {errorMessage}
                     </div>
                   )}
@@ -474,7 +469,7 @@ export default function ContactPage() {
                           width: '100%',
                           padding: '13px 16px',
                           borderRadius: '14px',
-                          border: '1.5px solid #e2e8f0',
+                          border: '1.5px solid #ffede4',
                           fontSize: '15px',
                           outline: 'none',
                           backgroundColor: '#FFFDF7'
@@ -497,7 +492,7 @@ export default function ContactPage() {
                           width: '100%',
                           padding: '13px 16px',
                           borderRadius: '14px',
-                          border: '1.5px solid #e2e8f0',
+                          border: '1.5px solid #ffede4',
                           fontSize: '15px',
                           outline: 'none',
                           backgroundColor: '#FFFDF7'
@@ -521,7 +516,7 @@ export default function ContactPage() {
                           width: '100%',
                           padding: '13px 16px',
                           borderRadius: '14px',
-                          border: '1.5px solid #e2e8f0',
+                          border: '1.5px solid #ffede4',
                           fontSize: '15px',
                           outline: 'none',
                           backgroundColor: '#FFFDF7'
@@ -544,7 +539,7 @@ export default function ContactPage() {
                           width: '100%',
                           padding: '13px 16px',
                           borderRadius: '14px',
-                          border: '1.5px solid #e2e8f0',
+                          border: '1.5px solid #ffede4',
                           fontSize: '15px',
                           outline: 'none',
                           backgroundColor: '#FFFDF7'
@@ -566,7 +561,7 @@ export default function ContactPage() {
                           width: '100%',
                           padding: '13px 16px',
                           borderRadius: '14px',
-                          border: '1.5px solid #e2e8f0',
+                          border: '1.5px solid #ffede4',
                           fontSize: '15px',
                           outline: 'none',
                           backgroundColor: '#FFFDF7',
@@ -596,7 +591,7 @@ export default function ContactPage() {
                           width: '100%',
                           padding: '13px 16px',
                           borderRadius: '14px',
-                          border: '1.5px solid #e2e8f0',
+                          border: '1.5px solid #ffede4',
                           fontSize: '15px',
                           outline: 'none',
                           backgroundColor: '#FFFDF7'
@@ -619,7 +614,7 @@ export default function ContactPage() {
                         width: '100%',
                         padding: '13px 16px',
                         borderRadius: '14px',
-                        border: '1.5px solid #e2e8f0',
+                        border: '1.5px solid #ffede4',
                         fontSize: '15px',
                         outline: 'none',
                         backgroundColor: '#FFFDF7'
@@ -641,7 +636,7 @@ export default function ContactPage() {
                         width: '100%',
                         padding: '13px 16px',
                         borderRadius: '14px',
-                        border: '1.5px solid #e2e8f0',
+                        border: '1.5px solid #ffede4',
                         fontSize: '15px',
                         outline: 'none',
                         backgroundColor: '#FFFDF7',
@@ -671,7 +666,7 @@ export default function ContactPage() {
                       width: '100%',
                       padding: '16px 28px',
                       borderRadius: '999px',
-                      backgroundColor: '#721024',
+                      background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
                       color: '#ffffff',
                       fontWeight: '800',
                       fontSize: '16px',
@@ -681,7 +676,7 @@ export default function ContactPage() {
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: '8px',
-                      boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
+                      boxShadow: '0 8px 24px rgba(114, 16, 36, 0.25)',
                       transition: 'all 0.25s ease'
                     }}
                   >
@@ -696,23 +691,35 @@ export default function ContactPage() {
       </section>
 
       {/* 4. MAP & DIRECTIONS */}
-      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
-        <div style={{ maxWidth: '980px', margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div style={{ textAlign: 'center', marginBottom: '36px' }}>
-              <span style={{
-                display: 'inline-block',
-                padding: '6px 16px',
-                borderRadius: '999px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                fontSize: '13px',
-                fontWeight: '800',
-                marginBottom: '14px'
-              }}>
+              <span
+                style={{
+                  display: 'inline-block',
+                  padding: '6px 18px',
+                  borderRadius: '999px',
+                  backgroundColor: '#fff1f2',
+                  color: '#721024',
+                  fontSize: '13px',
+                  fontWeight: '800',
+                  letterSpacing: '0.5px',
+                  border: '1px solid rgba(114, 16, 36, 0.12)',
+                  marginBottom: '14px'
+                }}
+              >
                 LOCATION
               </span>
-              <h2 style={{ fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: '900', color: '#721024', margin: '0 0 12px 0' }}>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                  fontSize: 'clamp(28px, 4vw, 38px)',
+                  fontWeight: '900',
+                  color: '#721024',
+                  margin: '0 0 12px 0'
+                }}
+              >
                 Map &amp; Directions
               </h2>
               <p style={{ fontSize: '15px', color: '#64748b', margin: 0 }}>
@@ -720,14 +727,16 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div style={{
-              borderRadius: '24px',
-              overflow: 'hidden',
-              border: '1.5px solid #ffede4',
-              boxShadow: '0 6px 24px rgba(0,0,0,0.04)',
-              height: '420px',
-              position: 'relative'
-            }}>
+            <div
+              style={{
+                borderRadius: '26px',
+                overflow: 'hidden',
+                border: '2px solid #ffede4',
+                boxShadow: '0 8px 30px rgba(114, 16, 36, 0.04)',
+                height: '420px',
+                position: 'relative'
+              }}
+            >
               <iframe
                 title="Just Like Home Nursery Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3605.3424168050965!2d55.45187127599554!3d25.399222523727766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f1310!3m3!1m2!1s0x3e5f583e7428f52f%3A0xb30e8c160c87285c!2sAl%20Rashidiya%202%20-%20Ajman!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
@@ -751,7 +760,7 @@ export default function ContactPage() {
                   gap: '8px',
                   padding: '14px 30px',
                   borderRadius: '999px',
-                  backgroundColor: '#721024',
+                  background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
                   color: '#ffffff',
                   fontWeight: '800',
                   fontSize: '15px',
@@ -782,7 +791,7 @@ export default function ContactPage() {
                 <span>CALL US</span>
               </a>
               <a 
-                href={`https://wa.me/971502005346?text=${whatsappMessage}`}
+                href={`https://wa.me/971502005346?text=${whatsappMessage}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 style={{
@@ -792,11 +801,11 @@ export default function ContactPage() {
                   padding: '14px 30px',
                   borderRadius: '999px',
                   backgroundColor: '#ffffff',
-                  color: '#721024',
+                  color: '#059669',
                   fontWeight: '800',
                   fontSize: '15px',
                   textDecoration: 'none',
-                  border: '1.5px solid #721024'
+                  border: '1.5px solid #059669'
                 }}
               >
                 <MessageCircle size={18} />

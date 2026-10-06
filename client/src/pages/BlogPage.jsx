@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
+import LuxuryPageHero from '../components/LuxuryPageHero';
+import LuxuryClosingCta from '../components/LuxuryClosingCta';
 import { 
   BookOpen, Calendar, ArrowRight, Sparkles, Compass, 
   HelpCircle, Heart, GraduationCap, Info 
@@ -73,7 +75,7 @@ const ARTICLES = [
   }
 ];
 
-export default function BlogPage() {
+export default function BlogPage({ onBookVisitClick }) {
   useEffect(() => {
     document.title = "Parent Resources & Early Years Advice | Just Like Home";
     const metaDesc = document.querySelector('meta[name="description"]');
@@ -83,136 +85,95 @@ export default function BlogPage() {
   }, []);
 
   return (
-    <div className="blog-page" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F', minHeight: '100vh' }}>
-      {/* 1. HERO & INTRODUCTION */}
-      <section className="page-hero-section" style={{ padding: '80px 20px 60px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
-          <RevealOnScroll>
-            <div>
-              <span style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '6px 18px',
-                borderRadius: '999px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                fontSize: '13px',
-                fontWeight: '800',
-                letterSpacing: '0.5px',
-                marginBottom: '20px'
-              }}>
-                <BookOpen size={14} />
-                PARENT RESOURCES / BLOG · LONG-TERM ORGANIC VISIBILITY AND PARENT EDUCATION
-              </span>
-
-              <h1 style={{
-                fontSize: 'clamp(32px, 5vw, 50px)',
-                fontWeight: '900',
-                color: '#721024',
-                lineHeight: 1.2,
-                margin: '0 0 24px 0'
-              }}>
-                Helpful Ideas for Your Child's Early Years
-              </h1>
-
-              <div style={{ fontSize: '17.5px', lineHeight: 1.8, color: '#475569', margin: '0 auto 36px', maxWidth: '780px' }}>
-                <p style={{ margin: 0 }}>
-                  The early years bring exciting milestones and plenty of questions. Our parent resources share practical ideas to help families understand learning, support growing independence and prepare children for nursery and school.
-                </p>
-              </div>
-
-              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <Link
-                  to="/contact"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 28px',
-                    borderRadius: '999px',
-                    backgroundColor: '#721024',
-                    color: '#ffffff',
-                    fontWeight: '800',
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <Calendar size={18} />
-                  <span>BOOK A VISIT</span>
-                </Link>
-                <Link
-                  to="/about-us"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 28px',
-                    borderRadius: '999px',
-                    backgroundColor: '#ffffff',
-                    color: '#721024',
-                    fontWeight: '800',
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                    border: '1.5px solid #721024',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <span>ABOUT OUR NURSERY</span>
-                  <ArrowRight size={18} />
-                </Link>
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+    <div className="blog-page" style={{ backgroundColor: '#FFFDF7', color: '#2d1f22', minHeight: '100vh' }}>
+      
+      {/* 1. LUXURY HERO BANNER */}
+      <LuxuryPageHero
+        badge="PARENT RESOURCES / BLOG · LONG-TERM ORGANIC VISIBILITY AND PARENT EDUCATION"
+        badgeIcon={BookOpen}
+        title="Helpful Ideas for Your Child's Early Years"
+        description="The early years bring exciting milestones and plenty of questions. Our parent resources share practical ideas to help families understand learning, support growing independence and prepare children for nursery and school."
+        image="/images/hero.jpg"
+        imageAlt="Parent Resources at Just Like Home Nursery Ajman"
+        imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
+        imageBadgeSubtitle="Where Little Hearts Feel at Home"
+        primaryCtaText="Book a Visit"
+        onPrimaryClick={onBookVisitClick}
+        primaryLink={!onBookVisitClick ? "/contact" : undefined}
+        secondaryCtaText="About Our Nursery"
+        secondaryLink="/about-us"
+        whatsappText="Hello Just Like Home Nursery, I would like to enquire about your nursery."
+      />
 
       {/* 2. RECOMMENDED LAUNCH ARTICLES */}
-      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
+      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderBottom: '1px solid #f1f5f9' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
-              <span style={{
-                display: 'inline-block',
-                padding: '6px 16px',
-                borderRadius: '999px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                fontSize: '13px',
-                fontWeight: '800',
-                marginBottom: '14px'
-              }}>
+              <span
+                style={{
+                  display: 'inline-block',
+                  padding: '6px 18px',
+                  borderRadius: '999px',
+                  backgroundColor: '#fff1f2',
+                  color: '#721024',
+                  fontSize: '13px',
+                  fontWeight: '800',
+                  letterSpacing: '0.5px',
+                  border: '1px solid rgba(114, 16, 36, 0.12)',
+                  marginBottom: '14px'
+                }}
+              >
                 PARENT GUIDES
               </span>
-              <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: '900', color: '#721024', margin: 0 }}>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                  fontSize: 'clamp(28px, 4vw, 42px)',
+                  fontWeight: '900',
+                  color: '#721024',
+                  margin: 0
+                }}
+              >
                 Recommended Launch Articles
               </h2>
             </div>
           </RevealOnScroll>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '24px'
-          }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '26px'
+            }}
+          >
             {ARTICLES.map((article, index) => (
-              <RevealOnScroll key={index} delay={index * 35}>
-                <div style={{
-                  background: '#FFFDF7',
-                  borderRadius: '24px',
-                  padding: '32px 28px',
-                  border: '1.5px solid #ffede4',
-                  boxShadow: '0 4px 14px rgba(0,0,0,0.02)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  height: '100%',
-                  transition: 'transform 0.25s ease, box-shadow 0.25s ease'
-                }}>
+              <RevealOnScroll key={index} delay={index * 30}>
+                <div
+                  style={{
+                    background: '#FFFDF7',
+                    borderRadius: '24px',
+                    padding: '34px 28px',
+                    border: '1.5px solid #ffede4',
+                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.03)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%',
+                    transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                  }}
+                >
                   <div>
-                    <h3 style={{ fontSize: '20px', fontWeight: '850', color: '#1e293b', marginBottom: '14px', lineHeight: 1.4 }}>
+                    <h3
+                      style={{
+                        fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                        fontSize: '20px',
+                        fontWeight: '850',
+                        color: '#721024',
+                        marginBottom: '14px',
+                        lineHeight: 1.4
+                      }}
+                    >
                       {article.title}
                     </h3>
                     <p style={{ fontSize: '14.5px', color: '#64748b', fontStyle: 'italic', marginBottom: '20px' }}>
@@ -220,7 +181,7 @@ export default function BlogPage() {
                     </p>
                   </div>
 
-                  <div style={{ paddingTop: '18px', borderTop: '1px solid #f1f5f9' }}>
+                  <div style={{ paddingTop: '18px', borderTop: '1px solid #f8e8e8' }}>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                       {article.links.map((link, lIdx) => (
                         <Link
@@ -235,9 +196,10 @@ export default function BlogPage() {
                             padding: '6px 14px',
                             borderRadius: '999px',
                             backgroundColor: '#ffffff',
-                            border: '1px solid #fed7aa',
+                            border: '1.5px solid #ffede4',
                             color: '#721024',
-                            textDecoration: 'none'
+                            textDecoration: 'none',
+                            transition: 'background-color 0.2s ease'
                           }}
                         >
                           <span>{link.label}</span>
@@ -254,31 +216,43 @@ export default function BlogPage() {
       </section>
 
       {/* 3. EDITORIAL DIRECTION */}
-      <section style={{ padding: '80px 20px', backgroundColor: '#FFFDF7' }}>
-        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#FFFDF7' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div style={{
-              background: '#ffffff',
-              borderRadius: '28px',
-              padding: '48px 36px',
-              border: '1.5px solid rgba(114, 16, 36, 0.12)',
-              boxShadow: '0 10px 30px rgba(114, 16, 36, 0.04)',
-              textAlign: 'center'
-            }}>
-              <div style={{
-                width: '60px',
-                height: '60px',
-                borderRadius: '20px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 24px'
-              }}>
+            <div
+              style={{
+                background: '#ffffff',
+                borderRadius: '30px',
+                padding: 'clamp(36px, 5vw, 54px) clamp(24px, 4vw, 44px)',
+                border: '1.5px solid #ffede4',
+                boxShadow: '0 12px 36px rgba(114, 16, 36, 0.04)',
+                textAlign: 'center'
+              }}
+            >
+              <div
+                style={{
+                  width: '60px',
+                  height: '60px',
+                  borderRadius: '18px',
+                  backgroundColor: '#fff1f2',
+                  color: '#721024',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 24px'
+                }}
+              >
                 <Info size={30} />
               </div>
-              <h2 style={{ fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: '900', color: '#721024', marginBottom: '18px' }}>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                  fontSize: 'clamp(28px, 4vw, 38px)',
+                  fontWeight: '900',
+                  color: '#721024',
+                  marginBottom: '18px'
+                }}
+              >
                 Editorial Direction
               </h2>
               <p style={{ fontSize: '17px', lineHeight: 1.75, color: '#475569', maxWidth: '720px', margin: '0 auto 32px' }}>
@@ -293,13 +267,13 @@ export default function BlogPage() {
                     gap: '8px',
                     padding: '14px 30px',
                     borderRadius: '999px',
-                    backgroundColor: '#721024',
+                    background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
                     color: '#ffffff',
                     fontWeight: '800',
                     fontSize: '15px',
                     textDecoration: 'none',
                     boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
-                    transition: 'all 0.25s ease'
+                    transition: 'transform 0.2s ease'
                   }}
                 >
                   <Calendar size={18} />
@@ -312,65 +286,17 @@ export default function BlogPage() {
       </section>
 
       {/* 4. CLOSING CTA BANNER */}
-      <section style={{
-        padding: '80px 20px',
-        background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-        color: '#ffffff',
-        textAlign: 'center'
-      }}>
-        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-          <RevealOnScroll>
-            <h2 style={{ fontSize: 'clamp(28px, 4.5vw, 40px)', fontWeight: '900', margin: '0 0 20px 0', lineHeight: 1.25 }}>
-              Helpful Ideas for Your Child's Early Years
-            </h2>
-            <p style={{ fontSize: '17px', lineHeight: 1.75, opacity: 0.95, margin: '0 auto 36px', maxWidth: '680px' }}>
-              The early years bring exciting milestones and plenty of questions. Our parent resources share practical ideas to help families understand learning, support growing independence and prepare children for nursery and school.
-            </p>
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link
-                to="/contact"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '15px 34px',
-                  borderRadius: '999px',
-                  backgroundColor: '#ffffff',
-                  color: '#721024',
-                  fontWeight: '800',
-                  fontSize: '15.5px',
-                  textDecoration: 'none',
-                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
-                  transition: 'all 0.25s ease'
-                }}
-              >
-                <Calendar size={18} />
-                <span>BOOK A VISIT</span>
-              </Link>
-              <Link
-                to="/about-us"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '15px 34px',
-                  borderRadius: '999px',
-                  backgroundColor: 'rgba(255,255,255,0.12)',
-                  color: '#ffffff',
-                  fontWeight: '800',
-                  fontSize: '15.5px',
-                  textDecoration: 'none',
-                  border: '1.5px solid rgba(255,255,255,0.4)',
-                  transition: 'all 0.25s ease'
-                }}
-              >
-                <span>ABOUT OUR NURSERY</span>
-                <ArrowRight size={18} />
-              </Link>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+      <LuxuryClosingCta
+        badge="PARENT RESOURCES"
+        title="Helpful Ideas for Your Child's Early Years"
+        subtitle="The early years bring exciting milestones and plenty of questions. Our parent resources share practical ideas to help families understand learning, support growing independence and prepare children for nursery and school."
+        primaryText="BOOK A VISIT"
+        onPrimaryClick={onBookVisitClick}
+        primaryLink={!onBookVisitClick ? "/contact" : undefined}
+        secondaryText="ABOUT OUR NURSERY"
+        secondaryLink="/about-us"
+        tagline="Where Little Hearts Feel at Home."
+      />
     </div>
   );
 }

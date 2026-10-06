@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
+import LuxuryPageHero from '../components/LuxuryPageHero';
+import LuxuryClosingCta from '../components/LuxuryClosingCta';
 import { 
   Baby, Sparkles, BookOpen, GraduationCap, Clock, Sun, 
   ArrowRight, Calendar, Compass, Layers, CheckCircle2 
@@ -95,7 +97,7 @@ const DEVELOPMENTAL_STAGES = [
   }
 ];
 
-export default function ProgramsPage() {
+export default function ProgramsPage({ onBookVisitClick }) {
   useEffect(() => {
     document.title = "Nursery Programs in Ajman | Just Like Home Nursery";
     const metaDesc = document.querySelector('meta[name="description"]');
@@ -105,132 +107,82 @@ export default function ProgramsPage() {
   }, []);
 
   return (
-    <div className="programs-page" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F', minHeight: '100vh' }}>
-      {/* 1. HERO & INTRODUCTION */}
-      <section className="page-hero-section" style={{ padding: '80px 20px 60px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
-          <RevealOnScroll>
-            <div>
-              <span style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '6px 18px',
-                borderRadius: '999px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                fontSize: '13px',
-                fontWeight: '800',
-                letterSpacing: '0.5px',
-                marginBottom: '20px'
-              }}>
-                <Compass size={14} />
-                OUR PROGRAMS · PROGRAM OVERVIEW AND PATHWAY SELECTION
-              </span>
-              <h1 style={{
-                fontSize: 'clamp(32px, 5vw, 50px)',
-                fontWeight: '900',
-                color: '#721024',
-                lineHeight: 1.2,
-                margin: '0 0 24px 0'
-              }}>
-                The Right Support for Every Little Step
-              </h1>
-              <div style={{ fontSize: '17px', lineHeight: 1.8, color: '#475569', margin: '0 auto 36px' }}>
-                <p style={{ marginBottom: '16px' }}>
-                  Children's needs change quickly during the early years. Our programs are designed to provide the right balance of nurturing care, purposeful play, social experience and age-appropriate learning at each stage.
-                </p>
-                <p style={{ fontSize: '16px', color: '#64748b', margin: 0 }}>
-                  Exact class placement is guided by your child's age, developmental needs, readiness and available nursery groups. Our team will help you choose the most suitable pathway during your visit.
-                </p>
-              </div>
-
-              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <Link
-                  to="/contact"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 28px',
-                    borderRadius: '999px',
-                    backgroundColor: '#721024',
-                    color: '#ffffff',
-                    fontWeight: '800',
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <Calendar size={18} />
-                  <span>BOOK A VISIT</span>
-                </Link>
-                <a
-                  href="#programs-grid"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '14px 28px',
-                    borderRadius: '999px',
-                    backgroundColor: '#ffffff',
-                    color: '#721024',
-                    fontWeight: '800',
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                    border: '1.5px solid #721024',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <span>FIND THE RIGHT PROGRAM</span>
-                  <ArrowRight size={18} />
-                </a>
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+    <div className="programs-page" style={{ backgroundColor: '#FFFDF7', color: '#2d1f22', minHeight: '100vh' }}>
+      
+      {/* 1. LUXURY HERO BANNER */}
+      <LuxuryPageHero
+        badge="OUR PROGRAMS · PROGRAM OVERVIEW AND PATHWAY SELECTION"
+        badgeIcon={Compass}
+        title="The Right Support for Every Little Step"
+        description={[
+          "Children's needs change quickly during the early years. Our programs are designed to provide the right balance of nurturing care, purposeful play, social experience and age-appropriate learning at each stage.",
+          "Exact class placement is guided by your child's age, developmental needs, readiness and available nursery groups. Our team will help you choose the most suitable pathway during your visit."
+        ]}
+        image="/images/hero.jpg"
+        imageAlt="Programs at Just Like Home Nursery Ajman"
+        imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
+        imageBadgeSubtitle="Where Little Hearts Feel at Home"
+        primaryCtaText="Book a Visit"
+        onPrimaryClick={onBookVisitClick}
+        primaryLink={!onBookVisitClick ? "/contact" : undefined}
+        secondaryCtaText="Find the Right Program"
+        secondaryLink="/contact"
+        whatsappText="Hello Just Like Home Nursery, I would like to enquire about your nursery programs."
+      />
 
       {/* 2. THE SIX CORE PROGRAMS */}
-      <section id="programs-grid" style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
+      <section id="programs-grid" style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderBottom: '1px solid #f1f5f9' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '24px'
-          }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '28px'
+            }}
+          >
             {PROGRAMS.map((prog, index) => {
               const Icon = prog.icon;
               return (
-                <RevealOnScroll key={index} delay={index * 50}>
-                  <div style={{
-                    background: '#FFFDF7',
-                    borderRadius: '24px',
-                    padding: '34px 28px',
-                    border: '1.5px solid #ffede4',
-                    boxShadow: '0 6px 20px rgba(0,0,0,0.02)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    height: '100%',
-                    transition: 'transform 0.25s ease, box-shadow 0.25s ease'
-                  }}>
+                <RevealOnScroll key={index} delay={index * 45}>
+                  <div
+                    style={{
+                      background: '#FFFDF7',
+                      borderRadius: '26px',
+                      padding: '36px 30px',
+                      border: '1.5px solid #ffede4',
+                      boxShadow: '0 8px 24px rgba(114, 16, 36, 0.03)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      height: '100%',
+                      transition: 'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease'
+                    }}
+                  >
                     <div>
-                      <div style={{
-                        width: '56px',
-                        height: '56px',
-                        borderRadius: '16px',
-                        backgroundColor: prog.bgColor,
-                        color: prog.color,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginBottom: '22px'
-                      }}>
+                      <div
+                        style={{
+                          width: '56px',
+                          height: '56px',
+                          borderRadius: '16px',
+                          backgroundColor: prog.bgColor,
+                          color: prog.color,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          marginBottom: '22px'
+                        }}
+                      >
                         <Icon size={28} />
                       </div>
-                      <h2 style={{ fontSize: '22px', fontWeight: '850', color: '#1e293b', marginBottom: '14px' }}>
+                      <h2
+                        style={{
+                          fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                          fontSize: '22px',
+                          fontWeight: '850',
+                          color: '#721024',
+                          marginBottom: '14px'
+                        }}
+                      >
                         {prog.title}
                       </h2>
                       <p style={{ fontSize: '15.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
@@ -238,7 +190,7 @@ export default function ProgramsPage() {
                       </p>
                     </div>
 
-                    <div style={{ paddingTop: '22px', marginTop: '22px', borderTop: '1px solid #f1f5f9' }}>
+                    <div style={{ paddingTop: '22px', marginTop: '22px', borderTop: '1px solid #f8e8e8' }}>
                       <Link 
                         to="/contact" 
                         style={{
@@ -264,26 +216,38 @@ export default function ProgramsPage() {
       </section>
 
       {/* 3. AGE GROUPS (BY DEVELOPMENTAL STAGE) */}
-      <section style={{ padding: '80px 20px', backgroundColor: '#FFFDF7' }}>
+      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#FFFDF7' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 50px' }}>
-              <span style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '6px 16px',
-                borderRadius: '999px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                fontSize: '13px',
-                fontWeight: '800',
-                marginBottom: '14px'
-              }}>
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '6px 18px',
+                  borderRadius: '999px',
+                  backgroundColor: '#fff1f2',
+                  color: '#721024',
+                  fontSize: '13px',
+                  fontWeight: '800',
+                  letterSpacing: '0.5px',
+                  border: '1px solid rgba(114, 16, 36, 0.12)',
+                  marginBottom: '14px'
+                }}
+              >
                 <Layers size={14} />
                 DEVELOPMENTAL PATHWAY
               </span>
-              <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: '900', color: '#721024', margin: '0 0 16px 0' }}>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                  fontSize: 'clamp(28px, 4vw, 42px)',
+                  fontWeight: '900',
+                  color: '#721024',
+                  margin: '0 0 16px 0'
+                }}
+              >
                 Age Groups
               </h2>
               <p style={{ fontSize: '16px', lineHeight: 1.75, color: '#64748b', margin: 0 }}>
@@ -292,42 +256,56 @@ export default function ProgramsPage() {
             </div>
           </RevealOnScroll>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '22px'
-          }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+              gap: '24px'
+            }}
+          >
             {DEVELOPMENTAL_STAGES.map((item, index) => (
-              <RevealOnScroll key={index} delay={index * 60}>
-                <div style={{
-                  background: '#ffffff',
-                  borderRadius: '24px',
-                  padding: '32px 26px',
-                  border: '1.5px solid rgba(114, 16, 36, 0.1)',
-                  boxShadow: '0 6px 20px rgba(114, 16, 36, 0.03)',
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  position: 'relative',
-                  overflow: 'hidden'
-                }}>
-                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', backgroundColor: '#721024' }} />
-                  <span style={{
-                    display: 'inline-block',
-                    fontSize: '11px',
-                    fontWeight: '800',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.8px',
-                    color: '#721024',
-                    backgroundColor: '#fff1f2',
-                    padding: '4px 12px',
-                    borderRadius: '999px',
-                    marginBottom: '16px',
-                    alignSelf: 'flex-start'
-                  }}>
+              <RevealOnScroll key={index} delay={index * 50}>
+                <div
+                  style={{
+                    background: '#ffffff',
+                    borderRadius: '24px',
+                    padding: '32px 26px',
+                    border: '1.5px solid #ffede4',
+                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.03)',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    position: 'relative',
+                    overflow: 'hidden'
+                  }}
+                >
+                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #c9a84c)' }} />
+                  <span
+                    style={{
+                      display: 'inline-block',
+                      fontSize: '11px',
+                      fontWeight: '800',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.8px',
+                      color: '#721024',
+                      backgroundColor: '#fff1f2',
+                      padding: '4px 12px',
+                      borderRadius: '999px',
+                      marginBottom: '16px',
+                      alignSelf: 'flex-start'
+                    }}
+                  >
                     Stage {index + 1}
                   </span>
-                  <h3 style={{ fontSize: '20px', fontWeight: '850', color: '#1e293b', marginBottom: '12px' }}>
+                  <h3
+                    style={{
+                      fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                      fontSize: '20px',
+                      fontWeight: '850',
+                      color: '#1e293b',
+                      marginBottom: '12px'
+                    }}
+                  >
                     {item.stage}
                   </h3>
                   <p style={{ fontSize: '15px', lineHeight: 1.65, color: '#475569', margin: 0 }}>
@@ -340,58 +318,76 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* 3.5 ALL 16 COMPREHENSIVE SERVICES */}
-      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
+      {/* 4. ALL 16 COMPREHENSIVE SERVICES */}
+      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
-              <span style={{
-                display: 'inline-block',
-                padding: '6px 16px',
-                borderRadius: '999px',
-                backgroundColor: '#fff1f2',
-                color: '#721024',
-                fontSize: '13px',
-                fontWeight: '800',
-                marginBottom: '14px'
-              }}>
+              <span
+                style={{
+                  display: 'inline-block',
+                  padding: '6px 18px',
+                  borderRadius: '999px',
+                  backgroundColor: '#fff1f2',
+                  color: '#721024',
+                  fontSize: '13px',
+                  fontWeight: '800',
+                  letterSpacing: '0.5px',
+                  border: '1px solid rgba(114, 16, 36, 0.12)',
+                  marginBottom: '14px'
+                }}
+              >
                 🌟 COMPREHENSIVE PROVISIONS
               </span>
-              <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: '900', color: '#721024', margin: 0 }}>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                  fontSize: 'clamp(28px, 4vw, 40px)',
+                  fontWeight: '900',
+                  color: '#721024',
+                  margin: 0
+                }}
+              >
                 Our Complete Suite of Nursery Services
               </h2>
             </div>
           </RevealOnScroll>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '20px'
-          }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '20px'
+            }}
+          >
             {SERVICES_LIST.map((service, index) => (
-              <RevealOnScroll key={index} delay={index * 30}>
-                <div style={{
-                  background: '#FFFDF7',
-                  borderRadius: '20px',
-                  padding: '22px 24px',
-                  border: '1.5px solid #ffede4',
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.02)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '14px',
-                  height: '100%'
-                }}>
-                  <div style={{
-                    width: '38px',
-                    height: '38px',
-                    borderRadius: '12px',
-                    backgroundColor: '#fff1f2',
-                    color: '#721024',
+              <RevealOnScroll key={index} delay={index * 25}>
+                <div
+                  style={{
+                    background: '#FFFDF7',
+                    borderRadius: '20px',
+                    padding: '22px 24px',
+                    border: '1.5px solid #ffede4',
+                    boxShadow: '0 4px 16px rgba(114, 16, 36, 0.02)',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}>
+                    gap: '14px',
+                    height: '100%'
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '38px',
+                      height: '38px',
+                      borderRadius: '12px',
+                      backgroundColor: '#fff1f2',
+                      color: '#721024',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0
+                    }}
+                  >
                     <CheckCircle2 size={18} />
                   </div>
                   <span style={{ fontSize: '15px', fontWeight: '750', color: '#1e293b', lineHeight: 1.45 }}>
@@ -404,66 +400,18 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* 4. CLOSING CTA: FIND THE RIGHT PROGRAM | BOOK A VISIT */}
-      <section style={{
-        padding: '80px 20px',
-        background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-        color: '#ffffff',
-        textAlign: 'center'
-      }}>
-        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-          <RevealOnScroll>
-            <h2 style={{ fontSize: 'clamp(28px, 4.5vw, 40px)', fontWeight: '900', margin: '0 0 20px 0', lineHeight: 1.25 }}>
-              The Right Support for Every Little Step
-            </h2>
-            <p style={{ fontSize: '17px', lineHeight: 1.75, opacity: 0.95, margin: '0 auto 36px', maxWidth: '680px' }}>
-              Exact class placement is guided by your child's age, developmental needs, readiness and available nursery groups. Our team will help you choose the most suitable pathway during your visit.
-            </p>
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link
-                to="/contact"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '15px 34px',
-                  borderRadius: '999px',
-                  backgroundColor: '#ffffff',
-                  color: '#721024',
-                  fontWeight: '800',
-                  fontSize: '15.5px',
-                  textDecoration: 'none',
-                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
-                  transition: 'all 0.25s ease'
-                }}
-              >
-                <Calendar size={18} />
-                <span>BOOK A VISIT</span>
-              </Link>
-              <Link
-                to="/contact"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '15px 34px',
-                  borderRadius: '999px',
-                  backgroundColor: 'rgba(255,255,255,0.12)',
-                  color: '#ffffff',
-                  fontWeight: '800',
-                  fontSize: '15.5px',
-                  textDecoration: 'none',
-                  border: '1.5px solid rgba(255,255,255,0.4)',
-                  transition: 'all 0.25s ease'
-                }}
-              >
-                <span>FIND THE RIGHT PROGRAM</span>
-                <ArrowRight size={18} />
-              </Link>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+      {/* 5. CLOSING CTA */}
+      <LuxuryClosingCta
+        badge="FIND THE RIGHT PROGRAM"
+        title="The Right Support for Every Little Step"
+        subtitle="Exact class placement is guided by your child's age, developmental needs, readiness and available nursery groups. Our team will help you choose the most suitable pathway during your visit."
+        primaryText="BOOK A VISIT"
+        onPrimaryClick={onBookVisitClick}
+        primaryLink={!onBookVisitClick ? "/contact" : undefined}
+        secondaryText="FIND THE RIGHT PROGRAM"
+        secondaryLink="/contact"
+        tagline="Where Little Hearts Feel at Home."
+      />
     </div>
   );
 }
