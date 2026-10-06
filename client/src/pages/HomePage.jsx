@@ -74,42 +74,72 @@ export default function HomePage({ onBookVisitClick }) {
     'CCTV monitoring for enhanced safety'
   ];
 
-  // 4. Why Parents Choose Pillars from document
+  // 4. Why Parents Choose Pillars from document (CONTENT STRICTLY UNCHANGED)
   const PILLARS = [
     {
       title: 'Nurturing Care',
       desc: 'Kindness, patience and understanding are at the heart of every interaction.',
-      color: '#e11d48',
+      color: '#ef4444',
+      bg: '#fef2f2',
+      category: 'NURTURING LEARNING',
+      badge: 'Motherly Care',
+      likes: 45,
+      tags: ['Motherly Care', 'Gentle Patience', 'Loving Attention'],
       icon: Heart
     },
     {
       title: 'Learning Through Play',
       desc: 'Children explore concepts naturally through purposeful, hands-on experiences.',
       color: '#0284c7',
+      bg: '#f0f9ff',
+      category: 'EARLY YEARS EXCELLENCE',
+      badge: 'UK Standard',
+      likes: 62,
+      tags: ['Purposeful Play', 'Hands-On Discovery', 'Natural Learning'],
       icon: Sparkles
     },
     {
       title: 'Individual Attention',
       desc: 'We recognise each child\'s interests, abilities and developmental journey.',
-      color: '#16a34a',
+      color: '#059669',
+      bg: '#ecfdf5',
+      category: 'VILLA 47 CAMPUS',
+      badge: 'Al Rashidiya 2',
+      likes: 39,
+      tags: ['Unique Interests', 'Personal Pacing', 'Dedicated Milestones'],
       icon: Smile
     },
     {
       title: 'Whole-Child Development',
       desc: 'We support social, emotional, physical, communication and intellectual growth.',
-      color: '#d97706',
+      color: '#f59e0b',
+      bg: '#fffbeb',
+      category: 'HOLISTIC GROWTH',
+      badge: 'Ages 45d–4y',
+      likes: 51,
+      tags: ['Emotional & Social', 'Communication', 'Motor & Cognitive'],
       icon: Baby
     },
     {
       title: 'Building Confidence',
       desc: 'We encourage independence, good manners and essential everyday life skills.',
       color: '#721024',
+      bg: '#fff1f2',
+      category: 'CHARACTER & SKILLS',
+      badge: 'Life Readiness',
+      likes: 58,
+      tags: ['Independence', 'Good Manners', 'Essential Life Skills'],
       icon: Award
     },
     {
       title: 'Parent Partnership',
       desc: 'We build respectful relationships with families and keep parents connected.',
       color: '#0d9488',
+      bg: '#f0fdf4',
+      category: 'TRUSTED COMMUNITY',
+      badge: 'Daily Updates',
+      likes: 48,
+      tags: ['Open Daily Updates', 'Respectful Trust', 'Family Community'],
       icon: Users
     }
   ];
@@ -628,8 +658,8 @@ export default function HomePage({ onBookVisitClick }) {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '26px'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
+              gap: '32px 26px'
             }}
           >
             {PILLARS.map((pillar, idx) => {
@@ -638,50 +668,204 @@ export default function HomePage({ onBookVisitClick }) {
                 <RevealOnScroll key={idx} delay={idx * 35}>
                   <div
                     style={{
-                      background: '#FFFDF7',
-                      borderRadius: '26px',
-                      padding: '32px 26px',
-                      border: '1.5px solid #ffede4',
-                      boxShadow: '0 6px 20px rgba(114, 16, 36, 0.02)',
+                      position: 'relative',
+                      background: '#ffffff',
+                      borderRadius: '24px',
+                      padding: '28px 24px 22px',
+                      border: '1.5px solid #edf2f7',
+                      borderTop: `4px solid ${pillar.color}`,
+                      boxShadow: '0 10px 28px rgba(15, 23, 42, 0.06)',
                       display: 'flex',
-                      alignItems: 'flex-start',
-                      gap: '18px',
+                      flexDirection: 'column',
                       height: '100%',
                       transition: 'transform 0.25s ease, box-shadow 0.25s ease'
                     }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-4px)';
+                      e.currentTarget.style.boxShadow = '0 18px 36px rgba(15, 23, 42, 0.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 10px 28px rgba(15, 23, 42, 0.06)';
+                    }}
                   >
+                    {/* Playful Top Sticky Tape Tab */}
                     <div
                       style={{
-                        width: '50px',
-                        height: '50px',
-                        borderRadius: '16px',
-                        backgroundColor: '#ffffff',
-                        color: pillar.color,
+                        position: 'absolute',
+                        top: '-7px',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        width: '56px',
+                        height: '13px',
+                        backgroundColor: '#fef08a',
+                        borderRadius: '3px',
+                        boxShadow: '0 1px 3px rgba(0,0,0,0.12)',
+                        zIndex: 2,
+                        border: '1px solid rgba(234, 179, 8, 0.4)'
+                      }}
+                    />
+
+                    {/* Header Row: Icon + Badge + Heart Likes */}
+                    <div
+                      style={{
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                        boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
+                        justifyContent: 'space-between',
+                        marginBottom: '18px'
                       }}
                     >
-                      <Icon size={24} />
-                    </div>
-                    <div>
-                      <h3
+                      <div
                         style={{
-                          fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                          fontSize: '19px',
-                          fontWeight: '800',
-                          color: '#721024',
-                          marginBottom: '8px'
+                          width: '52px',
+                          height: '52px',
+                          borderRadius: '16px',
+                          backgroundColor: pillar.bg,
+                          border: `1.5px solid ${pillar.color}25`,
+                          color: pillar.color,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          boxShadow: `0 4px 12px ${pillar.color}15`
                         }}
                       >
-                        {pillar.title}
-                      </h3>
-                      <p style={{ fontSize: '15px', lineHeight: 1.68, color: '#475569', margin: 0 }}>
-                        {pillar.desc}
-                      </p>
+                        <Icon size={24} strokeWidth={2.2} />
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                          style={{
+                            display: 'inline-block',
+                            padding: '4px 12px',
+                            borderRadius: '999px',
+                            backgroundColor: pillar.bg,
+                            color: pillar.color,
+                            fontSize: '12px',
+                            fontWeight: '800',
+                            letterSpacing: '0.2px',
+                            border: `1px solid ${pillar.color}30`
+                          }}
+                        >
+                          {pillar.badge}
+                        </span>
+                        <span
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '4px',
+                            padding: '4px 10px',
+                            borderRadius: '999px',
+                            backgroundColor: '#ffffff',
+                            color: '#64748b',
+                            fontSize: '12px',
+                            fontWeight: '700',
+                            border: '1px solid #e2e8f0'
+                          }}
+                        >
+                          <Heart size={12} style={{ color: '#94a3b8' }} />
+                          {pillar.likes}
+                        </span>
+                      </div>
                     </div>
+
+                    {/* Category Kicker */}
+                    <div
+                      style={{
+                        fontSize: '11px',
+                        fontWeight: '800',
+                        letterSpacing: '0.8px',
+                        color: pillar.color,
+                        textTransform: 'uppercase',
+                        marginBottom: '6px'
+                      }}
+                    >
+                      {pillar.category}
+                    </div>
+
+                    {/* Exact Title from Document */}
+                    <h3
+                      style={{
+                        fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                        fontSize: '21px',
+                        fontWeight: '900',
+                        color: '#1e293b',
+                        margin: '0 0 10px 0',
+                        lineHeight: 1.3
+                      }}
+                    >
+                      {pillar.title}
+                    </h3>
+
+                    {/* Exact Description from Document - Unchanged */}
+                    <p
+                      style={{
+                        fontSize: '14.5px',
+                        lineHeight: 1.68,
+                        color: '#475569',
+                        margin: '0 0 18px 0',
+                        flexGrow: 1
+                      }}
+                    >
+                      {pillar.desc}
+                    </p>
+
+                    {/* Feature Tags */}
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        gap: '7px',
+                        marginBottom: '20px'
+                      }}
+                    >
+                      {pillar.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          style={{
+                            fontSize: '12px',
+                            fontWeight: '600',
+                            color: '#475569',
+                            backgroundColor: '#f8fafc',
+                            border: '1px solid #e2e8f0',
+                            borderRadius: '8px',
+                            padding: '4px 10px'
+                          }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Discover Details Action Button */}
+                    <button
+                      onClick={onBookVisitClick}
+                      style={{
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '12px 18px',
+                        borderRadius: '14px',
+                        backgroundColor: pillar.color,
+                        color: '#ffffff',
+                        border: 'none',
+                        fontWeight: '800',
+                        fontSize: '14px',
+                        cursor: 'pointer',
+                        boxShadow: `0 6px 16px ${pillar.color}35`,
+                        transition: 'all 0.2s ease'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                        e.currentTarget.style.boxShadow = `0 10px 22px ${pillar.color}50`;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = `0 6px 16px ${pillar.color}35`;
+                      }}
+                    >
+                      <span>Discover Details</span>
+                      <ArrowRight size={16} />
+                    </button>
                   </div>
                 </RevealOnScroll>
               );
