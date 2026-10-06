@@ -759,6 +759,523 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
     floor.receiveShadow = true;
     section1Group.add(floor);
 
+    // ==========================================
+    // NURSERY ROOM BACK WALL & GALLERY WALL FRAMES
+    // ==========================================
+    const backWallZ = -3.15;
+    
+    // 1. Soft Warm Pastel Nursery Back Wall
+    const wallGeo = new THREE.PlaneGeometry(65, 26);
+    const wallMat = new THREE.MeshStandardMaterial({
+      color: 0xffede2,
+      roughness: 0.92,
+      metalness: 0.01
+    });
+    const backWall = new THREE.Mesh(wallGeo, wallMat);
+    backWall.position.set(0, 9.2, backWallZ);
+    backWall.receiveShadow = true;
+    section1Group.add(backWall);
+
+    // 2. Skirting Board / Baseboard Moulding (junction of floor & wall)
+    const baseboardGeo = new THREE.BoxGeometry(65, 0.16, 0.06);
+    const baseboardMat = new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      roughness: 0.45,
+      metalness: 0.02
+    });
+    const baseboard = new THREE.Mesh(baseboardGeo, baseboardMat);
+    baseboard.position.set(0, -0.90, backWallZ + 0.03);
+    baseboard.receiveShadow = true;
+    section1Group.add(baseboard);
+
+    // 3. Subtle Dado Rail / Wainscoting Trim Line (y ~ 0.42)
+    const chairRailGeo = new THREE.BoxGeometry(65, 0.05, 0.035);
+    const chairRail = new THREE.Mesh(chairRailGeo, baseboardMat);
+    chairRail.position.set(0, 0.42, backWallZ + 0.02);
+    section1Group.add(chairRail);
+
+    // --- Procedural Canvas Artworks for Nursery Wall Frames ---
+    function createSunArtTexture() {
+      const cvs = document.createElement('canvas');
+      cvs.width = 512;
+      cvs.height = 640;
+      const ctx = cvs.getContext('2d');
+      ctx.fillStyle = '#faf7f2';
+      ctx.fillRect(0, 0, 512, 640);
+      ctx.strokeStyle = '#f1e6da';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(24, 24, 464, 592);
+
+      const cx = 256;
+      const cy = 250;
+      const r = 90;
+
+      // Sun rays
+      ctx.strokeStyle = '#f59e0b';
+      ctx.lineWidth = 6;
+      ctx.lineCap = 'round';
+      for (let i = 0; i < 12; i++) {
+        const angle = (i * Math.PI) / 6;
+        ctx.beginPath();
+        ctx.moveTo(cx + Math.cos(angle) * (r + 18), cy + Math.sin(angle) * (r + 18));
+        ctx.lineTo(cx + Math.cos(angle) * (r + 42), cy + Math.sin(angle) * (r + 42));
+        ctx.stroke();
+      }
+
+      // Golden Sun
+      ctx.fillStyle = '#f59e0b';
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Cheerful Eyes & Smile
+      ctx.fillStyle = '#7c2d12';
+      ctx.beginPath();
+      ctx.arc(cx - 30, cy - 10, 6, 0, Math.PI * 2);
+      ctx.arc(cx + 30, cy - 10, 6, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = '#7c2d12';
+      ctx.lineWidth = 5;
+      ctx.beginPath();
+      ctx.arc(cx, cy + 12, 26, 0.15 * Math.PI, 0.85 * Math.PI);
+      ctx.stroke();
+
+      // Rosy Cheeks
+      ctx.fillStyle = 'rgba(244, 63, 94, 0.45)';
+      ctx.beginPath();
+      ctx.arc(cx - 44, cy + 12, 13, 0, Math.PI * 2);
+      ctx.arc(cx + 44, cy + 12, 13, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Soft puffy cloud underneath
+      function drawCloudPuff(px, py, s, col) {
+        ctx.fillStyle = col;
+        ctx.beginPath();
+        ctx.arc(px, py, 44 * s, 0, Math.PI * 2);
+        ctx.arc(px + 46 * s, py - 10 * s, 36 * s, 0, Math.PI * 2);
+        ctx.arc(px + 88 * s, py, 32 * s, 0, Math.PI * 2);
+        ctx.arc(px - 40 * s, py + 4 * s, 30 * s, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      drawCloudPuff(cx - 20, 440, 1.15, '#e0f2fe');
+      drawCloudPuff(cx - 24, 434, 1.05, '#ffffff');
+
+      // Sparkle dots
+      ctx.fillStyle = '#F15A29';
+      [[-75, 95], [85, 75], [-95, 215], [105, 235]].forEach(([dx, dy]) => {
+        ctx.beginPath();
+        ctx.arc(cx + dx, cy + dy, 4.5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      const tex = new THREE.CanvasTexture(cvs);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      return tex;
+    }
+
+    function createRainbowArtTexture() {
+      const cvs = document.createElement('canvas');
+      cvs.width = 512;
+      cvs.height = 640;
+      const ctx = cvs.getContext('2d');
+      ctx.fillStyle = '#fdfbf7';
+      ctx.fillRect(0, 0, 512, 640);
+      ctx.strokeStyle = '#f0e8db';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(24, 24, 464, 592);
+
+      const cx = 256;
+      const cy = 375;
+      const arches = [
+        { r: 160, w: 26, color: '#F15A29' },
+        { r: 132, w: 24, color: '#f59e0b' },
+        { r: 106, w: 22, color: '#84cc16' },
+        { r: 82,  w: 20, color: '#38bdf8' }
+      ];
+
+      ctx.lineCap = 'round';
+      arches.forEach(a => {
+        ctx.strokeStyle = a.color;
+        ctx.lineWidth = a.w;
+        ctx.beginPath();
+        ctx.arc(cx, cy, a.r, Math.PI, 0);
+        ctx.stroke();
+      });
+
+      // Clouds at arch bases
+      function drawCloudBase(bx, by) {
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(bx, by, 28, 0, Math.PI * 2);
+        ctx.arc(bx - 20, by + 4, 22, 0, Math.PI * 2);
+        ctx.arc(bx + 20, by + 4, 22, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      drawCloudBase(cx - 160, cy);
+      drawCloudBase(cx + 160, cy);
+
+      // Heart in center
+      ctx.fillStyle = '#e11d48';
+      ctx.beginPath();
+      const hx = cx, hy = cy - 22, hs = 18;
+      ctx.moveTo(hx, hy + hs * 0.4);
+      ctx.bezierCurveTo(hx, hy, hx - hs, hy, hx - hs, hy + hs * 0.4);
+      ctx.bezierCurveTo(hx - hs, hy + hs * 0.8, hx, hy + hs * 1.1, hx, hy + hs * 1.3);
+      ctx.bezierCurveTo(hx, hy + hs * 1.1, hx + hs, hy + hs * 0.8, hx + hs, hy + hs * 0.4);
+      ctx.bezierCurveTo(hx + hs, hy, hx, hy, hx, hy + hs * 0.4);
+      ctx.fill();
+
+      // Little stars
+      ctx.fillStyle = '#f59e0b';
+      [[cx - 90, 130], [cx + 90, 130], [cx, 110]].forEach(([sx, sy]) => {
+        ctx.beginPath();
+        ctx.arc(sx, sy, 5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      const tex = new THREE.CanvasTexture(cvs);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      return tex;
+    }
+
+    function createAbcArtTexture() {
+      const cvs = document.createElement('canvas');
+      cvs.width = 512;
+      cvs.height = 512;
+      const ctx = cvs.getContext('2d');
+      ctx.fillStyle = '#fff8f0';
+      ctx.fillRect(0, 0, 512, 512);
+      ctx.strokeStyle = '#f3e8dc';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(20, 20, 472, 472);
+
+      const blocks = [
+        { letter: 'A', x: 80,  y: 80,  w: 160, h: 160, bg: '#fee2e2', border: '#f87171', textCol: '#b91c1c' },
+        { letter: 'B', x: 272, y: 150, w: 160, h: 160, bg: '#dcfce7', border: '#4ade80', textCol: '#15803d' },
+        { letter: 'C', x: 130, y: 272, w: 160, h: 160, bg: '#e0f2fe', border: '#38bdf8', textCol: '#0369a1' }
+      ];
+
+      blocks.forEach(b => {
+        ctx.fillStyle = b.bg;
+        ctx.strokeStyle = b.border;
+        ctx.lineWidth = 6;
+        drawCanvasRoundedRect(ctx, b.x, b.y, b.w, b.h, 24);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = b.textCol;
+        ctx.font = 'bold 84px "Outfit", "Arial Rounded MT Bold", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(b.letter, b.x + b.w / 2, b.y + b.h / 2 + 4);
+      });
+
+      ctx.fillStyle = '#f59e0b';
+      [[360, 90], [80, 380], [380, 390]].forEach(([sx, sy]) => {
+        ctx.beginPath();
+        ctx.arc(sx, sy, 7, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      const tex = new THREE.CanvasTexture(cvs);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      return tex;
+    }
+
+    function createBotanicalArtTexture() {
+      const cvs = document.createElement('canvas');
+      cvs.width = 480;
+      cvs.height = 600;
+      const ctx = cvs.getContext('2d');
+      ctx.fillStyle = '#fbf9f5';
+      ctx.fillRect(0, 0, 480, 600);
+      ctx.strokeStyle = '#efe9de';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(20, 20, 440, 560);
+
+      const cx = 240;
+      ctx.strokeStyle = '#65a30d';
+      ctx.lineWidth = 6;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(cx, 480);
+      ctx.quadraticCurveTo(cx - 20, 320, cx + 10, 160);
+      ctx.stroke();
+
+      const leafPairs = [
+        { y: 220, dir: -1, angle: -0.5, s: 42 },
+        { y: 260, dir:  1, angle:  0.4, s: 45 },
+        { y: 320, dir: -1, angle: -0.6, s: 48 },
+        { y: 360, dir:  1, angle:  0.5, s: 48 },
+        { y: 420, dir: -1, angle: -0.5, s: 45 }
+      ];
+
+      leafPairs.forEach(l => {
+        ctx.save();
+        ctx.translate(cx + (l.dir === 1 ? 5 : -10), l.y);
+        ctx.rotate(l.angle);
+        ctx.fillStyle = '#84cc16';
+        ctx.beginPath();
+        ctx.ellipse(0, 0, l.s, l.s * 0.45, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      });
+
+      ctx.fillStyle = '#65a30d';
+      ctx.beginPath();
+      ctx.ellipse(cx + 10, 150, 18, 28, 0.1, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#F15A29';
+      [[cx + 35, 230], [cx - 45, 300], [cx + 42, 380]].forEach(([bx, by]) => {
+        ctx.beginPath();
+        ctx.arc(bx, by, 9, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      const tex = new THREE.CanvasTexture(cvs);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      return tex;
+    }
+
+    function createMottoArtTexture() {
+      const cvs = document.createElement('canvas');
+      cvs.width = 640;
+      cvs.height = 360;
+      const ctx = cvs.getContext('2d');
+      ctx.fillStyle = '#fffdfa';
+      ctx.fillRect(0, 0, 640, 360);
+      ctx.strokeStyle = '#f3ebe0';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(16, 16, 608, 328);
+
+      // Bunting rope
+      ctx.strokeStyle = '#d4a373';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(40, 85);
+      ctx.quadraticCurveTo(320, 135, 600, 85);
+      ctx.stroke();
+
+      // Bunting flags
+      const flagColors = ['#F15A29', '#f59e0b', '#84cc16', '#38bdf8', '#a855f7', '#ec4899', '#F15A29'];
+      const numFlags = flagColors.length;
+      for (let i = 0; i < numFlags; i++) {
+        const tVal = (i + 0.5) / numFlags;
+        const fx = 40 + tVal * 560;
+        const fy = 85 + 4 * Math.sin(tVal * Math.PI) * 12;
+        ctx.fillStyle = flagColors[i];
+        ctx.beginPath();
+        ctx.moveTo(fx - 22, fy);
+        ctx.lineTo(fx + 22, fy);
+        ctx.lineTo(fx, fy + 42);
+        ctx.closePath();
+        ctx.fill();
+      }
+
+      ctx.fillStyle = '#721024';
+      ctx.font = '900 34px "Outfit", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('JUST LIKE HOME', 320, 215);
+
+      ctx.fillStyle = '#F15A29';
+      ctx.font = '800 16px "Outfit", sans-serif';
+      ctx.fillText('NURSERY • AJMAN', 320, 260);
+
+      ctx.fillStyle = '#f59e0b';
+      [[105, 215], [535, 215]].forEach(([sx, sy]) => {
+        ctx.beginPath();
+        ctx.arc(sx, sy, 6, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      const tex = new THREE.CanvasTexture(cvs);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      return tex;
+    }
+
+    // --- Wall Frame Factory Function ---
+    function createNurseryWallFrame({
+      x, y, z,
+      width, height,
+      frameColor = 0xdfb48c,
+      artTexture,
+      hasCord = true,
+      pegYOffset = 0.30
+    }) {
+      const frameGroup = new THREE.Group();
+      frameGroup.position.set(x, y, z);
+
+      const mouldingThick = 0.045;
+      const mouldingDepth = 0.035;
+      const woodMat = new THREE.MeshStandardMaterial({
+        color: frameColor,
+        roughness: 0.45,
+        metalness: 0.02
+      });
+
+      // Top moulding
+      const topBar = new THREE.Mesh(new THREE.BoxGeometry(width + mouldingThick * 2, mouldingThick, mouldingDepth), woodMat);
+      topBar.position.set(0, height / 2 + mouldingThick / 2, mouldingDepth / 2);
+      topBar.castShadow = true;
+      frameGroup.add(topBar);
+
+      // Bottom moulding
+      const btmBar = new THREE.Mesh(new THREE.BoxGeometry(width + mouldingThick * 2, mouldingThick, mouldingDepth), woodMat);
+      btmBar.position.set(0, -height / 2 - mouldingThick / 2, mouldingDepth / 2);
+      btmBar.castShadow = true;
+      frameGroup.add(btmBar);
+
+      // Left moulding
+      const leftBar = new THREE.Mesh(new THREE.BoxGeometry(mouldingThick, height, mouldingDepth), woodMat);
+      leftBar.position.set(-width / 2 - mouldingThick / 2, 0, mouldingDepth / 2);
+      leftBar.castShadow = true;
+      frameGroup.add(leftBar);
+
+      // Right moulding
+      const rightBar = new THREE.Mesh(new THREE.BoxGeometry(mouldingThick, height, mouldingDepth), woodMat);
+      rightBar.position.set(width / 2 + mouldingThick / 2, 0, mouldingDepth / 2);
+      rightBar.castShadow = true;
+      frameGroup.add(rightBar);
+
+      // Passe-partout (matting)
+      const matPlane = new THREE.Mesh(
+        new THREE.PlaneGeometry(width, height),
+        new THREE.MeshStandardMaterial({ color: 0xfcfaf7, roughness: 0.85 })
+      );
+      matPlane.position.set(0, 0, 0.005);
+      frameGroup.add(matPlane);
+
+      // Artwork Plane
+      const artMargin = Math.min(width, height) * 0.16;
+      const artPlane = new THREE.Mesh(
+        new THREE.PlaneGeometry(width - artMargin, height - artMargin),
+        new THREE.MeshStandardMaterial({
+          map: artTexture,
+          roughness: 0.35,
+          metalness: 0.01
+        })
+      );
+      artPlane.position.set(0, 0, 0.01);
+      frameGroup.add(artPlane);
+
+      // Soft Drop Shadow plane against the wall
+      const shadowCanvas = document.createElement('canvas');
+      shadowCanvas.width = 64;
+      shadowCanvas.height = 64;
+      const sCtx = shadowCanvas.getContext('2d');
+      const sGrad = sCtx.createRadialGradient(32, 32, 10, 32, 32, 32);
+      sGrad.addColorStop(0, 'rgba(120, 60, 30, 0.34)');
+      sGrad.addColorStop(1, 'rgba(120, 60, 30, 0.0)');
+      sCtx.fillStyle = sGrad;
+      sCtx.fillRect(0, 0, 64, 64);
+      const shadowTex = new THREE.CanvasTexture(shadowCanvas);
+
+      const shadowMesh = new THREE.Mesh(
+        new THREE.PlaneGeometry(width * 1.25, height * 1.25),
+        new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, opacity: 0.45, depthWrite: false })
+      );
+      shadowMesh.position.set(0.03, -0.05, -0.01);
+      frameGroup.add(shadowMesh);
+
+      // Hanging cord & wooden peg
+      if (hasCord) {
+        const pegGeo = new THREE.CylinderGeometry(0.022, 0.022, 0.05, 16);
+        const pegMesh = new THREE.Mesh(pegGeo, woodMat);
+        pegMesh.rotation.x = Math.PI / 2;
+        pegMesh.position.set(0, height / 2 + pegYOffset, 0.02);
+        frameGroup.add(pegMesh);
+
+        const cordMat = new THREE.MeshBasicMaterial({ color: 0x8a6245 });
+        const cordRadius = 0.0035;
+
+        const leftCordLen = Math.hypot(width * 0.35, pegYOffset);
+        const leftCordAngle = Math.atan2(pegYOffset, width * 0.35);
+        const leftCord = new THREE.Mesh(new THREE.CylinderGeometry(cordRadius, cordRadius, leftCordLen, 8), cordMat);
+        leftCord.position.set(-width * 0.175, height / 2 + pegYOffset / 2, 0.015);
+        leftCord.rotation.z = Math.PI / 2 - leftCordAngle;
+        frameGroup.add(leftCord);
+
+        const rightCordLen = Math.hypot(width * 0.35, pegYOffset);
+        const rightCordAngle = Math.atan2(pegYOffset, width * 0.35);
+        const rightCord = new THREE.Mesh(new THREE.CylinderGeometry(cordRadius, cordRadius, rightCordLen, 8), cordMat);
+        rightCord.position.set(width * 0.175, height / 2 + pegYOffset / 2, 0.015);
+        rightCord.rotation.z = -(Math.PI / 2 - rightCordAngle);
+        frameGroup.add(rightCord);
+      }
+
+      section1Group.add(frameGroup);
+      return frameGroup;
+    }
+
+    // Instantiate 5 Gallery Wall Frames on the Nursery Wall:
+    // Frame 1: Left Inner - Smiling Sunshine & Clouds
+    createNurseryWallFrame({
+      x: -1.95,
+      y: 1.45,
+      z: backWallZ + 0.05,
+      width: 0.86,
+      height: 1.10,
+      frameColor: 0xdfb48c, // Scandinavian light oak
+      artTexture: createSunArtTexture(),
+      hasCord: true,
+      pegYOffset: 0.32
+    });
+
+    // Frame 2: Right Inner - Pastel Boho Rainbow
+    createNurseryWallFrame({
+      x: 1.95,
+      y: 1.48,
+      z: backWallZ + 0.05,
+      width: 0.88,
+      height: 1.12,
+      frameColor: 0xe0a97c, // Warm honey oak
+      artTexture: createRainbowArtTexture(),
+      hasCord: true,
+      pegYOffset: 0.32
+    });
+
+    // Frame 3: Center Upper - Nursery Bunting Motto Banner
+    createNurseryWallFrame({
+      x: 0.0,
+      y: 2.45,
+      z: backWallZ + 0.05,
+      width: 1.18,
+      height: 0.66,
+      frameColor: 0xf1dfcb, // Light birch
+      artTexture: createMottoArtTexture(),
+      hasCord: true,
+      pegYOffset: 0.28
+    });
+
+    // Frame 4: Left Outer - Playful ABC Blocks
+    createNurseryWallFrame({
+      x: -3.25,
+      y: 1.08,
+      z: backWallZ + 0.05,
+      width: 0.65,
+      height: 0.75,
+      frameColor: 0xdcb28d,
+      artTexture: createAbcArtTexture(),
+      hasCord: true,
+      pegYOffset: 0.24
+    });
+
+    // Frame 5: Right Outer - Botanical Growth Sprout
+    createNurseryWallFrame({
+      x: 3.25,
+      y: 1.10,
+      z: backWallZ + 0.05,
+      width: 0.65,
+      height: 0.78,
+      frameColor: 0xd4a373,
+      artTexture: createBotanicalArtTexture(),
+      hasCord: true,
+      pegYOffset: 0.24
+    });
+
     const shadowGeo = new THREE.PlaneGeometry(3.0, 3.0);
     const sCvs = document.createElement('canvas');
     sCvs.width = 128;
@@ -2195,11 +2712,12 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                     className="hero-offerings-glass-badge"
                     style={{
                       display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      padding: '7px 16px',
+                      flexDirection: 'column',
+                      alignItems: 'flex-start',
+                      gap: '3px',
+                      padding: '8px 16px',
                       borderRadius: '14px',
-                      backgroundColor: 'rgba(255, 255, 255, 0.82)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.85)',
                       backdropFilter: 'blur(16px)',
                       WebkitBackdropFilter: 'blur(16px)',
                       border: '1.5px solid rgba(255, 255, 255, 0.95)',
@@ -2208,15 +2726,36 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                       width: 'fit-content'
                     }}
                   >
-                    <span style={{ 
+                    <div style={{ 
                       fontSize: '11.5px', 
                       fontWeight: '800', 
                       color: '#F15A29', 
                       letterSpacing: '0.35px',
-                      lineHeight: 1.35
+                      lineHeight: 1.3,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      whiteSpace: 'nowrap'
                     }}>
-                      EYFS Approach &bull; Full-Day &amp; Half-Day Care &bull; Preschool &bull; School Readiness
-                    </span>
+                      <span>EYFS Approach</span>
+                      <span style={{ opacity: 0.55 }}>&bull;</span>
+                      <span>Full–Day &amp; Half–Day Care</span>
+                    </div>
+                    <div style={{ 
+                      fontSize: '11.5px', 
+                      fontWeight: '800', 
+                      color: '#F15A29', 
+                      letterSpacing: '0.35px',
+                      lineHeight: 1.3,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      whiteSpace: 'nowrap'
+                    }}>
+                      <span>Preschool</span>
+                      <span style={{ opacity: 0.55 }}>&bull;</span>
+                      <span>School Readiness</span>
+                    </div>
                   </div>
                 </div>
               </div>
