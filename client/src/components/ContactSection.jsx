@@ -16,6 +16,9 @@ import { useSectionScroll } from '../hooks/useScrollProgress';
 import RevealOnScroll from './RevealOnScroll';
 import { getApiUrl } from '../config/api';
 
+const GMB_URL = 'https://share.google/AbZVHOBinruNYkwDg';
+const GOOGLE_MAPS_EMBED = 'https://maps.google.com/maps?q=Just+Like+Home+Nursery+Al+Rashidiya+2+Ajman&t=&z=16&ie=UTF8&iwloc=&output=embed';
+
 export default function ContactSection({ onBookVisitClick }) {
   const contactRef = useRef(null);
   const { progress } = useSectionScroll(contactRef);
@@ -160,7 +163,7 @@ export default function ContactSection({ onBookVisitClick }) {
                 </p>
                 <div style={{ marginTop: '0.85rem' }}>
                   <a
-                    href="https://maps.google.com/?q=Villa+47+Al+Rashidiya+2+Ajman"
+                    href={GMB_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
@@ -533,14 +536,14 @@ export default function ContactSection({ onBookVisitClick }) {
               </p>
             </div>
             <a
-              href="https://maps.google.com/?q=Villa+47+Al+Rashidiya+2+Ajman"
+              href={GMB_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
               style={{ fontSize: '0.82rem', padding: '0.6rem 1.2rem' }}
             >
               <MapPin size={14} />
-              <span>Get Directions</span>
+              <span>Get Directions on Google Maps</span>
             </a>
           </div>
 
@@ -551,8 +554,8 @@ export default function ContactSection({ onBookVisitClick }) {
             overflow: 'hidden'
           }}>
             <iframe
-              title="Just Like Home Nursery Location"
-              src="https://maps.google.com/maps?q=Al+Rashidiya+2+Ajman+Villa+47&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              title="Just Like Home Nursery Location on Google Maps"
+              src={GOOGLE_MAPS_EMBED}
               width="100%"
               height="100%"
               style={{ border: 0 }}

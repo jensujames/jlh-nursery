@@ -7,6 +7,9 @@ import {
   CheckCircle2, Send, Navigation, Info, ArrowRight 
 } from 'lucide-react';
 
+const GMB_URL = 'https://share.google/AbZVHOBinruNYkwDg';
+const GOOGLE_MAPS_EMBED = 'https://maps.google.com/maps?q=Just+Like+Home+Nursery+Al+Rashidiya+2+Ajman&t=&z=16&ie=UTF8&iwloc=&output=embed';
+
 export default function ContactPage() {
   useEffect(() => {
     document.title = "Contact Just Like Home Nursery | Al Rashidiya 2, Ajman";
@@ -97,7 +100,7 @@ export default function ContactPage() {
         primaryCtaText="Book a Visit Form"
         primaryLink="#visit-form"
         secondaryCtaText="Get Directions"
-        secondaryLink="https://maps.google.com/?q=Villa+47+Al+Rashidiya+2+Ajman"
+        secondaryLink={GMB_URL}
         whatsappText="Hello, I would like to know more about Just Like Home Nursery. Please share available options and help me book a visit."
       />
 
@@ -222,7 +225,7 @@ export default function ContactPage() {
                 </div>
                 <div style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid rgba(114, 16, 36, 0.08)' }}>
                   <a 
-                    href="https://maps.google.com/?q=Villa+47+Al+Rashidiya+2+Ajman" 
+                    href={GMB_URL} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     style={{
@@ -236,7 +239,7 @@ export default function ContactPage() {
                     }}
                   >
                     <Navigation size={16} />
-                    <span>Get Directions</span>
+                    <span>Get Directions on Google Maps</span>
                   </a>
                 </div>
               </div>
@@ -840,7 +843,7 @@ export default function ContactPage() {
                 Map &amp; Directions
               </h2>
               <p style={{ fontSize: '15.5px', color: '#64748b', margin: 0 }}>
-                Embed the verified Google Business Profile map and add a clear Get Directions button. Confirm the exact map pin before launch.
+                Conveniently situated at Villa 47, Ammar Bin Yasir St, Al Rashidiya 2, Ajman. Easy access for morning drop-offs and afternoon pick-ups with convenient curbside parking.
               </p>
             </div>
 
@@ -855,8 +858,8 @@ export default function ContactPage() {
               }}
             >
               <iframe
-                title="Just Like Home Nursery Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3605.3424168050965!2d55.45187127599554!3d25.399222523727766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f1310!3m3!1m2!1s0x3e5f583e7428f52f%3A0xb30e8c160c87285c!2sAl%20Rashidiya%202%20-%20Ajman!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
+                title="Just Like Home Nursery Location on Google Maps"
+                src={GOOGLE_MAPS_EMBED}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -868,7 +871,7 @@ export default function ContactPage() {
 
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', marginTop: '36px', flexWrap: 'wrap' }}>
               <a 
-                href="https://maps.google.com/?q=Villa+47+Al+Rashidiya+2+Ajman" 
+                href={GMB_URL} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 style={{
@@ -889,7 +892,7 @@ export default function ContactPage() {
                 onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
               >
                 <Navigation size={18} />
-                <span>GET DIRECTIONS</span>
+                <span>OPEN IN GOOGLE MAPS</span>
               </a>
               <a 
                 href="tel:0502005346" 
