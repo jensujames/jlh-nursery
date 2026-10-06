@@ -2313,139 +2313,141 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         {/* SECTION 2: 4 Core Nursery Pillars & Synchronized 3D Pedestals */}
         <section className="content-section" id="section-2">
           <div className="section2-transition-overlay" id="transition-overlay" />
-
           <div className="content-wrapper">
-            <div className="content-header" data-reveal="top">
-              <span className="badge-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                <Heart size={14} className="fill-current" />
-                ABOUT JUST LIKE HOME
-              </span>
-              <h2 style={{ color: '#721024' }}>
-                A Place to Learn, Grow and{' '}
-                <span style={{
-                  background: 'linear-gradient(135deg, #721024 0%, #F15A29 50%, #c9a84c 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent'
-                }}>
-                  Feel at Home
-                </span>
-              </h2>
-              <p>
-                Childhood's earliest years are filled with important little moments – first friendships, new words, discoveries, questions, achievements and growing independence. At Just Like Home Nursery, we make those moments meaningful.
-              </p>
-              <p style={{ marginTop: '12px' }}>
-                Our approach combines early-years learning with the care, patience and personal attention of a nurturing home environment. Children are encouraged to discover the world through play, creativity, movement and hands-on experiences while developing confidence at their own pace.
-              </p>
-              <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '24px' }}>
-                <Link
-                  to="/about-us"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '12px 26px',
-                    borderRadius: '999px',
-                    background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-                    color: '#ffffff',
-                    fontWeight: '800',
-                    fontSize: '14px',
-                    textDecoration: 'none',
-                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.22)'
-                  }}
-                  onClick={() => playPopSound(600)}
-                >
-                  <span>About Just Like Home</span>
-                  <ArrowRight size={16} />
-                </Link>
-                <button
-                  type="button"
-                  onClick={() => {
-                    playPopSound(580);
-                    onBookVisitClick();
-                  }}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '12px 24px',
-                    borderRadius: '999px',
-                    backgroundColor: '#ffffff',
-                    color: '#721024',
-                    fontWeight: '800',
-                    fontSize: '14px',
-                    border: '1.5px solid #721024',
-                    cursor: 'pointer',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
-                  }}
-                >
-                  <Calendar size={16} />
-                  <span>Book a Visit</span>
-                </button>
-              </div>
-            </div>
-
-            <div className="pillars-interactive-split">
+            <div className="pillars-interactive-split" style={{ alignItems: 'start' }}>
               
-              {/* Left Column: 4 Pillar Cards with Pedestal Slots (Enters from Left) */}
-              <div className="pillars-stack-container" id="pillars-stack" data-reveal="left">
-                
-                {/* Pillar 0: WARMTH */}
-                <div 
-                  className={`pillar-stack-card ${activePillar === 0 ? 'active' : ''}`}
-                  id="pillar-card-0"
-                  onClick={() => handlePillarSelect(0)}
-                >
-                  <div className="pillar-cube-slot" id="cube-slot-0">
-                    <div className="slot-pedestal-ring" />
-                  </div>
-                  <div className="pillar-card-text">
-                    <h4>WARMTH</h4>
-                    <p>Motherly care, patience, and genuine personal attention at the heart of every daily interaction.</p>
+              {/* Left Column: Heading Content + 4 Pillar Cards with Pedestal Slots */}
+              <div className="pillars-left-column" data-reveal="left" style={{ display: 'flex', flexDirection: 'column', gap: '32px', width: '100%' }}>
+                <div className="content-header" style={{ marginBottom: 0, textAlign: 'left' }}>
+                  <span className="badge-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    <Heart size={14} className="fill-current" />
+                    ABOUT JUST LIKE HOME
+                  </span>
+                  <h2 style={{ color: '#721024', fontSize: 'clamp(28px, 3.6vw, 42px)', lineHeight: 1.2, margin: '14px 0 16px 0' }}>
+                    A Place to Learn, Grow and{' '}
+                    <span style={{
+                      background: 'linear-gradient(135deg, #721024 0%, #F15A29 50%, #c9a84c 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent'
+                    }}>
+                      Feel at Home
+                    </span>
+                  </h2>
+                  <p style={{ fontSize: '16px', lineHeight: 1.72, color: '#475569', marginBottom: '14px' }}>
+                    Childhood's earliest years are filled with important little moments – first friendships, new words, discoveries, questions, achievements and growing independence. At Just Like Home Nursery, we make those moments meaningful.
+                  </p>
+                  <p style={{ fontSize: '16px', lineHeight: 1.72, color: '#475569', marginBottom: '24px' }}>
+                    Our approach combines early-years learning with the care, patience and personal attention of a nurturing home environment. Children are encouraged to discover the world through play, creativity, movement and hands-on experiences while developing confidence at their own pace.
+                  </p>
+                  <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
+                    <Link
+                      to="/about-us"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        padding: '12px 26px',
+                        borderRadius: '999px',
+                        background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
+                        color: '#ffffff',
+                        fontWeight: '800',
+                        fontSize: '14px',
+                        textDecoration: 'none',
+                        boxShadow: '0 6px 20px rgba(114, 16, 36, 0.22)'
+                      }}
+                      onClick={() => playPopSound(600)}
+                    >
+                      <span>About Just Like Home</span>
+                      <ArrowRight size={16} />
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        playPopSound(580);
+                        onBookVisitClick();
+                      }}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        padding: '12px 24px',
+                        borderRadius: '999px',
+                        backgroundColor: '#ffffff',
+                        color: '#721024',
+                        fontWeight: '800',
+                        fontSize: '14px',
+                        border: '1.5px solid #721024',
+                        cursor: 'pointer',
+                        boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
+                      }}
+                    >
+                      <Calendar size={16} />
+                      <span>Book a Visit</span>
+                    </button>
                   </div>
                 </div>
 
-                {/* Pillar 1: TRUST */}
-                <div 
-                  className={`pillar-stack-card ${activePillar === 1 ? 'active' : ''}`}
-                  id="pillar-card-1"
-                  onClick={() => handlePillarSelect(1)}
-                >
-                  <div className="pillar-cube-slot" id="cube-slot-1">
-                    <div className="slot-pedestal-ring" />
+                {/* 4 Pillar Cards with Pedestal Slots */}
+                <div className="pillars-stack-container" id="pillars-stack">
+                  
+                  {/* Pillar 0: WARMTH */}
+                  <div 
+                    className={`pillar-stack-card ${activePillar === 0 ? 'active' : ''}`}
+                    id="pillar-card-0"
+                    onClick={() => handlePillarSelect(0)}
+                  >
+                    <div className="pillar-cube-slot" id="cube-slot-0">
+                      <div className="slot-pedestal-ring" />
+                    </div>
+                    <div className="pillar-card-text">
+                      <h4>WARMTH</h4>
+                      <p>Motherly care, patience, and genuine personal attention at the heart of every daily interaction.</p>
+                    </div>
                   </div>
-                  <div className="pillar-card-text">
-                    <h4>TRUST</h4>
-                    <p>A secure, transparent partnership with families built on mutual respect and daily open communication.</p>
-                  </div>
-                </div>
 
-                {/* Pillar 2: GROWTH */}
-                <div 
-                  className={`pillar-stack-card ${activePillar === 2 ? 'active' : ''}`}
-                  id="pillar-card-2"
-                  onClick={() => handlePillarSelect(2)}
-                >
-                  <div className="pillar-cube-slot" id="cube-slot-2">
-                    <div className="slot-pedestal-ring" />
+                  {/* Pillar 1: TRUST */}
+                  <div 
+                    className={`pillar-stack-card ${activePillar === 1 ? 'active' : ''}`}
+                    id="pillar-card-1"
+                    onClick={() => handlePillarSelect(1)}
+                  >
+                    <div className="pillar-cube-slot" id="cube-slot-1">
+                      <div className="slot-pedestal-ring" />
+                    </div>
+                    <div className="pillar-card-text">
+                      <h4>TRUST</h4>
+                      <p>A secure, transparent partnership with families built on mutual respect and daily open communication.</p>
+                    </div>
                   </div>
-                  <div className="pillar-card-text">
-                    <h4>GROWTH</h4>
-                    <p>Nurturing whole-child social, emotional, motor, cognitive, and early academic milestones.</p>
-                  </div>
-                </div>
 
-                {/* Pillar 3: JOY */}
-                <div 
-                  className={`pillar-stack-card ${activePillar === 3 ? 'active' : ''}`}
-                  id="pillar-card-3"
-                  onClick={() => handlePillarSelect(3)}
-                >
-                  <div className="pillar-cube-slot" id="cube-slot-3">
-                    <div className="slot-pedestal-ring" />
+                  {/* Pillar 2: GROWTH */}
+                  <div 
+                    className={`pillar-stack-card ${activePillar === 2 ? 'active' : ''}`}
+                    id="pillar-card-2"
+                    onClick={() => handlePillarSelect(2)}
+                  >
+                    <div className="pillar-cube-slot" id="cube-slot-2">
+                      <div className="slot-pedestal-ring" />
+                    </div>
+                    <div className="pillar-card-text">
+                      <h4>GROWTH</h4>
+                      <p>Nurturing whole-child social, emotional, motor, cognitive, and early academic milestones.</p>
+                    </div>
                   </div>
-                  <div className="pillar-card-text">
-                    <h4>JOY</h4>
-                    <p>Play-based learning that protects the natural wonder, curiosity, and joyful laughter of childhood.</p>
+
+                  {/* Pillar 3: JOY */}
+                  <div 
+                    className={`pillar-stack-card ${activePillar === 3 ? 'active' : ''}`}
+                    id="pillar-card-3"
+                    onClick={() => handlePillarSelect(3)}
+                  >
+                    <div className="pillar-cube-slot" id="cube-slot-3">
+                      <div className="slot-pedestal-ring" />
+                    </div>
+                    <div className="pillar-card-text">
+                      <h4>JOY</h4>
+                      <p>Play-based learning that protects the natural wonder, curiosity, and joyful laughter of childhood.</p>
+                    </div>
                   </div>
                 </div>
               </div>
