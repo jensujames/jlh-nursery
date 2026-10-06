@@ -43,7 +43,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
 
     try {
       // 1. Direct email delivery to receiver
-      fetch('https://formsubmit.co/ajax/deevan.aumdsorg@gmail.com', {
+      fetch('https://formsubmit.co/ajax/nurseryjustlikehome@gmail.com', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

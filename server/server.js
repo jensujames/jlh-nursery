@@ -12,7 +12,7 @@ const nodemailer = require('nodemailer');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/jlh_nursery';
-const FORM_RECEIVER_EMAIL = process.env.FORM_RECEIVER_EMAIL || process.env.NURSERY_EMAIL || 'deevan.aumdsorg@gmail.com';
+const FORM_RECEIVER_EMAIL = process.env.FORM_RECEIVER_EMAIL || process.env.NURSERY_EMAIL || 'nurseryjustlikehome@gmail.com';
 
 // Configure optional automated email delivery
 let mailTransporter = null;

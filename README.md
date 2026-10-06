@@ -77,5 +77,5 @@ This launches both the Node.js application (Port 5000) and MongoDB (Port 27017).
 - **Company Name**: Just Like Home Nursery
 - **Address**: Villa No. 47, Al Rashidiya 2, Ajman, United Arab Emirates
 - **Phone / WhatsApp**: 050 200 5346
-- **Email**: deevan.aumdsorg@gmail.com
+- **Email**: nurseryjustlikehome@gmail.com
 - **Hours**: Monday to Friday: 7:30 AM – 5:30 PM | Saturday: By Appointment

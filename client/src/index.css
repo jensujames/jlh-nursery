@@ -718,6 +718,18 @@ textarea {
   }
 }
 
+@keyframes entranceFadeUpCenter {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, 36px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 @keyframes entranceFadeDown {
   0% {
     opacity: 0;
@@ -1156,12 +1168,13 @@ textarea {
 
 .hero-giant-bg-text {
   position: absolute;
-  top: 30%;
+  top: 13%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: clamp(68px, 13vw, 160px);
   font-weight: 900;
-  letter-spacing: -2px;
+  letter-spacing: 2px;
+  word-spacing: clamp(36px, 5.5vw, 84px);
   color: rgba(255, 255, 255, 0.52);
   text-transform: uppercase;
   white-space: nowrap;
@@ -1176,20 +1189,22 @@ textarea {
 
 @media (max-width: 768px) {
   .hero-giant-bg-text {
-    top: 24%;
+    top: 10%;
     font-size: clamp(48px, 12vw, 84px);
-    letter-spacing: -1px;
+    letter-spacing: 1px;
+    word-spacing: clamp(20px, 4vw, 36px);
   }
 }
 
 .hero-section {
-  height: 100vh;
+  height: calc(100vh - 72px);
+  min-height: 600px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  padding-bottom: 38px;
+  padding-bottom: 22px;
   box-sizing: border-box;
   position: relative;
   pointer-events: auto;
@@ -1530,6 +1545,49 @@ textarea {
   .hero-btn-svg {
     width: 15px !important;
     height: 15px !important;
+  }
+}
+
+.hero-center-cta-wrap {
+  position: absolute;
+  bottom: clamp(70px, 10.5vh, 100px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  z-index: 30;
+  pointer-events: auto;
+  white-space: nowrap;
+}
+
+.hero-center-cta-wrap.animate-entrance-up {
+  animation-name: entranceFadeUpCenter;
+}
+
+@media (max-width: 880px) {
+  .hero-center-cta-wrap {
+    position: absolute !important;
+    bottom: 16px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 32px) !important;
+    max-width: 360px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    pointer-events: auto !important;
+    z-index: 45 !important;
+  }
+  .hero-center-cta-wrap .hero-cta-btn {
+    flex: 1 !important;
+    padding: 9px 12px !important;
+    min-height: 42px !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
   }
 }
 
@@ -5726,4 +5784,206 @@ textarea {
     z-index: 999999 !important;
     background-color: #fffdf9 !important;
   }
-}
+}
+
+/* ==========================================================================
+   3D PLAYFUL MEADOW FOOTER (Matching User 3D Reference)
+   ========================================================================== */
+.footer-3d-playful {
+  position: relative;
+  background: linear-gradient(180deg, #fffef9 0%, #fffcf3 40%, #fef8eb 100%);
+  color: #334155;
+  overflow: hidden;
+  border-top: 2px solid #fed7aa;
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+}
+
+@keyframes chickBob3D {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-1.5deg);
+  }
+}
+
+@keyframes bunnyWave3D {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(2deg);
+  }
+}
+
+@keyframes grassSway3D {
+  0%, 100% {
+    transform: skewX(0deg);
+  }
+  50% {
+    transform: skewX(-1.5deg);
+  }
+}
+
+@keyframes butterflyFlutter {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  25% {
+    transform: translate(15px, -12px) scale(1.05) rotate(5deg);
+  }
+  50% {
+    transform: translate(30px, -4px) scale(0.95) rotate(-3deg);
+  }
+  75% {
+    transform: translate(15px, -18px) scale(1.02) rotate(4deg);
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+.footer-3d-chick-box {
+  animation: chickBob3D 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+.footer-3d-chick-box:hover {
+  animation-play-state: paused;
+  transform: translateY(-12px) scale(1.06) !important;
+}
+
+.footer-3d-bunny-box {
+  animation: bunnyWave3D 4.5s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+.footer-3d-bunny-box:hover {
+  animation-play-state: paused;
+  transform: translateY(-12px) scale(1.06) !important;
+}
+
+.footer-3d-social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1.5px solid #fed7aa;
+  box-shadow: 0 3px 0 #ea580c, 0 6px 14px rgba(234, 88, 12, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c2410c;
+  text-decoration: none;
+  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+.footer-3d-social-btn:hover {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #ea580c, 0 3px 8px rgba(234, 88, 12, 0.25);
+  background-color: #fff7ed;
+  color: #ea580c;
+}
+.footer-3d-social-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 #ea580c, 0 2px 4px rgba(234, 88, 12, 0.2);
+}
+
+.footer-3d-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fdf8ed;
+  border: 1.5px solid #fed7aa;
+  border-radius: 14px;
+  padding: 4px 6px 4px 14px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.04), 0 3px 0 rgba(234, 88, 12, 0.12);
+  transition: all 0.2s ease;
+}
+.footer-3d-input-wrap:focus-within {
+  border-color: #ea580c;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15), 0 4px 12px rgba(234, 88, 12, 0.12);
+}
+
+.footer-3d-plane-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #b45309, 0 4px 10px rgba(234, 88, 12, 0.35);
+  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+}
+.footer-3d-plane-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 0 #b45309, 0 8px 16px rgba(234, 88, 12, 0.45);
+}
+.footer-3d-plane-btn:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 0 1px 0 #b45309, 0 2px 6px rgba(234, 88, 12, 0.3);
+}
+
+@media (max-width: 900px) {
+  .footer-3d-chick-box {
+    position: relative !important;
+    left: auto !important;
+    bottom: auto !important;
+    margin: 1.5rem auto 0 auto !important;
+    width: 140px !important;
+    height: 140px !important;
+  }
+  .footer-3d-bunny-box {
+    position: relative !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin: 1.5rem auto 0 auto !important;
+    width: 150px !important;
+    height: 150px !important;
+  }
+}
+
+/* Contact Page Minimal, Clean & Professional Styles */
+.contact-clean-input {
+  width: 100%;
+  padding: 0.72rem 0.95rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-size: 0.92rem;
+  font-family: inherit;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.contact-clean-input::placeholder {
+  color: #94a3b8;
+}
+
+.contact-clean-input:hover {
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+}
+
+.contact-clean-input:focus {
+  background-color: #ffffff;
+  border-color: #ea580c;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.12);
+}
+
+.contact-hub-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.contact-hub-card:hover {
+  border-color: #fed7aa;
+  box-shadow: 0 10px 30px -4px rgba(234, 88, 12, 0.08);
+}
+
+

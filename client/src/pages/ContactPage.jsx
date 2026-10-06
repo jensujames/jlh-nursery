@@ -119,7 +119,7 @@ export default function ContactPage({ onBookVisitClick }) {
 
     try {
       // 1. Direct email delivery to receiver
-      fetch('https://formsubmit.co/ajax/deevan.aumdsorg@gmail.com', {
+      fetch('https://formsubmit.co/ajax/nurseryjustlikehome@gmail.com', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -514,51 +514,72 @@ export default function ContactPage({ onBookVisitClick }) {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2.5rem',
-            alignItems: 'start'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+            gap: '2rem',
+            alignItems: 'stretch'
           }}>
-            {/* Left: Streamlined Enquiry Form */}
-            <RevealOnScroll animation="fade-left">
+            {/* Left Column: Streamlined Minimal Admissions Form */}
+            <RevealOnScroll animation="fade-up">
               <div style={{
-                backgroundColor: '#fffdfb',
+                backgroundColor: '#ffffff',
                 padding: 'clamp(1.5rem, 3.5vw, 2.25rem)',
                 borderRadius: '24px',
-                border: '1.5px solid rgba(234, 88, 12, 0.15)',
-                boxShadow: '0 12px 32px rgba(0,0,0,0.03)'
+                border: '1px solid #e2e8f0',
+                boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                display: 'flex',
+                flexDirection: 'column',
+                height: '100%',
+                boxSizing: 'border-box'
               }}>
                 <div style={{ marginBottom: '1.25rem' }}>
-                  <span style={{
-                    fontSize: '0.78rem',
-                    fontWeight: '800',
+                  <div style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '5px',
+                    padding: '0.25rem 0.75rem',
+                    borderRadius: '999px',
+                    backgroundColor: '#fff7ed',
                     color: '#ea580c',
+                    fontSize: '0.74rem',
+                    fontWeight: '800',
+                    letterSpacing: '0.04em',
                     textTransform: 'uppercase',
-                    letterSpacing: '0.04em'
+                    marginBottom: '0.6rem'
                   }}>
-                    Direct Admissions Form
-                  </span>
+                    <Sparkles size={12} />
+                    <span>Direct Admissions</span>
+                  </div>
                   <h3 style={{
                     fontSize: '1.45rem',
-                    color: '#1e293b',
-                    fontWeight: '900',
-                    marginTop: '0.2rem',
-                    marginBottom: '0.3rem'
+                    color: '#0f172a',
+                    fontWeight: '800',
+                    letterSpacing: '-0.02em',
+                    margin: '0 0 0.35rem 0'
                   }}>
                     How Can We Help Your Family?
                   </h3>
+                  <p style={{
+                    fontSize: '0.86rem',
+                    color: '#64748b',
+                    margin: 0,
+                    lineHeight: 1.5
+                  }}>
+                    Leave your enquiry below and our admissions coordinator will get back to you promptly within 2 hours.
+                  </p>
                 </div>
 
                 {submitted ? (
                   <div style={{
                     backgroundColor: '#f0fdf4',
-                    border: '1.5px solid #86efac',
-                    borderRadius: '18px',
-                    padding: '1.75rem',
-                    textAlign: 'center'
+                    border: '1px solid #86efac',
+                    borderRadius: '16px',
+                    padding: '2rem 1.5rem',
+                    textAlign: 'center',
+                    margin: 'auto 0'
                   }}>
                     <div style={{
-                      width: '50px',
-                      height: '50px',
+                      width: '48px',
+                      height: '48px',
                       borderRadius: '50%',
                       backgroundColor: '#22c55e',
                       color: '#ffffff',
@@ -567,24 +588,33 @@ export default function ContactPage({ onBookVisitClick }) {
                       justifyContent: 'center',
                       margin: '0 auto 0.75rem'
                     }}>
-                      <CheckCircle2 size={28} />
+                      <CheckCircle2 size={26} />
                     </div>
-                    <h4 style={{ fontSize: '1.15rem', color: '#15803d', fontWeight: '800', marginBottom: '0.35rem' }}>
+                    <h4 style={{ fontSize: '1.15rem', color: '#15803d', fontWeight: '800', margin: '0 0 0.35rem 0' }}>
                       Enquiry Received With Joy!
                     </h4>
-                    <p style={{ fontSize: '0.88rem', color: '#166534', lineHeight: 1.5, marginBottom: '1.25rem' }}>
+                    <p style={{ fontSize: '0.86rem', color: '#166534', lineHeight: 1.5, margin: '0 0 1.25rem 0' }}>
                       Thank you! Our admissions coordinator will contact you promptly via phone or WhatsApp.
                     </p>
                     <button
+                      type="button"
                       onClick={() => setSubmitted(false)}
-                      className="btn-clay-gold"
-                      style={{ padding: '0.55rem 1.25rem', fontSize: '0.84rem' }}
+                      style={{
+                        padding: '0.55rem 1.25rem',
+                        borderRadius: '999px',
+                        backgroundColor: '#16a34a',
+                        color: '#ffffff',
+                        border: 'none',
+                        fontSize: '0.84rem',
+                        fontWeight: '700',
+                        cursor: 'pointer'
+                      }}
                     >
-                      Send Another Inquiry
+                      Send Another Enquiry
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '1rem' }}>
+                  <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.95rem', flex: 1 }}>
                     {errorMessage && (
                       <div style={{
                         backgroundColor: '#fef2f2',
@@ -600,36 +630,40 @@ export default function ContactPage({ onBookVisitClick }) {
 
                     {/* Inquiry Reason Pills */}
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', color: '#334155', marginBottom: '0.35rem' }}>
+                      <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: '#334155', marginBottom: '0.4rem' }}>
                         Inquiry Topic
                       </label>
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-                        {['Schedule a Tour', 'Admissions 2026/27', 'Daycare', 'Holiday Camp'].map((sub) => (
-                          <button
-                            type="button"
-                            key={sub}
-                            onClick={() => setFormData({ ...formData, subject: sub })}
-                            style={{
-                              padding: '0.3rem 0.75rem',
-                              borderRadius: '999px',
-                              fontSize: '0.78rem',
-                              fontWeight: '700',
-                              border: formData.subject === sub ? '1.5px solid #ea580c' : '1px solid #cbd5e1',
-                              backgroundColor: formData.subject === sub ? '#ea580c' : '#ffffff',
-                              color: formData.subject === sub ? '#ffffff' : '#64748b',
-                              cursor: 'pointer',
-                              transition: 'all 0.2s'
-                            }}
-                          >
-                            {sub}
-                          </button>
-                        ))}
+                        {['Schedule a Tour', 'Admissions 2026/27', 'Daycare', 'Holiday Camp'].map((sub) => {
+                          const isSelected = formData.subject === sub;
+                          return (
+                            <button
+                              type="button"
+                              key={sub}
+                              onClick={() => setFormData({ ...formData, subject: sub })}
+                              style={{
+                                padding: '0.35rem 0.8rem',
+                                borderRadius: '999px',
+                                fontSize: '0.78rem',
+                                fontWeight: isSelected ? '700' : '600',
+                                border: isSelected ? '1px solid #ea580c' : '1px solid #e2e8f0',
+                                backgroundColor: isSelected ? '#ea580c' : '#f8fafc',
+                                color: isSelected ? '#ffffff' : '#475569',
+                                cursor: 'pointer',
+                                transition: 'all 0.18s ease',
+                                boxShadow: isSelected ? '0 2px 8px rgba(234, 88, 12, 0.25)' : 'none'
+                              }}
+                            >
+                              {sub}
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
 
-                    {/* Name */}
+                    {/* Parent's Name */}
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', color: '#334155', marginBottom: '0.3rem' }}>
+                      <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: '#334155', marginBottom: '0.3rem' }}>
                         Parent's Name *
                       </label>
                       <input
@@ -638,44 +672,28 @@ export default function ContactPage({ onBookVisitClick }) {
                         placeholder="e.g. Fatima Al-Zahra"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        style={{
-                          width: '100%',
-                          padding: '0.65rem 0.85rem',
-                          borderRadius: '12px',
-                          border: '1.5px solid #cbd5e1',
-                          fontSize: '0.9rem',
-                          backgroundColor: '#ffffff',
-                          outline: 'none'
-                        }}
+                        className="contact-clean-input"
                       />
                     </div>
 
-                    {/* Phone & Email */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.75rem' }}>
+                    {/* Phone & Email in Balanced Two Columns */}
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '0.75rem' }}>
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', color: '#334155', marginBottom: '0.3rem' }}>
+                        <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: '#334155', marginBottom: '0.3rem' }}>
                           Phone / WhatsApp *
                         </label>
                         <input
                           type="tel"
                           required
-                          placeholder="e.g. 050 200 5346"
+                          placeholder="050 200 5346"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          style={{
-                            width: '100%',
-                            padding: '0.65rem 0.85rem',
-                            borderRadius: '12px',
-                            border: '1.5px solid #cbd5e1',
-                            fontSize: '0.9rem',
-                            backgroundColor: '#ffffff',
-                            outline: 'none'
-                          }}
+                          className="contact-clean-input"
                         />
                       </div>
 
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', color: '#334155', marginBottom: '0.3rem' }}>
+                        <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: '#334155', marginBottom: '0.3rem' }}>
                           Email Address *
                         </label>
                         <input
@@ -684,47 +702,45 @@ export default function ContactPage({ onBookVisitClick }) {
                           placeholder="parent@example.com"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          style={{
-                            width: '100%',
-                            padding: '0.65rem 0.85rem',
-                            borderRadius: '12px',
-                            border: '1.5px solid #cbd5e1',
-                            fontSize: '0.9rem',
-                            backgroundColor: '#ffffff',
-                            outline: 'none'
-                          }}
+                          className="contact-clean-input"
                         />
                       </div>
                     </div>
 
-                    {/* Child Age */}
+                    {/* Child Age Group */}
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', color: '#334155', marginBottom: '0.3rem' }}>
+                      <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: '#334155', marginBottom: '0.3rem' }}>
                         Child's Age Group
                       </label>
-                      <select
-                        value={formData.childAge}
-                        onChange={(e) => setFormData({ ...formData, childAge: e.target.value })}
-                        style={{
-                          width: '100%',
-                          padding: '0.65rem 0.85rem',
-                          borderRadius: '12px',
-                          border: '1.5px solid #cbd5e1',
-                          fontSize: '0.9rem',
-                          backgroundColor: '#ffffff',
-                          outline: 'none'
-                        }}
-                      >
-                        <option value="Infant (45 Days - 1 Year)">Infant Care (45 Days - 1 Year)</option>
-                        <option value="Toddler (1 - 2 Years)">Toddler Discovery (1 - 2 Years)</option>
-                        <option value="Early Learner (2 - 3 Years)">Early Learners (2 - 3 Years)</option>
-                        <option value="Preschooler (3 - 4+ Years)">Preschool & School Prep (3 - 4+ Years)</option>
-                      </select>
+                      <div style={{ position: 'relative' }}>
+                        <select
+                          value={formData.childAge}
+                          onChange={(e) => setFormData({ ...formData, childAge: e.target.value })}
+                          className="contact-clean-input"
+                          style={{ appearance: 'none', paddingRight: '2.5rem', cursor: 'pointer' }}
+                        >
+                          <option value="Infant Care (45 Days - 1 Year)">Infant Care (45 Days – 1 Year)</option>
+                          <option value="Toddler Discovery (1 - 2 Years)">Toddler Discovery (1 – 2 Years)</option>
+                          <option value="Early Learners (2 - 3 Years)">Early Learners (2 – 3 Years)</option>
+                          <option value="Preschool & School Prep (3 - 4+ Years)">Preschool & School Prep (3 – 4+ Years)</option>
+                        </select>
+                        <ChevronDown 
+                          size={15} 
+                          style={{ 
+                            position: 'absolute', 
+                            right: '12px', 
+                            top: '50%', 
+                            transform: 'translateY(-50%)', 
+                            pointerEvents: 'none', 
+                            color: '#94a3b8' 
+                          }} 
+                        />
+                      </div>
                     </div>
 
-                    {/* Message */}
+                    {/* Message or Preferred Visit Date */}
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', color: '#334155', marginBottom: '0.3rem' }}>
+                      <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: '#334155', marginBottom: '0.3rem' }}>
                         Message or Preferred Visit Date
                       </label>
                       <textarea
@@ -732,17 +748,8 @@ export default function ContactPage({ onBookVisitClick }) {
                         placeholder="Tell us what matters most for your child..."
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        style={{
-                          width: '100%',
-                          padding: '0.65rem 0.85rem',
-                          borderRadius: '12px',
-                          border: '1.5px solid #cbd5e1',
-                          fontSize: '0.9rem',
-                          backgroundColor: '#ffffff',
-                          outline: 'none',
-                          resize: 'vertical',
-                          fontFamily: 'inherit'
-                        }}
+                        className="contact-clean-input"
+                        style={{ resize: 'vertical', minHeight: '65px', fontFamily: 'inherit' }}
                       />
                     </div>
 
@@ -750,16 +757,38 @@ export default function ContactPage({ onBookVisitClick }) {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="btn-clay-gold"
                       style={{
-                        padding: '0.75rem',
-                        fontSize: '0.92rem',
-                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
                         justifyContent: 'center',
-                        marginTop: '0.25rem'
+                        gap: '0.5rem',
+                        width: '100%',
+                        padding: '0.8rem 1.5rem',
+                        backgroundColor: '#ea580c',
+                        color: '#ffffff',
+                        border: 'none',
+                        borderRadius: '12px',
+                        fontSize: '0.92rem',
+                        fontWeight: '700',
+                        cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                        boxShadow: '0 4px 14px rgba(234, 88, 12, 0.25)',
+                        transition: 'all 0.2s ease',
+                        marginTop: 'auto'
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!isSubmitting) {
+                          e.currentTarget.style.backgroundColor = '#d9480f';
+                          e.currentTarget.style.transform = 'translateY(-1px)';
+                          e.currentTarget.style.boxShadow = '0 6px 18px rgba(234, 88, 12, 0.35)';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = '#ea580c';
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = '0 4px 14px rgba(234, 88, 12, 0.25)';
                       }}
                     >
-                      <Send size={16} />
+                      <Send size={15} />
                       <span>{isSubmitting ? 'Sending Enquiry...' : 'Submit Enquiry & Book Tour'}</span>
                     </button>
                   </form>
@@ -767,22 +796,23 @@ export default function ContactPage({ onBookVisitClick }) {
               </div>
             </RevealOnScroll>
 
-            {/* Right: Interactive Google Map + Fast Channel Badges */}
-            <RevealOnScroll animation="fade-right">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            {/* Right Column: Clean Location Map + Unified Contact Hub */}
+            <RevealOnScroll animation="fade-up" delay={150}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', height: '100%' }}>
                 
-                {/* Embedded Google Map */}
+                {/* 1. Sleek Google Map Card */}
                 <div style={{
                   backgroundColor: '#ffffff',
                   borderRadius: '24px',
                   overflow: 'hidden',
-                  border: '1.5px solid #e2e8f0',
-                  boxShadow: '0 12px 30px rgba(0,0,0,0.04)',
+                  border: '1px solid #e2e8f0',
+                  boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
                   position: 'relative'
                 }}>
+                  {/* Clean Top Bar */}
                   <div style={{
-                    padding: '0.9rem 1.25rem',
-                    backgroundColor: '#fffdfb',
+                    padding: '0.85rem 1.25rem',
+                    backgroundColor: '#ffffff',
                     borderBottom: '1px solid #f1f5f9',
                     display: 'flex',
                     alignItems: 'center',
@@ -790,11 +820,28 @@ export default function ContactPage({ onBookVisitClick }) {
                     flexWrap: 'wrap',
                     gap: '0.5rem'
                   }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <MapPin size={16} style={{ color: '#ea580c' }} />
-                      <strong style={{ fontSize: '0.88rem', color: '#1e293b' }}>
-                        Villa 47, Al Rashidiya 2, Ajman
-                      </strong>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
+                      <div style={{
+                        width: '28px',
+                        height: '28px',
+                        borderRadius: '8px',
+                        backgroundColor: '#fff7ed',
+                        color: '#ea580c',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0
+                      }}>
+                        <MapPin size={15} />
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '0.88rem', fontWeight: '800', color: '#0f172a', lineHeight: 1.2 }}>
+                          Villa 47, Al Rashidiya 2, Ajman
+                        </div>
+                        <div style={{ fontSize: '0.74rem', color: '#64748b', fontWeight: '500' }}>
+                          Quiet Residential Street • Dedicated Shaded Parking
+                        </div>
+                      </div>
                     </div>
 
                     <a
@@ -804,23 +851,34 @@ export default function ContactPage({ onBookVisitClick }) {
                       style={{
                         display: 'inline-flex',
                         alignItems: 'center',
-                        gap: '0.3rem',
+                        gap: '0.35rem',
                         color: '#ea580c',
                         fontSize: '0.8rem',
                         fontWeight: '700',
-                        textDecoration: 'none'
+                        textDecoration: 'none',
+                        backgroundColor: '#fff7ed',
+                        padding: '0.35rem 0.75rem',
+                        borderRadius: '999px',
+                        transition: 'all 0.15s ease'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#fed7aa';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = '#fff7ed';
                       }}
                     >
-                      <span>Open in Maps</span>
-                      <ExternalLink size={13} />
+                      <span>Directions</span>
+                      <ExternalLink size={12} />
                     </a>
                   </div>
 
+                  {/* Embedded Google Map */}
                   <iframe
                     title="Just Like Home Nursery Location Map"
                     src="https://maps.google.com/maps?q=Villa%2047,%20Al%20Rashidiya%202,%20Ajman&t=&z=15&ie=UTF8&iwloc=&output=embed"
                     width="100%"
-                    height="280"
+                    height="200"
                     style={{ border: 0, display: 'block' }}
                     allowFullScreen=""
                     loading="lazy"
@@ -828,27 +886,33 @@ export default function ContactPage({ onBookVisitClick }) {
                   />
                 </div>
 
-                {/* Direct Contact Cards Stack (One by One) */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
+                {/* 2. Unified Admissions Contact Matrix */}
+                <div style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '24px',
+                  border: '1px solid #e2e8f0',
+                  boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                  padding: '1.25rem 1.4rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1.1rem',
+                  flex: 1,
+                  justifyContent: 'space-between'
+                }}>
                   
-                  {/* Card 1: DIRECT LINE */}
+                  {/* Row 1: Direct Hotline & WhatsApp */}
                   <div style={{
-                    backgroundColor: '#ffffff',
-                    padding: '1.4rem 1.6rem',
-                    borderRadius: '22px',
-                    border: '1.5px solid #eef2f6',
-                    boxShadow: '0 8px 24px rgba(0,0,0,0.03)',
                     display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1rem',
-                    transition: 'all 0.25s ease'
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '0.75rem'
                   }}>
-                    {/* Top: Icon + DIRECT LINE + Phone Number */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                       <div style={{
-                        width: '46px',
-                        height: '46px',
-                        borderRadius: '14px',
+                        width: '42px',
+                        height: '42px',
+                        borderRadius: '12px',
                         backgroundColor: '#ecfdf5',
                         color: '#059669',
                         display: 'flex',
@@ -856,58 +920,58 @@ export default function ContactPage({ onBookVisitClick }) {
                         justifyContent: 'center',
                         flexShrink: 0
                       }}>
-                        <Phone size={22} strokeWidth={2.2} />
+                        <Phone size={19} strokeWidth={2.2} />
                       </div>
                       <div>
                         <div style={{ 
-                          fontSize: '0.76rem', 
+                          fontSize: '0.72rem', 
                           fontWeight: '800', 
                           color: '#059669', 
                           textTransform: 'uppercase', 
                           letterSpacing: '0.04em' 
                         }}>
-                          DIRECT LINE
+                          DIRECT ADMISSIONS LINE
                         </div>
                         <div style={{ 
-                          fontSize: '1.35rem', 
+                          fontSize: '1.18rem', 
                           fontWeight: '900', 
                           color: '#0f172a', 
                           lineHeight: 1.2,
-                          marginTop: '2px' 
+                          marginTop: '1px' 
                         }}>
                           050 200 5346
                         </div>
                       </div>
                     </div>
 
-                    {/* Bottom: Call & WhatsApp Buttons with Rich Glowing Shadows */}
-                    <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                    {/* Quick Action Pill Buttons */}
+                    <div style={{ display: 'flex', gap: '0.5rem' }}>
                       <a
                         href="tel:0502005346"
                         style={{
                           display: 'inline-flex',
                           alignItems: 'center',
-                          gap: '0.5rem',
-                          background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
-                          color: '#ffffff',
-                          padding: '0.62rem 1.55rem',
+                          gap: '0.4rem',
+                          backgroundColor: '#fff7ed',
+                          color: '#ea580c',
+                          border: '1px solid #fed7aa',
+                          padding: '0.45rem 1rem',
                           borderRadius: '999px',
-                          fontSize: '0.9rem',
+                          fontSize: '0.82rem',
                           fontWeight: '700',
                           textDecoration: 'none',
-                          boxShadow: '0 8px 20px rgba(234, 88, 12, 0.42)',
-                          transition: 'all 0.25s ease'
+                          transition: 'all 0.15s ease'
                         }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.transform = 'translateY(-2px)';
-                          e.currentTarget.style.boxShadow = '0 10px 24px rgba(234, 88, 12, 0.52)';
+                          e.currentTarget.style.backgroundColor = '#ea580c';
+                          e.currentTarget.style.color = '#ffffff';
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.transform = 'translateY(0)';
-                          e.currentTarget.style.boxShadow = '0 8px 20px rgba(234, 88, 12, 0.42)';
+                          e.currentTarget.style.backgroundColor = '#fff7ed';
+                          e.currentTarget.style.color = '#ea580c';
                         }}
                       >
-                        <Phone size={15} />
+                        <Phone size={13} />
                         <span>Call</span>
                       </a>
                       <a
@@ -917,91 +981,156 @@ export default function ContactPage({ onBookVisitClick }) {
                         style={{
                           display: 'inline-flex',
                           alignItems: 'center',
-                          gap: '0.5rem',
-                          background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                          color: '#ffffff',
-                          padding: '0.62rem 1.55rem',
+                          gap: '0.4rem',
+                          backgroundColor: '#ecfdf5',
+                          color: '#059669',
+                          border: '1px solid #a7f3d0',
+                          padding: '0.45rem 1rem',
                           borderRadius: '999px',
-                          fontSize: '0.9rem',
+                          fontSize: '0.82rem',
                           fontWeight: '700',
                           textDecoration: 'none',
-                          boxShadow: '0 8px 20px rgba(16, 185, 129, 0.42)',
-                          transition: 'all 0.25s ease'
+                          transition: 'all 0.15s ease'
                         }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.transform = 'translateY(-2px)';
-                          e.currentTarget.style.boxShadow = '0 10px 24px rgba(16, 185, 129, 0.52)';
+                          e.currentTarget.style.backgroundColor = '#059669';
+                          e.currentTarget.style.color = '#ffffff';
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.transform = 'translateY(0)';
-                          e.currentTarget.style.boxShadow = '0 8px 20px rgba(16, 185, 129, 0.42)';
+                          e.currentTarget.style.backgroundColor = '#ecfdf5';
+                          e.currentTarget.style.color = '#059669';
                         }}
                       >
-                        <MessageCircle size={15} />
+                        <MessageCircle size={13} />
                         <span>WhatsApp</span>
                       </a>
                     </div>
                   </div>
 
-                  {/* Card 2: TIMINGS */}
-                  <div style={{
-                    backgroundColor: '#ffffff',
-                    padding: '1.4rem 1.6rem',
-                    borderRadius: '22px',
-                    border: '1.5px solid #eef2f6',
-                    boxShadow: '0 8px 24px rgba(0,0,0,0.03)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '0.85rem',
-                    transition: 'all 0.25s ease'
-                  }}>
-                    {/* Top: Icon + TIMINGS + Schedule */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem' }}>
+                  <div style={{ height: '1px', backgroundColor: '#f1f5f9' }} />
+
+                  {/* Row 2: Nursery Operating Timings */}
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                    <div style={{
+                      width: '42px',
+                      height: '42px',
+                      borderRadius: '12px',
+                      backgroundColor: '#e0f2fe',
+                      color: '#0284c7',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0
+                    }}>
+                      <Clock size={19} strokeWidth={2.2} />
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ 
+                        fontSize: '0.72rem', 
+                        fontWeight: '800', 
+                        color: '#0284c7', 
+                        textTransform: 'uppercase', 
+                        letterSpacing: '0.04em' 
+                      }}>
+                        CAMPUS &amp; CARE HOURS
+                      </div>
+                      <div style={{ 
+                        fontSize: '1rem', 
+                        fontWeight: '800', 
+                        color: '#0f172a', 
+                        lineHeight: 1.3,
+                        marginTop: '1px' 
+                      }}>
+                        Mon – Fri: 7:30 AM – 5:30 PM
+                      </div>
+                      <div style={{ 
+                        display: 'flex', 
+                        gap: '0.5rem', 
+                        marginTop: '0.35rem', 
+                        flexWrap: 'wrap' 
+                      }}>
+                        <span style={{
+                          backgroundColor: '#f8fafc',
+                          border: '1px solid #e2e8f0',
+                          color: '#475569',
+                          fontSize: '0.75rem',
+                          fontWeight: '600',
+                          padding: '0.15rem 0.55rem',
+                          borderRadius: '6px'
+                        }}>
+                          Morning Core: 7:30 AM – 2:00 PM
+                        </span>
+                        <span style={{
+                          backgroundColor: '#f8fafc',
+                          border: '1px solid #e2e8f0',
+                          color: '#475569',
+                          fontSize: '0.75rem',
+                          fontWeight: '600',
+                          padding: '0.15rem 0.55rem',
+                          borderRadius: '6px'
+                        }}>
+                          Extended: Until 5:30 PM
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style={{ height: '1px', backgroundColor: '#f1f5f9' }} />
+
+                  {/* Row 3: Official Admissions Email */}
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                       <div style={{
-                        width: '46px',
-                        height: '46px',
-                        borderRadius: '14px',
-                        backgroundColor: '#e0f2fe',
-                        color: '#0284c7',
+                        width: '42px',
+                        height: '42px',
+                        borderRadius: '12px',
+                        backgroundColor: '#fef3c7',
+                        color: '#d97706',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         flexShrink: 0
                       }}>
-                        <Clock size={22} strokeWidth={2.2} />
+                        <Mail size={19} strokeWidth={2.2} />
                       </div>
                       <div>
                         <div style={{ 
-                          fontSize: '0.76rem', 
+                          fontSize: '0.72rem', 
                           fontWeight: '800', 
-                          color: '#0284c7', 
+                          color: '#d97706', 
                           textTransform: 'uppercase', 
                           letterSpacing: '0.04em' 
                         }}>
-                          TIMINGS
+                          OFFICIAL EMAIL
                         </div>
-                        <div style={{ 
-                          fontSize: '1.35rem', 
-                          fontWeight: '900', 
-                          color: '#0f172a', 
-                          lineHeight: 1.2,
-                          marginTop: '2px' 
-                        }}>
-                          Mon – Fri: 7:30 – 17:30
-                        </div>
+                        <a 
+                          href="mailto:nurseryjustlikehome@gmail.com"
+                          style={{ 
+                            fontSize: '0.94rem', 
+                            fontWeight: '800', 
+                            color: '#0f172a', 
+                            lineHeight: 1.2,
+                            marginTop: '1px',
+                            display: 'block',
+                            textDecoration: 'none'
+                          }}
+                        >
+                          nurseryjustlikehome@gmail.com
+                        </a>
                       </div>
                     </div>
 
-                    {/* Bottom: Details breakdown */}
-                    <div style={{ 
-                      fontSize: '0.92rem', 
-                      color: '#64748b', 
-                      lineHeight: 1.65,
+                    <span style={{
+                      fontSize: '0.74rem',
+                      color: '#64748b',
+                      backgroundColor: '#f8fafc',
+                      padding: '0.2rem 0.6rem',
+                      borderRadius: '999px',
+                      border: '1px solid #f1f5f9',
                       fontWeight: '500'
                     }}>
-                      <div>Morning core: 7:30 AM – 2:00 PM</div>
-                      <div>Extended care: 2:00 PM – 5:30 PM</div>
-                    </div>
+                      Replies within 2 hrs
+                    </span>
                   </div>
 
                 </div>

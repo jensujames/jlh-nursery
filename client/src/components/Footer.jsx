@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Heart, 
+  Send, 
   MapPin, 
   Phone, 
   Mail, 
   Clock, 
-  ShieldCheck, 
-  Calendar, 
+  Star, 
   ArrowUp,
   MessageCircle,
-  Sparkles,
-  ExternalLink
+  ExternalLink,
+  CheckCircle2,
+  Sparkles
 } from 'lucide-react';
 
+const GMB_URL = 'https://share.google/AbZVHOBinruNYkwDg';
+
 export default function Footer({ onBookVisitClick, onAdminClick }) {
+  const [emailInput, setEmailInput] = useState('');
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const scrollToTop = () => {
     if (window.lenis) {
       window.lenis.scrollTo(0, { duration: 1.2 });
@@ -23,202 +29,129 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
     }
   };
 
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    if (!emailInput || !emailInput.includes('@')) return;
+
+    setIsSubmitting(true);
+    fetch('https://formsubmit.co/ajax/nurseryjustlikehome@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: 'New Newsletter / Updates Subscriber (Website Footer)',
+        _template: 'table',
+        'Subscriber Email': emailInput,
+        'Source': 'Footer Newsletter Signup'
+      })
+    })
+      .then(() => {
+        setIsSubscribed(true);
+        setIsSubmitting(false);
+        setEmailInput('');
+        setTimeout(() => setIsSubscribed(false), 5000);
+      })
+      .catch(() => {
+        setIsSubscribed(true);
+        setIsSubmitting(false);
+        setEmailInput('');
+      });
+  };
+
   return (
-    <footer className="footer-minimal-premium" style={{
-      position: 'relative',
-      background: 'linear-gradient(180deg, #fffcf8 0%, #fff7ed 45%, #faeee0 100%)',
-      color: '#475569',
-      overflow: 'hidden',
-      borderTop: '1.5px solid rgba(234, 88, 12, 0.16)',
-      fontFamily: 'var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif)'
-    }}>
-      {/* Soft Ambient Pastel Glows in Theme Colors */}
+    <footer className="footer-3d-playful">
+      
+      {/* Soft Floating Cloud Doodles / Glows */}
       <div style={{
         position: 'absolute',
-        top: '-80px',
-        right: '10%',
-        width: '420px',
-        height: '240px',
-        background: 'radial-gradient(circle, rgba(234, 88, 12, 0.08) 0%, transparent 70%)',
-        pointerEvents: 'none',
-        zIndex: 1
+        top: '20px',
+        left: '8%',
+        width: '120px',
+        height: '45px',
+        borderRadius: '999px',
+        background: 'rgba(255, 255, 255, 0.7)',
+        filter: 'blur(10px)',
+        pointerEvents: 'none'
       }} />
       <div style={{
         position: 'absolute',
-        bottom: 0,
-        left: '5%',
-        width: '380px',
-        height: '200px',
-        background: 'radial-gradient(circle, rgba(201, 168, 76, 0.09) 0%, transparent 70%)',
-        pointerEvents: 'none',
-        zIndex: 1
+        top: '40px',
+        right: '12%',
+        width: '180px',
+        height: '60px',
+        borderRadius: '999px',
+        background: 'rgba(255, 255, 255, 0.8)',
+        filter: 'blur(14px)',
+        pointerEvents: 'none'
       }} />
 
-      <div className="container" style={{
-        maxWidth: '1200px',
+      {/* Main 4-Column Upper Content */}
+      <div style={{
+        maxWidth: '1240px',
         margin: '0 auto',
-        padding: '3.75rem 1.5rem 2rem',
+        padding: 'clamp(3rem, 5vw, 4.5rem) 1.5rem clamp(5rem, 9vw, 7.5rem)',
         position: 'relative',
-        zIndex: 2
+        zIndex: 5
       }}>
-        {/* Top Minimal Banner: Refined Pastel CTA Card */}
-        <div style={{
-          backgroundColor: '#ffffff',
-          borderRadius: '24px',
-          padding: '1.75rem 2.25rem',
-          border: '1.5px solid rgba(234, 88, 12, 0.14)',
-          boxShadow: '0 10px 30px rgba(234, 88, 12, 0.05), 0 2px 8px rgba(0,0,0,0.02)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '1.5rem',
-          marginBottom: '3.25rem'
-        }}>
-          <div>
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              backgroundColor: '#fff7ed',
-              color: '#c2410c',
-              border: '1px solid #fed7aa',
-              padding: '0.35rem 0.85rem',
-              borderRadius: '999px',
-              fontSize: '0.78rem',
-              fontWeight: '800',
-              textTransform: 'uppercase',
-              letterSpacing: '0.06em',
-              marginBottom: '0.55rem'
-            }}>
-              <Sparkles size={13} color="#ea580c" />
-              <span>Admissions Open • 45 Days to 4 Years</span>
-            </div>
-            <h3 style={{
-              fontSize: 'clamp(1.35rem, 2.2vw, 1.85rem)',
-              fontWeight: '900',
-              color: '#0f172a',
-              margin: 0,
-              letterSpacing: '-0.02em',
-              lineHeight: 1.25
-            }}>
-              Begin Your Child’s Journey at <span style={{ color: '#ea580c' }}>Villa 47</span>
-            </h3>
-            <p style={{ margin: '0.3rem 0 0', fontSize: '0.9rem', color: '#64748b' }}>
-              Schedule a personalized tour with our Nursery Director in Al Rashidiya 2, Ajman.
-            </p>
-          </div>
-
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-            <button
-              onClick={onBookVisitClick}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
-                color: '#ffffff',
-                border: 'none',
-                borderRadius: '999px',
-                padding: '0.7rem 1.6rem',
-                fontSize: '0.9rem',
-                fontWeight: '800',
-                cursor: 'pointer',
-                boxShadow: '0 8px 22px rgba(234, 88, 12, 0.35)',
-                transition: 'all 0.25s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 12px 28px rgba(234, 88, 12, 0.45)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 8px 22px rgba(234, 88, 12, 0.35)';
-              }}
-            >
-              <Calendar size={15} />
-              <span>Book Guided Tour</span>
-            </button>
-
-            <a
-              href="https://wa.me/971502005346?text=Hello%20Just%20Like%20Home%20Nursery,%20I%20would%20like%20to%20enquire%20about%20admissions."
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                backgroundColor: '#f0fdf4',
-                color: '#15803d',
-                border: '1.5px solid #bbf7d0',
-                padding: '0.7rem 1.45rem',
-                borderRadius: '999px',
-                fontSize: '0.9rem',
-                fontWeight: '800',
-                textDecoration: 'none',
-                boxShadow: '0 4px 14px rgba(22, 163, 74, 0.12)',
-                transition: 'all 0.25s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#dcfce7';
-                e.currentTarget.style.borderColor = '#86efac';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#f0fdf4';
-                e.currentTarget.style.borderColor = '#bbf7d0';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <MessageCircle size={15} />
-              <span>WhatsApp Direct</span>
-            </a>
-          </div>
-        </div>
-
-        {/* Main 4-Column Minimal Pastel Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: '2.5rem',
-          marginBottom: '3rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
+          gap: 'clamp(2rem, 3.5vw, 3rem)',
+          alignItems: 'start'
         }}>
           
-          {/* Column 1: Identity & Accreditation */}
-          <div>
-            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.15rem', textDecoration: 'none' }}>
+          {/* Column 1: Playful Logo & Brand */}
+          <div style={{ maxWidth: '300px' }}>
+            <Link to="/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
               <div style={{
-                width: '46px',
-                height: '46px',
+                width: '52px',
+                height: '52px',
                 borderRadius: '50%',
                 overflow: 'hidden',
-                border: '2px solid #ea580c',
+                border: '3px solid #f97316',
+                boxShadow: '0 4px 14px rgba(249, 115, 22, 0.3)',
                 backgroundColor: '#ffffff',
-                boxShadow: '0 4px 14px rgba(234, 88, 12, 0.2)',
                 flexShrink: 0
               }}>
                 <img 
                   src="/logo.jpg" 
-                  alt="Just Like Home Nursery Logo" 
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                  alt="Just Like Home Nursery" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
+
               <div>
                 <div style={{
-                  fontSize: '1.18rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '2px',
+                  fontSize: '1.45rem',
                   fontWeight: '900',
-                  color: '#0f172a',
-                  letterSpacing: '0.02em',
-                  lineHeight: 1.15
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1
                 }}>
-                  JUST LIKE HOME
+                  <span style={{ color: '#ef4444' }}>J</span>
+                  <span style={{ color: '#f59e0b' }}>u</span>
+                  <span style={{ color: '#10b981' }}>s</span>
+                  <span style={{ color: '#3b82f6' }}>t</span>
+                  <span style={{ color: '#6366f1', marginLeft: '4px' }}>L</span>
+                  <span style={{ color: '#ec4899' }}>i</span>
+                  <span style={{ color: '#10b981' }}>k</span>
+                  <span style={{ color: '#f97316' }}>e</span>
+                  <span style={{ color: '#059669', marginLeft: '5px' }}>H</span>
+                  <span style={{ color: '#e11d48' }}>o</span>
+                  <span style={{ color: '#0284c7' }}>m</span>
+                  <span style={{ color: '#ea580c' }}>e</span>
                 </div>
                 <div style={{
                   fontSize: '0.68rem',
-                  color: '#ea580c',
                   fontWeight: '800',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase'
+                  letterSpacing: '0.12em',
+                  color: '#ea580c',
+                  textTransform: 'uppercase',
+                  marginTop: '3px'
                 }}>
                   NURSERY • AJMAN
                 </div>
@@ -227,120 +160,98 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
 
             <p style={{
               fontSize: '0.88rem',
-              color: '#475569',
+              color: '#64748b',
               lineHeight: 1.65,
-              marginBottom: '1.25rem'
+              margin: '0 0 1.5rem 0',
+              fontWeight: '500'
             }}>
-              Where little hearts discover the world with warmth, safety, and joy. British EYFS framework with the tender care of home in Villa 47, Ajman.
+              Just Like Home is an early childhood education sanctuary where all children, typically aged 45 days to 4 years, begin their joyful learning journey.
             </p>
 
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              backgroundColor: '#ffffff',
-              padding: '0.4rem 0.85rem',
-              borderRadius: '999px',
-              color: '#16a34a',
-              fontSize: '0.78rem',
-              fontWeight: '700',
-              border: '1.5px solid #dcfce7',
-              boxShadow: '0 2px 8px rgba(22, 163, 74, 0.08)'
-            }}>
-              <ShieldCheck size={14} />
-              <span>MOE &amp; MOHAP Compliant • CCTV</span>
+            {/* 3D Tactile Social Buttons */}
+            <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap' }}>
+              {/* WhatsApp */}
+              <a 
+                href="https://wa.me/971502005346" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="footer-3d-social-btn"
+                title="WhatsApp Admissions"
+              >
+                <MessageCircle size={18} />
+              </a>
+
+              {/* Google Maps Profile */}
+              <a 
+                href={GMB_URL} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="footer-3d-social-btn"
+                title="Google Maps Location & Reviews"
+              >
+                <MapPin size={18} />
+              </a>
+
+              {/* Instagram */}
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="footer-3d-social-btn"
+                title="Instagram"
+              >
+                <ExternalLink size={17} />
+              </a>
+
+              {/* Phone Direct */}
+              <a 
+                href="tel:0502005346" 
+                className="footer-3d-social-btn"
+                title="Call 050 200 5346"
+              >
+                <Phone size={17} />
+              </a>
             </div>
           </div>
 
-          {/* Column 2: Programs */}
+          {/* Column 2: Information */}
           <div>
             <h4 style={{
-              fontSize: '0.82rem',
-              color: '#0f172a',
+              fontSize: '1.05rem',
               fontWeight: '900',
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              marginBottom: '1.25rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.45rem'
-            }}>
-              <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#ea580c' }} />
-              Programs
-            </h4>
-
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {[
-                { name: 'Infant Sanctuary (45d – 1y)', path: '/programs' },
-                { name: 'Toddler Discovery (1y – 2y)', path: '/programs' },
-                { name: 'Preschool & Early Years (2y – 4y)', path: '/preschool' },
-                { name: 'British EYFS Framework', path: '/eyfs-learning' },
-                { name: 'Full-Day Daycare & Care', path: '/daycare' },
-                { name: 'Holiday & Summer Camps', path: '/camps' }
-              ].map((item, i) => (
-                <li key={i}>
-                  <Link
-                    to={item.path}
-                    style={{
-                      color: '#475569',
-                      textDecoration: 'none',
-                      fontSize: '0.88rem',
-                      fontWeight: '600',
-                      transition: 'all 0.2s ease',
-                      display: 'inline-block'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = '#ea580c';
-                      e.currentTarget.style.transform = 'translateX(4px)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = '#475569';
-                      e.currentTarget.style.transform = 'translateX(0)';
-                    }}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 3: Admissions & Campus */}
-          <div>
-            <h4 style={{
-              fontSize: '0.82rem',
               color: '#0f172a',
-              fontWeight: '900',
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              marginBottom: '1.25rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.45rem'
+              margin: '0 0 0.5rem 0'
             }}>
-              <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#c9a84c' }} />
-              Admissions &amp; Campus
+              Information
             </h4>
+            
+            {/* Signature Underline Bar from Reference */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '1.25rem' }}>
+              <span style={{ width: '28px', height: '3px', backgroundColor: '#ea580c', borderRadius: '999px', display: 'inline-block' }} />
+              <span style={{ width: '6px', height: '3px', backgroundColor: '#ea580c', borderRadius: '999px', display: 'inline-block' }} />
+            </div>
 
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
               {[
-                { name: 'About Our Philosophy', path: '/about-us' },
-                { name: 'Admissions & Tuition Guide', path: '/admissions' },
+                { name: 'Kindergarten & EYFS', path: '/eyfs-learning' },
+                { name: 'Our Teachers & Ratios', path: '/about-us' },
+                { name: 'Programs & Daycare', path: '/programs' },
                 { name: 'Villa 47 Facilities Tour', path: '/facilities' },
-                { name: 'Daily Rhythm & Activities', path: '/nursery-activities' },
-                { name: 'Campus Photo Gallery', path: '/gallery' },
-                { name: 'Parent Resources & Blog', path: '/resources' }
-              ].map((item, i) => (
-                <li key={i}>
-                  <Link
+                { name: 'Help and FAQs', path: '/contact' },
+                { name: 'Contact & Admissions', path: '/admissions' }
+              ].map((item, idx) => (
+                <li key={idx}>
+                  <Link 
                     to={item.path}
                     style={{
                       color: '#475569',
                       textDecoration: 'none',
-                      fontSize: '0.88rem',
+                      fontSize: '0.9rem',
                       fontWeight: '600',
-                      transition: 'all 0.2s ease',
-                      display: 'inline-block'
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.45rem',
+                      transition: 'all 0.2s ease'
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.color = '#ea580c';
@@ -351,293 +262,466 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
                       e.currentTarget.style.transform = 'translateX(0)';
                     }}
                   >
-                    {item.name}
+                    <span style={{ color: '#ea580c', fontSize: '0.75rem' }}>•</span>
+                    <span>{item.name}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 4: Villa 47 Contact & Hours */}
+          {/* Column 3: Contact Us */}
           <div>
             <h4 style={{
-              fontSize: '0.82rem',
-              color: '#0f172a',
+              fontSize: '1.05rem',
               fontWeight: '900',
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              marginBottom: '1.25rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.45rem'
+              color: '#0f172a',
+              margin: '0 0 0.5rem 0'
             }}>
-              <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#16a34a' }} />
-              Sanctuary &amp; Hours
+              Contact Us
             </h4>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', fontSize: '0.88rem', color: '#475569' }}>
-              <div style={{ display: 'flex', gap: '0.65rem', alignItems: 'flex-start' }}>
-                <div style={{
-                  width: '28px',
-                  height: '28px',
-                  borderRadius: '8px',
-                  backgroundColor: '#fff7ed',
+            {/* Signature Underline Bar from Reference */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '1.25rem' }}>
+              <span style={{ width: '28px', height: '3px', backgroundColor: '#ea580c', borderRadius: '999px', display: 'inline-block' }} />
+              <span style={{ width: '6px', height: '3px', backgroundColor: '#ea580c', borderRadius: '999px', display: 'inline-block' }} />
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', fontSize: '0.88rem' }}>
+              
+              {/* Address */}
+              <div>
+                <div style={{ color: '#ea580c', fontWeight: '800', marginBottom: '2px', fontSize: '0.86rem' }}>
+                  Address:
+                </div>
+                <div style={{ color: '#475569', fontWeight: '500', lineHeight: 1.45 }}>
+                  Villa No. 47, Al Rashidiya 2, Ajman, UAE
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div>
+                <div style={{ color: '#ea580c', fontWeight: '800', marginBottom: '2px', fontSize: '0.86rem' }}>
+                  Phone:
+                </div>
+                <a 
+                  href="tel:0502005346" 
+                  style={{ color: '#0f172a', fontWeight: '800', textDecoration: 'none', fontSize: '0.94rem' }}
+                >
+                  (050) 200-5346
+                </a>
+              </div>
+
+              {/* Mail Us */}
+              <div>
+                <div style={{ color: '#ea580c', fontWeight: '800', marginBottom: '2px', fontSize: '0.86rem' }}>
+                  Mail Us:
+                </div>
+                <a 
+                  href="mailto:nurseryjustlikehome@gmail.com" 
+                  style={{ color: '#0f172a', fontWeight: '700', textDecoration: 'none', wordBreak: 'break-all' }}
+                >
+                  nurseryjustlikehome@gmail.com
+                </a>
+              </div>
+
+              {/* Google Reviews Live Rating Link */}
+              <div>
+                <div style={{ color: '#ea580c', fontWeight: '800', marginBottom: '2px', fontSize: '0.86rem' }}>
+                  Google Reviews:
+                </div>
+                <a
+                  href={GMB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    color: '#0f172a',
+                    fontWeight: '700',
+                    textDecoration: 'none'
+                  }}
+                >
+                  <span>5.0</span>
+                  <div style={{ display: 'inline-flex', gap: '1px' }}>
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={12} fill="#f59e0b" color="#f59e0b" />
+                    ))}
+                  </div>
+                  <span style={{ fontSize: '0.76rem', color: '#16a34a', fontWeight: '800', backgroundColor: '#ecfdf5', padding: '1px 6px', borderRadius: '4px' }}>
+                    Verified
+                  </span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Column 4: Newsletter Signup */}
+          <div>
+            <h4 style={{
+              fontSize: '1.05rem',
+              fontWeight: '900',
+              color: '#0f172a',
+              margin: '0 0 0.5rem 0'
+            }}>
+              Newsletter Signup
+            </h4>
+
+            {/* Signature Underline Bar from Reference */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '1.25rem' }}>
+              <span style={{ width: '28px', height: '3px', backgroundColor: '#ea580c', borderRadius: '999px', display: 'inline-block' }} />
+              <span style={{ width: '6px', height: '3px', backgroundColor: '#ea580c', borderRadius: '999px', display: 'inline-block' }} />
+            </div>
+
+            {/* Interactive 3D Newsletter Input Box */}
+            <form onSubmit={handleNewsletterSubmit} style={{ marginBottom: '0.85rem' }}>
+              <div className="footer-3d-input-wrap">
+                <input
+                  type="email"
+                  value={emailInput}
+                  onChange={(e) => setEmailInput(e.target.value)}
+                  placeholder="Your email address"
+                  required
+                  style={{
+                    flex: 1,
+                    border: 'none',
+                    background: 'transparent',
+                    outline: 'none',
+                    fontSize: '0.88rem',
+                    color: '#0f172a',
+                    padding: '8px 4px',
+                    minWidth: 0
+                  }}
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="footer-3d-plane-btn"
+                  title="Subscribe to updates"
+                  aria-label="Subscribe to updates"
+                >
+                  <Send size={16} style={{ transform: 'translateX(-1px)' }} />
+                </button>
+              </div>
+            </form>
+
+            {isSubscribed ? (
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.45rem',
+                backgroundColor: '#ecfdf5',
+                color: '#065f46',
+                border: '1px solid #a7f3d0',
+                padding: '0.5rem 0.85rem',
+                borderRadius: '12px',
+                fontSize: '0.82rem',
+                fontWeight: '700'
+              }}>
+                <CheckCircle2 size={16} color="#059669" />
+                <span>Thank you! We'll keep you updated.</span>
+              </div>
+            ) : (
+              <p style={{
+                margin: 0,
+                fontSize: '0.82rem',
+                color: '#64748b',
+                lineHeight: 1.55,
+                fontWeight: '500'
+              }}>
+                Get the latest nursery updates, event invitations, and admissions offers for your little one.
+              </p>
+            )}
+
+            {/* Quick Tour Booking Trigger */}
+            <div style={{ marginTop: '1.25rem' }}>
+              <button
+                type="button"
+                onClick={onBookVisitClick}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                  backgroundColor: '#ffffff',
                   color: '#ea580c',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  <MapPin size={15} />
-                </div>
-                <span>Villa 47, Al Rashidiya 2, Ajman, UAE</span>
-              </div>
-
-              <div style={{ display: 'flex', gap: '0.65rem', alignItems: 'center' }}>
-                <div style={{
-                  width: '28px',
-                  height: '28px',
-                  borderRadius: '8px',
-                  backgroundColor: '#f0fdf4',
-                  color: '#16a34a',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  <Phone size={15} />
-                </div>
-                <a href="tel:0502005346" style={{ color: '#0f172a', textDecoration: 'none', fontWeight: '800' }}>
-                  050 200 5346
-                </a>
-              </div>
-
-              <div style={{ display: 'flex', gap: '0.65rem', alignItems: 'center' }}>
-                <div style={{
-                  width: '28px',
-                  height: '28px',
-                  borderRadius: '8px',
-                  backgroundColor: '#e0f2fe',
-                  color: '#0284c7',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  <Mail size={15} />
-                </div>
-                <a href="mailto:deevan.aumdsorg@gmail.com" style={{ color: '#334155', textDecoration: 'none', fontSize: '0.84rem' }}>
-                  deevan.aumdsorg@gmail.com
-                </a>
-              </div>
-
-              <div style={{ display: 'flex', gap: '0.65rem', alignItems: 'flex-start' }}>
-                <div style={{
-                  width: '28px',
-                  height: '28px',
-                  borderRadius: '8px',
-                  backgroundColor: '#fef3c7',
-                  color: '#d97706',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  <Clock size={15} />
-                </div>
-                <div>
-                  <div style={{ color: '#0f172a', fontWeight: '800' }}>Mon – Fri: 7:30 AM – 5:30 PM</div>
-                  <div style={{ fontSize: '0.78rem', color: '#64748b' }}>Morning Core: 7:30 AM – 2:00 PM</div>
-                </div>
-              </div>
-
-              {/* Minimalist Social Channels in Pastel Rings */}
-              <div style={{ display: 'flex', gap: '0.6rem', marginTop: '0.35rem' }}>
-                {/* WhatsApp */}
-                <a
-                  href="https://wa.me/971502005346"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="WhatsApp Admissions"
-                  style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '50%',
-                    backgroundColor: '#ffffff',
-                    color: '#16a34a',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    textDecoration: 'none',
-                    border: '1.5px solid #dcfce7',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-                    transition: 'all 0.2s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#16a34a';
-                    e.currentTarget.style.color = '#ffffff';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(22, 163, 74, 0.3)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#ffffff';
-                    e.currentTarget.style.color = '#16a34a';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04)';
-                  }}
-                >
-                  <MessageCircle size={17} />
-                </a>
-
-                {/* Google Maps */}
-                <a
-                  href="https://maps.google.com/?q=Villa+47+Al+Rashidiya+2+Ajman"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Google Maps Location"
-                  style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '50%',
-                    backgroundColor: '#ffffff',
-                    color: '#ea580c',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    textDecoration: 'none',
-                    border: '1.5px solid #fed7aa',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-                    transition: 'all 0.2s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#ea580c';
-                    e.currentTarget.style.color = '#ffffff';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(234, 88, 12, 0.3)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#ffffff';
-                    e.currentTarget.style.color = '#ea580c';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04)';
-                  }}
-                >
-                  <MapPin size={17} />
-                </a>
-
-                {/* Instagram */}
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Instagram"
-                  style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '50%',
-                    backgroundColor: '#ffffff',
-                    color: '#c9a84c',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    textDecoration: 'none',
-                    border: '1.5px solid #fef08a',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-                    transition: 'all 0.2s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#c9a84c';
-                    e.currentTarget.style.color = '#ffffff';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(201, 168, 76, 0.3)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#ffffff';
-                    e.currentTarget.style.color = '#c9a84c';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04)';
-                  }}
-                >
-                  <ExternalLink size={16} />
-                </a>
-              </div>
+                  border: '1.5px solid #fed7aa',
+                  borderRadius: '999px',
+                  padding: '0.45rem 1.15rem',
+                  fontSize: '0.82rem',
+                  fontWeight: '800',
+                  boxShadow: '0 3px 0 #fed7aa, 0 6px 14px rgba(234, 88, 12, 0.1)',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.backgroundColor = '#fff7ed';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.backgroundColor = '#ffffff';
+                }}
+              >
+                <Sparkles size={14} color="#ea580c" />
+                <span>Book Campus Tour</span>
+              </button>
             </div>
           </div>
 
         </div>
+      </div>
 
-        {/* Bottom Minimal Copyright & Legal Bar */}
+      {/* =========================================================================
+          3D MEADOW FOREGROUND WITH 3D CHICK ON FENCE & 3D WAVING BUNNY WITH EGGS
+          ========================================================================= */}
+      <div style={{
+        position: 'relative',
+        width: '100%',
+        marginTop: '-2rem',
+        zIndex: 10
+      }}>
+
+        {/* 3D Yellow Chick on Rustic Wooden Fence (Bottom Left) */}
+        <div 
+          className="footer-3d-chick-box"
+          style={{
+            position: 'absolute',
+            bottom: '36px',
+            left: 'clamp(10px, 4vw, 45px)',
+            width: 'clamp(140px, 16vw, 195px)',
+            height: 'clamp(140px, 16vw, 195px)',
+            zIndex: 20,
+            pointerEvents: 'auto',
+            cursor: 'pointer'
+          }}
+          title="Just Like Home Mascot Chick"
+        >
+          <img
+            src="/images/footer-3d-chick.png"
+            alt="Cute 3D Chick on Wooden Fence"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+              filter: 'drop-shadow(0 12px 20px rgba(0, 0, 0, 0.2))'
+            }}
+          />
+        </div>
+
+        {/* 3D Cheerful Pink Bunny Waving with Easter Eggs (Bottom Right) */}
+        <div 
+          className="footer-3d-bunny-box"
+          style={{
+            position: 'absolute',
+            bottom: '22px',
+            right: 'clamp(10px, 4vw, 45px)',
+            width: 'clamp(150px, 18vw, 220px)',
+            height: 'clamp(150px, 18vw, 220px)',
+            zIndex: 20,
+            pointerEvents: 'auto',
+            cursor: 'pointer'
+          }}
+          title="Just Like Home Waving Bunny"
+        >
+          <img
+            src="/images/footer-3d-bunny.png"
+            alt="Cute 3D Waving Bunny with Garden Eggs"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+              filter: 'drop-shadow(0 12px 20px rgba(0, 0, 0, 0.2))'
+            }}
+          />
+        </div>
+
+        {/* Layer 1: Back Grass Silhouette (Darker Green) */}
+        <svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          style={{
+            display: 'block',
+            width: '100%',
+            height: 'clamp(60px, 8vw, 95px)',
+            marginBottom: '-45px',
+            transform: 'scaleY(1.05)'
+          }}
+        >
+          <path
+            d="M0 60 C80 35, 140 70, 220 40 C300 15, 380 50, 460 30 C540 10, 620 45, 700 25 C780 12, 860 48, 940 32 C1020 18, 1100 52, 1180 30 C1260 12, 1350 45, 1440 30 L1440 120 L0 120 Z"
+            fill="#558b2f"
+            opacity="0.85"
+          />
+        </svg>
+
+        {/* Layer 2: Middle Grass Blades with 3D Depth & Flower Accents */}
+        <svg
+          viewBox="0 0 1440 130"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          style={{
+            display: 'block',
+            width: '100%',
+            height: 'clamp(70px, 9vw, 110px)',
+            marginBottom: '-40px',
+            animation: 'grassSway3D 4s ease-in-out infinite alternate'
+          }}
+        >
+          {/* Detailed Grass Tufts Array */}
+          <path
+            d="M0 65 
+               C30 50, 45 30, 60 55 C75 25, 95 60, 115 45 C135 20, 155 58, 175 40 C195 15, 215 50, 235 35
+               C255 10, 275 48, 295 30 C315 15, 335 52, 355 38 C375 18, 395 55, 415 42 C435 20, 455 58, 475 35
+               C495 12, 515 50, 535 32 C555 18, 575 52, 595 40 C615 15, 635 55, 655 36 C675 14, 695 50, 715 30
+               C735 16, 755 52, 775 38 C795 20, 815 58, 835 35 C855 10, 875 48, 895 28 C915 14, 935 54, 955 38
+               C975 18, 995 55, 1015 36 C1035 12, 1055 50, 1075 30 C1095 16, 1115 52, 1135 38 C1155 18, 1175 56, 1195 35
+               C1215 12, 1235 50, 1255 30 C1275 15, 1295 52, 1315 38 C1335 20, 1355 55, 1375 35 C1395 12, 1415 48, 1440 32
+               L1440 130 L0 130 Z"
+            fill="#689f38"
+          />
+
+          {/* Dotted Blossoms on Grass Layer */}
+          <circle cx="280" cy="55" r="4.5" fill="#f43f5e" />
+          <circle cx="280" cy="55" r="2" fill="#fef08a" />
+          <circle cx="340" cy="62" r="5" fill="#ffffff" />
+          <circle cx="340" cy="62" r="2.2" fill="#f59e0b" />
+          <circle cx="560" cy="58" r="4.5" fill="#fbbf24" />
+          <circle cx="560" cy="58" r="2" fill="#ffffff" />
+          <circle cx="680" cy="52" r="5" fill="#f43f5e" />
+          <circle cx="680" cy="52" r="2" fill="#fef08a" />
+          <circle cx="820" cy="56" r="5" fill="#ffffff" />
+          <circle cx="820" cy="56" r="2" fill="#f59e0b" />
+          <circle cx="980" cy="54" r="4.5" fill="#ec4899" />
+          <circle cx="980" cy="54" r="2" fill="#fef08a" />
+          <circle cx="1120" cy="60" r="5" fill="#fbbf24" />
+          <circle cx="1120" cy="60" r="2" fill="#ffffff" />
+        </svg>
+
+        {/* Layer 3: Vibrant Front Grass Meadow Hill Base */}
         <div style={{
-          paddingTop: '1.75rem',
-          borderTop: '1px solid rgba(234, 88, 12, 0.12)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '1rem',
-          fontSize: '0.82rem',
-          color: '#64748b'
+          position: 'relative',
+          backgroundColor: '#7cb342',
+          backgroundImage: 'linear-gradient(180deg, #7cb342 0%, #689f38 60%, #558b2f 100%)',
+          padding: '2.5rem 1.5rem 1.8rem 1.5rem',
+          boxShadow: 'inset 0 4px 8px rgba(255, 255, 255, 0.25)',
+          zIndex: 15
         }}>
-          <div>
-            &copy; {new Date().getFullYear()} Just Like Home Nursery. All rights reserved. Registered Early Childhood Center in Ajman, UAE.
+          
+          {/* Subtle Top Highlights on Grass Hill */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '3px',
+            background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%)'
+          }} />
+
+          {/* Centered White Copyright & Bottom Actions */}
+          <div style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '1rem',
+            color: '#ffffff'
+          }}>
+            
+            {/* Copyright Text */}
+            <div style={{
+              fontSize: '0.85rem',
+              fontWeight: '700',
+              letterSpacing: '0.02em',
+              textShadow: '0 1px 3px rgba(0,0,0,0.25)',
+              color: 'rgba(255, 255, 255, 0.96)'
+            }}>
+              &copy; Copyright {new Date().getFullYear()} Just Like Home Nursery. All Rights Reserved.
+            </div>
+
+            {/* Right Quick Links & Smooth Scroll */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+              <a
+                href={GMB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: '#ffffff',
+                  textDecoration: 'none',
+                  fontSize: '0.82rem',
+                  fontWeight: '700',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  textShadow: '0 1px 2px rgba(0,0,0,0.2)'
+                }}
+              >
+                <span>Google Profile</span>
+                <ExternalLink size={12} />
+              </a>
+
+              <button
+                type="button"
+                onClick={onAdminClick}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: 'rgba(255, 255, 255, 0.85)',
+                  cursor: 'pointer',
+                  fontSize: '0.82rem',
+                  fontWeight: '700',
+                  textDecoration: 'underline',
+                  padding: 0
+                }}
+              >
+                Staff Portal
+              </button>
+
+              <button
+                type="button"
+                onClick={scrollToTop}
+                title="Back to Top"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                  backgroundColor: '#ffffff',
+                  color: '#2e7d32',
+                  border: 'none',
+                  borderRadius: '999px',
+                  padding: '0.4rem 1rem',
+                  cursor: 'pointer',
+                  fontSize: '0.82rem',
+                  fontWeight: '800',
+                  boxShadow: '0 3px 0 #388e3c, 0 4px 10px rgba(0,0,0,0.18)',
+                  transition: 'all 0.2s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 5px 0 #388e3c, 0 8px 16px rgba(0,0,0,0.22)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 3px 0 #388e3c, 0 4px 10px rgba(0,0,0,0.18)';
+                }}
+              >
+                <ArrowUp size={14} />
+                <span>Top</span>
+              </button>
+            </div>
+
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-            <button
-              onClick={onAdminClick}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: '#64748b',
-                cursor: 'pointer',
-                fontSize: '0.78rem',
-                textDecoration: 'underline',
-                padding: 0
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.color = '#ea580c'}
-              onMouseLeave={(e) => e.currentTarget.style.color = '#64748b'}
-            >
-              Staff Portal
-            </button>
-
-            <button
-              onClick={scrollToTop}
-              title="Back to Top"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                backgroundColor: '#ffffff',
-                color: '#334155',
-                border: '1.5px solid #e2e8f0',
-                borderRadius: '999px',
-                padding: '0.4rem 0.95rem',
-                cursor: 'pointer',
-                fontSize: '0.8rem',
-                fontWeight: '700',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#ea580c';
-                e.currentTarget.style.borderColor = '#ea580c';
-                e.currentTarget.style.color = '#ffffff';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#ffffff';
-                e.currentTarget.style.borderColor = '#e2e8f0';
-                e.currentTarget.style.color = '#334155';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <ArrowUp size={13} />
-              <span>Top</span>
-            </button>
-          </div>
         </div>
 
       </div>
+
     </footer>
   );
 }

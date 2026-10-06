@@ -37,7 +37,7 @@ export default function ContactSection({ onBookVisitClick }) {
 
     try {
       // 1. Direct email delivery to receiver
-      fetch('https://formsubmit.co/ajax/deevan.aumdsorg@gmail.com', {
+      fetch('https://formsubmit.co/ajax/nurseryjustlikehome@gmail.com', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -261,7 +261,7 @@ export default function ContactSection({ onBookVisitClick }) {
                   Email Enquiries
                 </div>
                 <a
-                  href="mailto:deevan.aumdsorg@gmail.com"
+                  href="mailto:nurseryjustlikehome@gmail.com"
                   style={{
                     fontSize: '1.05rem',
                     color: '#3d050f',
@@ -271,7 +271,7 @@ export default function ContactSection({ onBookVisitClick }) {
                     marginTop: '0.2rem'
                   }}
                 >
-                  deevan.aumdsorg@gmail.com
+                  nurseryjustlikehome@gmail.com
                 </a>
                 <div style={{ marginTop: '0.75rem', fontSize: '0.84rem', color: '#6b7280', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                   <Clock size={14} />

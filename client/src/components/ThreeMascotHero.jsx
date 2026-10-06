@@ -1871,7 +1871,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
       entranceTime += delta;
       const skyDropHeight = 5.2;
-      const heroHeight = window.innerHeight;
+      const heroHeight = heroSectionRef.current ? heroSectionRef.current.offsetHeight : window.innerHeight;
 
       smoothedScrollY += (targetScrollY - smoothedScrollY) * 0.082;
       scrollProgress = Math.min(Math.max(smoothedScrollY / heroHeight, 0), 1);
@@ -2149,7 +2149,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
               </div>
 
               <div className="hero-card-main">
-                {/* Top Group: Admissions pill + 2-line heading */}
+                {/* Top Group: Admissions pill + 3-line heading */}
                 <div className="hero-header-top-group">
                   <div className="hero-mobile-app-pill" aria-label="2026 Admissions Open">
                     <span className="hero-mobile-app-dot" />
@@ -2157,50 +2157,52 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   </div>
 
                   <h1 className="hero-actions-title">
-                    Where Little Hearts <br />
+                    Where <br />
+                    Little Hearts <br />
                     Feel at Home
                   </h1>
                 </div>
 
-                {/* Bottom Group: Sub-content & Buttons positioned cleanly below the 3D cubes */}
+                {/* Sub-content */}
                 <div className="hero-bottom-actions-group">
                   <p className="hero-actions-desc">EYFS British curriculum &amp; motherly care in Al Rashidiya 2, Ajman.</p>
-
-                  <div className="hero-buttons-wrap">
-                    <button 
-                      className="hero-cta-btn hero-btn-book" 
-                      type="button" 
-                      id="hero-book-now-btn"
-                      onClick={() => {
-                        playPopSound(580);
-                        onBookVisitClick();
-                      }}
-                    >
-                      <svg className="hero-btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                        <line x1="16" y1="2" x2="16" y2="6"/>
-                        <line x1="8" y1="2" x2="8" y2="6"/>
-                        <line x1="3" y1="10" x2="21" y2="10"/>
-                      </svg>
-                      <span>Book Now</span>
-                    </button>
-                    
-                    <a 
-                      href="https://wa.me/971502005346?text=Hello%20Just%20Like%20Home%20Nursery%2C%20I%20would%20like%20to%20enquire%20about%20admissions." 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="hero-cta-btn hero-btn-contact" 
-                      id="hero-contact-us-btn"
-                      onClick={() => playPopSound(540)}
-                    >
-                      <svg className="hero-btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-                      </svg>
-                      <span>Contact Us</span>
-                    </a>
-                  </div>
                 </div>
               </div>
+            </div>
+
+            {/* Center CTA Buttons (Positioned directly below the 3D PLAY cubes) */}
+            <div className="hero-center-cta-wrap animate-entrance-up delay-200" id="hero-center-cta-wrap">
+              <button 
+                className="hero-cta-btn hero-btn-book" 
+                type="button" 
+                id="hero-book-now-btn"
+                onClick={() => {
+                  playPopSound(580);
+                  onBookVisitClick();
+                }}
+              >
+                <svg className="hero-btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <span>Book Now</span>
+              </button>
+              
+              <a 
+                href="https://wa.me/971502005346?text=Hello%20Just%20Like%20Home%20Nursery%2C%20I%20would%20like%20to%20enquire%20about%20admissions." 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hero-cta-btn hero-btn-contact" 
+                id="hero-contact-us-btn"
+                onClick={() => playPopSound(540)}
+              >
+                <svg className="hero-btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+                <span>Contact Us</span>
+              </a>
             </div>
 
             {/* Center Floating Pill Badge (Enters from Top) */}
@@ -2281,10 +2283,11 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
               className="scroll-indicator" 
               id="scroll-arrow-btn"
               onClick={() => {
+                const targetScroll = heroSectionRef.current ? heroSectionRef.current.offsetHeight : window.innerHeight;
                 if (window.lenis) {
-                  window.lenis.scrollTo(window.innerHeight, { duration: 1.2 });
+                  window.lenis.scrollTo(targetScroll, { duration: 1.2 });
                 } else {
-                  window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+                  window.scrollTo({ top: targetScroll, behavior: 'smooth' });
                 }
                 playPopSound(480);
               }}
