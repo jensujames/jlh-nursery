@@ -1,411 +1,190 @@
-import React, { useState } from 'react';
-import PageHeader from '../components/PageHeader';
-import ActivitiesShowcase from '../components/ActivitiesShowcase';
-import InteractivePlayLab from '../components/InteractivePlayLab';
-import RevealOnScroll from '../components/RevealOnScroll';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import RevealOnScroll from '../components/RevealOnScroll';
 import { 
-  Sparkles, Camera, ArrowRight, Calendar, Palette, 
-  BookOpen, Music, FlaskConical, Globe2, Trees, 
-  CheckCircle2, Star, Smile, Award
+  BookOpen, Calculator, Globe2, Palette, Sparkles, 
+  Music, Trees, Award, Calendar, Bus, ArrowRight, Camera 
 } from 'lucide-react';
 
-const ACTIVITY_DOMAINS = [
+const ACTIVITIES = [
   {
-    id: 'little-artists',
-    name: 'Little Artists & Messy Play',
+    title: 'Phonics & Literacy',
+    desc: 'Sounds, songs, stories, conversation and mark-making help develop listening, vocabulary and early literacy.',
+    icon: BookOpen,
+    color: '#F15A29',
+    bgColor: '#FFF5F0'
+  },
+  {
+    title: 'Early Numeracy',
+    desc: 'Counting, sorting, matching, shapes, patterns and practical games make mathematical ideas easier to understand.',
+    icon: Calculator,
+    color: '#0284c7',
+    bgColor: '#F0F9FF'
+  },
+  {
+    title: 'Arabic Language Learning',
+    desc: 'Age-appropriate Arabic experiences introduce children to language through engaging activities and familiar repetition.',
+    icon: Globe2,
+    color: '#16a34a',
+    bgColor: '#F0FDF4'
+  },
+  {
+    title: 'Creative Arts & Crafts',
+    desc: 'Painting, drawing, collage and making give children freedom to express ideas while developing fine-motor skills.',
     icon: Palette,
     color: '#e11d48',
-    bg: 'linear-gradient(135deg, #fff1f2, #ffe4e6)',
-    tag: 'Artistic Self-Expression',
-    heading: 'Where Colors Spark Pure Imagination',
-    desc: 'Children dip their fingers into vibrant, non-toxic washable paints, mold eco-clay sculptures, and paint on Montessori wooden easels. We emphasize the joyful journey of creative self-expression over rigid uniformity.',
-    image: '/images/activity-little-artists.jpg',
-    materials: ['Washable Plant-Based Paints', 'Montessori Wooden Easels', 'Natural Clay & Texture Tools'],
-    outcomes: ['Fine Motor Precision', 'Color Theory & Spatial Awareness', 'Emotional Catharsis & Pride'],
-    floatingBadge: 'Little Artist 🎨'
+    bgColor: '#FFF1F2'
   },
   {
-    id: 'mini-stem',
-    name: 'Mini STEM & Inquiry Lab',
-    icon: FlaskConical,
-    color: '#0284c7',
-    bg: 'linear-gradient(135deg, #f0f9ff, #e0f2fe)',
-    tag: 'Sensory Science & Math',
-    heading: 'Curiosity Sparked by Hands-On Discovery',
-    desc: 'Miniature microscopes, magnetic balance scales, water flow tubes, and nature specimen sorting. Children test hypotheses, learn early cause-and-effect, and discover the wonder of physics and biology.',
-    image: '/images/activity-mini-stem.jpg',
-    materials: ['Preschool Safe Microscopes', 'Sensory Water Flow Tables', 'Nature Botany Trays'],
-    outcomes: ['Early Hypothesis Testing', 'Counting & Weight Sorting', 'Observation Vocabulary'],
-    floatingBadge: 'Curious Mind 🔬'
-  },
-  {
-    id: 'creative-play',
-    name: 'Creative Play & Robotics',
+    title: 'Sensory & Exploration',
+    desc: 'Hands-on play invites children to investigate textures, materials, movement, cause and effect.',
     icon: Sparkles,
     color: '#d97706',
-    bg: 'linear-gradient(135deg, #fffbeb, #fef3c7)',
-    tag: 'Cooperative Engineering',
-    heading: 'Building Teamwork, Structures & Friendships',
-    desc: 'Magnetic tiles, giant wooden foam blocks, sensory marble runs, and cooperative pretend play corners. Children negotiate roles, solve architectural balance problems, and build lifelong friendships.',
-    image: '/images/activity-creative-play.jpg',
-    materials: ['Sensory Magnetic Tiles', 'Giant Architect Blocks', 'Pretend Doctor & Grocery Sets'],
-    outcomes: ['Spatial Geometry Intuition', 'Peer Negotiation & Sharing', 'Resilience & Problem Solving'],
-    floatingBadge: 'Team Builder 🏗️'
+    bgColor: '#FFFBEB'
   },
   {
-    id: 'phonics-arabic',
-    name: 'Phonics & Arabic Immersion',
-    icon: BookOpen,
-    color: '#16a34a',
-    bg: 'linear-gradient(135deg, #f0fdf4, #dcfce7)',
-    tag: 'Bilingual Literacy & Rhyme',
-    heading: 'Cultivating Love for Stories & Languages',
-    desc: 'Interactive Jolly Phonics sound baskets, big picture book story rugs, rhythmic finger puppets, and natural Arabic conversational songs that honor local cultural heritage in a gentle, joyful manner.',
-    image: '/images/classroom.jpg',
-    materials: ['Jolly Phonics Sensory Sound Boxes', 'Illustrated Big Books', 'Bilingual Audio Rhyme Rug'],
-    outcomes: ['Letter-Sound Blending', 'Fluent Vocabulary Growth', 'Cultural Pride & Identity'],
-    floatingBadge: 'Phonics Star 🔤'
+    title: 'Stories, Rhymes & Music',
+    desc: 'Books, songs and rhythm strengthen memory, listening, language and joyful participation.',
+    icon: Music,
+    color: '#7c3aed',
+    bgColor: '#F5F3FF'
+  },
+  {
+    title: 'Physical & Outdoor Play',
+    desc: 'Movement supports coordination, strength, balance, confidence and healthy habits.',
+    icon: Trees,
+    color: '#059669',
+    bgColor: '#ECFDF5'
+  },
+  {
+    title: 'Life Skills & Independence',
+    desc: 'Practical routines encourage responsibility, self-help skills, good manners and confidence.',
+    icon: Award,
+    color: '#ea580c',
+    bgColor: '#FFF7ED'
+  },
+  {
+    title: 'Theme Days & Celebrations',
+    desc: 'Special experiences bring learning to life and create happy shared memories.',
+    icon: Calendar,
+    color: '#db2777',
+    bgColor: '#FDF2F8'
+  },
+  {
+    title: 'Educational Trips & Outings',
+    desc: 'Where offered, carefully planned outings extend children\'s understanding beyond the classroom.',
+    icon: Bus,
+    color: '#2563eb',
+    bgColor: '#EFF6FF'
   }
 ];
 
-const WEEKDAY_THEMES = [
-  { day: 'Monday', title: 'Sensory Splash & Colors', desc: 'Tactile water experiments, texture boards, and finger-paint discovery.' },
-  { day: 'Tuesday', title: 'Mini STEM & Nature Sorting', desc: 'Leaves, stones, magnifying glasses, and magnetic counting tiles.' },
-  { day: 'Wednesday', title: 'Jolly Phonics & Puppet Theater', desc: 'Sound-matching games, dramatic roleplay, and story circles.' },
-  { day: 'Thursday', title: 'Little Chefs & Healthy Baking', desc: 'Fruit cutting with toddler safety knives, dough kneading, and food art.' },
-  { day: 'Friday', title: 'Outdoor Adventure & Obstacle Turf', desc: 'Parachute games, trike obstacle courses, and water splash laughter.' }
-];
-
-export default function ActivitiesPage({ onBookVisitClick }) {
-  const [activeDomainIdx, setActiveDomainIdx] = useState(0);
-  const curDomain = ACTIVITY_DOMAINS[activeDomainIdx];
-  const DomainIcon = curDomain.icon;
-
+export default function ActivitiesPage() {
   return (
-    <div>
-      <PageHeader
-        badge="Creativity & Wonder"
-        title="Big Smiles Start With Creative Play"
-        subtitle="Explore phonics, literacy, early numeracy, Arabic immersion, sensory science, messy arts, music, storytelling, and outdoor play."
-        onBookVisitClick={onBookVisitClick}
-        image="/images/activity-little-artists.jpg"
-        imageAlt="Joyful children collaborating with creative arts, crafts and sensory materials"
-        primaryCtaText="View Activities"
-        secondaryCtaText="See How It Works"
-        cardProgress={{
-          label: "Weekly Themes",
-          subject: "Messy Art",
-          status: "Creative Fun",
-          percentage: 95
-        }}
-        cardGreatJob={{
-          title: "Little Artists 🎨",
-          subtitle: "Finger Painting Day"
-        }}
-        cardNextLesson={{
-          label: "Next Session",
-          subject: "Music",
-          topic: "Rhythm & Songs"
-        }}
-      />
+    <div className="activities-page">
+      {/* 1. HERO */}
+      <section className="page-hero-section">
+        <div className="hero-atmosphere">
+          <div className="hero-sun-glow"></div>
+        </div>
+        <div className="container relative z-10">
+          <RevealOnScroll>
+            <div className="page-hero-content text-center max-w-4xl mx-auto">
+              <span className="badge badge-primary mb-4 inline-flex items-center gap-2">
+                <Sparkles size={14} /> Nursery Activities · Ajman
+              </span>
+              <h1 className="hero-title text-3xl md:text-5xl font-black text-warm-navy mb-6 leading-tight">
+                Every Day Brings a New Way to Discover
+              </h1>
+              <div className="space-y-4 text-lg md:text-xl text-stone-600 leading-relaxed font-normal">
+                <p>
+                  Children learn best when experiences feel meaningful, active and enjoyable. Our nursery activities encourage curiosity, communication, imagination, movement and growing independence.
+                </p>
+              </div>
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <Link to="/contact" className="btn btn-primary shadow-lg shadow-orange-500/20">
+                  <Calendar size={18} />
+                  Book a Visit
+                </Link>
+                <Link to="/gallery" className="btn btn-secondary">
+                  <Camera size={18} />
+                  View Our Gallery
+                </Link>
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
 
-      {/* SECTION 1: Interactive Activity Domain Showcase */}
-      <section className="section-padding" style={{ backgroundColor: '#ffffff', position: 'relative' }}>
+      {/* 2. THE 10 ACTIVITIES */}
+      <section className="section bg-white border-y border-stone-100">
         <div className="container">
-          <RevealOnScroll animation="from-top">
-            <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 2.5rem' }}>
-              <span className="badge-gold">ENRICHMENT CORE</span>
-              <h2 style={{
-                fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
-                color: '#1e293b',
-                fontFamily: 'var(--font-heading)',
-                fontWeight: 800,
-                marginTop: '0.5rem',
-                marginBottom: '1rem'
-              }}>
-                Interactive Activity Domains
+          <RevealOnScroll>
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <span className="badge badge-accent mb-3">Enriching Experiences</span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy mb-4">
+                Our Daily & Weekly Activities
               </h2>
-              <p style={{ fontSize: '1.02rem', color: '#64748b', lineHeight: 1.65 }}>
-                Click through each domain below to see the materials, pedagogical goals, and hands-on excitement our children experience daily.
+              <p className="text-stone-600 text-lg">
+                Engaging opportunities planned to inspire curious minds and active little bodies.
               </p>
             </div>
           </RevealOnScroll>
 
-          {/* Activity Tabs */}
-          <div className="fac-tabs-bar" style={{ marginBottom: '2.5rem' }}>
-            {ACTIVITY_DOMAINS.map((domain, dIdx) => {
-              const IconComp = domain.icon;
-              const isActive = dIdx === activeDomainIdx;
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {ACTIVITIES.map((act, index) => {
+              const Icon = act.icon;
               return (
-                <button
-                  key={domain.id}
-                  type="button"
-                  className={`fac-tab-pill ${isActive ? 'is-active' : ''}`}
-                  onClick={() => setActiveDomainIdx(dIdx)}
-                  style={isActive ? { background: domain.color, borderColor: domain.color } : {}}
-                >
-                  <IconComp size={16} style={{ color: isActive ? '#ffffff' : domain.color }} />
-                  <span>{domain.name}</span>
-                </button>
+                <RevealOnScroll key={index} delay={index * 40}>
+                  <div className="h-full p-8 rounded-3xl bg-[#FFFDF7] border border-stone-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                      <div 
+                        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+                        style={{ backgroundColor: act.bgColor, color: act.color }}
+                      >
+                        <Icon size={28} />
+                      </div>
+                      <h3 className="text-2xl font-bold text-warm-navy mb-3">
+                        {act.title}
+                      </h3>
+                      <p className="text-stone-600 text-base leading-relaxed">
+                        {act.desc}
+                      </p>
+                    </div>
+                  </div>
+                </RevealOnScroll>
               );
             })}
           </div>
-
-          {/* Split Showcase Container */}
-          <div 
-            className="fac-showcase-container"
-            style={{
-              padding: '2.5rem 3rem 3rem',
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '3rem',
-              alignItems: 'center'
-            }}
-          >
-            {/* Left Content Column */}
-            <div key={`${curDomain.id}-content`} style={{ animation: 'facContentSlide 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}>
-              <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '6px 16px',
-                borderRadius: '9999px',
-                background: curDomain.bg,
-                color: curDomain.color,
-                fontWeight: 700,
-                fontSize: '0.85rem',
-                marginBottom: '1rem'
-              }}>
-                <DomainIcon size={15} />
-                <span>{curDomain.tag}</span>
-              </div>
-
-              <h3 style={{
-                fontSize: 'clamp(1.8rem, 2.8vw, 2.3rem)',
-                fontWeight: 800,
-                color: '#0f172a',
-                lineHeight: 1.2,
-                marginBottom: '1rem'
-              }}>
-                {curDomain.heading}
-              </h3>
-
-              <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.65, marginBottom: '1.5rem' }}>
-                {curDomain.desc}
-              </p>
-
-              {/* Material Tools Used */}
-              <div style={{
-                background: '#f8fafc',
-                border: '1.5px solid #e2e8f0',
-                borderRadius: '16px',
-                padding: '14px 18px',
-                marginBottom: '1.5rem'
-              }}>
-                <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '8px' }}>
-                  Child-Safe Materials &amp; Fittings
-                </div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                  {curDomain.materials.map((m, mIdx) => (
-                    <span key={mIdx} style={{ fontSize: '0.82rem', fontWeight: 600, color: '#334155', background: '#ffffff', border: '1px solid #cbd5e1', padding: '3px 10px', borderRadius: '6px' }}>
-                      &bull; {m}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Learning Outcomes */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '1.75rem' }}>
-                {curDomain.outcomes.map((o, oIdx) => (
-                  <div
-                    key={oIdx}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      padding: '6px 14px',
-                      borderRadius: '9999px',
-                      background: '#ffffff',
-                      border: '1.5px solid #e2e8f0',
-                      fontSize: '0.82rem',
-                      fontWeight: 600,
-                      color: '#334155',
-                      boxShadow: '0 2px 6px rgba(0, 0, 0, 0.03)'
-                    }}
-                  >
-                    <CheckCircle2 size={14} style={{ color: curDomain.color }} />
-                    <span>{o}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <button
-                  type="button"
-                  onClick={onBookVisitClick}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '12px 24px',
-                    borderRadius: '9999px',
-                    background: curDomain.color,
-                    color: '#ffffff',
-                    fontWeight: 700,
-                    fontSize: '0.92rem',
-                    border: 'none',
-                    cursor: 'pointer',
-                    boxShadow: `0 8px 20px -4px ${curDomain.color}60`
-                  }}
-                >
-                  <span>Experience This Lab</span>
-                  <ArrowRight size={15} />
-                </button>
-              </div>
-            </div>
-
-            {/* Right Image Showcase */}
-            <div key={`${curDomain.id}-image`} style={{ position: 'relative', animation: 'facImageSlide 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}>
-              <div style={{
-                position: 'relative',
-                borderRadius: '2rem',
-                overflow: 'hidden',
-                boxShadow: '0 20px 50px -10px rgba(0, 0, 0, 0.18)',
-                border: '5px solid #ffffff'
-              }}>
-                <img
-                  src={curDomain.image}
-                  alt={curDomain.name}
-                  style={{ width: '100%', height: '410px', objectFit: 'cover', display: 'block' }}
-                />
-              </div>
-
-              {/* Floating Card */}
-              <div
-                className="animate-float-slow"
-                style={{
-                  position: 'absolute',
-                  top: '8%',
-                  right: '-18px',
-                  background: 'rgba(255, 255, 255, 0.96)',
-                  backdropFilter: 'blur(12px)',
-                  borderRadius: '20px',
-                  padding: '10px 18px',
-                  boxShadow: '0 18px 36px -8px rgba(0, 0, 0, 0.16)',
-                  border: '2px solid rgba(255, 255, 255, 0.95)',
-                  fontSize: '0.85rem',
-                  fontWeight: 800,
-                  color: '#0f172a'
-                }}
-              >
-                {curDomain.floatingBadge}
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* SECTION 2: Weekly Rhythm Schedule Strip */}
-      <section className="section-padding bg-cream-subtle" style={{ position: 'relative' }}>
+      {/* 3. SEE LEARNING IN ACTION & PUBLISHING NOTE */}
+      <section className="section bg-[#FFFDF7]">
         <div className="container">
-          <RevealOnScroll animation="from-top">
-            <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 3rem' }}>
-              <span className="badge-maroon">DAILY EXCITEMENT</span>
-              <h2 style={{
-                fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
-                color: '#3d050f',
-                fontFamily: 'var(--font-heading)',
-                fontWeight: 800,
-                marginTop: '0.5rem',
-                marginBottom: '1rem'
-              }}>
-                A Week Full of Discovery at Villa 47
-              </h2>
-              <p style={{ fontSize: '1.02rem', color: '#64748b', lineHeight: 1.65 }}>
-                Every weekday brings an engaging focus to keep young minds energized, confident, and constantly learning.
-              </p>
-            </div>
-          </RevealOnScroll>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
-            gap: '1.25rem'
-          }}>
-            {WEEKDAY_THEMES.map((item, idx) => (
-              <RevealOnScroll key={idx} animation="from-bottom" delay={idx * 80}>
-                <div style={{
-                  background: '#ffffff',
-                  borderRadius: '1.5rem',
-                  padding: '1.75rem 1.5rem',
-                  border: '1.5px solid rgba(123, 17, 39, 0.1)',
-                  boxShadow: '0 8px 24px rgba(114, 16, 36, 0.05)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  height: '100%'
-                }}>
-                  <div>
-                    <div style={{
-                      display: 'inline-block',
-                      padding: '4px 12px',
-                      borderRadius: '9999px',
-                      background: 'rgba(241, 90, 41, 0.1)',
-                      color: '#ea580c',
-                      fontWeight: 800,
-                      fontSize: '0.78rem',
-                      marginBottom: '0.85rem'
-                    }}>
-                      {item.day}
-                    </div>
-                    <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a', marginBottom: '0.5rem' }}>
-                      {item.title}
-                    </h4>
-                    <p style={{ fontSize: '0.85rem', color: '#64748b', lineHeight: 1.6 }}>
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              </RevealOnScroll>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Main Activities & Daily Schedule Component */}
-      <ActivitiesShowcase onBookVisitClick={onBookVisitClick} />
-
-      {/* Interactive Play & Discovery Lab */}
-      <InteractivePlayLab onBookVisitClick={onBookVisitClick} />
-
-      {/* Gallery Teaser Link */}
-      <section style={{ backgroundColor: '#ffffff', padding: '4.5rem 0', borderTop: '1px solid rgba(123, 17, 39, 0.08)' }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <RevealOnScroll animation="fade-up">
-            <div>
-              <span className="badge-maroon" style={{ marginBottom: '0.75rem' }}>
-                <Camera size={14} /> SEE LEARNING IN ACTION
-              </span>
-              <h2 style={{ fontSize: '2rem', color: '#3d050f', fontFamily: 'var(--font-heading)', marginTop: '0.4rem', marginBottom: '0.75rem' }}>
-                Would You Like to See Real Nursery Moments?
-              </h2>
-              <p style={{ color: '#6b7280', fontSize: '1rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
-                Visit our photo gallery for a visual look inside our classrooms, sensory exploration labs, and shaded outdoor garden.
-              </p>
-
-              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <Link to="/gallery" className="btn-secondary" style={{ padding: '0.85rem 1.8rem', fontSize: '0.95rem' }}>
-                  <span>View Nursery Photo Gallery</span>
-                  <ArrowRight size={16} />
-                </Link>
-                <button onClick={onBookVisitClick} className="btn-primary" style={{ padding: '0.85rem 1.8rem', fontSize: '0.95rem' }}>
-                  <Calendar size={16} />
-                  <span>Book an In-Person Tour</span>
-                </button>
+          <div className="max-w-4xl mx-auto p-8 md:p-12 rounded-3xl bg-white border border-stone-200 shadow-sm text-center">
+            <RevealOnScroll>
+              <div className="w-14 h-14 rounded-2xl bg-orange-50 text-[#F15A29] flex items-center justify-center mx-auto mb-6">
+                <Camera size={28} />
               </div>
-            </div>
-          </RevealOnScroll>
+              <h2 className="text-3xl font-extrabold text-warm-navy mb-4">
+                See Learning in Action
+              </h2>
+              <p className="text-stone-700 text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+                Visit our gallery for a closer look at nursery activities, spaces and special moments. Images should always be current, authentic and used with appropriate parent or guardian consent.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link to="/gallery" className="btn btn-primary shadow-lg shadow-orange-500/20">
+                  <Camera size={18} />
+                  View Our Gallery
+                </Link>
+                <Link to="/contact" className="btn btn-secondary">
+                  <Calendar size={18} />
+                  Book a Visit
+                </Link>
+              </div>
+            </RevealOnScroll>
+          </div>
         </div>
       </section>
     </div>

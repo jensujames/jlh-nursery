@@ -1,477 +1,183 @@
-import React, { useState } from 'react';
-import PageHeader from '../components/PageHeader';
-import FacilitiesSection from '../components/FacilitiesSection';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import { 
-  ShieldCheck, HeartPulse, Stethoscope, Camera, Lock, 
-  CheckCircle2, Calendar, Sparkles, Sun, Trees, Moon, 
-  Video, Activity, ArrowRight, Shield, Award, Footprints, Wind
+  Building2, Trees, Moon, Sparkles, BookOpen, Award, 
+  Bath, Utensils, HeartPulse, Stethoscope, Lock, Video, 
+  ShieldCheck, Calendar, ArrowRight, Phone 
 } from 'lucide-react';
 
-const CAMPUS_ZONES = [
+const FACILITIES = [
   {
-    id: 'cctv-classrooms',
-    name: 'Smart Classrooms & CCTV',
-    icon: Video,
-    color: '#e11d48',
-    bg: 'linear-gradient(135deg, #fff1f2, #ffe4e6)',
-    tag: '24/7 High-Definition Surveillance',
-    title: 'Monitored Learning Suites with Zero Blind Spots',
-    desc: 'Every classroom is equipped with wide-angle high-definition CCTV feeds monitored continuously by security management. Child-height sensory washbasins, rounded corner fittings, and natural sunlight create an uplifting, safe haven.',
-    image: '/images/classroom.jpg',
-    features: ['12 HD Live CCTV Zones', 'Controlled Biometric Entry', 'Finger-Pinch Door Dampers'],
-    metricLabel: 'Safety Audit Score',
-    metricVal: '100% Certified',
-    floatingBadge: '24/7 Monitored 🛡️'
+    title: 'Safe & Welcoming Classrooms',
+    desc: 'Child-friendly learning spaces designed for participation, comfort and age-appropriate experiences.',
+    icon: Building2
   },
   {
-    id: 'outdoor-turf',
-    name: 'Shaded Garden & Active Turf',
-    icon: Trees,
-    color: '#0284c7',
-    bg: 'linear-gradient(135deg, #f0f9ff, #e0f2fe)',
-    tag: 'UV-Protected Gross Motor Lawn',
-    title: 'Fresh Air, Green Play Turf & Joyful Motion',
-    desc: 'A protected outdoor lawn featuring high-grade UV shade canopies that block 98% of harmful rays. Soft shock-absorbing turf, toddler trike tracks, and sensory balance equipment allow active gross motor movement throughout the cooler morning hours.',
-    image: '/images/outdoor.jpg',
-    features: ['98% UV Blocking Canopy', 'Padded Shock-Absorbing Turf', 'Agility & Trike Circuits'],
-    metricLabel: 'Daily Fresh Air Movement',
-    metricVal: '90 Min / Day',
-    floatingBadge: 'UV Protected ☀️'
+    title: 'Indoor Play Area',
+    desc: 'A dedicated space for movement, social play and engaging activities.',
+    icon: Sparkles
   },
   {
-    id: 'baby-sanctuary',
-    name: 'Infant Sleep & Quiet Climate',
-    icon: Moon,
-    color: '#d97706',
-    bg: 'linear-gradient(135deg, #fffbeb, #fef3c7)',
-    tag: '22°C Calibrated Acoustic Suite',
-    title: 'Quiet Sleep Pods & Restful Care',
-    desc: 'An acoustically dampened rest sanctuary maintained at an optimal 22°C temperature. Individual solid beechwood cribs, hospital-grade air purifiers, and soft white-noise lullabies create an undisturbed, restful nap routine for infants and toddlers.',
-    image: '/images/nurturing-hero.jpg',
-    features: ['22°C Climate Precision', 'Acoustic Soundproofing', 'HEPA-13 Air Filtration'],
-    metricLabel: 'Rest Environment',
-    metricVal: '100% Calibrated',
-    floatingBadge: 'Quiet Rest 🌙'
+    title: 'Outdoor Play Area',
+    desc: 'Opportunities for fresh air, physical development and active exploration.',
+    icon: Trees
   },
   {
-    id: 'medical-wing',
-    name: 'First-Aid Clinic & Visits',
-    icon: HeartPulse,
-    color: '#16a34a',
-    bg: 'linear-gradient(135deg, #f0fdf4, #dcfce7)',
-    tag: 'Licensed Pediatric Support',
-    title: 'On-Site Registered Nurse & Regular Doctor Audits',
-    desc: 'Equipped with sterile first-aid equipment, pediatric digital monitors, and dedicated wellness isolation bays. Our full-time licensed nurse performs morning temperature checks and administers certified emergency protocols.',
-    image: '/images/hero.jpg',
-    features: ['MOH Licensed Nurse On-Site', 'Pediatric Doctor Visits', 'Sterile First-Aid Suite'],
-    metricLabel: 'Healthcare Compliance',
-    metricVal: 'MOH Verified',
-    floatingBadge: 'MOH Licensed 🩺'
+    title: 'Baby Care & Quiet Room',
+    desc: 'A calmer environment to support age-appropriate care, rest and comfort.',
+    icon: Moon
+  },
+  {
+    title: 'Sensory & Exploration Spaces',
+    desc: 'Hands-on areas where children can investigate materials and learn through their senses.',
+    icon: Sparkles
+  },
+  {
+    title: 'Reading & Story Corner',
+    desc: 'An inviting place to enjoy books, conversation, imagination and quiet moments.',
+    icon: BookOpen
+  },
+  {
+    title: 'Life-Skills Activity Areas',
+    desc: 'Practical experiences that encourage independence, confidence and everyday responsibility.',
+    icon: Award
+  },
+  {
+    title: 'Child-Friendly Washrooms',
+    desc: 'Facilities designed to support safety, dignity and growing self-care skills.',
+    icon: Bath
+  },
+  {
+    title: 'Kitchen & Meal Preparation Area',
+    desc: 'A designated area supporting nursery meal and snack routines, subject to current nursery provision.',
+    icon: Utensils
+  },
+  {
+    title: 'First-Aid / Clinic Facility',
+    desc: 'A dedicated point for first-aid support and wellbeing needs.',
+    icon: HeartPulse
+  },
+  {
+    title: 'Doctor Visits',
+    desc: 'Doctor visits are provided as part of the nursery\'s health-support practices; frequency and scope should be confirmed before publication.',
+    icon: Stethoscope
+  },
+  {
+    title: 'Secure Reception',
+    desc: 'A controlled welcome point for visitors, families and daily arrivals.',
+    icon: Lock
+  },
+  {
+    title: 'CCTV Monitoring',
+    desc: 'Monitoring supports enhanced safety within the nursery\'s approved policies and procedures.',
+    icon: Video
   }
 ];
 
-const SAFETY_PROTOCOLS = [
-  { 
-    icon: Video, 
-    color: '#e11d48',
-    title: "24/7 Monitored CCTV", 
-    desc: "High-definition camera surveillance across all classrooms, activity corridors, and outdoor playgrounds." 
-  },
-  { 
-    icon: HeartPulse, 
-    color: '#16a34a',
-    title: "In-House First-Aid Clinic", 
-    desc: "Dedicated clinic facility stocked with pediatric emergency provisions and daily vitals tracking." 
-  },
-  { 
-    icon: Stethoscope, 
-    color: '#0284c7',
-    title: "Visiting Doctor Consultations", 
-    desc: "Regular pediatric health visits supporting child physical wellness and developmental milestones." 
-  },
-  { 
-    icon: Lock, 
-    color: '#d97706',
-    title: "Single-Entry Gated Access", 
-    desc: "Secure perimeter villa gates with mandatory visitor registration and verified parent pickup protocols." 
-  },
-  { 
-    icon: Wind, 
-    color: '#8b5cf6',
-    title: "Hospital-Grade Air & Hygiene", 
-    desc: "Continuous daily sanitization of toys, cribs, high-touch surfaces, and soft play floor equipment." 
-  },
-  { 
-    icon: ShieldCheck, 
-    color: '#059669',
-    title: "Child-Proofed Architecture", 
-    desc: "Rounded-edge furniture, soft finger-pinch door guards, electrical outlet caps, and cushioned flooring." 
-  }
-];
-
-export default function FacilitiesPage({ onBookVisitClick }) {
-  const [activeZoneIdx, setActiveZoneIdx] = useState(0);
-  const curZone = CAMPUS_ZONES[activeZoneIdx];
-  const ZoneIcon = curZone.icon;
-
+export default function FacilitiesPage() {
   return (
-    <div>
-      <PageHeader
-        badge="Safety & Child Wellness"
-        title="Safe Spaces Start With Villa 47"
-        subtitle="Explore our safe classrooms, indoor soft play, shaded outdoor garden, baby quiet room, clinic, doctor visits, and 24/7 CCTV surveillance."
-        onBookVisitClick={onBookVisitClick}
-        image="/images/outdoor.jpg"
-        imageAlt="Modern child-safe nursery campus with CCTV, indoor soft play and shaded gardens in Ajman"
-        primaryCtaText="Tour Campus"
-        secondaryCtaText="See How It Works"
-        cardProgress={{
-          label: "Campus Safety",
-          subject: "CCTV 24/7",
-          status: "Fully Monitored",
-          percentage: 100
-        }}
-        cardGreatJob={{
-          title: "Child Safe 🛡️",
-          subtitle: "Dedicated Clinic"
-        }}
-        cardNextLesson={{
-          label: "Outdoor Area",
-          subject: "Play Turf",
-          topic: "Shaded Green Garden"
-        }}
-      />
+    <div className="facilities-page">
+      {/* 1. HERO */}
+      <section className="page-hero-section">
+        <div className="hero-atmosphere">
+          <div className="hero-sun-glow"></div>
+        </div>
+        <div className="container relative z-10">
+          <RevealOnScroll>
+            <div className="page-hero-content text-center max-w-4xl mx-auto">
+              <span className="badge badge-primary mb-4 inline-flex items-center gap-2">
+                <ShieldCheck size={14} /> Facilities & Safety · Ajman
+              </span>
+              <h1 className="hero-title text-3xl md:text-5xl font-black text-warm-navy mb-6 leading-tight">
+                A Safe, Welcoming Space Created for Little Learners
+              </h1>
+              <div className="space-y-4 text-lg md:text-xl text-stone-600 leading-relaxed font-normal">
+                <p>
+                  Children feel more confident when their environment is comfortable, predictable and designed around their needs. Our nursery spaces support active play, focused discovery, social interaction, rest and everyday routines.
+                </p>
+              </div>
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <Link to="/contact" className="btn btn-primary shadow-lg shadow-orange-500/20">
+                  <Calendar size={18} />
+                  Arrange a Nursery Tour
+                </Link>
+                <Link to="/contact" className="btn btn-secondary">
+                  Contact Us
+                  <ArrowRight size={18} />
+                </Link>
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
 
-      {/* SECTION 1: Interactive Villa 47 Zone Navigator */}
-      <section className="section-padding" style={{ backgroundColor: '#ffffff', position: 'relative' }}>
+      {/* 2. THE 13 FACILITIES */}
+      <section className="section bg-white border-y border-stone-100">
         <div className="container">
-          <RevealOnScroll animation="from-top">
-            <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 2.5rem' }}>
-              <span className="badge-gold">VILLA 47 CAMPUS SPECIFICATIONS</span>
-              <h2 style={{
-                fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
-                color: '#1e293b',
-                fontFamily: 'var(--font-heading)',
-                fontWeight: 800,
-                marginTop: '0.5rem',
-                marginBottom: '1rem'
-              }}>
-                Interactive Campus Zone Navigator
+          <RevealOnScroll>
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <span className="badge badge-accent mb-3">Purpose-Built Environments</span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy mb-4">
+                Our Campus Spaces & Amenities
               </h2>
-              <p style={{ fontSize: '1.02rem', color: '#64748b', lineHeight: 1.65 }}>
-                Click each zone to preview safety fittings, climate controls, and purpose-built facilities engineered for your child.
+              <p className="text-stone-600 text-lg">
+                Designed to nurture wellbeing, spark curiosity and protect safety at every step.
               </p>
             </div>
           </RevealOnScroll>
 
-          {/* Zone Tabs */}
-          <div className="fac-tabs-bar" style={{ marginBottom: '2.5rem' }}>
-            {CAMPUS_ZONES.map((zone, zIdx) => {
-              const IconComp = zone.icon;
-              const isActive = zIdx === activeZoneIdx;
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {FACILITIES.map((facility, index) => {
+              const Icon = facility.icon;
               return (
-                <button
-                  key={zone.id}
-                  type="button"
-                  className={`fac-tab-pill ${isActive ? 'is-active' : ''}`}
-                  onClick={() => setActiveZoneIdx(zIdx)}
-                  style={isActive ? { background: zone.color, borderColor: zone.color } : {}}
-                >
-                  <IconComp size={16} style={{ color: isActive ? '#ffffff' : zone.color }} />
-                  <span>{zone.name}</span>
-                </button>
+                <RevealOnScroll key={index} delay={index * 30}>
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#FFFDF7] border border-stone-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                      <div className="w-12 h-12 rounded-2xl bg-orange-50 text-[#F15A29] flex items-center justify-center mb-5">
+                        <Icon size={24} />
+                      </div>
+                      <h3 className="text-xl font-bold text-warm-navy mb-3">
+                        {facility.title}
+                      </h3>
+                      <p className="text-stone-600 text-base leading-relaxed">
+                        {facility.desc}
+                      </p>
+                    </div>
+                  </div>
+                </RevealOnScroll>
               );
             })}
-          </div>
-
-          {/* Split Showcase Container */}
-          <div 
-            className="fac-showcase-container"
-            style={{
-              padding: '2.5rem 3rem 3rem',
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '3rem',
-              alignItems: 'center'
-            }}
-          >
-            {/* Left Content Column */}
-            <div key={`${curZone.id}-content`} style={{ animation: 'facContentSlide 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}>
-              <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '6px 16px',
-                borderRadius: '9999px',
-                background: curZone.bg,
-                color: curZone.color,
-                fontWeight: 700,
-                fontSize: '0.85rem',
-                marginBottom: '1rem'
-              }}>
-                <ZoneIcon size={15} />
-                <span>{curZone.tag}</span>
-              </div>
-
-              <h3 style={{
-                fontSize: 'clamp(1.8rem, 2.8vw, 2.3rem)',
-                fontWeight: 800,
-                color: '#0f172a',
-                lineHeight: 1.2,
-                marginBottom: '1rem'
-              }}>
-                {curZone.title}
-              </h3>
-
-              <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.65, marginBottom: '1.5rem' }}>
-                {curZone.desc}
-              </p>
-
-              {/* Feature Chips */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '1.5rem' }}>
-                {curZone.features.map((feat, fIdx) => (
-                  <div
-                    key={fIdx}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      padding: '6px 14px',
-                      borderRadius: '9999px',
-                      background: '#ffffff',
-                      border: '1.5px solid #e2e8f0',
-                      fontSize: '0.82rem',
-                      fontWeight: 600,
-                      color: '#334155',
-                      boxShadow: '0 2px 6px rgba(0, 0, 0, 0.03)'
-                    }}
-                  >
-                    <CheckCircle2 size={14} style={{ color: curZone.color }} />
-                    <span>{feat}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Metric Progress Bar */}
-              <div style={{
-                background: '#f8fafc',
-                border: '1.5px solid #e2e8f0',
-                borderRadius: '16px',
-                padding: '14px 18px',
-                marginBottom: '1.75rem'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px', fontSize: '0.84rem' }}>
-                  <span style={{ fontWeight: 600, color: '#475569' }}>{curZone.metricLabel}</span>
-                  <span style={{ fontWeight: 800, color: curZone.color }}>{curZone.metricVal}</span>
-                </div>
-                <div style={{ height: '6px', background: '#e2e8f0', borderRadius: '9999px', overflow: 'hidden' }}>
-                  <div style={{ width: '100%', height: '100%', background: curZone.color, borderRadius: '9999px' }} />
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <button
-                  type="button"
-                  onClick={onBookVisitClick}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '12px 24px',
-                    borderRadius: '9999px',
-                    background: curZone.color,
-                    color: '#ffffff',
-                    fontWeight: 700,
-                    fontSize: '0.92rem',
-                    border: 'none',
-                    cursor: 'pointer',
-                    boxShadow: `0 8px 20px -4px ${curZone.color}60`
-                  }}
-                >
-                  <span>Book Guided Campus Tour</span>
-                  <ArrowRight size={15} />
-                </button>
-              </div>
-            </div>
-
-            {/* Right Image Column */}
-            <div key={`${curZone.id}-image`} style={{ position: 'relative', animation: 'facImageSlide 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}>
-              <div style={{
-                position: 'relative',
-                borderRadius: '2rem',
-                overflow: 'hidden',
-                boxShadow: '0 20px 50px -10px rgba(0, 0, 0, 0.18)',
-                border: '5px solid #ffffff'
-              }}>
-                <img
-                  src={curZone.image}
-                  alt={curZone.name}
-                  style={{ width: '100%', height: '410px', objectFit: 'cover', display: 'block' }}
-                />
-              </div>
-
-              {/* Floating Card */}
-              <div
-                className="animate-float-slow"
-                style={{
-                  position: 'absolute',
-                  top: '8%',
-                  right: '-18px',
-                  background: 'rgba(255, 255, 255, 0.96)',
-                  backdropFilter: 'blur(12px)',
-                  borderRadius: '20px',
-                  padding: '10px 18px',
-                  boxShadow: '0 18px 36px -8px rgba(0, 0, 0, 0.16)',
-                  border: '2px solid rgba(255, 255, 255, 0.95)',
-                  fontSize: '0.85rem',
-                  fontWeight: 800,
-                  color: '#0f172a'
-                }}
-              >
-                {curZone.floatingBadge}
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Main Facilities Interactive Grid Component */}
-      <FacilitiesSection onBookVisitClick={onBookVisitClick} />
-
-      {/* SECTION 2: Zero Compromise Safety Protocols Grid */}
-      <section className="section-padding bg-cream" style={{ position: 'relative' }}>
+      {/* 3. SAFETY IS A DAILY PRACTICE */}
+      <section className="section bg-[#FFFDF7]">
         <div className="container">
-          <RevealOnScroll animation="zoom-in">
-            <div style={{
-              backgroundColor: '#ffffff',
-              borderRadius: '2.5rem',
-              padding: '3.5rem 3rem',
-              border: '1.5px solid rgba(123, 17, 39, 0.1)',
-              boxShadow: '0 15px 40px rgba(70, 7, 19, 0.05)',
-              marginBottom: '3rem'
-            }}>
-              <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                <span className="badge-maroon">ZERO COMPROMISE POLICY</span>
-                <h2 style={{ fontSize: '2.2rem', color: '#3d050f', fontFamily: 'var(--font-heading)', marginTop: '0.4rem', fontWeight: 800 }}>
-                  Safety Is a Living Daily Habit
-                </h2>
-                <p style={{ fontSize: '1rem', color: '#6b7280', maxWidth: '700px', margin: '0.5rem auto 0', lineHeight: 1.6 }}>
-                  A truly safe nursery relies on meticulous educator training, hospital-grade daily hygiene protocols, and comforting emotional reassurance.
-                </p>
+          <div className="max-w-4xl mx-auto p-8 md:p-12 rounded-3xl bg-white border border-stone-200 shadow-sm text-center">
+            <RevealOnScroll>
+              <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-6">
+                <ShieldCheck size={28} />
               </div>
-
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
-                gap: '1.75rem'
-              }}>
-                {SAFETY_PROTOCOLS.map((sp, idx) => {
-                  const ProtoIcon = sp.icon;
-                  return (
-                    <div
-                      key={idx}
-                      style={{
-                        padding: '1.75rem',
-                        borderRadius: '1.5rem',
-                        backgroundColor: '#fdfbf7',
-                        border: '1.5px solid rgba(123, 17, 39, 0.08)',
-                        transition: 'transform 0.25s ease, box-shadow 0.25s ease'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                        <div style={{
-                          width: '42px',
-                          height: '42px',
-                          borderRadius: '12px',
-                          backgroundColor: `${sp.color}15`,
-                          color: sp.color,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          flexShrink: 0
-                        }}>
-                          <ProtoIcon size={22} />
-                        </div>
-                        <h3 style={{ fontSize: '1.15rem', color: '#1e293b', fontWeight: '800', margin: 0 }}>
-                          {sp.title}
-                        </h3>
-                      </div>
-                      <p style={{ fontSize: '0.9rem', color: '#64748b', lineHeight: '1.65', margin: 0 }}>
-                        {sp.desc}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </RevealOnScroll>
-
-          {/* Tour CTA: Colorful Glassmorphism & Claymorphism */}
-          <RevealOnScroll animation="fade-up" delay={150}>
-            <div className="clay-glass-banner-pastel" style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '2rem'
-            }}>
-              <div className="clay-glow-orb clay-orb-1" />
-              <div className="clay-glow-orb clay-orb-2" />
-
-              <div style={{ position: 'relative', zIndex: 2, maxWidth: '650px' }}>
-                <div style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.45rem',
-                  backgroundColor: 'rgba(255, 255, 255, 0.92)',
-                  border: '1.5px solid rgba(241, 90, 41, 0.3)',
-                  padding: '0.35rem 0.95rem',
-                  borderRadius: '999px',
-                  color: '#ea580c',
-                  fontSize: '0.78rem',
-                  fontWeight: '800',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  marginBottom: '0.75rem',
-                  boxShadow: '0 4px 12px rgba(241, 90, 41, 0.08)'
-                }}>
-                  <Sparkles size={14} style={{ color: '#f59e0b' }} />
-                  <span>Villa 47 Guided Walkthrough</span>
-                </div>
-                <h3 style={{
-                  fontSize: 'clamp(1.75rem, 3.2vw, 2.25rem)',
-                  fontFamily: 'var(--font-heading)',
-                  fontWeight: '900',
-                  color: '#1e293b',
-                  lineHeight: '1.25',
-                  letterSpacing: '-0.02em'
-                }}>
-                  Tour our villa nursery at Villa 47, Al Rashidiya 2
-                </h3>
-                <p style={{
-                  color: '#475569',
-                  fontSize: '1rem',
-                  lineHeight: '1.55',
-                  marginTop: '0.5rem',
-                  fontWeight: '500'
-                }}>
-                  Meet our certified health staff and explore all our purpose-built child facilities in person.
-                </p>
-              </div>
-
-              <div style={{ position: 'relative', zIndex: 2 }}>
-                <button
-                  onClick={onBookVisitClick}
-                  className="btn-clay-gold"
-                >
+              <h2 className="text-3xl font-extrabold text-warm-navy mb-4">
+                Safety Is a Daily Practice
+              </h2>
+              <p className="text-stone-700 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+                A safe environment depends on more than equipment. It also depends on careful supervision, clear routines, cleanliness, responsible access and communication with families. During your visit, our team will be happy to explain the current safety and wellbeing procedures that apply at the nursery.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link to="/contact" className="btn btn-primary shadow-lg shadow-orange-500/20">
                   <Calendar size={18} />
-                  <span>Arrange a Guided Tour</span>
-                </button>
+                  Arrange a Nursery Tour
+                </Link>
+                <Link to="/contact" className="btn btn-secondary">
+                  Contact Us
+                  <ArrowRight size={18} />
+                </Link>
               </div>
-            </div>
-          </RevealOnScroll>
-
+            </RevealOnScroll>
+          </div>
         </div>
       </section>
     </div>

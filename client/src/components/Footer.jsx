@@ -165,7 +165,7 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
               margin: '0 0 1.5rem 0',
               fontWeight: '500'
             }}>
-              Just Like Home is an early childhood education sanctuary where all children, typically aged 45 days to 4 years, begin their joyful learning journey.
+              Where Little Hearts Feel at Home. We don't just educate children we nurture little hearts, build confidence, encourage curiosity, and create happy memories that last a lifetime.
             </p>
 
             {/* 3D Tactile Social Buttons */}
@@ -187,20 +187,9 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="footer-3d-social-btn"
-                title="Google Maps Location & Reviews"
+                title="Google Maps Location"
               >
                 <MapPin size={18} />
-              </a>
-
-              {/* Instagram */}
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="footer-3d-social-btn"
-                title="Instagram"
-              >
-                <ExternalLink size={17} />
               </a>
 
               {/* Phone Direct */}
@@ -233,12 +222,12 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
 
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
               {[
-                { name: 'Kindergarten & EYFS', path: '/eyfs-learning' },
-                { name: 'Our Teachers & Ratios', path: '/about-us' },
-                { name: 'Programs & Daycare', path: '/programs' },
-                { name: 'Villa 47 Facilities Tour', path: '/facilities' },
-                { name: 'Help and FAQs', path: '/contact' },
-                { name: 'Contact & Admissions', path: '/admissions' }
+                { name: 'About Just Like Home', path: '/about-us' },
+                { name: 'Our Programs', path: '/programs' },
+                { name: 'EYFS & Learning', path: '/eyfs-learning' },
+                { name: 'Daily Activities', path: '/nursery-activities' },
+                { name: 'Facilities & Safety', path: '/facilities' },
+                { name: 'Admissions & Tour', path: '/admissions' }
               ].map((item, idx) => (
                 <li key={idx}>
                   <Link 
@@ -325,10 +314,10 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
                 </a>
               </div>
 
-              {/* Google Reviews Live Rating Link */}
+              {/* Google Maps Link */}
               <div>
                 <div style={{ color: '#ea580c', fontWeight: '800', marginBottom: '2px', fontSize: '0.86rem' }}>
-                  Google Reviews:
+                  Location:
                 </div>
                 <a
                   href={GMB_URL}
@@ -337,21 +326,14 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '4px',
+                    gap: '6px',
                     color: '#0f172a',
                     fontWeight: '700',
                     textDecoration: 'none'
                   }}
                 >
-                  <span>5.0</span>
-                  <div style={{ display: 'inline-flex', gap: '1px' }}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={12} fill="#f59e0b" color="#f59e0b" />
-                    ))}
-                  </div>
-                  <span style={{ fontSize: '0.76rem', color: '#16a34a', fontWeight: '800', backgroundColor: '#ecfdf5', padding: '1px 6px', borderRadius: '4px' }}>
-                    Verified
-                  </span>
+                  <MapPin size={14} className="text-[#ea580c]" />
+                  <span>Villa 47, Al Rashidiya 2, Ajman</span>
                 </a>
               </div>
 

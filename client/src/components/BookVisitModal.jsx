@@ -25,7 +25,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
     email: '',
     childName: '',
     childAge: '',
-    programInterest: 'Nursery Program (1.5 - 3 yrs)',
+    programInterest: 'Nursery Program',
     preferredDate: '',
     preferredTime: 'Morning (10:00 AM)',
     notes: '',
@@ -366,11 +366,12 @@ export default function BookVisitModal({ isOpen, onClose }) {
                       outline: 'none'
                     }}
                   >
-                    <option value="Early Explorers (45d - 1.5y)">Early Explorers (Infant: 45d - 1.5y)</option>
-                    <option value="Curious Learners (1.5 - 3y)">Curious Learners (Toddler: 1.5 - 3y)</option>
-                    <option value="Confident Preschoolers (3 - 4y)">Confident Preschoolers (3 - 4y)</option>
-                    <option value="School Readiness (4 - 5y)">School Readiness (4 - 5y)</option>
-                    <option value="Full-Day Care">Full-Day Extended Daycare</option>
+                    <option value="Early Years Foundation">Early Years Foundation</option>
+                    <option value="Nursery Program">Nursery Program</option>
+                    <option value="Preschool Program">Preschool Program</option>
+                    <option value="School Readiness">School Readiness</option>
+                    <option value="Full-Day Care">Full-Day Care</option>
+                    <option value="Half-Day Care">Half-Day Care</option>
                     <option value="Holiday & Summer Camps">Holiday & Summer Camps</option>
                   </select>
                 </div>

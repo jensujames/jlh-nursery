@@ -1,372 +1,266 @@
 import React, { useState } from 'react';
-import PageHeader from '../components/PageHeader';
-import AdmissionsCalculator from '../components/AdmissionsCalculator';
+import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import { 
-  FileText, CheckCircle2, Calendar, Phone, MessageCircle, 
-  HelpCircle, Sparkles, ArrowRight, ShieldCheck, Clock, 
-  Heart, Users, Check
+  FileText, Calendar, Phone, MessageCircle, HelpCircle, 
+  CheckCircle2, ArrowRight, ChevronDown, ChevronUp, AlertCircle 
 } from 'lucide-react';
 
-const ADMISSION_STEPS = [
+const JOURNEY_STEPS = [
   {
-    step: '01',
-    title: 'Schedule Your Guided Tour',
-    badge: 'Step 1 of 4 &bull; Initial Contact',
-    desc: 'Reach out via our website booking form, direct phone call, or WhatsApp. Select a morning visit time that fits your family routine to see our active classrooms.',
-    action: 'Book a Campus Visit',
-    image: '/images/hero.jpg',
-    color: '#e11d48',
-    bg: 'linear-gradient(135deg, #fff1f2, #ffe4e6)',
-    highlights: ['Flexible Morning Visit Slots', 'Meet the Nursery Principal', 'Personal Q&A on EYFS & Care']
+    step: '1',
+    title: 'Send an Enquiry',
+    desc: 'Contact us by phone, WhatsApp or the website form and share your child\'s age and preferred attendance option.'
   },
   {
-    step: '02',
-    title: 'Experience Villa 47 in Person',
-    badge: 'Step 2 of 4 &bull; Campus Walkthrough',
-    desc: 'Bring your little one for a gentle walk through our child-safe classrooms, quiet sleep cots, clinic, and shaded play turf. Observe our educators in action.',
-    action: 'View Campus Zones',
-    image: '/images/classroom.jpg',
-    color: '#0284c7',
-    bg: 'linear-gradient(135deg, #f0f9ff, #e0f2fe)',
-    highlights: ['Child-Friendly Welcome', 'Classroom Observation', 'Fee Schedule & Schedule Consultation']
+    step: '2',
+    title: 'Speak With Our Team',
+    desc: 'We will discuss your needs, current availability and the most suitable program pathway.'
   },
   {
-    step: '03',
-    title: 'Submit Enrollment Registration',
-    badge: 'Step 3 of 4 &bull; Documentation',
-    desc: 'Complete the student registration dossier and provide standard copies of IDs, birth certificate, and vaccination record to secure your child’s seat.',
-    action: 'Review Document Checklist',
-    image: '/images/growing-minds-center.jpg',
-    color: '#d97706',
-    bg: 'linear-gradient(135deg, #fffbeb, #fef3c7)',
-    highlights: ['Simple 1-Page Registration Form', 'Digital Document Upload Available', 'Transparent Fee Structure']
+    step: '3',
+    title: 'Book a Nursery Visit',
+    desc: 'Meet the team, explore the environment and ask questions about the daily routine, learning and care.'
   },
   {
-    step: '04',
-    title: 'Gentle Acclimatization & Day One',
-    badge: 'Step 4 of 4 &bull; Welcome Home!',
-    desc: 'We offer a gentle 3-day settling-in plan allowing parents to attend brief initial sessions so your child feels completely confident, safe, and happy.',
-    action: 'Start Nursery Journey',
-    image: '/images/nurturing-hero.jpg',
-    color: '#16a34a',
-    bg: 'linear-gradient(135deg, #f0fdf4, #dcfce7)',
-    highlights: ['Gradual 3-Day Settling Plan', 'Dedicated 1-on-1 Primary Caregiver', 'Daily Photos & Reassurance Updates']
+    step: '4',
+    title: 'Complete Registration',
+    desc: 'If you choose to proceed, our team will explain the required forms, documents, fees and next steps.'
+  },
+  {
+    step: '5',
+    title: 'Prepare for the First Day',
+    desc: 'We will guide you on settling-in expectations and anything your child should bring.'
   }
 ];
 
-const REQUIRED_DOCS = [
-  "Copy of Child's Passport & UAE Residence Visa",
-  "Copy of Child's Emirates ID (Front & Back)",
-  "Copy of Child's Birth Certificate",
-  "Copy of Child's Official Immunization Record",
-  "Copy of Both Parents' Emirates IDs & Passports",
-  "4 Recent Passport-Sized Photographs of Child"
+const ENQUIRY_INFO_POINTS = [
+  'Parent or guardian name',
+  'Child\'s name and age/date of birth',
+  'Preferred start date',
+  'Full-day or half-day interest',
+  'Preferred contact number',
+  'Any initial care, health or learning information relevant to the enquiry'
 ];
 
-export default function AdmissionsPage({ onBookVisitClick }) {
-  const [activeStepIdx, setActiveStepIdx] = useState(0);
-  const [checkedDocs, setCheckedDocs] = useState({});
-  const curStep = ADMISSION_STEPS[activeStepIdx];
+const ADMISSION_FAQS = [
+  {
+    q: 'What ages do you accept?',
+    a: 'Please contact our team for the nursery\'s current licensed age range and available groups.'
+  },
+  {
+    q: 'Do you offer full-day and half-day options?',
+    a: 'Yes. Availability and timings may vary, so our team will confirm the current options during your enquiry.'
+  },
+  {
+    q: 'Can I visit before registering?',
+    a: 'Yes. We encourage parents to book a visit, meet the team and experience the environment before making a decision.'
+  },
+  {
+    q: 'How do I check availability?',
+    a: 'Call or WhatsApp 050 200 5346 with your child\'s age and preferred start date.'
+  }
+];
 
-  const toggleDoc = (idx) => {
-    setCheckedDocs(prev => ({ ...prev, [idx]: !prev[idx] }));
+export default function AdmissionsPage() {
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
   };
 
   return (
-    <div>
-      <PageHeader
-        badge="Enrolment 2026–2027"
-        title="Bright Futures Start With Easy Enrolment"
-        subtitle="Start your child's journey at Just Like Home Nursery. Explore our simple 4-step admissions pathway, check age eligibility, and schedule your guided tour."
-        onBookVisitClick={onBookVisitClick}
-        image="/images/hero.jpg"
-        imageAlt="Welcoming reception and campus for new family admissions at Just Like Home Nursery"
-        primaryCtaText="Register Now"
-        secondaryCtaText="See How It Works"
-        cardProgress={{
-          label: "Admissions Journey",
-          subject: "Step 1 of 4",
-          status: "Fast & Easy",
-          percentage: 80
-        }}
-        cardGreatJob={{
-          title: "Tours Daily 🏫",
-          subtitle: "Walk-ins Welcome"
-        }}
-        cardNextLesson={{
-          label: "Next Step",
-          subject: "Campus Tour",
-          topic: "Meet the Teachers"
-        }}
-      />
+    <div className="admissions-page">
+      {/* 1. HERO */}
+      <section className="page-hero-section">
+        <div className="hero-atmosphere">
+          <div className="hero-sun-glow"></div>
+        </div>
+        <div className="container relative z-10">
+          <RevealOnScroll>
+            <div className="page-hero-content text-center max-w-4xl mx-auto">
+              <span className="badge badge-primary mb-4 inline-flex items-center gap-2">
+                <FileText size={14} /> Nursery Admissions · Ajman
+              </span>
+              <h1 className="hero-title text-3xl md:text-5xl font-black text-warm-navy mb-6 leading-tight">
+                A Warm Welcome Starts Here
+              </h1>
+              <div className="space-y-4 text-lg md:text-xl text-stone-600 leading-relaxed font-normal">
+                <p>
+                  Choosing a nursery is personal. We want families to have the opportunity to ask questions, understand the environment and decide whether Just Like Home Nursery is the right fit for their child.
+                </p>
+              </div>
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <Link to="/contact" className="btn btn-primary shadow-lg shadow-orange-500/20">
+                  <Calendar size={18} />
+                  Book a Visit
+                </Link>
+                <Link to="/contact" className="btn btn-secondary">
+                  Start an Enquiry
+                  <ArrowRight size={18} />
+                </Link>
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
 
-      {/* SECTION 1: Interactive 4-Step Enrollment Roadmap */}
-      <section className="section-padding" style={{ backgroundColor: '#ffffff', position: 'relative' }}>
+      {/* 2. YOUR ADMISSIONS JOURNEY */}
+      <section className="section bg-white border-y border-stone-100">
         <div className="container">
-          <RevealOnScroll animation="from-top">
-            <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 2.5rem' }}>
-              <span className="badge-gold">ENROLLMENT ROADMAP</span>
-              <h2 style={{
-                fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
-                color: '#1e293b',
-                fontFamily: 'var(--font-heading)',
-                fontWeight: 800,
-                marginTop: '0.5rem',
-                marginBottom: '1rem'
-              }}>
-                Your Seamless 4-Step Admissions Journey
+          <RevealOnScroll>
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <span className="badge badge-accent mb-3">Simple Steps</span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy mb-4">
+                Your Admissions Journey
               </h2>
-              <p style={{ fontSize: '1.02rem', color: '#64748b', lineHeight: 1.65 }}>
-                We make joining our nursery family transparent, reassuring, and stress-free. Click each step to see what to expect.
+              <p className="text-stone-600 text-lg">
+                We make joining our nursery family transparent, smooth and personal.
               </p>
             </div>
           </RevealOnScroll>
 
-          {/* Steps Tab Bar */}
-          <div className="fac-tabs-bar" style={{ marginBottom: '2.5rem' }}>
-            {ADMISSION_STEPS.map((s, sIdx) => {
-              const isActive = sIdx === activeStepIdx;
-              return (
-                <button
-                  key={s.step}
-                  type="button"
-                  className={`fac-tab-pill ${isActive ? 'is-active' : ''}`}
-                  onClick={() => setActiveStepIdx(sIdx)}
-                  style={isActive ? { background: s.color, borderColor: s.color } : {}}
-                >
-                  <span style={{
-                    width: '20px',
-                    height: '20px',
-                    borderRadius: '50%',
-                    background: isActive ? '#ffffff' : s.color,
-                    color: isActive ? s.color : '#ffffff',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '11px',
-                    fontWeight: 900
-                  }}>
-                    {s.step}
-                  </span>
-                  <span>{s.title}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Split Showcase Container */}
-          <div 
-            className="fac-showcase-container"
-            style={{
-              padding: '2.5rem 3rem 3rem',
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '3rem',
-              alignItems: 'center'
-            }}
-          >
-            {/* Left Content Column */}
-            <div key={`${curStep.step}-content`} style={{ animation: 'facContentSlide 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}>
-              <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '6px 16px',
-                borderRadius: '9999px',
-                background: curStep.bg,
-                color: curStep.color,
-                fontWeight: 700,
-                fontSize: '0.85rem',
-                marginBottom: '1rem'
-              }}>
-                <Clock size={15} />
-                <span>{curStep.badge}</span>
-              </div>
-
-              <h3 style={{
-                fontSize: 'clamp(1.8rem, 2.8vw, 2.3rem)',
-                fontWeight: 800,
-                color: '#0f172a',
-                lineHeight: 1.2,
-                marginBottom: '1rem'
-              }}>
-                {curStep.title}
-              </h3>
-
-              <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.65, marginBottom: '1.5rem' }}>
-                {curStep.desc}
-              </p>
-
-              {/* Highlights */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '1.75rem' }}>
-                {curStep.highlights.map((h, hIdx) => (
-                  <div key={hIdx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.88rem', color: '#334155' }}>
-                    <CheckCircle2 size={16} style={{ color: curStep.color, flexShrink: 0 }} />
-                    <span>{h}</span>
+          <div className="max-w-4xl mx-auto space-y-4">
+            {JOURNEY_STEPS.map((stepItem, index) => (
+              <RevealOnScroll key={index} delay={index * 50}>
+                <div className="flex items-start gap-5 p-6 rounded-3xl bg-[#FFFDF7] border border-stone-200/80 shadow-sm hover:border-orange-300 transition-colors">
+                  <div className="w-12 h-12 rounded-2xl bg-orange-50 text-[#F15A29] flex items-center justify-center font-black text-xl shrink-0">
+                    {stepItem.step}
                   </div>
-                ))}
-              </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-warm-navy mb-2">
+                      {stepItem.step}. {stepItem.title}
+                    </h3>
+                    <p className="text-stone-600 text-base md:text-lg leading-relaxed">
+                      {stepItem.desc}
+                    </p>
+                  </div>
+                </div>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <button
-                  type="button"
-                  onClick={onBookVisitClick}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '12px 24px',
-                    borderRadius: '9999px',
-                    background: curStep.color,
-                    color: '#ffffff',
-                    fontWeight: 700,
-                    fontSize: '0.92rem',
-                    border: 'none',
-                    cursor: 'pointer',
-                    boxShadow: `0 8px 20px -4px ${curStep.color}60`
-                  }}
-                >
-                  <span>{curStep.action}</span>
-                  <ArrowRight size={15} />
-                </button>
-              </div>
+      {/* 3. INFORMATION TO SHARE IN YOUR ENQUIRY */}
+      <section className="section bg-[#FFFDF7]">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-5xl mx-auto">
+            <div className="lg:col-span-6 space-y-4">
+              <RevealOnScroll>
+                <span className="badge badge-primary mb-2">Helpful Checklist</span>
+                <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy">
+                  Information to Share in Your Enquiry
+                </h2>
+                <p className="text-stone-600 text-lg leading-relaxed">
+                  When getting in touch, sharing these details helps us provide clear information on availability and class groupings:
+                </p>
+              </RevealOnScroll>
             </div>
 
-            {/* Right Image Showcase */}
-            <div key={`${curStep.step}-image`} style={{ position: 'relative', animation: 'facImageSlide 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}>
-              <div style={{
-                position: 'relative',
-                borderRadius: '2rem',
-                overflow: 'hidden',
-                boxShadow: '0 20px 50px -10px rgba(0, 0, 0, 0.18)',
-                border: '5px solid #ffffff'
-              }}>
-                <img
-                  src={curStep.image}
-                  alt={curStep.title}
-                  style={{ width: '100%', height: '410px', objectFit: 'cover', display: 'block' }}
-                />
-              </div>
-
-              {/* Floating Card */}
-              <div
-                className="animate-float-slow"
-                style={{
-                  position: 'absolute',
-                  top: '8%',
-                  right: '-18px',
-                  background: 'rgba(255, 255, 255, 0.96)',
-                  backdropFilter: 'blur(12px)',
-                  borderRadius: '20px',
-                  padding: '10px 18px',
-                  boxShadow: '0 18px 36px -8px rgba(0, 0, 0, 0.16)',
-                  border: '2px solid rgba(255, 255, 255, 0.95)',
-                  fontSize: '0.85rem',
-                  fontWeight: 800,
-                  color: '#0f172a'
-                }}
-              >
-                Step {curStep.step} of 4 🚀
-              </div>
+            <div className="lg:col-span-6">
+              <RevealOnScroll delay={100}>
+                <div className="p-8 rounded-3xl bg-white border border-stone-200 shadow-sm space-y-3">
+                  {ENQUIRY_INFO_POINTS.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle2 size={14} />
+                      </div>
+                      <span className="text-stone-700 font-medium text-base">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </RevealOnScroll>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Interactive Admissions Calculator */}
-      <AdmissionsCalculator onBookVisitClick={onBookVisitClick} />
-
-      {/* SECTION 2: Interactive Document Checklist */}
-      <section className="section-padding bg-cream-subtle" style={{ position: 'relative' }}>
-        <div className="container" style={{ maxWidth: '960px' }}>
-          <RevealOnScroll animation="zoom-in">
-            <div style={{
-              backgroundColor: '#ffffff',
-              borderRadius: '2.5rem',
-              padding: '3.5rem 3rem',
-              border: '1.5px solid rgba(123, 17, 39, 0.1)',
-              boxShadow: '0 15px 40px rgba(70, 7, 19, 0.05)'
-            }}>
-              <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-                <span className="badge-maroon">INTERACTIVE CHECKLIST</span>
-                <h2 style={{ fontSize: '2.2rem', color: '#3d050f', fontFamily: 'var(--font-heading)', marginTop: '0.4rem', fontWeight: 800 }}>
-                  Required Enrolment Documents
-                </h2>
-                <p style={{ fontSize: '0.95rem', color: '#6b7280', marginTop: '0.35rem' }}>
-                  Click to check off the documents you have prepared for our admissions coordinator.
-                </p>
+      {/* 4. DOCUMENTS & FEES */}
+      <section className="section bg-white border-y border-stone-100">
+        <div className="container">
+          <div className="max-w-3xl mx-auto p-8 rounded-3xl bg-amber-50/60 border border-amber-200/80 text-center">
+            <RevealOnScroll>
+              <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center mx-auto mb-4">
+                <AlertCircle size={24} />
               </div>
-
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
-                gap: '1rem',
-                marginBottom: '2.5rem'
-              }}>
-                {REQUIRED_DOCS.map((doc, idx) => {
-                  const isChecked = !!checkedDocs[idx];
-                  return (
-                    <div
-                      key={idx}
-                      onClick={() => toggleDoc(idx)}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.85rem',
-                        padding: '1.1rem 1.35rem',
-                        backgroundColor: isChecked ? '#f0fdf4' : '#fdfbf7',
-                        borderRadius: '1.25rem',
-                        border: isChecked ? '1.5px solid #22c55e' : '1.5px solid rgba(123, 17, 39, 0.08)',
-                        cursor: 'pointer',
-                        transition: 'all 0.2s ease',
-                        boxShadow: isChecked ? '0 4px 12px rgba(34, 197, 94, 0.1)' : 'none'
-                      }}
-                    >
-                      <div style={{
-                        width: '26px',
-                        height: '26px',
-                        borderRadius: '50%',
-                        backgroundColor: isChecked ? '#22c55e' : '#e2e8f0',
-                        color: '#ffffff',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                        transition: 'all 0.2s ease'
-                      }}>
-                        {isChecked ? <Check size={16} strokeWidth={3} /> : <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#94a3b8' }} />}
-                      </div>
-                      <span style={{ fontSize: '0.9rem', fontWeight: 650, color: isChecked ? '#15803d' : '#334155' }}>
-                        {doc}
-                      </span>
-                    </div>
-                  );
-                })}
+              <h3 className="text-2xl font-bold text-warm-navy mb-3">
+                Documents & Fees
+              </h3>
+              <p className="text-stone-700 text-base md:text-lg leading-relaxed">
+                The exact registration documents, fee schedule, payment terms, refund policy and required medical information must be supplied and approved by nursery management before they are published on this page.
+              </p>
+              <div className="mt-6">
+                <Link to="/contact" className="btn btn-primary inline-flex items-center gap-2">
+                  <Phone size={16} /> Contact Team for Current Details
+                </Link>
               </div>
+            </RevealOnScroll>
+          </div>
+        </div>
+      </section>
 
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '1rem',
-                flexWrap: 'wrap'
-              }}>
-                <button onClick={onBookVisitClick} className="btn-primary" style={{ padding: '0.9rem 2.2rem', fontSize: '0.95rem' }}>
-                  <Calendar size={18} />
-                  <span>Schedule Registration Tour</span>
-                </button>
-                <a
-                  href="https://wa.me/971502005346?text=Hello%20Just%20Like%20Home%20Nursery,%20I%20have%20questions%20regarding%20enrolment%20documents%20and%20seat%20availability."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-whatsapp"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px', borderRadius: '9999px' }}
+      {/* 5. FREQUENTLY ASKED ADMISSIONS QUESTIONS */}
+      <section className="section bg-[#FFFDF7]">
+        <div className="container max-w-4xl">
+          <RevealOnScroll>
+            <div className="text-center mb-12">
+              <span className="badge badge-accent mb-3">Parent FAQs</span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy">
+                Frequently Asked Admissions Questions
+              </h2>
+            </div>
+          </RevealOnScroll>
+
+          <div className="space-y-4">
+            {ADMISSION_FAQS.map((faq, index) => (
+              <RevealOnScroll key={index} delay={index * 50}>
+                <div 
+                  className="rounded-2xl bg-white border border-stone-200 shadow-sm overflow-hidden transition-all cursor-pointer"
+                  onClick={() => toggleFaq(index)}
                 >
-                  <MessageCircle size={18} />
-                  <span>WhatsApp Admissions Desk</span>
-                </a>
-              </div>
+                  <div className="p-6 flex items-center justify-between gap-4">
+                    <h3 className="font-bold text-lg text-warm-navy flex items-center gap-3">
+                      <HelpCircle size={20} className="text-[#F15A29] shrink-0" />
+                      {faq.q}
+                    </h3>
+                    <div className="text-stone-400">
+                      {openFaq === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                    </div>
+                  </div>
+                  {openFaq === index && (
+                    <div className="px-6 pb-6 pt-0 text-stone-600 text-base leading-relaxed border-t border-stone-100 mt-2">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. CLOSING CTA */}
+      <section className="py-16 bg-gradient-to-r from-[#F15A29] to-[#C62828] text-white">
+        <div className="container text-center max-w-3xl mx-auto">
+          <RevealOnScroll>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+              Begin Your Child's Journey Today
+            </h2>
+            <p className="text-lg text-white/90 mb-8 leading-relaxed">
+              We look forward to meeting your family and showing you around our warm, home-like environment in Ajman.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/contact" className="btn bg-white text-stone-900 hover:bg-stone-100 font-bold px-8 py-3 rounded-full shadow-lg">
+                <Calendar size={18} />
+                Book a Visit
+              </Link>
+              <Link to="/contact" className="btn bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold px-8 py-3 rounded-full">
+                Start an Enquiry
+                <ArrowRight size={18} />
+              </Link>
             </div>
           </RevealOnScroll>
         </div>
