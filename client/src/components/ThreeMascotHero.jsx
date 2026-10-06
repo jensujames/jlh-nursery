@@ -2316,11 +2316,14 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
           <div className="content-wrapper">
             <div className="content-header" data-reveal="top">
-              <span className="badge-pill">Nurturing &bull; Learning &bull; Growing in Ajman</span>
-              <h2>
-                Where Little Hearts{' '}
+              <span className="badge-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <Heart size={14} className="fill-current" />
+                ABOUT JUST LIKE HOME
+              </span>
+              <h2 style={{ color: '#721024' }}>
+                A Place to Learn, Grow and{' '}
                 <span style={{
-                  background: 'linear-gradient(135deg, #F15A29 0%, #ec4899 50%, #c9a84c 100%)',
+                  background: 'linear-gradient(135deg, #721024 0%, #F15A29 50%, #c9a84c 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent'
                 }}>
@@ -2328,8 +2331,57 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                 </span>
               </h2>
               <p>
-                At <b>Just Like Home Nursery</b>, we combine early-years education with the motherly care, patience, and personal warmth of home. Children are encouraged to discover the world through purposeful play, movement, and hands-on experiences at their own pace.
+                Childhood's earliest years are filled with important little moments – first friendships, new words, discoveries, questions, achievements and growing independence. At Just Like Home Nursery, we make those moments meaningful.
               </p>
+              <p style={{ marginTop: '12px' }}>
+                Our approach combines early-years learning with the care, patience and personal attention of a nurturing home environment. Children are encouraged to discover the world through play, creativity, movement and hands-on experiences while developing confidence at their own pace.
+              </p>
+              <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '24px' }}>
+                <Link
+                  to="/about-us"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '12px 26px',
+                    borderRadius: '999px',
+                    background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
+                    color: '#ffffff',
+                    fontWeight: '800',
+                    fontSize: '14px',
+                    textDecoration: 'none',
+                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.22)'
+                  }}
+                  onClick={() => playPopSound(600)}
+                >
+                  <span>About Just Like Home</span>
+                  <ArrowRight size={16} />
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    playPopSound(580);
+                    onBookVisitClick();
+                  }}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '12px 24px',
+                    borderRadius: '999px',
+                    backgroundColor: '#ffffff',
+                    color: '#721024',
+                    fontWeight: '800',
+                    fontSize: '14px',
+                    border: '1.5px solid #721024',
+                    cursor: 'pointer',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
+                  }}
+                >
+                  <Calendar size={16} />
+                  <span>Book a Visit</span>
+                </button>
+              </div>
             </div>
 
             <div className="pillars-interactive-split">
