@@ -1263,15 +1263,17 @@ textarea {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  align-self: flex-start;
+  margin-top: clamp(4px, 2vh, 20px);
   gap: 16px;
   pointer-events: auto;
   z-index: 28;
-  transform: translateY(-50px);
+  transform: translateY(-20px);
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .hero-actions-container:hover {
-  transform: translateY(-54px);
+  transform: translateY(-24px);
 }
 
 @media (max-width: 880px) {
