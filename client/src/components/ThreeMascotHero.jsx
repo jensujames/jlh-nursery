@@ -2655,29 +2655,6 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         {/* SECTION 1: 3D Hero Stage */}
         <section className="hero-section" ref={heroSectionRef} id="section-1">
 
-          {/* Background Ambient "JLH Nursery" Watermark */}
-          <div 
-            className="hero-bg-watermark-text" 
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              top: '6%',
-              left: '4%',
-              fontSize: 'clamp(56px, 8.5vw, 120px)',
-              fontWeight: '950',
-              fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-              color: 'rgba(114, 16, 36, 0.04)',
-              lineHeight: '0.9',
-              letterSpacing: '-0.035em',
-              whiteSpace: 'nowrap',
-              pointerEvents: 'none',
-              userSelect: 'none',
-              zIndex: 1
-            }}
-          >
-            JLH Nursery
-          </div>
-
           {/* Hero Stage Floating Overlay */}
           <div className="hero-stage-overlay">
 
@@ -2690,16 +2667,26 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
               </div>
 
               <div className="hero-card-main">
-                {/* Top Group: Admissions pill + JLH Nursery heading & tagline */}
+                {/* Top Group: Admissions pill + JLH Nursery colorful heading & tagline */}
                 <div className="hero-header-top-group">
-                  <div className="hero-mobile-app-pill" aria-label="Nurturing, Learning, Growing">
-                    <span className="hero-mobile-app-dot" />
+                  <div className="hero-brand-top-pill" aria-label="Nurturing, Learning, Growing">
+                    <span className="brand-pill-dot brand-dot-red" />
+                    <span className="brand-pill-dot brand-dot-orange" />
+                    <span className="brand-pill-dot brand-dot-blue" />
                     <span>NURTURING &bull; LEARNING &bull; GROWING</span>
                   </div>
 
                   <h1 className="hero-actions-title">
-                    <span className="hero-brand-name">JLH Nursery</span>
-                    <span className="hero-actions-tagline">A Nurturing Nursery in Ajman Where Little Hearts Feel at Home</span>
+                    <span className="hero-brand-name" aria-label="JLH Nursery">
+                      <span className="brand-letter-j">J</span>
+                      <span className="brand-letter-l">L</span>
+                      <span className="brand-letter-h">H</span>
+                      <span className="brand-space"> </span>
+                      <span className="brand-word-nursery">Nursery</span>
+                    </span>
+                    <span className="hero-actions-tagline">
+                      A Nurturing Nursery in Ajman Where <span className="hero-tagline-highlight">Little Hearts</span> Feel at Home
+                    </span>
                   </h1>
                 </div>
 
@@ -2708,54 +2695,25 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   <p className="hero-actions-desc">
                     At Just Like Home Nursery, we create a warm and welcoming environment where children feel safe to explore, confident to learn and happy to be themselves.
                   </p>
-                  <div 
-                    className="hero-offerings-glass-badge"
-                    style={{
-                      display: 'inline-flex',
-                      flexDirection: 'column',
-                      alignItems: 'flex-start',
-                      gap: '3px',
-                      padding: '8px 16px',
-                      borderRadius: '14px',
-                      backgroundColor: 'rgba(255, 255, 255, 0.85)',
-                      backdropFilter: 'blur(16px)',
-                      WebkitBackdropFilter: 'blur(16px)',
-                      border: '1.5px solid rgba(255, 255, 255, 0.95)',
-                      boxShadow: '0 6px 18px rgba(184, 136, 115, 0.14), 0 1px 3px rgba(0, 0, 0, 0.04)',
-                      margin: '6px 0 0 0',
-                      width: 'fit-content'
-                    }}
-                  >
-                    <div style={{ 
-                      fontSize: '11.5px', 
-                      fontWeight: '800', 
-                      color: '#F15A29', 
-                      letterSpacing: '0.35px',
-                      lineHeight: 1.3,
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      whiteSpace: 'nowrap'
-                    }}>
+                  
+                  {/* Organized Colorful Offerings Badges */}
+                  <div className="hero-offerings-tags-grid">
+                    <span className="hero-offering-tag tag-eyfs">
+                      <span className="tag-dot" />
                       <span>EYFS Approach</span>
-                      <span style={{ opacity: 0.55 }}>&bull;</span>
+                    </span>
+                    <span className="hero-offering-tag tag-care">
+                      <span className="tag-dot" />
                       <span>Full–Day &amp; Half–Day Care</span>
-                    </div>
-                    <div style={{ 
-                      fontSize: '11.5px', 
-                      fontWeight: '800', 
-                      color: '#F15A29', 
-                      letterSpacing: '0.35px',
-                      lineHeight: 1.3,
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      whiteSpace: 'nowrap'
-                    }}>
+                    </span>
+                    <span className="hero-offering-tag tag-preschool">
+                      <span className="tag-dot" />
                       <span>Preschool</span>
-                      <span style={{ opacity: 0.55 }}>&bull;</span>
+                    </span>
+                    <span className="hero-offering-tag tag-readiness">
+                      <span className="tag-dot" />
                       <span>School Readiness</span>
-                    </div>
+                    </span>
                   </div>
                 </div>
               </div>
