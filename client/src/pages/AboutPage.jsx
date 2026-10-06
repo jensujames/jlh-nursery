@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import { 
@@ -7,35 +7,57 @@ import {
 } from 'lucide-react';
 
 const PROMISES = [
-  'Providing a safe, clean, and welcoming environment.',
-  'Treating every child with kindness, patience, respect, and understanding.',
-  'Supporting each child\'s emotional, social, physical, communication, and intellectual development.',
-  'Encouraging children to learn through play, creativity, exploration, and discovery.',
-  'Building strong and respectful partnerships with parents and families.',
-  'Recognising and celebrating every child\'s unique abilities, interests, and achievements.',
-  'Helping children develop independence, confidence, good manners, and essential life skills.',
+  'A safe, clean and welcoming environment.',
+  'Kindness, patience, respect and understanding for every child.',
+  'Support for emotional, social, physical, communication and intellectual development.',
+  'Learning through play, creativity, exploration and discovery.',
+  'Strong and respectful partnerships with parents and families.',
+  'Recognition of every child\'s unique abilities, interests and achievements.',
+  'Guidance that builds independence, confidence, good manners and essential life skills.',
   'Creating a nurturing atmosphere that truly feels “Just Like Home.”'
 ];
 
 export default function AboutPage() {
+  useEffect(() => {
+    document.title = "About Just Like Home Nursery | Early Years Nursery Ajman";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Meet Just Like Home Nursery in Ajman and discover our nurturing philosophy, motherly care, play-based approach and commitment to every child's development.");
+    }
+  }, []);
+
   return (
-    <div className="about-page">
+    <div className="about-page" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F' }}>
       {/* 1. HERO */}
-      <section className="page-hero-section">
-        <div className="hero-atmosphere">
-          <div className="hero-sun-glow"></div>
-        </div>
-        <div className="container relative z-10">
+      <section className="page-hero-section" style={{ padding: '80px 20px 60px', textAlign: 'center' }}>
+        <div className="container relative z-10 max-w-4xl mx-auto">
           <RevealOnScroll>
-            <div className="page-hero-content text-center max-w-4xl mx-auto">
-              <span className="badge badge-accent mb-4 inline-flex items-center gap-2">
-                <Heart size={14} className="fill-current text-rose-500" />
+            <div>
+              <span style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '6px 16px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                marginBottom: '20px'
+              }}>
+                <Heart size={14} className="fill-current" />
                 About Us · Early Years Nursery in Ajman
               </span>
-              <h1 className="hero-title text-3xl md:text-5xl font-black text-warm-navy mb-6 leading-tight">
+              <h1 style={{
+                fontSize: 'clamp(30px, 4.5vw, 48px)',
+                fontWeight: '900',
+                color: '#721024',
+                lineHeight: 1.2,
+                margin: '0 0 24px 0'
+              }}>
                 A Nursery Created Around the Way Children Feel, Learn and Grow
               </h1>
-              <div className="space-y-4 text-lg md:text-xl text-stone-600 leading-relaxed font-normal">
+              <div style={{ fontSize: '17px', lineHeight: 1.8, color: '#475569', maxWidth: '820px', margin: '0 auto 32px' }} className="space-y-4">
                 <p>
                   Just Like Home Nursery was created with a simple belief: children flourish when they feel safe, loved, respected and understood.
                 </p>
@@ -43,13 +65,43 @@ export default function AboutPage() {
                   Our name reflects the experience we want every child to have &mdash; the reassurance of a familiar, caring environment combined with thoughtful early-years learning that encourages curiosity, confidence and independence.
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-4 mt-8">
-                <Link to="/contact" className="btn btn-primary shadow-lg shadow-orange-500/20">
+              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Link
+                  to="/contact"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 28px',
+                    borderRadius: '999px',
+                    backgroundColor: '#721024',
+                    color: '#ffffff',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    boxShadow: '0 6px 20px rgba(114, 16, 36, 0.25)'
+                  }}
+                >
                   <Calendar size={18} />
-                  Book a Visit
+                  <span>Meet Us - Book a Visit</span>
                 </Link>
-                <Link to="/programs" className="btn btn-secondary">
-                  Explore Our Programs
+                <Link
+                  to="/programs"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 28px',
+                    borderRadius: '999px',
+                    backgroundColor: '#ffffff',
+                    color: '#721024',
+                    fontWeight: '800',
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    border: '1.5px solid #721024'
+                  }}
+                >
+                  <span>Explore Our Programs</span>
                   <ArrowRight size={18} />
                 </Link>
               </div>
@@ -59,93 +111,206 @@ export default function AboutPage() {
       </section>
 
       {/* 2. OUR STORY */}
-      <section className="section bg-white border-y border-stone-100">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6">
+      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '48px',
+            alignItems: 'center'
+          }}>
+            <div>
               <RevealOnScroll>
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                <div style={{
+                  position: 'relative',
+                  borderRadius: '28px',
+                  overflow: 'hidden',
+                  boxShadow: '0 16px 40px rgba(0,0,0,0.08)',
+                  border: '4px solid #ffffff'
+                }}>
                   <img 
                     src="/images/nurturing-hero.jpg" 
                     alt="Caring educators and children at Just Like Home Nursery" 
-                    className="w-full h-[400px] object-cover"
+                    style={{ width: '100%', height: '420px', objectFit: 'cover', display: 'block' }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <p className="text-sm font-bold tracking-wider uppercase opacity-90">Villa No. 47, Al Rashidiya 2, Ajman</p>
-                    <p className="text-xl font-bold">Where Little Hearts Feel at Home</p>
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)'
+                  }} />
+                  <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', color: '#ffffff' }}>
+                    <p style={{ margin: 0, fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.8px', opacity: 0.9 }}>
+                      Villa No. 47, Al Rashidiya 2, Ajman
+                    </p>
+                    <p style={{ margin: '4px 0 0 0', fontSize: '20px', fontWeight: '800' }}>
+                      Where Little Hearts Feel at Home
+                    </p>
                   </div>
                 </div>
               </RevealOnScroll>
             </div>
 
-            <div className="lg:col-span-6 space-y-6">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <RevealOnScroll delay={100}>
-                <span className="badge badge-accent inline-flex items-center gap-2">
+                <span style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '6px 16px',
+                  borderRadius: '999px',
+                  backgroundColor: '#fff1f2',
+                  color: '#721024',
+                  fontSize: '13px',
+                  fontWeight: '800',
+                  width: 'fit-content'
+                }}>
                   <Sparkles size={14} /> Our Background
                 </span>
-                <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy mt-2 mb-4">
+                <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: '900', color: '#721024', margin: '8px 0 16px 0' }}>
                   Our Story
                 </h2>
-                <div className="space-y-4 text-stone-600 text-lg leading-relaxed">
-                  <p>
-                    The early years shape how children see themselves and the world around them. These years deserve more than supervision and lessons; they deserve patience, meaningful relationships and joyful opportunities to discover.
-                  </p>
-                  <p>
-                    At Just Like Home Nursery in Ajman, we bring care and learning together. Every part of the child's day &mdash; from play and conversation to meals, movement, stories and friendships &mdash; can become an opportunity to grow.
-                  </p>
-                </div>
+                <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', marginBottom: '16px' }}>
+                  The early years shape how children see themselves and the world around them. These years deserve more than supervision and lessons; they deserve patience, meaningful relationships and joyful opportunities to discover.
+                </p>
+                <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
+                  At Just Like Home Nursery in Ajman, we bring care and learning together. Every part of the child's day &mdash; from play and conversation to meals, movement, stories and friendships &mdash; can become an opportunity to grow.
+                </p>
               </RevealOnScroll>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. VISION & MISSION */}
-      <section className="section bg-[#FFFDF7]">
-        <div className="container">
+      {/* 3. OUR VISION & OUR MISSION */}
+      <section style={{ padding: '80px 20px', backgroundColor: '#FFFDF7' }}>
+        <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="badge badge-primary mb-3">Guiding Purpose</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy">
-                Our Vision & Mission
+            <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 48px' }}>
+              <span style={{
+                display: 'inline-block',
+                padding: '6px 16px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                marginBottom: '14px'
+              }}>
+                PURPOSE &amp; VALUES
+              </span>
+              <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: '900', color: '#721024', margin: 0 }}>
+                Our Vision &amp; Mission
               </h2>
             </div>
           </RevealOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '28px'
+          }}>
             <RevealOnScroll delay={100}>
-              <div className="p-8 md:p-10 rounded-3xl bg-white border border-stone-200/80 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden h-full flex flex-col justify-between">
-                <div className="absolute top-0 left-0 right-0 h-2 bg-[#F15A29]"></div>
+              <div style={{
+                background: '#ffffff',
+                borderRadius: '28px',
+                padding: '36px 32px',
+                border: '1.5px solid rgba(114, 16, 36, 0.1)',
+                boxShadow: '0 8px 30px rgba(114, 16, 36, 0.04)',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                position: 'relative',
+                overflow: 'hidden'
+              }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', backgroundColor: '#721024' }} />
                 <div>
-                  <div className="w-14 h-14 rounded-2xl bg-orange-50 text-[#F15A29] flex items-center justify-center mb-6">
+                  <div style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '16px',
+                    backgroundColor: '#fff1f2',
+                    color: '#721024',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '20px'
+                  }}>
                     <Compass size={28} />
                   </div>
-                  <h3 className="text-2xl font-bold text-warm-navy mb-4">Our Vision</h3>
-                  <p className="text-stone-700 text-lg leading-relaxed">
+                  <h3 style={{ fontSize: '24px', fontWeight: '850', color: '#721024', marginBottom: '14px' }}>
+                    Our Vision
+                  </h3>
+                  <p style={{ fontSize: '18px', lineHeight: 1.7, color: '#1e293b', fontWeight: '600', margin: 0 }}>
                     Preparing children for life with motherly care and attention.
                   </p>
                 </div>
-                <div className="mt-6 pt-4 border-t border-stone-100 flex items-center gap-2 text-sm font-semibold text-[#F15A29]">
-                  <Heart size={16} /> Motherly Care & Attention
+                <div style={{
+                  marginTop: '24px',
+                  paddingTop: '16px',
+                  borderTop: '1px solid #f1f5f9',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontSize: '13.5px',
+                  fontWeight: '750',
+                  color: '#721024'
+                }}>
+                  <Heart size={16} className="fill-current" />
+                  <span>Motherly Care &amp; Attention</span>
                 </div>
               </div>
             </RevealOnScroll>
 
             <RevealOnScroll delay={200}>
-              <div className="p-8 md:p-10 rounded-3xl bg-white border border-stone-200/80 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden h-full flex flex-col justify-between">
-                <div className="absolute top-0 left-0 right-0 h-2 bg-[#72C5E8]"></div>
+              <div style={{
+                background: '#ffffff',
+                borderRadius: '28px',
+                padding: '36px 32px',
+                border: '1.5px solid rgba(114, 16, 36, 0.1)',
+                boxShadow: '0 8px 30px rgba(114, 16, 36, 0.04)',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                position: 'relative',
+                overflow: 'hidden'
+              }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', backgroundColor: '#F15A29' }} />
                 <div>
-                  <div className="w-14 h-14 rounded-2xl bg-sky-50 text-[#0284c7] flex items-center justify-center mb-6">
+                  <div style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '16px',
+                    backgroundColor: '#fff7ed',
+                    color: '#F15A29',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '20px'
+                  }}>
                     <Heart size={28} />
                   </div>
-                  <h3 className="text-2xl font-bold text-warm-navy mb-4">Our Mission</h3>
-                  <p className="text-stone-700 text-lg leading-relaxed">
+                  <h3 style={{ fontSize: '24px', fontWeight: '850', color: '#1e293b', marginBottom: '14px' }}>
+                    Our Mission
+                  </h3>
+                  <p style={{ fontSize: '17px', lineHeight: 1.7, color: '#334155', fontWeight: '500', margin: 0 }}>
                     We do not simply educate children. We nurture little hearts, build confidence, encourage curiosity and create happy memories that last a lifetime.
                   </p>
                 </div>
-                <div className="mt-6 pt-4 border-t border-stone-100 flex items-center gap-2 text-sm font-semibold text-[#0284c7]">
-                  <Sparkles size={16} /> Confidence, Curiosity & Memories
+                <div style={{
+                  marginTop: '24px',
+                  paddingTop: '16px',
+                  borderTop: '1px solid #f1f5f9',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontSize: '13.5px',
+                  fontWeight: '750',
+                  color: '#F15A29'
+                }}>
+                  <Sparkles size={16} />
+                  <span>Curiosity, Confidence &amp; Happy Memories</span>
                 </div>
               </div>
             </RevealOnScroll>
@@ -154,28 +319,59 @@ export default function AboutPage() {
       </section>
 
       {/* 4. WHAT WE PROMISE FAMILIES */}
-      <section className="section bg-white border-y border-stone-100">
-        <div className="container">
+      <section style={{ padding: '80px 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
+        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <span className="badge badge-accent mb-3">Commitment to Parents</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-warm-navy mb-4">
+            <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 48px' }}>
+              <span style={{
+                display: 'inline-block',
+                padding: '6px 16px',
+                borderRadius: '999px',
+                backgroundColor: '#fff1f2',
+                color: '#721024',
+                fontSize: '13px',
+                fontWeight: '800',
+                marginBottom: '14px'
+              }}>
+                COMMITMENT TO FAMILIES
+              </span>
+              <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: '900', color: '#721024', margin: '0 0 16px 0' }}>
                 What We Promise Families
               </h2>
-              <p className="text-stone-600 text-lg">
+              <p style={{ fontSize: '16.5px', lineHeight: 1.7, color: '#475569' }}>
                 Our commitments guide how we structure each day, care for children and partner with parents.
               </p>
             </div>
           </RevealOnScroll>
 
-          <div className="max-w-4xl mx-auto space-y-4">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {PROMISES.map((promise, index) => (
-              <RevealOnScroll key={index} delay={index * 50}>
-                <div className="flex items-start gap-4 p-5 rounded-2xl bg-[#FFFDF7] border border-stone-200/60 hover:border-orange-300 transition-colors">
-                  <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+              <RevealOnScroll key={index} delay={index * 40}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: '16px',
+                  padding: '20px 24px',
+                  borderRadius: '20px',
+                  backgroundColor: '#FFFDF7',
+                  border: '1.5px solid #ffede4',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
+                }}>
+                  <div style={{
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '50%',
+                    backgroundColor: '#ecfdf5',
+                    color: '#059669',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    marginTop: '2px'
+                  }}>
                     <CheckCircle2 size={18} />
                   </div>
-                  <p className="text-stone-800 text-lg font-medium leading-relaxed">
+                  <p style={{ margin: 0, fontSize: '16px', lineHeight: 1.65, color: '#1e293b', fontWeight: '600' }}>
                     {promise}
                   </p>
                 </div>
@@ -185,39 +381,73 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 5. EVERY CHILD IS UNIQUE & 6. PARTNERSHIP WITH PARENTS */}
-      <section className="section bg-[#FFFDF7]">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {/* 5. EVERY CHILD IS UNIQUE & 6. A PARTNERSHIP WITH PARENTS */}
+      <section style={{ padding: '80px 20px', backgroundColor: '#FFFDF7' }}>
+        <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '32px'
+          }}>
             <RevealOnScroll>
-              <div className="p-8 md:p-10 rounded-3xl bg-white border border-stone-200 shadow-sm h-full flex flex-col justify-between">
-                <div>
-                  <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-6">
-                    <Smile size={26} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-warm-navy mb-4">
-                    Every Child Is Unique
-                  </h3>
-                  <p className="text-stone-600 text-base md:text-lg leading-relaxed">
-                    Children do not all learn, communicate or gain confidence in the same way. Our role is to observe, listen and create the right opportunities for each child to participate and progress. We celebrate small steps because those small steps often become the foundations of lifelong confidence.
-                  </p>
+              <div style={{
+                background: '#ffffff',
+                borderRadius: '28px',
+                padding: '36px 32px',
+                border: '1.5px solid rgba(114, 16, 36, 0.1)',
+                boxShadow: '0 8px 30px rgba(0,0,0,0.03)',
+                height: '100%'
+              }}>
+                <div style={{
+                  width: '50px',
+                  height: '50px',
+                  borderRadius: '16px',
+                  backgroundColor: '#fff7ed',
+                  color: '#ea580c',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: '20px'
+                }}>
+                  <Smile size={26} />
                 </div>
+                <h3 style={{ fontSize: '24px', fontWeight: '850', color: '#1e293b', marginBottom: '16px' }}>
+                  Every Child Is Unique
+                </h3>
+                <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
+                  Children do not all learn, communicate or gain confidence in the same way. Our role is to observe, listen and create the right opportunities for each child to participate and progress. We celebrate small steps because those small steps often become the foundations of lifelong confidence.
+                </p>
               </div>
             </RevealOnScroll>
 
             <RevealOnScroll delay={100}>
-              <div className="p-8 md:p-10 rounded-3xl bg-white border border-stone-200 shadow-sm h-full flex flex-col justify-between">
-                <div>
-                  <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#0284c7] flex items-center justify-center mb-6">
-                    <Users size={26} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-warm-navy mb-4">
-                    A Partnership With Parents
-                  </h3>
-                  <p className="text-stone-600 text-base md:text-lg leading-relaxed">
-                    Trust grows through communication. We value parents' knowledge of their children and aim to build a respectful partnership from the first enquiry onwards. Regular communication helps nursery and home work together around each child's routines, interests, development and wellbeing.
-                  </p>
+              <div style={{
+                background: '#ffffff',
+                borderRadius: '28px',
+                padding: '36px 32px',
+                border: '1.5px solid rgba(114, 16, 36, 0.1)',
+                boxShadow: '0 8px 30px rgba(0,0,0,0.03)',
+                height: '100%'
+              }}>
+                <div style={{
+                  width: '50px',
+                  height: '50px',
+                  borderRadius: '16px',
+                  backgroundColor: '#e0f2fe',
+                  color: '#0284c7',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: '20px'
+                }}>
+                  <Users size={26} />
                 </div>
+                <h3 style={{ fontSize: '24px', fontWeight: '850', color: '#1e293b', marginBottom: '16px' }}>
+                  A Partnership With Parents
+                </h3>
+                <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
+                  Trust grows through communication. We value parents' knowledge of their children and aim to build a respectful partnership from the first enquiry onwards. Regular communication helps nursery and home work together around each child's routines, interests, development and wellbeing.
+                </p>
               </div>
             </RevealOnScroll>
           </div>
@@ -225,22 +455,57 @@ export default function AboutPage() {
       </section>
 
       {/* 7. CLOSING CTA */}
-      <section className="py-16 bg-gradient-to-r from-[#F15A29] to-[#C62828] text-white">
-        <div className="container text-center max-w-3xl mx-auto">
+      <section style={{
+        padding: '80px 20px',
+        background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
+        color: '#ffffff',
+        textAlign: 'center'
+      }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <RevealOnScroll>
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-              Meet Us & See Our Nursery First-Hand
+            <h2 style={{ fontSize: 'clamp(28px, 4.5vw, 42px)', fontWeight: '900', margin: '0 0 16px 0', lineHeight: 1.25 }}>
+              Meet Us &amp; Experience Just Like Home
             </h2>
-            <p className="text-lg text-white/90 mb-8 leading-relaxed">
+            <p style={{ fontSize: '17px', lineHeight: 1.75, opacity: 0.95, marginBottom: '32px' }}>
               We welcome families to tour our spaces, meet our educators and experience our warm, home-like environment in Al Rashidiya 2, Ajman.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/contact" className="btn bg-white text-stone-900 hover:bg-stone-100 font-bold px-8 py-3 rounded-full shadow-lg">
+            <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link
+                to="/contact"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '14px 32px',
+                  borderRadius: '999px',
+                  backgroundColor: '#ffffff',
+                  color: '#721024',
+                  fontWeight: '800',
+                  fontSize: '15.5px',
+                  textDecoration: 'none',
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)'
+                }}
+              >
                 <Calendar size={18} />
-                Meet Us - Book a Visit
+                <span>Meet Us - Book a Visit</span>
               </Link>
-              <Link to="/programs" className="btn bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold px-8 py-3 rounded-full">
-                Explore Our Programs
+              <Link
+                to="/programs"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '14px 32px',
+                  borderRadius: '999px',
+                  backgroundColor: 'rgba(255,255,255,0.15)',
+                  color: '#ffffff',
+                  fontWeight: '800',
+                  fontSize: '15.5px',
+                  textDecoration: 'none',
+                  border: '1.5px solid rgba(255,255,255,0.4)'
+                }}
+              >
+                <span>Explore Our Programs</span>
                 <ArrowRight size={18} />
               </Link>
             </div>
