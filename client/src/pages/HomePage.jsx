@@ -1213,8 +1213,8 @@ export default function HomePage({ onBookVisitClick }) {
           minHeight: 'clamp(420px, 42vw, 520px)',
           display: 'flex',
           alignItems: 'center',
-          backgroundColor: '#eaf4fd',
-          backgroundImage: 'linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 42%, #fffbf7 100%)',
+          backgroundColor: '#ecf7ee',
+          backgroundImage: 'radial-gradient(ellipse at 12% 25%, rgba(131, 196, 65, 0.18) 0%, transparent 50%), linear-gradient(135deg, #dcf2e1 0%, #ebf7ee 38%, #f4fbf5 68%, #ffffff 100%)',
           overflow: 'hidden',
           padding: 'clamp(60px, 7vw, 84px) 20px',
           margin: 'clamp(36px, 5vw, 64px) 0'
@@ -1241,8 +1241,20 @@ export default function HomePage({ onBookVisitClick }) {
               height: '100%',
               objectFit: 'cover',
               objectPosition: 'center 20%',
-              maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 15%, black 48%)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 15%, black 48%)'
+              maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 14%, black 46%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 14%, black 46%)'
+            }}
+          />
+          {/* Soft Botanical Green Tone Overlay */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'linear-gradient(to right, rgba(220, 242, 225, 0.95) 0%, rgba(235, 247, 238, 0.45) 25%, rgba(22, 163, 74, 0.05) 60%, transparent 100%)',
+              pointerEvents: 'none'
             }}
           />
         </div>
