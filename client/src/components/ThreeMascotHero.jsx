@@ -2138,31 +2138,31 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         {/* SECTION 1: 3D Hero Stage */}
         <section className="hero-section" ref={heroSectionRef} id="section-1">
 
+          {/* Background Ambient "JLH Nursery" Watermark */}
+          <div 
+            className="hero-bg-watermark-text" 
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              top: '6%',
+              left: '4%',
+              fontSize: 'clamp(56px, 8.5vw, 120px)',
+              fontWeight: '950',
+              fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+              color: 'rgba(114, 16, 36, 0.04)',
+              lineHeight: '0.9',
+              letterSpacing: '-0.035em',
+              whiteSpace: 'nowrap',
+              pointerEvents: 'none',
+              userSelect: 'none',
+              zIndex: 1
+            }}
+          >
+            JLH Nursery
+          </div>
+
           {/* Hero Stage Floating Overlay */}
           <div className="hero-stage-overlay">
-            
-            {/* Background Ambient "JLH Nursery" Watermark */}
-            <div 
-              className="hero-bg-watermark-text" 
-              aria-hidden="true"
-              style={{
-                position: 'absolute',
-                top: '5%',
-                left: '3%',
-                fontSize: 'clamp(68px, 11vw, 160px)',
-                fontWeight: '950',
-                fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                color: 'rgba(114, 16, 36, 0.045)',
-                lineHeight: '0.88',
-                letterSpacing: '-0.04em',
-                whiteSpace: 'nowrap',
-                pointerEvents: 'none',
-                userSelect: 'none',
-                zIndex: 0
-              }}
-            >
-              JLH Nursery
-            </div>
 
             {/* Left: Exterior Spine + Action Card (Enters from Left) */}
             <div className="hero-actions-container animate-entrance-left" id="hero-actions-container">
@@ -2174,35 +2174,13 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
               <div className="hero-card-main">
                 {/* Top Group: Admissions pill + JLH Nursery heading & tagline */}
-                <div className="hero-header-top-group" style={{ position: 'relative' }}>
-                  <div 
-                    className="hero-header-bg-ghost"
-                    aria-hidden="true"
-                    style={{
-                      position: 'absolute',
-                      top: '-16px',
-                      left: '-4px',
-                      fontSize: 'clamp(46px, 6vw, 84px)',
-                      fontWeight: '950',
-                      fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                      color: 'rgba(241, 90, 41, 0.055)',
-                      lineHeight: '1',
-                      letterSpacing: '-0.035em',
-                      whiteSpace: 'nowrap',
-                      pointerEvents: 'none',
-                      userSelect: 'none',
-                      zIndex: 0
-                    }}
-                  >
-                    JLH Nursery
-                  </div>
-
-                  <div className="hero-mobile-app-pill" aria-label="Nurturing, Learning, Growing" style={{ position: 'relative', zIndex: 1 }}>
+                <div className="hero-header-top-group">
+                  <div className="hero-mobile-app-pill" aria-label="Nurturing, Learning, Growing">
                     <span className="hero-mobile-app-dot" />
                     <span>NURTURING &bull; LEARNING &bull; GROWING</span>
                   </div>
 
-                  <h1 className="hero-actions-title" style={{ position: 'relative', zIndex: 1 }}>
+                  <h1 className="hero-actions-title">
                     <span className="hero-brand-name">JLH Nursery</span>
                     <span className="hero-actions-tagline">A Nurturing Nursery in Ajman Where Little Hearts Feel at Home</span>
                   </h1>
