@@ -2119,13 +2119,6 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
   return (
     <div ref={containerRef} style={{ position: 'relative', width: '100%', overflowX: 'clip', backgroundColor: '#ffd8bf' }}>
-      
-      {/* Giant 3D Watermark Background Text: Behind the doll (z-index: 8 < 10) */}
-      <div className="hero-giant-bg-text-wrapper" aria-hidden="true">
-        <div className="hero-giant-bg-text" id="hero-giant-bg-text">
-          JLH NURSERY
-        </div>
-      </div>
 
       {/* 3D WebGL Canvases (Hero canvas doll has z-index: 10) */}
       <canvas ref={heroCanvasRef} id="webgl-hero-canvas" />
@@ -2149,7 +2142,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
               </div>
 
               <div className="hero-card-main">
-                {/* Top Group: Admissions pill + 3-line heading */}
+                {/* Top Group: Admissions pill + JLH Nursery heading & tagline */}
                 <div className="hero-header-top-group">
                   <div className="hero-mobile-app-pill" aria-label="2026 Admissions Open">
                     <span className="hero-mobile-app-dot" />
@@ -2157,9 +2150,8 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   </div>
 
                   <h1 className="hero-actions-title">
-                    Where <br />
-                    Little Hearts <br />
-                    Feel at Home
+                    <span className="hero-brand-name">JLH Nursery</span>
+                    <span className="hero-actions-tagline">Where Little Hearts Feel at Home</span>
                   </h1>
                 </div>
 
