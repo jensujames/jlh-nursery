@@ -15,90 +15,90 @@ const GALLERY_ITEMS = [
   {
     id: 1,
     num: '# 01',
-    category: 'Creative Play & Arts',
-    title: 'Tactile Wooden Blocks',
-    subtitle: 'Fine motor development with wooden tactile shapes & creative building',
+    category: 'Creative Arts & Crafts',
+    title: 'Creative Play & Crafts',
+    subtitle: 'Painting, drawing, collage and making give children freedom to express ideas',
     image: '/images/hero.jpg',
     tag: 'Creative Play',
     tagColor: '#F15A29',
-    age: '18m – 4y'
+    age: 'Play & Create'
   },
   {
     id: 2,
     num: '# 02',
-    category: 'Montessori Discovery',
+    category: 'Sensory & Exploration',
     title: 'Sensory Trays & Textures',
-    subtitle: 'Natural tactile materials fostering curiosity, coordination and focus',
+    subtitle: 'Hands-on play invites children to investigate textures, materials, and curiosity',
     image: '/images/nurturing-hero.jpg',
     tag: 'Sensory Care',
     tagColor: '#0284c7',
-    age: '45d – 2.5y'
+    age: 'Hands-on Discovery'
   },
   {
     id: 3,
     num: '# 03',
-    category: 'Shaded Garden Fun',
+    category: 'Outdoor Play Area',
     title: 'Fresh-Air Adventure',
-    subtitle: 'Safe gross-motor outdoor play under 100% UV shaded canopies',
+    subtitle: 'Safe physical movement and balance under UV-shaded canopies on green turf',
     image: '/images/outdoor.jpg',
     tag: 'Outdoor Haven',
     tagColor: '#16a34a',
-    age: 'All Ages'
+    age: 'Active Movement'
   },
   {
     id: 4,
     num: '# 04',
-    category: 'Sunlit Storytime',
-    title: 'Reading Teepee & Phonics',
-    subtitle: 'Cozy language nests with picture books, rhyming, and confidence building',
+    category: 'Reading & Story Corner',
+    title: 'Stories, Rhymes & Phonics',
+    subtitle: 'Cozy language nooks with picture books, rhymes, vocabulary and imagination',
     image: '/images/classroom.jpg',
     tag: 'Early Literacy',
     tagColor: '#d97706',
-    age: '2y – 4.5y'
+    age: 'Storytime'
   },
   {
     id: 5,
     num: '# 05',
-    category: 'Loving Care & Warmth',
-    title: 'Motherly Attention',
-    subtitle: '1:4 attentive educator ratio cheering every baby step and daily smile',
+    category: 'Motherly Care & Warmth',
+    title: 'Nurturing Little Hearts',
+    subtitle: 'Kindness, patience, respect and motherly attention in a warm home-like atmosphere',
     image: '/images/testimonial-mom.jpg',
     tag: 'Happy Smiles',
     tagColor: '#e11d48',
-    age: 'All Ages'
+    age: 'Motherly Care'
   },
   {
     id: 6,
     num: '# 06',
-    category: 'Little Picasso Crafts',
-    title: 'Vibrant Color Discovery',
-    subtitle: 'Washable finger painting, eco-clay sculpting, and seasonal crafts',
+    category: 'Indoor Play Area',
+    title: 'Indoor Movement & Play',
+    subtitle: 'Dedicated space for movement, social play, group cooperation and joyful activities',
     image: '/images/bg-hero-activities.jpg',
-    tag: 'Arts & Crafts',
+    tag: 'Indoor Play',
     tagColor: '#9333ea',
-    age: '2y – 4y'
+    age: 'Active Play'
   },
   {
     id: 7,
     num: '# 07',
     category: 'Early EYFS Learning',
-    title: 'Pattern & Counting Play',
-    subtitle: 'British curriculum early numeracy games and interactive problem-solving',
+    title: 'Early Numeracy & Phonics',
+    subtitle: 'Counting, sorting, shapes, patterns and practical games supporting early learning',
     image: '/images/bg-hero-programs.jpg',
     tag: 'EYFS Readiness',
     tagColor: '#0369a1',
-    age: '3y – 5y'
+    age: 'Learning Through Play'
   },
   {
     id: 8,
     num: '# 08',
-    category: 'Villa 47 Play Haven',
-    title: 'Indoor Soft Play Gym',
-    subtitle: 'Climate-controlled safe gross-motor zones with cushioned mats',
+    category: 'Safe Campus & Facilities',
+    title: 'Safe Classrooms & CCTV',
+    subtitle: 'Child-friendly spaces with controlled reception, rounded fittings and 24/7 CCTV',
     image: '/images/bg-hero-villa.jpg',
     tag: 'Safe Campus',
     tagColor: '#059669',
-    age: 'All Ages'
+    age: 'Villa 47 Ajman'
   }
 ];
 
