@@ -62,6 +62,8 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
 
   return (
     <footer className="footer-3d-playful">
+      {/* Shiny Royal Burgundy Top Accent Line */}
+      <div className="royal-footer-top-border footer-shine-burgundy-line" aria-hidden="true" />
       
       {/* 1. LUXURY PRE-FOOTER QUICK-CONNECT ACCENT BAR */}
       <div className="footer-pre-connect-bar">

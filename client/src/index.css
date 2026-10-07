@@ -6128,7 +6128,7 @@ textarea {
   background: linear-gradient(180deg, #fffef9 0%, #fffcf3 40%, #fef8eb 100%);
   color: #334155;
   overflow: hidden;
-  border-top: 2px solid #fed7aa;
+  border-top: none;
   font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
 }
 
@@ -7620,6 +7620,101 @@ textarea {
 
 @media (max-width: 640px) {
   .royal-hero-bottom-border {
+    height: 6px;
+  }
+}
+
+/* ==========================================================================
+   SHINY ROYAL BURGUNDY FOOTER TOP ACCENT LINE
+   ========================================================================== */
+.royal-footer-top-border,
+.footer-shine-burgundy-line {
+  position: relative;
+  width: 100%;
+  height: 8px; /* Prominent glowing royal burgundy accent */
+  background: linear-gradient(
+    90deg,
+    #36030e 0%,
+    #580918 10%,
+    #721024 22%,
+    #9b1633 34%,
+    #bf2348 44%,
+    #ffeef3 50%,
+    #bf2348 56%,
+    #9b1633 66%,
+    #721024 78%,
+    #580918 90%,
+    #36030e 100%
+  );
+  background-size: 200% 100%;
+  animation: royalBorderShimmer 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  box-shadow: 
+    0 -3px 16px rgba(114, 16, 36, 0.42),
+    0 4px 18px rgba(114, 16, 36, 0.28),
+    0 1px 3px rgba(40, 4, 10, 0.65);
+  border-top: 1px solid rgba(255, 230, 236, 0.4);
+  border-bottom: 1px solid rgba(45, 4, 12, 0.75);
+  overflow: hidden;
+  z-index: 20;
+  pointer-events: none;
+  display: block;
+}
+
+/* Polished Top Bevel Highlight (Jeweled Specular Reflection) */
+.royal-footer-top-border::before,
+.footer-shine-burgundy-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 230, 236, 0.75) 20%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 230, 236, 0.75) 80%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Traveling Light Beam / Gleam Reflection Flare */
+.royal-footer-top-border::after,
+.footer-shine-burgundy-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -25%;
+  width: 180px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.2) 80%,
+    transparent 100%
+  );
+  transform: skewX(-28deg);
+  animation: royalBorderGleam 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  z-index: 3;
+  filter: blur(0.5px);
+}
+
+@media (max-width: 960px) {
+  .royal-footer-top-border,
+  .footer-shine-burgundy-line {
+    height: 7px;
+  }
+}
+
+@media (max-width: 640px) {
+  .royal-footer-top-border,
+  .footer-shine-burgundy-line {
     height: 6px;
   }
 }
