@@ -59,6 +59,28 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
     setOpenDropdown(null);
   }, [location.pathname]);
 
+  // Global event listeners for external triggers (e.g. bottom bar dock) and keyboard escape
+  useEffect(() => {
+    const handleToggle = () => setMobileMenuOpen(prev => !prev);
+    const handleOpen = () => setMobileMenuOpen(true);
+    const handleClose = () => setMobileMenuOpen(false);
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+
+    window.addEventListener('toggle-mobile-menu', handleToggle);
+    window.addEventListener('open-mobile-menu', handleOpen);
+    window.addEventListener('close-mobile-menu', handleClose);
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('toggle-mobile-menu', handleToggle);
+      window.removeEventListener('open-mobile-menu', handleOpen);
+      window.removeEventListener('close-mobile-menu', handleClose);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   const toggleMobileAccordion = (key) => {
     setMobileAccordion(prev => ({
       ...prev,
@@ -575,28 +597,17 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
               <span>BOOK A VISIT</span>
             </button>
 
-            {/* Mobile Quick Action Pill (Compact Tour CTA) */}
+            {/* Mobile Book Appointment Icon Button (Mobile View) */}
             <button
+              type="button"
               onClick={onBookVisitClick}
-              className="mobile-quick-tour-btn"
-              style={{
-                display: 'none',
-                alignItems: 'center',
-                gap: '0.35rem',
-                padding: '0.45rem 0.85rem',
-                borderRadius: '9999px',
-                background: 'linear-gradient(135deg, #721024 0%, #941731 50%, #c9a84c 100%)',
-                color: '#FAF5EB',
-                border: 'none',
-                fontSize: '0.78rem',
-                fontWeight: '900',
-                cursor: 'pointer',
-                boxShadow: '0 4px 12px rgba(114, 16, 36, 0.3)',
-                whiteSpace: 'nowrap'
-              }}
+              id="header-mobile-book-visit-btn"
+              className="mobile-book-appointment-btn"
+              aria-label="Book an Appointment"
+              title="Book an Appointment"
             >
-              <Calendar size={13} />
-              <span>BOOK A VISIT</span>
+              <Calendar size={18} strokeWidth={2.3} />
+              <span className="mobile-book-badge-dot" />
             </button>
 
             {/* Mobile App Menu Hamburger / Close Button */}
@@ -606,25 +617,9 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
                 e.stopPropagation();
                 setMobileMenuOpen(prev => !prev);
               }}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '40px',
-                height: '40px',
-                background: mobileMenuOpen ? '#721024' : 'rgba(255, 255, 255, 0.88)',
-                border: '1.5px solid rgba(114, 16, 36, 0.25)',
-                borderRadius: '12px',
-                color: mobileMenuOpen ? '#FAF5EB' : '#721024',
-                cursor: 'pointer',
-                transition: 'all 0.25s ease',
-                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
-                position: 'relative',
-                zIndex: 1001,
-                pointerEvents: 'auto'
-              }}
-              className="mobile-hamburger"
-              aria-label="Toggle navigation menu"
+              className={`mobile-hamburger-btn ${mobileMenuOpen ? 'is-active' : ''}`}
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              title={mobileMenuOpen ? "Close Menu" : "Menu"}
             >
               {mobileMenuOpen ? <X size={20} strokeWidth={2.4} /> : <Menu size={20} strokeWidth={2.4} />}
             </button>
@@ -634,357 +629,498 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
 
       {/* NATIVE MOBILE APP NAVIGATION CANVAS / FULL-SCREEN SHEET (OUTSIDE HEADER) */}
       {mobileMenuOpen && (
-        <div 
-          className="mobile-app-drawer"
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: '#fffdf9',
-            zIndex: 999999,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            overflowY: 'auto',
-            WebkitOverflowScrolling: 'touch',
-            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.25)'
-          }}
-        >
-          {/* Top Bar with Brand & Close Button */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '0.75rem 1rem',
-            borderBottom: '1px solid rgba(114, 16, 36, 0.1)',
-            background: 'rgba(255, 255, 255, 0.96)',
-            position: 'sticky',
-            top: 0,
-            zIndex: 20
-          }}>
-            <Link 
-              to="/" 
-              onClick={() => setMobileMenuOpen(false)}
-              style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none' }}
-            >
-              <img 
-                src="/logo.jpg" 
-                alt="Just Like Home Nursery Logo" 
-                style={{ width: '34px', height: '34px', objectFit: 'contain', borderRadius: '50%' }}
-                onError={(e) => {
-                  e.currentTarget.onerror = null;
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-              <div>
-                <div style={{ fontFamily: 'var(--font-heading)', fontWeight: '900', fontSize: '0.92rem', color: '#721024', lineHeight: 1.1 }}>
-                  Just Like Home
-                </div>
-                <div style={{ fontSize: '0.68rem', color: '#8a6b72', fontWeight: '700' }}>
-                  Nursery Ajman • Villa 47
-                </div>
-              </div>
-            </Link>
+        <>
+          {/* Backdrop Blur Overlay */}
+          <div 
+            onClick={() => setMobileMenuOpen(false)}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              backgroundColor: 'rgba(25, 4, 8, 0.58)',
+              backdropFilter: 'blur(6px)',
+              WebkitBackdropFilter: 'blur(6px)',
+              zIndex: 999998,
+              animation: 'mobileBackdropFadeIn 0.25s ease'
+            }}
+            aria-hidden="true"
+          />
 
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(false)}
-              style={{
-                width: '38px',
-                height: '38px',
-                borderRadius: '12px',
-                backgroundColor: '#fce7eb',
-                color: '#721024',
-                border: '1.5px solid rgba(114, 16, 36, 0.2)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer'
-              }}
-              aria-label="Close menu"
-            >
-              <X size={20} strokeWidth={2.4} />
-            </button>
-          </div>
-
-          {/* Scrollable App Nav Content */}
-          <div style={{ padding: '1rem 1rem 2rem' }}>
-            {/* Direct Contact Action Cards */}
+          <div 
+            className="mobile-app-drawer"
+            style={{
+              position: 'fixed',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              width: '100%',
+              maxWidth: '400px',
+              backgroundColor: '#fffdf9',
+              zIndex: 999999,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              overflowY: 'auto',
+              WebkitOverflowScrolling: 'touch',
+              boxShadow: '-10px 0 40px rgba(0, 0, 0, 0.25)',
+              animation: 'mobileDrawerSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+            }}
+          >
+            {/* Top Bar with Brand & Close Button */}
             <div style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '0.65rem',
-              marginBottom: '1.25rem'
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '0.85rem 1rem',
+              borderBottom: '1px solid rgba(114, 16, 36, 0.12)',
+              background: 'rgba(255, 255, 255, 0.98)',
+              position: 'sticky',
+              top: 0,
+              zIndex: 20
             }}>
-              <a
-                href="tel:0502005346"
-                style={{
-                  backgroundColor: '#f0f9ff',
-                  border: '1.5px solid #bae6fd',
-                  borderRadius: '16px',
-                  padding: '0.75rem 0.85rem',
-                  textDecoration: 'none',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.35rem',
-                  boxShadow: '0 2px 8px rgba(2, 132, 199, 0.06)'
-                }}
+              <Link 
+                to="/" 
+                onClick={() => setMobileMenuOpen(false)}
+                style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none' }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <div style={{
-                    width: '30px',
-                    height: '30px',
-                    borderRadius: '50%',
-                    backgroundColor: '#e0f2fe',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#0284c7'
-                  }}>
-                    <Phone size={15} />
-                  </div>
-                  <span style={{
-                    width: '6px',
-                    height: '6px',
-                    borderRadius: '50%',
-                    backgroundColor: '#15803d'
-                  }} />
-                </div>
+                <img 
+                  src="/logo.jpg" 
+                  alt="Just Like Home Nursery Logo" 
+                  style={{ width: '36px', height: '36px', objectFit: 'contain', borderRadius: '50%', border: '1.5px solid #c9a84c' }}
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
                 <div>
-                  <div style={{ fontSize: '0.82rem', fontWeight: '800', color: '#0369a1' }}>Direct Call</div>
-                  <div style={{ fontSize: '0.7rem', color: '#0284c7', fontWeight: '600' }}>050 200 5346</div>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontWeight: '900', fontSize: '0.96rem', color: '#721024', lineHeight: 1.15 }}>
+                    Just Like Home
+                  </div>
+                  <div style={{ fontSize: '0.66rem', color: '#c9a84c', fontWeight: '800', letterSpacing: '0.04em' }}>
+                    NURSERY • VILLA 47, AJMAN
+                  </div>
                 </div>
-              </a>
+              </Link>
 
-              <a
-                href="https://wa.me/971502005346?text=Hello%20Just%20Like%20Home%20Nursery,%20I%20would%20like%20to%20learn%20more."
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
                 style={{
-                  backgroundColor: '#f0fdf4',
-                  border: '1.5px solid #bbf7d0',
-                  borderRadius: '16px',
-                  padding: '0.75rem 0.85rem',
-                  textDecoration: 'none',
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '12px',
+                  backgroundColor: '#fce7eb',
+                  color: '#721024',
+                  border: '1.5px solid rgba(114, 16, 36, 0.2)',
                   display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.35rem',
-                  boxShadow: '0 2px 8px rgba(22, 163, 74, 0.06)'
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer'
                 }}
+                aria-label="Close menu"
               >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <div style={{
-                    width: '30px',
-                    height: '30px',
-                    borderRadius: '50%',
-                    backgroundColor: '#dcfce7',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#16a34a'
-                  }}>
-                    <MessageCircle size={15} />
-                  </div>
-                  <span style={{ fontSize: '0.65rem', fontWeight: '800', color: '#16a34a' }}>Active</span>
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.82rem', fontWeight: '800', color: '#166534' }}>WhatsApp Us</div>
-                  <div style={{ fontSize: '0.7rem', color: '#15803d', fontWeight: '600' }}>Instant Reply</div>
-                </div>
-              </a>
+                <X size={20} strokeWidth={2.4} />
+              </button>
             </div>
 
-            {/* Grouped App Navigation List */}
-            <div style={{
-              backgroundColor: '#ffffff',
-              borderRadius: '20px',
-              border: '1px solid rgba(114, 16, 36, 0.12)',
-              boxShadow: '0 4px 18px rgba(114, 16, 36, 0.05)',
-              overflow: 'hidden',
-              display: 'flex',
-              flexDirection: 'column'
-            }}>
-              {menuConfig.map((item, idx) => {
-                const Icon = item.icon;
-                const isAccordionOpen = !!mobileAccordion[item.id];
-
-                return (
-                  <div 
-                    key={item.id} 
-                    style={{ 
-                      borderBottom: idx !== menuConfig.length - 1 ? '1px solid #f5ede8' : 'none' 
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <NavLink
-                        to={item.path}
-                        onClick={() => !item.hasDropdown && setMobileMenuOpen(false)}
-                        style={({ isActive }) => ({
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.85rem',
-                          padding: '0.85rem 1rem',
-                          flex: 1,
-                          textDecoration: 'none',
-                          color: isActive ? '#721024' : '#2d1f22',
-                          fontWeight: isActive ? '900' : '750',
-                          fontSize: '0.94rem'
-                        })}
-                      >
-                        <div style={{
-                          width: '36px',
-                          height: '36px',
-                          borderRadius: '10px',
-                          backgroundColor: item.bg,
-                          color: item.color,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          flexShrink: 0
-                        }}>
-                          <Icon size={18} />
-                        </div>
-                        <div>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                            <span>{item.name}</span>
-                            {item.subLabel && (
-                              <span style={{ fontSize: '0.72rem', color: '#8a6b72', fontWeight: '600' }}>
-                                ({item.subLabel})
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                      </NavLink>
-
-                      {/* Accordion toggle button if item has sub-links */}
-                      {item.hasDropdown ? (
-                        <button
-                          type="button"
-                          onClick={() => toggleMobileAccordion(item.id)}
-                          style={{
-                            padding: '0.85rem 1rem',
-                            background: 'none',
-                            border: 'none',
-                            color: '#94a3b8',
-                            cursor: 'pointer'
-                          }}
-                          aria-label={`Toggle ${item.name} options`}
-                        >
-                          <ChevronDown 
-                            size={18} 
-                            style={{ 
-                              transform: isAccordionOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                              transition: 'transform 0.25s ease' 
-                            }} 
-                          />
-                        </button>
-                      ) : (
-                        <div style={{ paddingRight: '1rem', color: '#cbd5e1' }}>
-                          <ChevronRight size={16} />
-                        </div>
-                      )}
+            {/* Scrollable Nav Content */}
+            <div style={{ padding: '1rem', flex: 1, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {/* Quick Action: Book Appointment Banner Card */}
+              <div style={{
+                background: 'linear-gradient(135deg, #721024 0%, #941731 55%, #c9a84c 100%)',
+                borderRadius: '18px',
+                padding: '1rem 1.15rem',
+                color: '#FAF5EB',
+                boxShadow: '0 8px 24px rgba(114, 16, 36, 0.22)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.75rem'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <div style={{
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '10px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.18)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#FAF5EB'
+                    }}>
+                      <Calendar size={18} strokeWidth={2.4} />
                     </div>
+                    <div>
+                      <div style={{ fontSize: '0.92rem', fontWeight: '900', lineHeight: 1.15 }}>Book an Appointment</div>
+                      <div style={{ fontSize: '0.68rem', color: '#ffeaad', fontWeight: '700' }}>Schedule a Campus Tour</div>
+                    </div>
+                  </div>
+                  <span style={{
+                    fontSize: '0.62rem',
+                    fontWeight: '800',
+                    backgroundColor: '#15803d',
+                    color: '#ffffff',
+                    padding: '2px 8px',
+                    borderRadius: '999px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.4px'
+                  }}>
+                    Available
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onBookVisitClick();
+                  }}
+                  style={{
+                    width: '100%',
+                    padding: '0.65rem 1rem',
+                    borderRadius: '12px',
+                    backgroundColor: '#FAF5EB',
+                    color: '#721024',
+                    border: 'none',
+                    fontWeight: '900',
+                    fontSize: '0.84rem',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.45rem',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.12)'
+                  }}
+                >
+                  <Calendar size={15} />
+                  <span>Book Campus Tour Now</span>
+                </button>
+              </div>
 
-                    {/* Expandable Sub-items */}
-                    {item.hasDropdown && isAccordionOpen && (
-                      <div style={{
-                        backgroundColor: '#faf6f3',
-                        padding: '0.5rem 1rem 0.75rem 3.5rem',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '0.5rem',
-                        borderTop: '1px dashed #eeded6'
-                      }}>
-                        {item.subItems.map((sub) => (
-                          <Link
-                            key={sub.name}
-                            to={sub.path}
-                            onClick={() => setMobileMenuOpen(false)}
+              {/* Direct Contact Action Cards */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '0.65rem'
+              }}>
+                <a
+                  href="tel:0502005346"
+                  style={{
+                    backgroundColor: '#f0f9ff',
+                    border: '1.5px solid #bae6fd',
+                    borderRadius: '16px',
+                    padding: '0.75rem 0.85rem',
+                    textDecoration: 'none',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.35rem',
+                    boxShadow: '0 2px 8px rgba(2, 132, 199, 0.06)'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <div style={{
+                      width: '30px',
+                      height: '30px',
+                      borderRadius: '50%',
+                      backgroundColor: '#e0f2fe',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#0284c7'
+                    }}>
+                      <Phone size={15} />
+                    </div>
+                    <span style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      backgroundColor: '#15803d'
+                    }} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.82rem', fontWeight: '800', color: '#0369a1' }}>Direct Call</div>
+                    <div style={{ fontSize: '0.7rem', color: '#0284c7', fontWeight: '600' }}>050 200 5346</div>
+                  </div>
+                </a>
+
+                <a
+                  href="https://wa.me/971502005346?text=Hello%20Just%20Like%20Home%20Nursery,%20I%20would%20like%20to%20learn%20more."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    backgroundColor: '#f0fdf4',
+                    border: '1.5px solid #bbf7d0',
+                    borderRadius: '16px',
+                    padding: '0.75rem 0.85rem',
+                    textDecoration: 'none',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.35rem',
+                    boxShadow: '0 2px 8px rgba(22, 163, 74, 0.06)'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <div style={{
+                      width: '30px',
+                      height: '30px',
+                      borderRadius: '50%',
+                      backgroundColor: '#dcfce7',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#16a34a'
+                    }}>
+                      <MessageCircle size={15} />
+                    </div>
+                    <span style={{ fontSize: '0.65rem', fontWeight: '800', color: '#16a34a' }}>Active</span>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.82rem', fontWeight: '800', color: '#166534' }}>WhatsApp Us</div>
+                    <div style={{ fontSize: '0.7rem', color: '#15803d', fontWeight: '600' }}>Instant Reply</div>
+                  </div>
+                </a>
+              </div>
+
+              {/* Grouped App Navigation List */}
+              <div style={{
+                backgroundColor: '#ffffff',
+                borderRadius: '20px',
+                border: '1px solid rgba(114, 16, 36, 0.12)',
+                boxShadow: '0 4px 18px rgba(114, 16, 36, 0.05)',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column'
+              }}>
+                {menuConfig.map((item, idx) => {
+                  const Icon = item.icon;
+                  const isAccordionOpen = !!mobileAccordion[item.id];
+
+                  return (
+                    <div 
+                      key={item.id} 
+                      style={{ 
+                        borderBottom: idx !== menuConfig.length - 1 ? '1px solid #f5ede8' : 'none' 
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        {item.hasDropdown ? (
+                          <div
+                            onClick={() => toggleMobileAccordion(item.id)}
                             style={{
-                              fontSize: '0.86rem',
-                              color: '#4a0e1a',
-                              fontWeight: '750',
-                              textDecoration: 'none',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'space-between',
-                              padding: '0.35rem 0'
+                              width: '100%',
+                              padding: '0.85rem 1rem',
+                              cursor: 'pointer',
+                              userSelect: 'none'
                             }}
                           >
-                            <span style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                              <span style={{ color: item.color }}>•</span>
-                              <span>{sub.name}</span>
-                            </span>
-                            {sub.badge && (
-                              <span style={{
-                                fontSize: '0.62rem',
-                                color: '#721024',
-                                backgroundColor: '#fce7eb',
-                                padding: '1px 6px',
-                                borderRadius: '999px',
-                                textTransform: 'uppercase',
-                                fontWeight: '800'
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+                              <div style={{
+                                width: '36px',
+                                height: '36px',
+                                borderRadius: '10px',
+                                backgroundColor: item.bg,
+                                color: item.color,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                flexShrink: 0
                               }}>
-                                {sub.badge}
-                              </span>
-                            )}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+                                <Icon size={18} />
+                              </div>
+                              <div>
+                                <div style={{
+                                  fontWeight: isAccordionOpen ? '900' : '750',
+                                  color: isAccordionOpen ? '#721024' : '#2d1f22',
+                                  fontSize: '0.94rem'
+                                }}>
+                                  {item.name}
+                                </div>
+                              </div>
+                            </div>
 
-          {/* Sticky Mobile App Sheet Bottom Actions */}
-          <div style={{
-            padding: '1rem',
-            backgroundColor: '#ffffff',
-            borderTop: '1px solid rgba(114, 16, 36, 0.12)',
-            boxShadow: '0 -8px 24px rgba(0, 0, 0, 0.06)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.65rem',
-            paddingBottom: 'max(1.2rem, env(safe-area-inset-bottom))'
-          }}>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onBookVisitClick();
-              }}
-              style={{
-                width: '100%',
-                padding: '0.9rem',
-                borderRadius: '16px',
-                background: 'linear-gradient(135deg, #721024 0%, #941731 50%, #c9a84c 100%)',
-                color: '#FAF5EB',
-                border: 'none',
-                fontSize: '0.92rem',
-                fontWeight: '900',
-                letterSpacing: '0.5px',
+                            <div style={{
+                              color: isAccordionOpen ? '#721024' : '#94a3b8',
+                              display: 'flex',
+                              alignItems: 'center',
+                              transition: 'transform 0.25s ease',
+                              transform: isAccordionOpen ? 'rotate(180deg)' : 'rotate(0deg)'
+                            }}>
+                              <ChevronDown size={18} />
+                            </div>
+                          </div>
+                        ) : (
+                          <NavLink
+                            to={item.path}
+                            onClick={() => setMobileMenuOpen(false)}
+                            style={({ isActive }) => ({
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              width: '100%',
+                              padding: '0.85rem 1rem',
+                              textDecoration: 'none',
+                              color: isActive ? '#721024' : '#2d1f22',
+                              fontWeight: isActive ? '900' : '750',
+                              fontSize: '0.94rem'
+                            })}
+                          >
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+                              <div style={{
+                                width: '36px',
+                                height: '36px',
+                                borderRadius: '10px',
+                                backgroundColor: item.bg,
+                                color: item.color,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                flexShrink: 0
+                              }}>
+                                <Icon size={18} />
+                              </div>
+                              <div>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                                  <span>{item.name}</span>
+                                  {item.subLabel && (
+                                    <span style={{ fontSize: '0.72rem', color: '#8a6b72', fontWeight: '600' }}>
+                                      ({item.subLabel})
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                            <div style={{ color: '#cbd5e1' }}>
+                              <ChevronRight size={16} />
+                            </div>
+                          </NavLink>
+                        )}
+                      </div>
+
+                      {/* Expandable Sub-items */}
+                      {item.hasDropdown && isAccordionOpen && (
+                        <div style={{
+                          backgroundColor: '#faf6f3',
+                          padding: '0.5rem 1rem 0.75rem 3.5rem',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          gap: '0.5rem',
+                          borderTop: '1px dashed #eeded6'
+                        }}>
+                          {item.subItems.map((sub) => (
+                            <Link
+                              key={sub.name}
+                              to={sub.path}
+                              onClick={() => setMobileMenuOpen(false)}
+                              style={{
+                                fontSize: '0.86rem',
+                                color: '#4a0e1a',
+                                fontWeight: '750',
+                                textDecoration: 'none',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                padding: '0.4rem 0'
+                              }}
+                            >
+                              <span style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                                <span style={{ color: item.color, fontSize: '1.1rem' }}>•</span>
+                                <span>{sub.name}</span>
+                              </span>
+                              {sub.badge && (
+                                <span style={{
+                                  fontSize: '0.62rem',
+                                  color: '#721024',
+                                  backgroundColor: '#fce7eb',
+                                  padding: '1px 6px',
+                                  borderRadius: '999px',
+                                  textTransform: 'uppercase',
+                                  fontWeight: '800'
+                                }}>
+                                  {sub.badge}
+                                </span>
+                              )}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Sticky Mobile App Sheet Bottom Actions */}
+            <div style={{
+              padding: '1rem',
+              backgroundColor: '#ffffff',
+              borderTop: '1px solid rgba(114, 16, 36, 0.12)',
+              boxShadow: '0 -8px 24px rgba(0, 0, 0, 0.06)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.65rem',
+              paddingBottom: 'max(1.2rem, env(safe-area-inset-bottom))'
+            }}>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onBookVisitClick();
+                }}
+                style={{
+                  width: '100%',
+                  padding: '0.9rem',
+                  borderRadius: '16px',
+                  background: 'linear-gradient(135deg, #721024 0%, #941731 50%, #c9a84c 100%)',
+                  color: '#FAF5EB',
+                  border: 'none',
+                  fontSize: '0.92rem',
+                  fontWeight: '900',
+                  letterSpacing: '0.5px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  cursor: 'pointer',
+                  boxShadow: '0 6px 20px rgba(114, 16, 36, 0.35)'
+                }}
+              >
+                <Calendar size={18} />
+                <span>BOOK AN APPOINTMENT</span>
+              </button>
+
+              <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                cursor: 'pointer',
-                boxShadow: '0 6px 20px rgba(114, 16, 36, 0.35)'
-              }}
-            >
-              <Calendar size={18} />
-              <span>BOOK A VISIT</span>
-            </button>
-
-            <div style={{
-              textAlign: 'center',
-              fontSize: '0.72rem',
-              color: '#8a6b72',
-              fontWeight: '700'
-            }}>
-              Villa No. 47, Al Rashidiya 2, Ajman • Licensed UAE Nursery
+                justifyContent: 'space-between',
+                fontSize: '0.72rem',
+                color: '#8a6b72',
+                fontWeight: '700'
+              }}>
+                <span>Villa 47, Al Rashidiya 2, Ajman</span>
+                {onAdminClick && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      onAdminClick();
+                    }}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: '#c9a84c',
+                      fontWeight: '800',
+                      cursor: 'pointer',
+                      fontSize: '0.72rem',
+                      textDecoration: 'underline'
+                    }}
+                  >
+                    Admin Portal
+                  </button>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
 
       <style>{`
@@ -1002,6 +1138,79 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
             transform: translateY(0);
           }
         }
+        @keyframes mobileBackdropFadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes mobileDrawerSlideIn {
+          from { transform: translateX(100%); }
+          to { transform: translateX(0); }
+        }
+        @keyframes bookPulseDot {
+          0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(1.35);
+            opacity: 0.7;
+          }
+        }
+        .mobile-book-appointment-btn {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 12px;
+          background: linear-gradient(135deg, #721024 0%, #941731 50%, #c9a84c 100%);
+          color: #FAF5EB;
+          border: 1.5px solid rgba(201, 168, 76, 0.45);
+          box-shadow: 0 4px 14px rgba(114, 16, 36, 0.28), 0 0 10px rgba(201, 168, 76, 0.2);
+          cursor: pointer;
+          position: relative;
+          flex-shrink: 0;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .mobile-book-appointment-btn:active {
+          transform: scale(0.92);
+        }
+        .mobile-book-badge-dot {
+          position: absolute;
+          top: 4px;
+          right: 4px;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: #22c55e;
+          box-shadow: 0 0 6px #22c55e;
+          border: 1.5px solid #721024;
+          animation: bookPulseDot 2s infinite ease-in-out;
+        }
+        .mobile-hamburger-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          background: rgba(255, 255, 255, 0.92);
+          border: 1.5px solid rgba(114, 16, 36, 0.25);
+          border-radius: 12px;
+          color: #721024;
+          cursor: pointer;
+          transition: all 0.25s ease;
+          box-shadow: 0 2px 8px rgba(114, 16, 36, 0.08);
+          position: relative;
+          flex-shrink: 0;
+        }
+        .mobile-hamburger-btn:active {
+          transform: scale(0.92);
+        }
+        .mobile-hamburger-btn.is-active {
+          background: #721024;
+          color: #FAF5EB;
+          border-color: #c9a84c;
+        }
         @media (max-width: 768px) {
           .navbar-brand-logo-wrap {
             width: 38px;
@@ -1010,7 +1219,10 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
           .desktop-book-btn {
             display: none !important;
           }
-          .mobile-quick-tour-btn {
+          .mobile-book-appointment-btn {
+            display: inline-flex !important;
+          }
+          .mobile-hamburger-btn {
             display: inline-flex !important;
           }
         }
@@ -1018,7 +1230,7 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
           .desktop-book-btn {
             display: inline-flex !important;
           }
-          .mobile-quick-tour-btn {
+          .mobile-book-appointment-btn {
             display: none !important;
           }
         }
@@ -1026,7 +1238,7 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
           .desktop-nav {
             display: flex !important;
           }
-          .mobile-hamburger {
+          .mobile-hamburger-btn {
             display: none !important;
           }
         }

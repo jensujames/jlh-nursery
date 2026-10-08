@@ -7,7 +7,8 @@ import {
   ArrowUp,
   Home,
   GraduationCap,
-  FileText
+  FileText,
+  Menu
 } from 'lucide-react';
 
 export default function FloatingDock({ onBookVisitClick }) {
@@ -213,54 +214,60 @@ export default function FloatingDock({ onBookVisitClick }) {
           <span style={{ fontSize: '0.68rem', fontWeight: isPrograms ? '800' : '600' }}>Programs</span>
         </Link>
 
-        {/* 3. Admissions Tab */}
-        <Link 
-          to="/admissions"
+        {/* 3. Center Elevated Action: Book Appointment */}
+        <button
+          type="button"
+          onClick={onBookVisitClick}
+          aria-label="Book an Appointment"
+          title="Book an Appointment"
+          className="dock-book-center-btn"
           style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: '2px',
-            textDecoration: 'none',
-            color: isAdmissions ? '#721024' : '#64748b',
-            padding: '4px 6px',
-            minWidth: '50px'
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '0 4px',
+            marginTop: '-18px'
           }}
-        >
-          <FileText size={20} strokeWidth={isAdmissions ? 2.5 : 1.8} />
-          <span style={{ fontSize: '0.68rem', fontWeight: isAdmissions ? '800' : '600' }}>Admissions</span>
-        </Link>
-
-        {/* 4. Direct Phone Call */}
-        <a 
-          href="tel:0502005346"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '2px',
-            textDecoration: 'none',
-            color: '#0284c7',
-            padding: '4px 6px',
-            minWidth: '50px'
-          }}
-          title="Direct Phone Call"
         >
           <div style={{
-            width: '28px',
-            height: '28px',
+            width: '46px',
+            height: '46px',
             borderRadius: '50%',
-            backgroundColor: '#e0f2fe',
+            background: 'linear-gradient(135deg, #721024 0%, #941731 50%, #c9a84c 100%)',
+            color: '#FAF5EB',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            boxShadow: '0 4px 16px rgba(114, 16, 36, 0.45), 0 0 0 3px #ffffff',
+            position: 'relative'
           }}>
-            <Phone size={15} strokeWidth={2.2} />
+            <Calendar size={20} strokeWidth={2.4} />
+            <span style={{
+              position: 'absolute',
+              top: '2px',
+              right: '2px',
+              width: '8px',
+              height: '8px',
+              borderRadius: '50%',
+              backgroundColor: '#22c55e',
+              boxShadow: '0 0 6px #22c55e',
+              border: '1.5px solid #721024'
+            }} />
           </div>
-          <span style={{ fontSize: '0.68rem', fontWeight: '700' }}>Call</span>
-        </a>
+          <span style={{
+            fontSize: '0.66rem',
+            fontWeight: '900',
+            color: '#721024',
+            marginTop: '3px'
+          }}>
+            Book
+          </span>
+        </button>
 
-        {/* 5. WhatsApp Chat */}
+        {/* 4. WhatsApp Chat */}
         <a 
           href="https://wa.me/971502005346?text=Hello%20Just%20Like%20Home%20Nursery,%20I%20would%20like%20to%20arrange%20a%20visit."
           target="_blank"
@@ -290,6 +297,40 @@ export default function FloatingDock({ onBookVisitClick }) {
           </div>
           <span style={{ fontSize: '0.68rem', fontWeight: '700' }}>Chat</span>
         </a>
+
+        {/* 5. Hamburger Mobile Menu Drawer Toggle */}
+        <button
+          type="button"
+          onClick={() => window.dispatchEvent(new CustomEvent('toggle-mobile-menu'))}
+          aria-label="Toggle Mobile Menu"
+          title="Menu"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '2px',
+            background: 'none',
+            border: 'none',
+            color: '#721024',
+            padding: '4px 6px',
+            minWidth: '50px',
+            cursor: 'pointer'
+          }}
+        >
+          <div style={{
+            width: '28px',
+            height: '28px',
+            borderRadius: '50%',
+            backgroundColor: 'rgba(114, 16, 36, 0.08)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#721024'
+          }}>
+            <Menu size={16} strokeWidth={2.2} />
+          </div>
+          <span style={{ fontSize: '0.68rem', fontWeight: '700' }}>Menu</span>
+        </button>
       </nav>
 
       <style>{`
