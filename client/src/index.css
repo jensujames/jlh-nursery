@@ -167,12 +167,23 @@ html.lenis {
   pointer-events: none;
 }
 
+html,
 body {
   font-family: var(--font-body);
   background-color: var(--bg-cream);
   color: var(--text-primary);
   line-height: 1.65;
-  overflow-x: clip;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+#root,
+.min-h-screen,
+main {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  width: 100% !important;
 }
 
 h1,
@@ -978,7 +989,8 @@ textarea {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   height: 100vh;
   display: block;
   pointer-events: none;
@@ -991,7 +1003,8 @@ textarea {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   height: 100vh;
   display: block;
   pointer-events: none;
@@ -6113,10 +6126,30 @@ textarea {
   /* Full Screen Mobile App Drawer */
   .mobile-app-drawer {
     display: flex !important;
+    flex-direction: column !important;
     position: fixed !important;
-    inset: 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    height: 100% !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
     z-index: 999999 !important;
     background-color: #fffdf9 !important;
+    overflow: hidden !important;
+    touch-action: pan-y !important;
+    overscroll-behavior-y: contain !important;
+  }
+
+  .mobile-app-drawer-body {
+    flex: 1 1 0% !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior-y: contain !important;
+    touch-action: pan-y !important;
   }
 }
 
@@ -7023,7 +7056,9 @@ textarea {
   color: #EFE4D6;
   letter-spacing: 0.02em;
   line-height: 1.35;
-  white-space: nowrap;
+  white-space: normal !important;
+  word-break: normal;
+  max-width: 100%;
 }
 
 @media (max-width: 1024px) {
@@ -7073,6 +7108,8 @@ textarea {
 
   .home-impact-label {
     font-size: 12px;
+    white-space: normal !important;
+    word-break: normal;
   }
 
   .home-impact-icon-badge {
@@ -8122,20 +8159,29 @@ textarea {
    Headings, Buttons, Content, Cards, Sections & Images across all devices
    ========================================================================== */
 
-/* 1. Global Viewport & Horizontal Overflow Prevention (Sticky-Safe) */
+/* 1. Global Viewport & Horizontal Overflow Prevention */
 html, body {
-  overflow-x: clip !important;
-  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
   width: 100% !important;
+  position: relative;
+}
+
+#root,
+.min-h-screen,
+main {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  position: relative;
 }
 
 *, *::before, *::after {
   box-sizing: border-box !important;
 }
 
-img, video, canvas, svg {
+img, video, canvas, svg, iframe {
   max-width: 100% !important;
-  height: auto;
 }
 
 /* 2. Tablet & Mobile Layout Adaptations (<= 768px) */
@@ -8274,17 +8320,40 @@ img, video, canvas, svg {
     text-align: center !important;
   }
 
+  .footer-pre-badge-group {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .footer-pre-location-text {
+    font-size: 11.5px !important;
+    text-align: center !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  .footer-pre-status-pill {
+    max-width: 100% !important;
+    white-space: normal !important;
+    text-align: center !important;
+    font-size: 11px !important;
+    padding: 6px 12px !important;
+    line-height: 1.35 !important;
+  }
+
   .footer-pre-actions-group {
     width: 100% !important;
     justify-content: center !important;
     gap: 8px !important;
+    flex-wrap: wrap !important;
   }
 
   .footer-pre-action-btn {
-    flex: 1 !important;
+    flex: 1 1 120px !important;
     justify-content: center !important;
-    padding: 8px 14px !important;
-    font-size: 12.5px !important;
+    padding: 8px 12px !important;
+    font-size: 12px !important;
     text-align: center !important;
   }
 

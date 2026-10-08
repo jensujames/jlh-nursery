@@ -152,15 +152,17 @@ export default function ContactPage() {
           </RevealOnScroll>
 
           <div
+            className="contact-details-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '28px'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '24px'
             }}
           >
             {/* Address */}
             <RevealOnScroll>
               <div
+                className="contact-card-modern"
                 style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.90)',
                   backdropFilter: 'blur(24px)',
@@ -234,6 +236,7 @@ export default function ContactPage() {
             {/* Phone & WhatsApp */}
             <RevealOnScroll delay={50}>
               <div
+                className="contact-card-modern"
                 style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.90)',
                   backdropFilter: 'blur(24px)',
@@ -301,6 +304,7 @@ export default function ContactPage() {
             {/* Email */}
             <RevealOnScroll delay={100}>
               <div
+                className="contact-card-modern"
                 style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.90)',
                   backdropFilter: 'blur(24px)',
@@ -373,6 +377,7 @@ export default function ContactPage() {
       >
         <div style={{ maxWidth: '880px', margin: '0 auto' }}>
           <div
+            className="contact-form-card"
             style={{
               backgroundColor: 'rgba(255, 255, 255, 0.92)',
               backdropFilter: 'blur(24px)',
@@ -805,6 +810,7 @@ export default function ContactPage() {
             </div>
 
             <div
+              className="contact-map-iframe-wrap"
               style={{
                 borderRadius: '2.5rem',
                 overflow: 'hidden',
@@ -826,50 +832,19 @@ export default function ContactPage() {
               ></iframe>
             </div>
 
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', marginTop: '36px', flexWrap: 'wrap' }}>
+            <div className="contact-map-actions-row">
               <a 
                 href={GMB_URL} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  padding: '15px 34px',
-                  borderRadius: '999px',
-                  background: 'linear-gradient(135deg, #721024 0%, #8f152f 100%)',
-                  color: '#FAF5EB',
-                  fontWeight: '800',
-                  fontSize: '15px',
-                  textDecoration: 'none',
-                  boxShadow: '0 8px 24px rgba(114, 16, 36, 0.28)',
-                  transition: 'all 0.25s ease'
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
+                className="contact-map-btn contact-map-btn-primary"
               >
                 <Navigation size={18} />
                 <span>OPEN IN GOOGLE MAPS</span>
               </a>
               <a 
                 href="tel:0502005346" 
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  padding: '15px 34px',
-                  borderRadius: '999px',
-                  backgroundColor: '#ffffff',
-                  color: '#721024',
-                  fontWeight: '800',
-                  fontSize: '15px',
-                  textDecoration: 'none',
-                  border: '2px solid #721024',
-                  boxShadow: '0 6px 18px rgba(114, 16, 36, 0.08)',
-                  transition: 'all 0.25s ease'
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
+                className="contact-map-btn contact-map-btn-outline"
               >
                 <Phone size={18} />
                 <span>CALL US</span>
@@ -878,23 +853,7 @@ export default function ContactPage() {
                 href={`https://wa.me/971502005346?text=${whatsappMessage}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  padding: '15px 34px',
-                  borderRadius: '999px',
-                  backgroundColor: '#ffffff',
-                  color: '#059669',
-                  fontWeight: '800',
-                  fontSize: '15px',
-                  textDecoration: 'none',
-                  border: '2px solid #059669',
-                  boxShadow: '0 6px 18px rgba(5, 150, 105, 0.12)',
-                  transition: 'all 0.25s ease'
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
+                className="contact-map-btn contact-map-btn-whatsapp"
               >
                 <MessageCircle size={18} />
                 <span>WHATSAPP US</span>
@@ -903,6 +862,83 @@ export default function ContactPage() {
           </RevealOnScroll>
         </div>
       </section>
+
+      <style>{`
+        .contact-map-actions-row {
+          display: flex;
+          gap: 16px;
+          justify-content: center;
+          align-items: center;
+          margin-top: 36px;
+          flex-wrap: wrap;
+          width: 100%;
+        }
+        .contact-map-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          padding: 15px 34px;
+          border-radius: 999px;
+          font-weight: 800;
+          font-size: 15px;
+          text-decoration: none;
+          transition: all 0.25s ease;
+          box-sizing: border-box;
+        }
+        .contact-map-btn:hover {
+          transform: translateY(-2px);
+        }
+        .contact-map-btn-primary {
+          background: linear-gradient(135deg, #721024 0%, #8f152f 100%);
+          color: #FAF5EB;
+          box-shadow: 0 8px 24px rgba(114, 16, 36, 0.28);
+        }
+        .contact-map-btn-outline {
+          background-color: #ffffff;
+          color: #721024;
+          border: 2px solid #721024;
+          box-shadow: 0 6px 18px rgba(114, 16, 36, 0.08);
+        }
+        .contact-map-btn-whatsapp {
+          background-color: #ffffff;
+          color: #059669;
+          border: 2px solid #059669;
+          box-shadow: 0 6px 18px rgba(5, 150, 105, 0.12);
+        }
+        @media (max-width: 768px) {
+          .contact-details-grid {
+            grid-template-columns: 1fr !important;
+            gap: 14px !important;
+          }
+          .contact-card-modern {
+            padding: 1.35rem 1.15rem !important;
+            border-radius: 20px !important;
+          }
+          .contact-form-card {
+            padding: 1.5rem 1.15rem !important;
+            border-radius: 20px !important;
+          }
+          .contact-map-iframe-wrap {
+            height: 290px !important;
+            border-radius: 20px !important;
+          }
+          .contact-map-actions-row {
+            flex-direction: column !important;
+            gap: 12px !important;
+            margin-top: 24px !important;
+            width: 100% !important;
+            padding: 0 !important;
+          }
+          .contact-map-btn {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 14px 18px !important;
+            font-size: 14.5px !important;
+            text-align: center !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

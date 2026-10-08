@@ -473,7 +473,7 @@ export default function ReviewsSection() {
             marginTop: 'clamp(2.5rem, 5vw, 3.5rem)',
             backgroundColor: '#ffffff',
             borderRadius: '24px',
-            padding: '1.75rem 2.25rem',
+            padding: 'clamp(1.2rem, 3.5vw, 1.75rem) clamp(1.1rem, 3.5vw, 2.25rem)',
             border: '1.5px solid rgba(0, 104, 55, 0.12)',
             boxShadow: '0 8px 28px rgba(0, 104, 55, 0.05)',
             display: 'flex',
@@ -481,9 +481,12 @@ export default function ReviewsSection() {
             justifyContent: 'space-between',
             flexWrap: 'wrap',
             gap: '1.25rem',
-            textAlign: 'left'
+            textAlign: 'left',
+            width: '100%',
+            maxWidth: '100%',
+            boxSizing: 'border-box'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.1rem', flexWrap: 'wrap', minWidth: 0 }}>
               <div style={{
                 width: '48px',
                 height: '48px',

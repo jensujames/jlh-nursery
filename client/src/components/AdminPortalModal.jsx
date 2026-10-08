@@ -75,29 +75,36 @@ export default function AdminPortalModal({ isOpen, onClose }) {
   );
 
   return (
-    <div style={{
-      position: 'fixed',
-      inset: 0,
-      zIndex: 120,
-      backgroundColor: 'rgba(28, 4, 11, 0.88)',
-      backdropFilter: 'blur(10px)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '1.5rem'
-    }}>
-      <div style={{
-        backgroundColor: '#ffffff',
-        borderRadius: '2rem',
-        maxWidth: '1000px',
-        width: '100%',
-        maxHeight: '92vh',
-        overflow: 'hidden',
+    <div 
+      data-lenis-prevent="true"
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 120,
+        backgroundColor: 'rgba(28, 4, 11, 0.88)',
+        backdropFilter: 'blur(10px)',
         display: 'flex',
-        flexDirection: 'column',
-        boxShadow: '0 25px 60px rgba(0, 0, 0, 0.4)',
-        border: '2px solid rgba(123, 17, 39, 0.2)'
-      }}>
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '1.5rem'
+      }}
+    >
+      <div 
+        data-lenis-prevent="true"
+        role="dialog"
+        style={{
+          backgroundColor: '#ffffff',
+          borderRadius: '2rem',
+          maxWidth: '1000px',
+          width: '100%',
+          maxHeight: '92vh',
+          overflow: 'hidden',
+          display: 'flex',
+          flexDirection: 'column',
+          boxShadow: '0 25px 60px rgba(0, 0, 0, 0.4)',
+          border: '2px solid rgba(123, 17, 39, 0.2)'
+        }}
+      >
         
         {/* Header */}
         <div style={{

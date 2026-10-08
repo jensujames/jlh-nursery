@@ -25,6 +25,12 @@ export default function SmoothScroll() {
       wheelMultiplier: 1.0,
       touchMultiplier: 1.6,
       infinite: false,
+      prevent: (node) => {
+        return Boolean(
+          node?.hasAttribute?.('data-lenis-prevent') ||
+          node?.closest?.('[data-lenis-prevent], .mobile-app-drawer, .mobile-app-drawer-body, [role="dialog"], .modal-overlay')
+        );
+      }
     });
 
     // Make available globally for modals, header actions, and anchor jumps

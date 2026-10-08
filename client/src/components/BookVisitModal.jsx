@@ -98,30 +98,37 @@ export default function BookVisitModal({ isOpen, onClose }) {
   };
 
   return (
-    <div style={{
-      position: 'fixed',
-      inset: 0,
-      zIndex: 110,
-      backgroundColor: 'rgba(28, 4, 11, 0.85)',
-      backdropFilter: 'blur(10px)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '1rem',
-      overflowY: 'auto'
-    }}>
-      <div style={{
-        backgroundColor: '#ffffff',
-        borderRadius: '2rem',
-        maxWidth: '680px',
-        width: '100%',
-        maxHeight: '94vh',
-        overflowY: 'auto',
-        padding: '2.5rem',
-        position: 'relative',
-        boxShadow: '0 25px 60px rgba(0, 0, 0, 0.35)',
-        border: '2px solid rgba(123, 17, 39, 0.15)'
-      }}>
+    <div 
+      data-lenis-prevent="true"
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 110,
+        backgroundColor: 'rgba(28, 4, 11, 0.85)',
+        backdropFilter: 'blur(10px)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '1rem',
+        overflowY: 'auto'
+      }}
+    >
+      <div 
+        data-lenis-prevent="true"
+        role="dialog"
+        style={{
+          backgroundColor: '#ffffff',
+          borderRadius: '2rem',
+          maxWidth: '680px',
+          width: '100%',
+          maxHeight: '94vh',
+          overflowY: 'auto',
+          padding: '2.5rem',
+          position: 'relative',
+          boxShadow: '0 25px 60px rgba(0, 0, 0, 0.35)',
+          border: '2px solid rgba(123, 17, 39, 0.15)'
+        }}
+      >
         {/* Close Button */}
         <button
           onClick={onClose}

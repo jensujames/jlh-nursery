@@ -647,20 +647,25 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
 
           <div 
             className="mobile-app-drawer"
+            data-lenis-prevent="true"
+            data-lenis-prevent-touch="true"
+            data-lenis-prevent-wheel="true"
             style={{
               position: 'fixed',
               top: 0,
               right: 0,
               bottom: 0,
               width: '100%',
-              maxWidth: '400px',
+              maxWidth: '420px',
+              height: '100%',
+              maxHeight: '100dvh',
               backgroundColor: '#fffdf9',
               zIndex: 999999,
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'space-between',
-              overflowY: 'auto',
+              overflow: 'hidden',
               WebkitOverflowScrolling: 'touch',
+              touchAction: 'pan-y',
               boxShadow: '-10px 0 40px rgba(0, 0, 0, 0.25)',
               animation: 'mobileDrawerSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
             }}
@@ -673,8 +678,7 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
               padding: '0.85rem 1rem',
               borderBottom: '1px solid rgba(114, 16, 36, 0.12)',
               background: 'rgba(255, 255, 255, 0.98)',
-              position: 'sticky',
-              top: 0,
+              flexShrink: 0,
               zIndex: 20
             }}>
               <Link 
@@ -723,7 +727,24 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
             </div>
 
             {/* Scrollable Nav Content */}
-            <div style={{ padding: '1rem', flex: 1, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div 
+              className="mobile-app-drawer-body"
+              data-lenis-prevent="true"
+              data-lenis-prevent-touch="true"
+              data-lenis-prevent-wheel="true"
+              style={{ 
+                padding: '1rem', 
+                flex: '1 1 0%', 
+                minHeight: 0,
+                overflowY: 'auto', 
+                WebkitOverflowScrolling: 'touch', 
+                overscrollBehaviorY: 'contain',
+                touchAction: 'pan-y',
+                display: 'flex', 
+                flexDirection: 'column', 
+                gap: '1rem' 
+              }}
+            >
               {/* Quick Action: Book Appointment Banner Card */}
               <div style={{
                 background: 'linear-gradient(135deg, #721024 0%, #941731 55%, #c9a84c 100%)',
@@ -1059,6 +1080,8 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
               display: 'flex',
               flexDirection: 'column',
               gap: '0.65rem',
+              flexShrink: 0,
+              zIndex: 20,
               paddingBottom: 'max(1.2rem, env(safe-area-inset-bottom))'
             }}>
               <button
@@ -1210,6 +1233,42 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
           background: #721024;
           color: #FAF5EB;
           border-color: #c9a84c;
+        }
+        .mobile-app-drawer {
+          display: flex !important;
+          flex-direction: column !important;
+          position: fixed !important;
+          top: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          width: 100% !important;
+          max-width: 420px !important;
+          height: 100% !important;
+          height: 100dvh !important;
+          max-height: 100dvh !important;
+          z-index: 999999 !important;
+          background-color: #fffdf9 !important;
+          overflow: hidden !important;
+          touch-action: pan-y !important;
+          overscroll-behavior-y: contain !important;
+        }
+        .mobile-app-drawer-body {
+          flex: 1 1 0% !important;
+          min-height: 0 !important;
+          overflow-y: auto !important;
+          -webkit-overflow-scrolling: touch !important;
+          overscroll-behavior-y: contain !important;
+          touch-action: pan-y !important;
+        }
+        .mobile-app-drawer-body::-webkit-scrollbar {
+          width: 5px;
+        }
+        .mobile-app-drawer-body::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .mobile-app-drawer-body::-webkit-scrollbar-thumb {
+          background: rgba(114, 16, 36, 0.2);
+          border-radius: 999px;
         }
         @media (max-width: 768px) {
           .navbar-brand-logo-wrap {

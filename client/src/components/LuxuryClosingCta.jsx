@@ -283,6 +283,27 @@ export default function LuxuryClosingCta({
           </div>
         </RevealOnScroll>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .luxury-closing-cta-section {
+            padding: 48px 16px !important;
+          }
+          .luxury-closing-cta-actions-row {
+            flex-direction: column !important;
+            gap: 12px !important;
+            width: 100% !important;
+          }
+          .luxury-closing-cta-btn {
+            width: 100% !important;
+            max-width: 100% !important;
+            justify-content: center !important;
+            padding: 14px 20px !important;
+            font-size: 14.5px !important;
+            text-align: center !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
