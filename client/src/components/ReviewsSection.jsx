@@ -154,7 +154,9 @@ export default function ReviewsSection() {
 
         {/* Live Google Reviews Trust Card */}
         <RevealOnScroll animation="from-bottom" delay={60}>
-          <div style={{
+          <div 
+            className="google-reviews-trust-card"
+            style={{
             maxWidth: '780px',
             margin: '0 auto clamp(2.25rem, 4.5vw, 3.25rem) auto',
             backgroundColor: '#ffffff',
@@ -345,7 +347,9 @@ export default function ReviewsSection() {
         </RevealOnScroll>
 
         {/* Community Reviews Grid Below Spotlight (Directional Left, Bottom, Right) */}
-        <div style={{
+        <div 
+          className="community-reviews-grid"
+          style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '1.5rem',
@@ -357,6 +361,7 @@ export default function ReviewsSection() {
             return (
               <RevealOnScroll key={i} animation={cardAnim} delay={cardDelay}>
                 <div 
+                  className="community-review-card"
                   style={{
                     backgroundColor: '#ffffff',
                     borderRadius: '24px',

@@ -265,6 +265,7 @@ export default function HomePage({ onBookVisitClick }) {
 
       {/* 3. Early Years Programs for Every Little Step */}
       <section 
+        className="home-programs-section"
         style={{ 
           padding: 'clamp(64px, 7vw, 90px) 20px', 
           backgroundColor: '#f8faf8', 
@@ -339,6 +340,7 @@ export default function HomePage({ onBookVisitClick }) {
           </RevealOnScroll>
 
           <div
+            className="home-programs-grid"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
@@ -354,6 +356,7 @@ export default function HomePage({ onBookVisitClick }) {
               return (
                 <RevealOnScroll key={prog.title} animation={pillarAnim} delay={pillarDelay}>
                   <div
+                    className="home-programs-card"
                     style={{
                       backgroundColor: 'rgba(255, 255, 255, 0.88)',
                       backdropFilter: 'blur(24px)',
@@ -392,6 +395,7 @@ export default function HomePage({ onBookVisitClick }) {
                         }}
                       >
                         <div
+                          className="home-program-icon-box"
                           style={{
                             width: '56px',
                             height: '56px',
@@ -509,6 +513,7 @@ export default function HomePage({ onBookVisitClick }) {
           <div style={{ textAlign: 'center' }}>
             <Link
               to="/programs"
+              className="home-programs-cta-btn"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -531,7 +536,10 @@ export default function HomePage({ onBookVisitClick }) {
       </section>
 
       {/* 4. Little Hands. Big Discoveries. (Activities) */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#FFFDF7' }}>
+      <section 
+        className="home-activities-section"
+        style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#FFFDF7' }}
+      >
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
@@ -569,6 +577,7 @@ export default function HomePage({ onBookVisitClick }) {
           </RevealOnScroll>
 
           <div
+            className="home-activities-grid"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
@@ -581,6 +590,7 @@ export default function HomePage({ onBookVisitClick }) {
               return (
                 <RevealOnScroll key={idx} delay={idx * 30}>
                   <div
+                    className="home-activities-card"
                     style={{
                       background: '#ffffff',
                       borderRadius: '24px',
@@ -605,6 +615,7 @@ export default function HomePage({ onBookVisitClick }) {
                     <div>
                       {/* Top Image with Floating Tag Badge */}
                       <div
+                        className="home-activity-img-box"
                         style={{
                           position: 'relative',
                           borderRadius: '18px',
@@ -679,6 +690,7 @@ export default function HomePage({ onBookVisitClick }) {
                     {/* Bottom Action Link */}
                     <Link
                       to="/nursery-activities"
+                      className="home-activity-card-link"
                       style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -704,6 +716,7 @@ export default function HomePage({ onBookVisitClick }) {
           <div style={{ textAlign: 'center' }}>
             <Link
               to="/nursery-activities"
+              className="home-activities-cta-btn"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -782,7 +795,10 @@ export default function HomePage({ onBookVisitClick }) {
       </section>
 
       {/* 5. Philosophy Spotlight ("We Don't Just Educate Children. We Nurture Little Hearts.") */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 20px', maxWidth: '1280px', margin: '0 auto' }}>
+      <section 
+        className="home-philosophy-section"
+        style={{ padding: 'clamp(64px, 8vw, 96px) 20px', maxWidth: '1280px', margin: '0 auto' }}
+      >
         <RevealOnScroll>
           <div className="philosophy-showcase-grid">
             
@@ -877,6 +893,7 @@ export default function HomePage({ onBookVisitClick }) {
                 <button
                   type="button"
                   onClick={onBookVisitClick}
+                  className="home-philosophy-cta-btn"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -904,7 +921,10 @@ export default function HomePage({ onBookVisitClick }) {
       </section>
 
       {/* 6. Designed for Happy Learning & Safe Exploration (Facilities) */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', maxWidth: '1240px', margin: '0 auto' }}>
+      <section 
+        className="home-facilities-section"
+        style={{ padding: 'clamp(64px, 7vw, 90px) 20px', maxWidth: '1240px', margin: '0 auto' }}
+      >
         <RevealOnScroll>
           <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 44px' }}>
             <span
@@ -941,6 +961,7 @@ export default function HomePage({ onBookVisitClick }) {
         </RevealOnScroll>
 
         <div
+          className="home-facilities-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
@@ -951,6 +972,7 @@ export default function HomePage({ onBookVisitClick }) {
           {FACILITIES.map((fac, idx) => (
             <RevealOnScroll key={idx} delay={idx * 20}>
               <div
+                className="home-facilities-card"
                 style={{
                   background: '#ffffff',
                   borderRadius: '20px',
@@ -963,6 +985,7 @@ export default function HomePage({ onBookVisitClick }) {
                 }}
               >
                 <div
+                  className="home-facility-check-bubble"
                   style={{
                     width: '28px',
                     height: '28px',
@@ -988,6 +1011,7 @@ export default function HomePage({ onBookVisitClick }) {
         <div style={{ textAlign: 'center' }}>
           <Link
             to="/facilities"
+            className="home-facilities-cta-btn"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -1010,7 +1034,10 @@ export default function HomePage({ onBookVisitClick }) {
 
 
       {/* 8. Why Parents Choose Just Like Home */}
-      <section style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
+      <section 
+        className="home-pillars-section"
+        style={{ padding: 'clamp(64px, 7vw, 90px) 20px', backgroundColor: '#ffffff', borderTop: '1px solid #f1f5f9' }}
+      >
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
           <RevealOnScroll>
             <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
@@ -1045,6 +1072,7 @@ export default function HomePage({ onBookVisitClick }) {
           </RevealOnScroll>
 
           <div
+            className="home-pillars-grid"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
@@ -1056,6 +1084,7 @@ export default function HomePage({ onBookVisitClick }) {
               return (
                 <RevealOnScroll key={idx} delay={idx * 35}>
                   <div
+                    className="home-pillars-card"
                     style={{
                       position: 'relative',
                       background: '#ffffff',
