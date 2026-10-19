@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import ThreeMascotHero from '../components/ThreeMascotHero';
 import RevealOnScroll from '../components/RevealOnScroll';
@@ -8,7 +8,7 @@ import {
   Heart, Sparkles, BookOpen, Sun, Compass, ShieldCheck, 
   Baby, Smile, Users, MapPin, Phone, Mail, ArrowRight, 
   MessageCircle, Calendar, CheckCircle2, Award, Clock,
-  Camera, Navigation, ChevronRight, Trophy
+  Camera, Navigation, ChevronLeft, ChevronRight, Trophy
 } from 'lucide-react';
 
 const GMB_URL = 'https://share.google/AbZVHOBinruNYkwDg';
@@ -16,6 +16,11 @@ const GOOGLE_MAPS_EMBED = 'https://maps.google.com/maps?q=Just+Like+Home+Nursery
 
 export default function HomePage({ onBookVisitClick }) {
   const [likedPrograms, setLikedPrograms] = useState({});
+  const [programSlide, setProgramSlide] = useState(0);
+  const [itemsPerView, setItemsPerView] = useState(3);
+  const [isPaused, setIsPaused] = useState(false);
+  const touchStartXRef = useRef(0);
+  const touchEndXRef = useRef(0);
 
   const toggleProgramLike = (idx) => {
     setLikedPrograms(prev => ({
@@ -265,6 +270,46 @@ export default function HomePage({ onBookVisitClick }) {
     }
   ];
 
+  // Responsive itemsPerView and sliding carousel logic (3 per view on desktop)
+  useEffect(() => {
+    const handleResize = () => {
+      const w = window.innerWidth;
+      if (w < 700) {
+        setItemsPerView(1);
+      } else if (w < 1100) {
+        setItemsPerView(2);
+      } else {
+        setItemsPerView(3);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const maxSlide = Math.max(0, PROGRAMS.length - itemsPerView);
+
+  useEffect(() => {
+    setProgramSlide(prev => Math.min(prev, maxSlide));
+  }, [maxSlide]);
+
+  const nextProgramSlide = () => {
+    setProgramSlide(prev => (prev >= maxSlide ? 0 : prev + 1));
+  };
+
+  const prevProgramSlide = () => {
+    setProgramSlide(prev => (prev <= 0 ? maxSlide : prev - 1));
+  };
+
+  // Subtle auto-advance every 5.5s unless hovered or interacted
+  useEffect(() => {
+    if (isPaused || maxSlide === 0) return;
+    const interval = setInterval(() => {
+      setProgramSlide(prev => (prev >= maxSlide ? 0 : prev + 1));
+    }, 5500);
+    return () => clearInterval(interval);
+  }, [isPaused, maxSlide]);
+
   const whatsappMessage = encodeURIComponent(
     "Hello, I would like to know more about Just Like Home Nursery. My child is [age], and I am interested in [full-day/half-day/preschool]. Please share the available options and help me book a visit."
   );
@@ -352,175 +397,335 @@ export default function HomePage({ onBookVisitClick }) {
             </div>
           </RevealOnScroll>
 
+          {/* Programs 3-Per-View Sliding Carousel */}
           <div
-            className="home-programs-grid"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-              gap: '1.5rem',
-              marginBottom: '40px'
+            className="home-programs-carousel-container"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={(e) => {
+              setIsPaused(true);
+              touchStartXRef.current = e.targetTouches[0].clientX;
             }}
+            onTouchMove={(e) => {
+              touchEndXRef.current = e.targetTouches[0].clientX;
+            }}
+            onTouchEnd={() => {
+              if (touchStartXRef.current && touchEndXRef.current) {
+                const diff = touchStartXRef.current - touchEndXRef.current;
+                if (diff > 45) {
+                  setProgramSlide(prev => Math.min(maxSlide, prev + 1));
+                } else if (diff < -45) {
+                  setProgramSlide(prev => Math.max(0, prev - 1));
+                }
+              }
+              touchStartXRef.current = 0;
+              touchEndXRef.current = 0;
+              setTimeout(() => setIsPaused(false), 2000);
+            }}
+            style={{ position: 'relative', width: '100%', marginBottom: '40px' }}
           >
-            {PROGRAMS.map((prog, idx) => {
-              const IconComponent = prog.icon;
-              const isLiked = !!likedPrograms[idx];
-              const pillarAnim = idx === 0 ? 'from-left' : idx === PROGRAMS.length - 1 ? 'from-right' : 'from-bottom';
-              const pillarDelay = (idx + 1) * 55;
-              return (
-                <RevealOnScroll key={prog.title} animation={pillarAnim} delay={pillarDelay}>
-                  <div
-                    className="home-programs-card"
-                    style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.88)',
-                      backdropFilter: 'blur(24px)',
-                      WebkitBackdropFilter: 'blur(24px)',
-                      borderRadius: '2rem',
-                      padding: '2.25rem 1.85rem 2rem 1.85rem',
-                      border: '1.5px solid rgba(255, 255, 255, 0.95)',
-                      boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      position: 'relative',
-                      transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
-                      overflow: 'hidden'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
-                      e.currentTarget.style.boxShadow = `0 24px 50px ${prog.glow}, 0 2px 12px rgba(255, 255, 255, 0.9) inset`;
-                      e.currentTarget.style.borderColor = prog.color;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                      e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
-                    }}
-                  >
-                    <div>
-                      {/* Icon, Stat & Like Button */}
+            {/* Viewport */}
+            <div
+              style={{
+                width: '100%',
+                overflow: 'hidden',
+                padding: '16px 8px 30px 8px',
+                margin: '-16px -8px -30px -8px'
+              }}
+            >
+              {/* Sliding Track */}
+              <div
+                className="home-programs-track"
+                style={{
+                  display: 'flex',
+                  gap: '24px',
+                  width: '100%',
+                  transform: `translate3d(calc(-${programSlide} * ((100% + 24px) / ${itemsPerView})), 0, 0)`,
+                  transition: 'transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)',
+                  willChange: 'transform'
+                }}
+              >
+                {PROGRAMS.map((prog, idx) => {
+                  const IconComponent = prog.icon;
+                  const isLiked = !!likedPrograms[idx];
+                  return (
+                    <div
+                      key={prog.title}
+                      className="home-programs-card-slide"
+                      style={{
+                        flex: `0 0 calc((100% - ${(itemsPerView - 1) * 24}px) / ${itemsPerView})`,
+                        maxWidth: `calc((100% - ${(itemsPerView - 1) * 24}px) / ${itemsPerView})`,
+                        boxSizing: 'border-box'
+                      }}
+                    >
                       <div
+                        className="home-programs-card"
                         style={{
+                          backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                          backdropFilter: 'blur(24px)',
+                          WebkitBackdropFilter: 'blur(24px)',
+                          borderRadius: '2rem',
+                          padding: '2.35rem 2rem 2.15rem 2rem',
+                          border: '1.5px solid rgba(255, 255, 255, 0.95)',
+                          boxShadow: '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset',
+                          minHeight: '390px',
+                          height: '100%',
                           display: 'flex',
-                          alignItems: 'center',
+                          flexDirection: 'column',
                           justifyContent: 'space-between',
-                          marginBottom: '1.4rem'
+                          position: 'relative',
+                          transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+                          boxSizing: 'border-box'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = 'translateY(-8px) scale(1.012)';
+                          e.currentTarget.style.boxShadow = `0 24px 50px ${prog.glow}, 0 2px 12px rgba(255, 255, 255, 0.9) inset`;
+                          e.currentTarget.style.borderColor = prog.color;
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                          e.currentTarget.style.boxShadow = '0 12px 34px rgba(74, 14, 26, 0.05), 0 2px 10px rgba(255, 255, 255, 0.85) inset';
+                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.95)';
                         }}
                       >
-                        <div
-                          className="home-program-icon-box"
-                          style={{
-                            width: '56px',
-                            height: '56px',
-                            borderRadius: '1.15rem',
-                            backgroundColor: '#ffffff',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            color: prog.color,
-                            border: `2px solid ${prog.border}`,
-                            boxShadow: `0 8px 18px ${prog.glow}`
-                          }}
-                        >
-                          <IconComponent size={28} strokeWidth={2.3} />
-                        </div>
-
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-                          <div style={{ textAlign: 'right' }}>
+                        <div>
+                          {/* Icon, Stat & Like Button */}
+                          <div
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              marginBottom: '1.4rem'
+                            }}
+                          >
                             <div
+                              className="home-program-icon-box"
                               style={{
-                                fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                                fontSize: '1.3rem',
-                                fontWeight: '900',
+                                width: '56px',
+                                height: '56px',
+                                borderRadius: '1.15rem',
+                                backgroundColor: '#ffffff',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
                                 color: prog.color,
-                                lineHeight: 1
+                                border: `2px solid ${prog.border}`,
+                                boxShadow: `0 8px 18px ${prog.glow}`
                               }}
                             >
-                              {prog.stat}
+                              <IconComponent size={28} strokeWidth={2.3} />
                             </div>
-                            <div
-                              style={{
-                                fontSize: '0.72rem',
-                                fontWeight: '800',
-                                color: '#78716c',
-                                textTransform: 'uppercase'
-                              }}
-                            >
-                              {prog.statLabel}
+
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                              <div style={{ textAlign: 'right' }}>
+                                <div
+                                  style={{
+                                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                                    fontSize: '1.3rem',
+                                    fontWeight: '900',
+                                    color: prog.color,
+                                    lineHeight: 1
+                                  }}
+                                >
+                                  {prog.stat}
+                                </div>
+                                <div
+                                  style={{
+                                    fontSize: '0.72rem',
+                                    fontWeight: '800',
+                                    color: '#78716c',
+                                    textTransform: 'uppercase'
+                                  }}
+                                >
+                                  {prog.statLabel}
+                                </div>
+                              </div>
+
+                              {/* Interactive Heart Button */}
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  toggleProgramLike(idx);
+                                }}
+                                title="Love this feature"
+                                style={{
+                                  width: '34px',
+                                  height: '34px',
+                                  borderRadius: '50%',
+                                  border: isLiked ? `1.5px solid ${prog.color}` : '1.5px solid rgba(0,0,0,0.08)',
+                                  backgroundColor: isLiked ? prog.badgeBg : '#ffffff',
+                                  color: isLiked ? prog.color : '#a8a29e',
+                                  cursor: 'pointer',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  transition: 'all 0.2s ease',
+                                  padding: 0
+                                }}
+                              >
+                                <Heart size={16} fill={isLiked ? prog.color : 'none'} />
+                              </button>
                             </div>
                           </div>
 
-                          {/* Interactive Heart Button */}
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              toggleProgramLike(idx);
-                            }}
-                            title="Love this feature"
+                          {/* Title */}
+                          <h3
                             style={{
-                              width: '34px',
-                              height: '34px',
-                              borderRadius: '50%',
-                              border: isLiked ? `1.5px solid ${prog.color}` : '1.5px solid rgba(0,0,0,0.08)',
-                              backgroundColor: isLiked ? prog.badgeBg : '#ffffff',
-                              color: isLiked ? prog.color : '#a8a29e',
-                              cursor: 'pointer',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              transition: 'all 0.2s ease',
-                              padding: 0
+                              fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                              fontSize: '1.35rem',
+                              fontWeight: '900',
+                              color: '#0f172a',
+                              marginBottom: '0.45rem',
+                              lineHeight: 1.25
                             }}
                           >
-                            <Heart size={16} fill={isLiked ? prog.color : 'none'} />
-                          </button>
+                            {prog.title}
+                          </h3>
+
+                          {/* Subtitle Kicker */}
+                          <div
+                            style={{
+                              fontSize: '0.82rem',
+                              fontWeight: '800',
+                              color: prog.color,
+                              marginBottom: '1rem',
+                              textTransform: 'uppercase',
+                              letterSpacing: '0.04em'
+                            }}
+                          >
+                            {prog.subtitle}
+                          </div>
+
+                          {/* Description */}
+                          <p
+                            style={{
+                              fontSize: '0.94rem',
+                              color: '#475569',
+                              lineHeight: 1.65,
+                              margin: 0
+                            }}
+                          >
+                            {prog.desc}
+                          </p>
+                        </div>
+
+                        {/* Bottom Explore Link */}
+                        <div style={{ marginTop: '1.5rem', paddingTop: '1.1rem', borderTop: '1px solid rgba(0, 0, 0, 0.05)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                          <Link
+                            to="/programs"
+                            style={{
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '6px',
+                              fontSize: '0.86rem',
+                              fontWeight: '800',
+                              color: prog.color,
+                              textDecoration: 'none',
+                              transition: 'gap 0.2s ease'
+                            }}
+                          >
+                            <span>Explore Program</span>
+                            <ArrowRight size={14} />
+                          </Link>
+                          <span style={{
+                            width: '8px',
+                            height: '8px',
+                            borderRadius: '50%',
+                            backgroundColor: prog.color,
+                            opacity: 0.6
+                          }} />
                         </div>
                       </div>
-
-                      {/* Title - STRICTLY UNCHANGED FROM DOCUMENT */}
-                      <h3
-                        style={{
-                          fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                          fontSize: '1.32rem',
-                          fontWeight: '900',
-                          color: '#0f172a',
-                          marginBottom: '0.45rem',
-                          lineHeight: 1.25
-                        }}
-                      >
-                        {prog.title}
-                      </h3>
-
-                      {/* Subtitle Kicker */}
-                      <div
-                        style={{
-                          fontSize: '0.82rem',
-                          fontWeight: '800',
-                          color: prog.color,
-                          marginBottom: '1rem',
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.04em'
-                        }}
-                      >
-                        {prog.subtitle}
-                      </div>
-
-                      {/* Description - STRICTLY UNCHANGED FROM DOCUMENT */}
-                      <p
-                        style={{
-                          fontSize: '0.94rem',
-                          color: '#475569',
-                          lineHeight: 1.65,
-                          margin: 0
-                        }}
-                      >
-                        {prog.desc}
-                      </p>
                     </div>
-                  </div>
-                </RevealOnScroll>
-              );
-            })}
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Slider Navigation Bar: Left Arrow + Clickable Indicator Dots + Right Arrow */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '16px',
+                marginTop: '28px'
+              }}
+            >
+              <button
+                type="button"
+                onClick={prevProgramSlide}
+                aria-label="Previous programs"
+                disabled={programSlide === 0}
+                style={{
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '50%',
+                  border: '1.5px solid #721024',
+                  backgroundColor: programSlide === 0 ? 'rgba(255, 255, 255, 0.6)' : '#ffffff',
+                  color: programSlide === 0 ? '#cbd5e1' : '#721024',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: programSlide === 0 ? 'not-allowed' : 'pointer',
+                  boxShadow: '0 4px 12px rgba(114, 16, 36, 0.08)',
+                  transition: 'all 0.25s ease',
+                  opacity: programSlide === 0 ? 0.45 : 1
+                }}
+              >
+                <ChevronLeft size={20} strokeWidth={2.4} />
+              </button>
+
+              {/* Dots */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                {Array.from({ length: maxSlide + 1 }).map((_, dotIdx) => {
+                  const isActive = dotIdx === programSlide;
+                  return (
+                    <button
+                      key={dotIdx}
+                      type="button"
+                      onClick={() => setProgramSlide(dotIdx)}
+                      aria-label={`Go to slide ${dotIdx + 1}`}
+                      style={{
+                        height: '8px',
+                        width: isActive ? '28px' : '10px',
+                        borderRadius: '999px',
+                        backgroundColor: isActive ? '#721024' : '#cbd5e1',
+                        border: 'none',
+                        padding: 0,
+                        cursor: 'pointer',
+                        transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+                        boxShadow: isActive ? '0 2px 8px rgba(114, 16, 36, 0.3)' : 'none'
+                      }}
+                    />
+                  );
+                })}
+              </div>
+
+              <button
+                type="button"
+                onClick={nextProgramSlide}
+                aria-label="Next programs"
+                disabled={programSlide >= maxSlide}
+                style={{
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '50%',
+                  border: '1.5px solid #721024',
+                  backgroundColor: programSlide >= maxSlide ? 'rgba(255, 255, 255, 0.6)' : '#ffffff',
+                  color: programSlide >= maxSlide ? '#cbd5e1' : '#721024',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: programSlide >= maxSlide ? 'not-allowed' : 'pointer',
+                  boxShadow: '0 4px 12px rgba(114, 16, 36, 0.08)',
+                  transition: 'all 0.25s ease',
+                  opacity: programSlide >= maxSlide ? 0.45 : 1
+                }}
+              >
+                <ChevronRight size={20} strokeWidth={2.4} />
+              </button>
+            </div>
           </div>
 
           <div style={{ textAlign: 'center' }}>
