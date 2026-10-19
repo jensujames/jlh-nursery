@@ -50,7 +50,7 @@ const PROGRAMS = [
     link: '/contact'
   },
   {
-    title: 'Holiday & Summer Camps',
+    title: 'Winter & Summer Camps',
     desc: 'Seasonal programs combine creativity, movement, exploration, social interaction and themed experiences in a safe and familiar nursery setting.',
     icon: Sun,
     color: '#721024',
@@ -73,7 +73,7 @@ const SERVICES_LIST = [
   'Storytelling, Rhymes & Music',
   'Life Skills & Independence Activities',
   'Special Events, Theme Days & Celebrations',
-  'Holiday & Summer Camp Programs',
+  'Winter & Summer Camp Programs',
   'Educational Trips & Outings',
   'Regular Parent Communication'
 ];
@@ -118,7 +118,7 @@ export default function ProgramsPage({ onBookVisitClick }) {
           "Children's needs change quickly during the early years. Our programs are designed to provide the right balance of nurturing care, purposeful play, social experience and age-appropriate learning at each stage.",
           "Exact class placement is guided by your child's age, developmental needs, readiness and available nursery groups. Our team will help you choose the most suitable pathway during your visit."
         ]}
-        image="/images/hero-programs.jpg"
+        image="/media/nursery/nursery-2.jpg"
         imageAlt="Programs at Just Like Home Nursery Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"

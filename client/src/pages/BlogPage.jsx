@@ -93,7 +93,7 @@ export default function BlogPage({ onBookVisitClick }) {
         badgeIcon={BookOpen}
         title="Helpful Ideas for Your Child's Early Years"
         description="The early years bring exciting milestones and plenty of questions. Our parent resources share practical ideas to help families understand learning, support growing independence and prepare children for nursery and school."
-        image="/images/hero-blog.jpg"
+        image="/media/nursery/nursery-8.jpg"
         imageAlt="Parent Resources at Just Like Home Nursery Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"

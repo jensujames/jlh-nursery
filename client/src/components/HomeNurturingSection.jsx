@@ -34,8 +34,8 @@ export default function HomeNurturingSection({ onBookVisitClick }) {
             <RevealOnScroll animation="from-bottom" delay={200}>
               <div className="growing-minds-img-wrap growing-minds-img-left">
                 <img 
-                  src="/images/growing-minds-left.jpg" 
-                  alt="Young children happily engaging in sensory water play" 
+                  src="/media/school-readiness/school-readiness-2.jpg" 
+                  alt="Young children happily engaging in early childhood learning" 
                   loading="lazy"
                 />
               </div>
@@ -47,8 +47,8 @@ export default function HomeNurturingSection({ onBookVisitClick }) {
             <RevealOnScroll animation="from-bottom" delay={150}>
               <div className="growing-minds-img-wrap growing-minds-img-center">
                 <img 
-                  src="/images/growing-minds-center.jpg" 
-                  alt="Smiling young girl resting on colorful storybooks" 
+                  src="/media/preschool/preschool-2.jpg" 
+                  alt="Young child learning numeracy in a nurturing environment" 
                   loading="lazy"
                 />
               </div>
@@ -60,8 +60,8 @@ export default function HomeNurturingSection({ onBookVisitClick }) {
             <RevealOnScroll animation="from-right" delay={180}>
               <div className="growing-minds-img-wrap growing-minds-img-right">
                 <img 
-                  src="/images/growing-minds-right.jpg" 
-                  alt="Little girls folding colorful paper crafts and origami" 
+                  src="/media/eyfs/eyfs-3.jpg" 
+                  alt="Early Years children engaging in creative play" 
                   loading="lazy"
                 />
               </div>

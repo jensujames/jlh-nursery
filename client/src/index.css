@@ -173,7 +173,7 @@ body {
   background-color: var(--bg-cream);
   color: var(--text-primary);
   line-height: 1.65;
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
   max-width: 100% !important;
   width: 100% !important;
 }
@@ -181,7 +181,7 @@ body {
 #root,
 .min-h-screen,
 main {
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
   max-width: 100% !important;
   width: 100% !important;
 }
@@ -2333,8 +2333,8 @@ textarea {
 .pillars-interactive-split {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
-  gap: 40px;
-  align-items: stretch;
+  gap: clamp(32px, 3.8vw, 48px);
+  align-items: start;
   margin-bottom: 84px;
   position: relative;
 }
@@ -2342,22 +2342,25 @@ textarea {
 @media (max-width: 960px) {
   .pillars-interactive-split {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 32px;
   }
 }
 
 .pillars-stack-container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: clamp(24px, 3.2vh, 36px);
   width: 100%;
+  margin-top: 14px;
+  padding-bottom: 48px;
 }
 
 .pillar-stack-card {
   background: #ffffff;
   border: 2.5px solid #fff1ea;
   border-radius: 28px;
-  padding: 22px 26px;
+  padding: 24px 26px;
+  min-height: 120px;
   display: grid;
   grid-template-columns: 88px 1fr;
   align-items: center;
@@ -2584,20 +2587,22 @@ textarea {
 }
 
 .pillars-right-column {
-  position: relative;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 96px !important;
+  align-self: flex-start !important;
   width: 100%;
-  height: 100%;
-  align-self: stretch;
+  height: auto !important;
+  z-index: 20;
 }
 
 .pillars-media-showcase {
-  position: sticky !important;
-  top: 96px !important;
-  align-self: start;
+  position: relative;
+  width: 100%;
   background: linear-gradient(180deg, #ffffff 0%, #fffbf8 100%);
-  border: 2px solid #fed7aa;
+  border: 2.5px solid #fed7aa;
   border-radius: 36px;
-  padding: 24px 24px 36px 24px;
+  padding: 24px 24px 34px 24px;
   box-shadow: 0 24px 60px -15px rgba(241, 90, 41, 0.16), 0 4px 16px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
@@ -2641,7 +2646,9 @@ textarea {
 
 @media (max-width: 960px) {
   .pillars-right-column {
-    height: auto;
+    position: relative !important;
+    top: 0 !important;
+    height: auto !important;
   }
   .pillars-media-showcase {
     position: relative !important;
@@ -8161,7 +8168,7 @@ textarea {
 
 /* 1. Global Viewport & Horizontal Overflow Prevention */
 html, body {
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
   max-width: 100% !important;
   width: 100% !important;
   position: relative;
@@ -8170,7 +8177,7 @@ html, body {
 #root,
 .min-h-screen,
 main {
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
   max-width: 100% !important;
   width: 100% !important;
   position: relative;

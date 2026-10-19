@@ -31,3 +31,4 @@ dist-ssr
 *.sw?
 Thumbs.db
 docx_extracted/
+client/media/

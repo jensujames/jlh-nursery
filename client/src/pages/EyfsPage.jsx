@@ -67,7 +67,7 @@ export default function EyfsPage({ onBookVisitClick }) {
           "Young children learn by doing. They learn when they move, talk, listen, touch, imagine, repeat, experiment and share experiences with others.",
           "Our early-years approach uses purposeful play and age-appropriate experiences to support the whole child. Educators observe children's interests and development, then create opportunities that help them take their next step with confidence."
         ]}
-        image="/images/hero-eyfs.jpg"
+        image="/media/eyfs/eyfs-2.jpg"
         imageAlt="Learning Through Play at Just Like Home Nursery"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"

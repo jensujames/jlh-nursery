@@ -354,7 +354,7 @@ export default function ProgramsSection({ onBookVisitClick }) {
             }}
           >
             <img 
-              src={selectedProgram === 0 ? "/images/hero.jpg" : selectedProgram % 2 === 0 ? "/images/classroom.jpg" : "/images/outdoor.jpg"}
+              src={selectedProgram === 0 ? "/media/nursery/nursery-1.jpg" : selectedProgram % 2 === 0 ? "/media/school-readiness/school-readiness-1.jpg" : "/media/daycare/daycare-4.jpg"}
               alt={current.title}
               style={{
                 width: '100%',

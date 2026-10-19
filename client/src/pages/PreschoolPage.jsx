@@ -42,7 +42,7 @@ export default function PreschoolPage() {
           "Starting school is a major milestone. School readiness is not only about knowing letters and numbers; it is also about confidence, communication, independence, listening, routines and the ability to learn alongside others.",
           "Our preschool and school-readiness experiences build these foundations through purposeful play and age-appropriate learning."
         ]}
-        image="/images/hero-preschool.jpg"
+        image="/media/preschool/preschool-1.jpg"
         imageAlt="Preschool and school readiness at Just Like Home Nursery"
         primaryCtaText="Book a Visit"
         primaryLink="/contact"

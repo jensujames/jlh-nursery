@@ -7,7 +7,7 @@ export default function PageHeader({
   title = "Big Ideas Start With Little Minds", 
   subtitle = "Fun, engaging lessons designed to help children learn, explore, and grow with confidence.", 
   onBookVisitClick,
-  image = "/images/hero.jpg",
+  image = "/media/nursery/nursery-1.jpg",
   imageAlt = "Learning and development at Just Like Home Nursery Ajman",
   primaryCtaText = "Explore Programs",
   secondaryCtaText = "See How It Works",
@@ -34,7 +34,7 @@ export default function PageHeader({
   highlights,
   bgImage
 }) {
-  const heroImage = image || bgImage || "/images/hero.jpg";
+  const heroImage = image || bgImage || "/media/nursery/nursery-1.jpg";
 
   // Parse title into multi-color words matching reference design
   const renderFormattedTitle = () => {
@@ -101,7 +101,7 @@ export default function PageHeader({
           loading="eager"
           onError={(e) => {
             e.currentTarget.onerror = null;
-            e.currentTarget.src = '/images/hero.jpg';
+            e.currentTarget.src = '/media/nursery/nursery-1.jpg';
           }}
           style={{
             width: '100%',
@@ -362,10 +362,10 @@ export default function PageHeader({
               >
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   {[
-                    "/images/testimonial-mom.jpg",
-                    "/images/testimonial-parent-mom.jpg",
-                    "/images/testimonial-video-parent.jpg",
-                    "/images/growing-minds-left.jpg"
+                    "/media/daycare/daycare-2.jpg",
+                    "/media/nursery/nursery-5.jpg",
+                    "/media/eyfs/eyfs-6.jpg",
+                    "/media/school-readiness/school-readiness-2.jpg"
                   ].map((src, i) => (
                     <img 
                       key={i}
@@ -373,7 +373,7 @@ export default function PageHeader({
                       alt="Happy family"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = "/images/hero.jpg";
+                        e.currentTarget.src = "/media/nursery/nursery-1.jpg";
                       }}
                       style={{
                         width: '38px',

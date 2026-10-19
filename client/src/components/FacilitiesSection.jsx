@@ -28,7 +28,7 @@ export default function FacilitiesSection({ onBookVisitClick }) {
       title: "Safe & Welcoming Classrooms",
       category: "Learning Spaces",
       icon: Building2,
-      image: "/images/classroom.jpg",
+      image: "/media/school-readiness/school-readiness-1.jpg",
       desc: "Sunlit, airy classrooms equipped with natural light, ergonomic child-sized wooden furniture, non-toxic educational toys, and rounded corner safety fittings.",
       specs: ["High-spec HEPA air purification", "Child-height wooden shelves", "Soft foam floor cushioning", "Regulated temperature control"]
     },
@@ -36,7 +36,7 @@ export default function FacilitiesSection({ onBookVisitClick }) {
       title: "Indoor Movement & Play Gym",
       category: "Recreation",
       icon: Gamepad2,
-      image: "/images/hero.jpg",
+      image: "/media/nursery/nursery-1.jpg",
       desc: "A soft, padded indoor wonderland for tumbling, balance beams, sensory crawl tunnels, and energetic group movement games regardless of weather.",
       specs: ["Shock-absorbent high-density mats", "Soft foam climbing shapes", "Interactive sensory balance beams", "Fully sanitized every session"]
     },
@@ -44,7 +44,7 @@ export default function FacilitiesSection({ onBookVisitClick }) {
       title: "Outdoor Shaded Garden & Play Area",
       category: "Outdoor Exploration",
       icon: Trees,
-      image: "/images/outdoor.jpg",
+      image: "/media/daycare/daycare-4.jpg",
       desc: "An expansive, securely walled villa garden equipped with premium UV sun-shading canopies, soft synthetic grass turf, a wooden playhouse, and a sensory splash station.",
       specs: ["UV protective shade canopies", "Wooden playhouse & mini slides", "Sensory water & sand tables", "Paved tricycle & scooter track"]
     },
@@ -52,7 +52,7 @@ export default function FacilitiesSection({ onBookVisitClick }) {
       title: "Baby Care & Peaceful Quiet Room",
       category: "Rest & Wellness",
       icon: Bed,
-      image: "/images/hero.jpg",
+      image: "/media/daycare/daycare-3.jpg",
       desc: "A soothing sanctuary with gentle lullabies, white noise, blackout curtains, and dedicated individual sanitized wooden cribs for restorative afternoon naps.",
       specs: ["Individual wooden cots", "Soothing ambient lighting", "Continuous educator supervision", "Strict hygiene & linen sanitization"]
     },
@@ -60,7 +60,7 @@ export default function FacilitiesSection({ onBookVisitClick }) {
       title: "First-Aid Clinic & Doctor Visits",
       category: "Health & Safety",
       icon: HeartPulse,
-      image: "/images/classroom.jpg",
+      image: "/media/eyfs/eyfs-2.jpg",
       desc: "A fully equipped in-house first-aid clinic station with certified emergency medical care, continuous temperature checks, and scheduled visiting doctor consultations.",
       specs: ["Certified first-aid pediatric kit", "Visiting medical doctor checks", "Emergency action protocols", "Documented health records"]
     },
@@ -68,7 +68,7 @@ export default function FacilitiesSection({ onBookVisitClick }) {
       title: "24/7 CCTV & Secure Reception",
       category: "Security",
       icon: Camera,
-      image: "/images/outdoor.jpg",
+      image: "/media/nursery/nursery-3.jpg",
       desc: "Single-point gated access with biometric/keycard verification, full-perimeter security, and comprehensive 24/7 high-definition CCTV coverage across all areas.",
       specs: ["24/7 High-Definition CCTV", "Gated villa security checkpoint", "Strict visitor identification log", "Only authorized parent pickups"]
     }

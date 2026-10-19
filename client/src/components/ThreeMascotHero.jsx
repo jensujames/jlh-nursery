@@ -17,7 +17,7 @@ const ACTIVITY_BOXES = [
     id: 'creative-play',
     title: 'Creative Play Lab',
     desc: 'Kids learn teamwork & imagination through hands-on play, building creativity, problem-solving, & friendships.',
-    image: '/images/activity-creative-play.jpg',
+    image: '/media/eyfs/eyfs-5.jpg',
     colorTheme: 'blue',
     tag: 'Teamwork & Play',
     ageBadge: '18m – 4y',
@@ -27,7 +27,7 @@ const ACTIVITY_BOXES = [
     id: 'little-artists',
     title: 'Little Artists Workshop',
     desc: 'A colorful journey into painting, crafts, & self-expression, sparking confidence, original, & discovery.',
-    image: '/images/activity-little-artists.jpg',
+    image: '/media/preschool/preschool-4.jpg',
     colorTheme: 'green',
     tag: 'Art & Self-Expression',
     ageBadge: '2y – 4.5y',
@@ -37,7 +37,7 @@ const ACTIVITY_BOXES = [
     id: 'mini-stem',
     title: 'Mini STEM Explorers',
     desc: 'Fun experiments introducing science, numbers, & discovery, inspiring curiosity, innovation, and learning.',
-    image: '/images/activity-mini-stem.jpg',
+    image: '/media/school-readiness/school-readiness-3.jpg',
     colorTheme: 'peach',
     tag: 'Mini STEM & Inquiry',
     ageBadge: '2.5y – 4y',
@@ -68,7 +68,7 @@ const FACILITY_SLIDES = [
     footerTag: 'Villa 47 Security Core',
     primaryCta: 'Explore Facility',
     secondaryCta: 'See How It Works',
-    image: '/images/classroom.jpg',
+    image: '/media/school-readiness/school-readiness-1.jpg',
     blobColor: 'rgba(254, 205, 211, 0.45)',
     accentBadgeBg: 'linear-gradient(135deg, #fff1f2, #ffe4e6)',
     accentBadgeColor: '#be123c',
@@ -118,7 +118,7 @@ const FACILITY_SLIDES = [
     footerTag: 'UV-Protected Shaded Area',
     primaryCta: 'Explore Play Yards',
     secondaryCta: 'See Outdoor Tour',
-    image: '/images/outdoor.jpg',
+    image: '/media/daycare/daycare-4.jpg',
     blobColor: 'rgba(186, 230, 253, 0.45)',
     accentBadgeBg: 'linear-gradient(135deg, #f0f9ff, #e0f2fe)',
     accentBadgeColor: '#0284c7',
@@ -168,7 +168,7 @@ const FACILITY_SLIDES = [
     footerTag: 'Calm Ambient Climate',
     primaryCta: 'View Baby Care',
     secondaryCta: 'Schedule A Visit',
-    image: '/images/nurturing-hero.jpg',
+    image: '/media/preschool/preschool-3.jpg',
     blobColor: 'rgba(254, 243, 199, 0.55)',
     accentBadgeBg: 'linear-gradient(135deg, #fffbeb, #fef3c7)',
     accentBadgeColor: '#b45309',
@@ -218,7 +218,7 @@ const FACILITY_SLIDES = [
     footerTag: 'Villa 47 Medical Suite',
     primaryCta: 'View Protocols',
     secondaryCta: 'Meet Our Nurse',
-    image: '/images/hero.jpg',
+    image: '/media/nursery/nursery-1.jpg',
     blobColor: 'rgba(220, 252, 231, 0.55)',
     accentBadgeBg: 'linear-gradient(135deg, #f0fdf4, #dcfce7)',
     accentBadgeColor: '#15803d',
@@ -288,11 +288,11 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         bg: "#edf7e8",
         accent: "#2e7d32"
       },
-      smallImage: "/images/activity-mini-stem.jpg",
+      smallImage: "/media/school-readiness/school-readiness-3.jpg",
       smallAlt: "Happy child exploring sensory wooden toys and learning games",
       smallImgPos: "center 10%",
       tallImgPos: "center 20%",
-      tallImage: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=85",
+      tallImage: "/media/nursery/nursery-1.jpg",
       tallAlt: "Joyful smiling child happily playing with colorful toys"
     },
     {
@@ -308,11 +308,11 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         bg: "#f0f9ff",
         accent: "#0284c7"
       },
-      smallImage: "/images/activity-creative-play.jpg",
+      smallImage: "/media/eyfs/eyfs-5.jpg",
       smallAlt: "Happy kids painting and creating crafts together",
       smallImgPos: "center",
       tallImgPos: "center",
-      tallImage: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=85",
+      tallImage: "/media/preschool/preschool-3.jpg",
       tallAlt: "Children laughing and joyfully building colorful blocks together"
     },
     {
@@ -328,11 +328,11 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         bg: "#f0fdf4",
         accent: "#16a34a"
       },
-      smallImage: "/images/classroom.jpg",
+      smallImage: "/media/school-readiness/school-readiness-1.jpg",
       smallAlt: "Bright Scandinavian classroom prepared for happy focused learning",
       smallImgPos: "center",
       tallImgPos: "center",
-      tallImage: "https://images.unsplash.com/photo-1576495199011-eb94736d05d6?auto=format&fit=crop&w=800&q=85",
+      tallImage: "/media/eyfs/eyfs-2.jpg",
       tallAlt: "Happy active child discovering books and learning materials"
     },
     {
@@ -348,20 +348,20 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         bg: "#fff1f2",
         accent: "#721024"
       },
-      smallImage: "/images/outdoor.jpg",
+      smallImage: "/media/daycare/daycare-4.jpg",
       smallAlt: "Kids happily running and playing in shaded outdoor garden",
       smallImgPos: "center",
       tallImgPos: "center",
-      tallImage: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=85",
+      tallImage: "/media/nursery/nursery-5.jpg",
       tallAlt: "Smiling happy child enjoying a joyful day at nursery"
     }
   ];
 
   const archPhotos = [
-    { src: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=400&q=80", alt: "Joyful girl smiling" },
-    { src: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80", alt: "Child exploring books" },
-    { src: "https://images.unsplash.com/photo-1576495199011-eb94736d05d6?auto=format&fit=crop&w=400&q=80", alt: "Sensory play" },
-    { src: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=400&q=80", alt: "Children playing with blocks" }
+    { src: "/media/preschool/preschool-2.jpg", alt: "Joyful girl smiling" },
+    { src: "/media/school-readiness/school-readiness-2.jpg", alt: "Child exploring books" },
+    { src: "/media/eyfs/eyfs-4.jpg", alt: "Sensory play" },
+    { src: "/media/nursery/nursery-6.jpg", alt: "Children playing with blocks" }
   ];
 
   const triggerBlinkRef = useRef(null);
@@ -374,7 +374,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
   const isInteractingRef = useRef(false);
   const interactionTimerRef = useRef(null);
 
-  const handlePillarSelect = (idx) => {
+  const handlePillarSelect = (idx, shouldScroll = false) => {
     setActivePillar(idx);
     activePillarRef.current = idx;
     if (triggerCubeActionRef.current) {
@@ -384,7 +384,20 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
     if (interactionTimerRef.current) clearTimeout(interactionTimerRef.current);
     interactionTimerRef.current = setTimeout(() => {
       isInteractingRef.current = false;
-    }, 750);
+    }, 850);
+
+    if (shouldScroll) {
+      const card = document.getElementById(`pillar-card-${idx}`);
+      if (card) {
+        const vh = window.innerHeight;
+        const targetScroll = window.scrollY + card.getBoundingClientRect().top - (vh * 0.40);
+        if (window.lenis) {
+          window.lenis.scrollTo(targetScroll, { duration: 0.8 });
+        } else {
+          window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+        }
+      }
+    }
   };
 
   // Scroll Progress Synchronizer for 4 Pillars (Warmth -> Trust -> Growth -> Joy)
@@ -402,7 +415,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         if (!stack) return;
 
         const vh = window.innerHeight;
-        // Focal point slightly above center for natural reading eye-level
+        // Trigger focal plane at 46% of viewport height (natural reading eye level)
         const focalY = vh * 0.46;
 
         let closestIdx = 0;
@@ -421,15 +434,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
           }
         }
 
-        const currentCard = document.getElementById(`pillar-card-${activePillarRef.current}`);
-        let currentDiff = Infinity;
-        if (currentCard) {
-          const cRect = currentCard.getBoundingClientRect();
-          currentDiff = Math.abs(cRect.top + cRect.height / 2 - focalY);
-        }
-
-        // Hysteresis of 10px prevents any micro-jitter at scroll boundary while staying responsive
-        if (closestIdx !== activePillarRef.current && (currentDiff - minDiff > 10)) {
+        if (closestIdx !== activePillarRef.current) {
           activePillarRef.current = closestIdx;
           setActivePillar(closestIdx);
           if (triggerCubeActionRef.current) {
@@ -453,43 +458,13 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
           unbindLenis = () => window.lenis?.off('scroll', onScroll);
           clearInterval(checkLenis);
         }
-      }, 200);
-      setTimeout(() => clearInterval(checkLenis), 3000);
-    }
-
-    // IntersectionObserver for 4 cards
-    const observer = new IntersectionObserver((entries) => {
-      if (isInteractingRef.current) return;
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          const match = id.match(/pillar-card-(\d+)/);
-          if (match) {
-            const idx = parseInt(match[1], 10);
-            if (!isNaN(idx) && idx !== activePillarRef.current) {
-              activePillarRef.current = idx;
-              setActivePillar(idx);
-              if (triggerCubeActionRef.current) {
-                triggerCubeActionRef.current(idx);
-              }
-            }
-          }
-        }
-      });
-    }, {
-      rootMargin: '-25% 0px -40% 0px',
-      threshold: 0.15
-    });
-
-    for (let i = 0; i < 4; i++) {
-      const card = document.getElementById(`pillar-card-${i}`);
-      if (card) observer.observe(card);
+      }, 150);
+      setTimeout(() => clearInterval(checkLenis), 4000);
     }
 
     return () => {
       window.removeEventListener('scroll', onScroll);
       if (unbindLenis) unbindLenis();
-      observer.disconnect();
       if (interactionTimerRef.current) clearTimeout(interactionTimerRef.current);
     };
   }, []);
@@ -2962,7 +2937,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   <div 
                     className={`pillar-stack-card ${activePillar === 0 ? 'active' : ''}`}
                     id="pillar-card-0"
-                    onClick={() => handlePillarSelect(0)}
+                    onClick={() => handlePillarSelect(0, true)}
                   >
                     <span className="pillar-card-bg-num" aria-hidden="true">01</span>
                     <div className="pillar-cube-slot" id="cube-slot-0">
@@ -2978,7 +2953,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   <div 
                     className={`pillar-stack-card ${activePillar === 1 ? 'active' : ''}`}
                     id="pillar-card-1"
-                    onClick={() => handlePillarSelect(1)}
+                    onClick={() => handlePillarSelect(1, true)}
                   >
                     <span className="pillar-card-bg-num" aria-hidden="true">02</span>
                     <div className="pillar-cube-slot" id="cube-slot-1">
@@ -2994,7 +2969,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   <div 
                     className={`pillar-stack-card ${activePillar === 2 ? 'active' : ''}`}
                     id="pillar-card-2"
-                    onClick={() => handlePillarSelect(2)}
+                    onClick={() => handlePillarSelect(2, true)}
                   >
                     <span className="pillar-card-bg-num" aria-hidden="true">03</span>
                     <div className="pillar-cube-slot" id="cube-slot-2">
@@ -3010,7 +2985,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   <div 
                     className={`pillar-stack-card ${activePillar === 3 ? 'active' : ''}`}
                     id="pillar-card-3"
-                    onClick={() => handlePillarSelect(3)}
+                    onClick={() => handlePillarSelect(3, true)}
                   >
                     <span className="pillar-card-bg-num" aria-hidden="true">04</span>
                     <div className="pillar-cube-slot" id="cube-slot-3">
@@ -3093,7 +3068,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                             <button
                               key={pIdx}
                               type="button"
-                              onClick={() => handlePillarSelect(pIdx)}
+                              onClick={() => handlePillarSelect(pIdx, true)}
                               aria-label={`Jump to ${p.pillarName}`}
                               style={{
                                 height: '7px',

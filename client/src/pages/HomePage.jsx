@@ -77,6 +77,19 @@ export default function HomePage({ onBookVisitClick }) {
       glow: 'rgba(217, 119, 6, 0.22)',
       badgeBg: '#fef3c7',
       badgeColor: '#78350f'
+    },
+    {
+      title: 'Winter & Summer Camps',
+      desc: 'Exciting holiday programs blending arts, movement, sensory adventures and themed celebrations in a safe nursery setting.',
+      subtitle: 'SEASONAL ENRICHMENT',
+      stat: 'All Year',
+      statLabel: 'WINTER & SUMMER',
+      icon: Sun,
+      color: '#8b5cf6',
+      border: 'rgba(139, 92, 246, 0.28)',
+      glow: 'rgba(139, 92, 246, 0.22)',
+      badgeBg: '#f3e8ff',
+      badgeColor: '#6b21a8'
     }
   ];
 
@@ -85,7 +98,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Phonics & Literacy',
       desc: 'Sounds, songs, stories, conversation and mark-making help develop listening, vocabulary and early literacy.',
-      image: '/images/hero-preschool.jpg',
+      image: '/media/preschool/preschool-1.jpg',
       tag: 'Phonics & Reading',
       icon: BookOpen,
       color: '#721024',
@@ -95,7 +108,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Early Numeracy',
       desc: 'Counting, sorting, matching, shapes, patterns and practical games make mathematical ideas easier to understand.',
-      image: '/images/activity-mini-stem.jpg',
+      image: '/media/school-readiness/school-readiness-3.jpg',
       tag: 'Numbers & Logic',
       icon: Sparkles,
       color: '#0284c7',
@@ -105,7 +118,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Arabic Learning',
       desc: 'Age-appropriate Arabic experiences introduce children to language through engaging activities and familiar repetition.',
-      image: '/images/growing-minds-center.jpg',
+      image: '/media/preschool/preschool-4.jpg',
       tag: 'Arabic Language',
       icon: Compass,
       color: '#16a34a',
@@ -115,7 +128,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Arts & Creativity',
       desc: 'Painting, drawing, collage and making give children freedom to express ideas while developing fine-motor skills.',
-      image: '/images/activity-little-artists.jpg',
+      image: '/media/preschool/preschool-3.jpg',
       tag: 'Art & Expression',
       icon: Smile,
       color: '#d97706',
@@ -125,7 +138,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Music, Rhymes & Stories',
       desc: 'Books, songs and rhythm strengthen memory, listening, language and joyful participation.',
-      image: '/images/hero-about.jpg',
+      image: '/media/eyfs/eyfs-5.jpg',
       tag: 'Music & Stories',
       icon: Heart,
       color: '#e11d48',
@@ -135,7 +148,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Sensory Exploration',
       desc: 'Hands-on play invites children to investigate textures, materials, movement, cause and effect.',
-      image: '/images/activity-creative-play.jpg',
+      image: '/media/eyfs/eyfs-7.jpg',
       tag: 'Sensory Lab',
       icon: Baby,
       color: '#0d9488',
@@ -145,7 +158,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Physical & Outdoor Play',
       desc: 'Movement supports coordination, strength, balance, confidence and healthy habits.',
-      image: '/images/outdoor.jpg',
+      image: '/media/daycare/daycare-4.jpg',
       tag: 'Outdoor Movement',
       icon: Sun,
       color: '#ea580c',
@@ -155,7 +168,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Life Skills & Independence',
       desc: 'Practical routines encourage responsibility, self-help skills, good manners and confidence.',
-      image: '/images/hero-programs.jpg',
+      image: '/media/school-readiness/school-readiness-4.jpg',
       tag: 'Life Skills',
       icon: ShieldCheck,
       color: '#721024',
@@ -343,16 +356,16 @@ export default function HomePage({ onBookVisitClick }) {
             className="home-programs-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
-              gap: '1.85rem',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '1.5rem',
               marginBottom: '40px'
             }}
           >
             {PROGRAMS.map((prog, idx) => {
               const IconComponent = prog.icon;
               const isLiked = !!likedPrograms[idx];
-              const pillarAnim = idx === 0 ? 'from-left' : idx === 3 ? 'from-right' : 'from-bottom';
-              const pillarDelay = idx === 0 ? 50 : idx === 1 ? 120 : idx === 2 ? 190 : 260;
+              const pillarAnim = idx === 0 ? 'from-left' : idx === PROGRAMS.length - 1 ? 'from-right' : 'from-bottom';
+              const pillarDelay = (idx + 1) * 55;
               return (
                 <RevealOnScroll key={prog.title} animation={pillarAnim} delay={pillarDelay}>
                   <div
@@ -844,7 +857,7 @@ export default function HomePage({ onBookVisitClick }) {
               {/* Bottom Left Image */}
               <div className="philosophy-card-img-wrap">
                 <img
-                  src="/images/activity-mini-stem.jpg"
+                  src="/media/school-readiness/school-readiness-3.jpg"
                   alt="Happy kids exploring sensory learning activities"
                   loading="lazy"
                 />
@@ -855,7 +868,7 @@ export default function HomePage({ onBookVisitClick }) {
             <div className="philosophy-col-center">
               <div className="philosophy-center-img-wrap">
                 <img
-                  src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=85"
+                  src="/media/preschool/preschool-2.jpg"
                   alt="Radiant smiling child discovering books and learning toys"
                   loading="lazy"
                 />
@@ -867,7 +880,7 @@ export default function HomePage({ onBookVisitClick }) {
               {/* Top Right Image */}
               <div className="philosophy-card-img-wrap">
                 <img
-                  src="/images/activity-creative-play.jpg"
+                  src="/media/eyfs/eyfs-5.jpg"
                   alt="Children happily playing and crafting together"
                   loading="lazy"
                 />
@@ -1321,7 +1334,7 @@ export default function HomePage({ onBookVisitClick }) {
           }}
         >
           <img
-            src="/images/testimonial-parent-mom.jpg"
+            src="/media/nursery/nursery-5.jpg"
             alt="Growing together with nursery families"
             style={{
               width: '100%',

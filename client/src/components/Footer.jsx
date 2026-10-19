@@ -513,59 +513,7 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
         zIndex: 10
       }}>
 
-        {/* 3D Yellow Chick on Rustic Wooden Fence (Bottom Left) */}
-        <div 
-          className="footer-3d-chick-box"
-          style={{
-            position: 'absolute',
-            bottom: '36px',
-            left: 'clamp(10px, 4vw, 45px)',
-            width: 'clamp(140px, 16vw, 195px)',
-            height: 'clamp(140px, 16vw, 195px)',
-            zIndex: 20,
-            pointerEvents: 'auto',
-            cursor: 'pointer'
-          }}
-          title="Just Like Home Mascot Chick"
-        >
-          <img
-            src="/images/footer-3d-chick.png"
-            alt="Cute 3D Chick on Wooden Fence"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'contain',
-              filter: 'drop-shadow(0 12px 20px rgba(0, 0, 0, 0.2))'
-            }}
-          />
-        </div>
 
-        {/* 3D Cheerful Pink Bunny Waving with Easter Eggs (Bottom Right) */}
-        <div 
-          className="footer-3d-bunny-box"
-          style={{
-            position: 'absolute',
-            bottom: '22px',
-            right: 'clamp(10px, 4vw, 45px)',
-            width: 'clamp(150px, 18vw, 220px)',
-            height: 'clamp(150px, 18vw, 220px)',
-            zIndex: 20,
-            pointerEvents: 'auto',
-            cursor: 'pointer'
-          }}
-          title="Just Like Home Waving Bunny"
-        >
-          <img
-            src="/images/footer-3d-bunny.png"
-            alt="Cute 3D Waving Bunny with Garden Eggs"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'contain',
-              filter: 'drop-shadow(0 12px 20px rgba(0, 0, 0, 0.2))'
-            }}
-          />
-        </div>
 
         {/* Layer 1: Back Grass Silhouette (Darker Green) */}
         <svg

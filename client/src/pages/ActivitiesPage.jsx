@@ -4,99 +4,110 @@ import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryPageHero from '../components/LuxuryPageHero';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
 import { 
-  BookOpen, Calculator, Globe2, Palette, Sparkles, 
-  Music, Trees, Award, Calendar, Bus, ArrowRight, Camera, Compass 
+  MessageCircle, Heart, Dumbbell, BookOpen, Calculator, 
+  Globe2, Palette, Languages, ShieldCheck, Sparkles, 
+  Calendar, Camera 
 } from 'lucide-react';
 
-const ACTIVITIES = [
+const LEARNING_AREAS = [
   {
-    title: 'Phonics & Literacy',
-    desc: 'Sounds, songs, stories, conversation and mark-making help develop listening, vocabulary and early literacy.',
-    icon: BookOpen,
+    number: '01',
+    title: 'Communication and Language',
+    desc: 'Listening, speaking, understanding, and vocabulary development.',
+    icon: MessageCircle,
     color: '#0284c7',
-    gradient: 'linear-gradient(90deg, #0284c7, #38bdf8)',
-    border: 'rgba(2, 132, 199, 0.22)'
+    gradient: 'linear-gradient(135deg, #0284c7, #38bdf8)',
+    border: 'rgba(2, 132, 199, 0.22)',
+    badge: 'Core Foundation'
   },
   {
-    title: 'Early Numeracy',
-    desc: 'Counting, sorting, matching, shapes, patterns and practical games make mathematical ideas easier to understand.',
+    number: '02',
+    title: 'Personal, Social and Emotional Development (PSED)',
+    desc: 'Confidence, relationships, independence, and self-regulation.',
+    icon: Heart,
+    color: '#e11d48',
+    gradient: 'linear-gradient(135deg, #e11d48, #fb7185)',
+    border: 'rgba(225, 29, 72, 0.22)',
+    badge: 'Social & Emotional'
+  },
+  {
+    number: '03',
+    title: 'Physical Development',
+    desc: 'Gross and fine motor skills, coordination, and movement.',
+    icon: Dumbbell,
+    color: '#ea580c',
+    gradient: 'linear-gradient(135deg, #ea580c, #f97316)',
+    border: 'rgba(234, 88, 12, 0.22)',
+    badge: 'Motor Skills & Health'
+  },
+  {
+    number: '04',
+    title: 'Literacy',
+    desc: 'Early reading, phonics, writing, and storytelling.',
+    icon: BookOpen,
+    color: '#721024',
+    gradient: 'linear-gradient(135deg, #721024, #a5233b)',
+    border: 'rgba(114, 16, 36, 0.22)',
+    badge: 'Reading & Phonics'
+  },
+  {
+    number: '05',
+    title: 'Mathematics',
+    desc: 'Numbers, counting, patterns, shapes, and measurement.',
     icon: Calculator,
     color: '#d97706',
-    gradient: 'linear-gradient(90deg, #d97706, #f59e0b)',
-    border: 'rgba(217, 119, 6, 0.22)'
+    gradient: 'linear-gradient(135deg, #d97706, #f59e0b)',
+    border: 'rgba(217, 119, 6, 0.22)',
+    badge: 'Numbers & Shapes'
   },
   {
-    title: 'Arabic Language Learning',
-    desc: 'Age-appropriate Arabic experiences introduce children to language through engaging activities and familiar repetition.',
+    number: '06',
+    title: 'Understanding the World',
+    desc: 'Exploring nature, cultures, communities, and the world around us.',
     icon: Globe2,
-    color: '#16a34a',
-    gradient: 'linear-gradient(90deg, #16a34a, #22c55e)',
-    border: 'rgba(22, 163, 74, 0.22)'
-  },
-  {
-    title: 'Creative Arts & Crafts',
-    desc: 'Painting, drawing, collage and making give children freedom to express ideas while developing fine-motor skills.',
-    icon: Palette,
-    color: '#e11d48',
-    gradient: 'linear-gradient(90deg, #e11d48, #fb7185)',
-    border: 'rgba(225, 29, 72, 0.22)'
-  },
-  {
-    title: 'Sensory & Exploration',
-    desc: 'Hands-on play invites children to investigate textures, materials, movement, cause and effect.',
-    icon: Sparkles,
     color: '#0d9488',
-    gradient: 'linear-gradient(90deg, #0d9488, #14b8a6)',
-    border: 'rgba(13, 148, 136, 0.22)'
+    gradient: 'linear-gradient(135deg, #0d9488, #14b8a6)',
+    border: 'rgba(13, 148, 136, 0.22)',
+    badge: 'Discovery & Cultures'
   },
   {
-    title: 'Stories, Rhymes & Music',
-    desc: 'Books, songs and rhythm strengthen memory, listening, language and joyful participation.',
-    icon: Music,
-    color: '#721024',
-    gradient: 'linear-gradient(90deg, #721024, #F15A29)',
-    border: 'rgba(114, 16, 36, 0.22)'
-  },
-  {
-    title: 'Physical & Outdoor Play',
-    desc: 'Movement supports coordination, strength, balance, confidence and healthy habits.',
-    icon: Trees,
-    color: '#ea580c',
-    gradient: 'linear-gradient(90deg, #ea580c, #f97316)',
-    border: 'rgba(234, 88, 12, 0.22)'
-  },
-  {
-    title: 'Life Skills & Independence',
-    desc: 'Practical routines encourage responsibility, self-help skills, good manners and confidence.',
-    icon: Award,
+    number: '07',
+    title: 'Expressive Arts and Design',
+    desc: 'Art, music, creativity, role-play, and imagination.',
+    icon: Palette,
     color: '#8b5cf6',
-    gradient: 'linear-gradient(90deg, #8b5cf6, #a855f7)',
-    border: 'rgba(139, 92, 246, 0.22)'
+    gradient: 'linear-gradient(135deg, #8b5cf6, #a855f7)',
+    border: 'rgba(139, 92, 246, 0.22)',
+    badge: 'Arts & Imagination'
   },
   {
-    title: 'Theme Days & Celebrations',
-    desc: 'Special experiences bring learning to life and create happy shared memories.',
-    icon: Calendar,
-    color: '#ec4899',
-    gradient: 'linear-gradient(90deg, #ec4899, #f43f5e)',
-    border: 'rgba(236, 72, 153, 0.22)'
+    number: '08',
+    title: 'Arabic Language',
+    desc: 'Developing basic Arabic vocabulary, listening, speaking, and early language skills.',
+    icon: Languages,
+    color: '#16a34a',
+    gradient: 'linear-gradient(135deg, #16a34a, #22c55e)',
+    border: 'rgba(22, 163, 74, 0.22)',
+    badge: 'Language & Heritage'
   },
   {
-    title: 'Educational Trips & Outings',
-    desc: 'Where offered, carefully planned outings extend children\'s understanding beyond the classroom.',
-    icon: Bus,
-    color: '#0891b2',
-    gradient: 'linear-gradient(90deg, #0891b2, #06b6d4)',
-    border: 'rgba(8, 145, 178, 0.22)'
+    number: '09',
+    title: 'SEND Support',
+    desc: 'Inclusive, individualized learning and developmental support for children with Special Educational Needs and Disabilities (SEND).',
+    icon: ShieldCheck,
+    color: '#b45309',
+    gradient: 'linear-gradient(135deg, #b45309, #f59e0b)',
+    border: 'rgba(180, 83, 9, 0.22)',
+    badge: 'Inclusive Support'
   }
 ];
 
 export default function ActivitiesPage({ onBookVisitClick }) {
   useEffect(() => {
-    document.title = "Nursery Activities in Ajman | Play, Create & Explore";
+    document.title = "Our Learning Areas & Nursery Activities | Just Like Home Nursery Ajman";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Explore phonics, numeracy, Arabic, sensory play, art, music, stories, outdoor activities and life skills at Just Like Home Nursery in Ajman.");
+      metaDesc.setAttribute("content", "Explore our 9 core learning areas: Communication & Language, PSED, Physical Development, Literacy, Mathematics, Understanding the World, Expressive Arts, Arabic Language, and SEND Support at Just Like Home Nursery in Ajman.");
     }
   }, []);
 
@@ -105,22 +116,22 @@ export default function ActivitiesPage({ onBookVisitClick }) {
       
       {/* 1. LUXURY HERO BANNER */}
       <LuxuryPageHero
-        badge="ACTIVITIES · SHOW THE RICHNESS OF THE NURSERY EXPERIENCE"
+        badge="ACTIVITIES & FACILITIES · OUR LEARNING AREAS"
         badgeIcon={Sparkles}
-        title="Every Day Brings a New Way to Discover"
-        description="Children learn best when experiences feel meaningful, active and enjoyable. Our nursery activities encourage curiosity, communication, imagination, movement and growing independence."
-        image="/images/hero-activities.jpg"
-        imageAlt="Activities at Just Like Home Nursery Ajman"
+        title="Our Learning Areas & Everyday Discovery"
+        description="Children learn best when experiences feel meaningful, active and enjoyable. Explore our 9 core developmental pillars designed to nurture communication, emotional resilience, creativity, Arabic fluency, and inclusive SEND support."
+        image="/media/eyfs/eyfs-4.jpg"
+        imageAlt="Our Learning Areas at Just Like Home Nursery Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"
         primaryCtaText="View Our Gallery"
         primaryLink="/gallery"
         secondaryCtaText="Book a Visit"
         secondaryLink="/contact"
-        whatsappText="Hello Just Like Home Nursery, I would like to learn more about nursery activities."
+        whatsappText="Hello Just Like Home Nursery, I would like to learn more about your 9 Learning Areas."
       />
 
-      {/* 2. THE 10 ACTIVITIES */}
+      {/* 2. THE 9 LEARNING AREAS */}
       <section 
         style={{ 
           padding: 'clamp(64px, 7vw, 90px) 20px', 
@@ -132,7 +143,7 @@ export default function ActivitiesPage({ onBookVisitClick }) {
       >
         <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <RevealOnScroll>
-            <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 48px' }}>
+            <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 48px' }}>
               <span
                 style={{
                   display: 'inline-block',
@@ -148,7 +159,7 @@ export default function ActivitiesPage({ onBookVisitClick }) {
                   boxShadow: '0 4px 12px rgba(114, 16, 36, 0.06)'
                 }}
               >
-                ENRICHING EXPERIENCES
+                CURRICULUM & ENRICHMENT
               </span>
               <h2
                 style={{
@@ -159,10 +170,10 @@ export default function ActivitiesPage({ onBookVisitClick }) {
                   margin: '0 0 16px 0'
                 }}
               >
-                Ten Pathways of Joyful Exploration
+                Our Learning Areas
               </h2>
               <p style={{ fontSize: '16.5px', lineHeight: 1.75, color: '#475569', margin: 0 }}>
-                Every activity is intentionally guided to stimulate curious minds, fine-motor dexterity, and social empathy.
+                Every area of learning is intentionally guided to stimulate curious minds, fine-motor coordination, social empathy, language proficiency, and individualized support.
               </p>
             </div>
           </RevealOnScroll>
@@ -174,9 +185,8 @@ export default function ActivitiesPage({ onBookVisitClick }) {
               gap: '26px'
             }}
           >
-            {ACTIVITIES.map((act, index) => {
+            {LEARNING_AREAS.map((act, index) => {
               const Icon = act.icon;
-              const formattedIndex = String(index + 1).padStart(2, '0');
               return (
                 <RevealOnScroll key={index} delay={index * 25}>
                   <div
@@ -222,33 +232,48 @@ export default function ActivitiesPage({ onBookVisitClick }) {
                       >
                         <Icon size={26} />
                       </div>
-                      <span
-                        style={{
-                          fontSize: '13px',
-                          fontWeight: '850',
-                          color: act.color,
-                          backgroundColor: '#ffffff',
-                          padding: '4px 12px',
-                          borderRadius: '999px',
-                          border: `1.5px solid ${act.border}`,
-                          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)'
-                        }}
-                      >
-                        {formattedIndex}
-                      </span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span
+                          style={{
+                            fontSize: '11.5px',
+                            fontWeight: '750',
+                            color: act.color,
+                            backgroundColor: `${act.color}10`,
+                            padding: '3px 10px',
+                            borderRadius: '999px',
+                            border: `1px solid ${act.border}`
+                          }}
+                        >
+                          {act.badge}
+                        </span>
+                        <span
+                          style={{
+                            fontSize: '13px',
+                            fontWeight: '850',
+                            color: act.color,
+                            backgroundColor: '#ffffff',
+                            padding: '4px 12px',
+                            borderRadius: '999px',
+                            border: `1.5px solid ${act.border}`,
+                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)'
+                          }}
+                        >
+                          {act.number}
+                        </span>
+                      </div>
                     </div>
 
                     <h3
                       style={{
                         fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                        fontSize: '21px',
+                        fontSize: '20px',
                         fontWeight: '850',
                         color: '#721024',
                         marginBottom: '12px',
-                        lineHeight: 1.3
+                        lineHeight: 1.35
                       }}
                     >
-                      {act.title}
+                      {`${index + 1}. ${act.title}`}
                     </h3>
                     <p style={{ fontSize: '15.5px', lineHeight: 1.7, color: '#475569', margin: 0 }}>
                       {act.desc}
@@ -372,9 +397,9 @@ export default function ActivitiesPage({ onBookVisitClick }) {
 
       {/* 4. CLOSING CTA BANNER */}
       <LuxuryClosingCta
-        badge="NURSERY ACTIVITIES"
-        title="Every Day Brings a New Way to Discover"
-        subtitle="Children learn best when experiences feel meaningful, active and enjoyable. Our nursery activities encourage curiosity, communication, imagination, movement and growing independence."
+        badge="OUR LEARNING AREAS"
+        title="Where Every Area of Growth is Celebrated"
+        subtitle="From foundational communication and early numeracy to creative arts, Arabic immersion, and specialized SEND support — we empower every child at their own rhythm."
         primaryText="VIEW OUR GALLERY"
         primaryLink="/gallery"
         secondaryText="BOOK A VISIT"

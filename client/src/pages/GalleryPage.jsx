@@ -9,76 +9,66 @@ import {
 } from 'lucide-react';
 
 const FILTERS = [
-  { id: 'all', label: 'All Photos' },
-  { id: 'spaces', label: 'Our Spaces' },
-  { id: 'learning', label: 'Learning & Play' },
-  { id: 'arts', label: 'Arts & Creativity' },
-  { id: 'outdoor', label: 'Outdoor Time' },
-  { id: 'themes', label: 'Theme Days' },
-  { id: 'camps', label: 'Camps & Celebrations' }
+  { id: 'all', label: 'All Photos (39)' },
+  { id: 'eyfs', label: 'Early Years Foundation' },
+  { id: 'nursery', label: 'Nursery Program' },
+  { id: 'preschool', label: 'Preschool' },
+  { id: 'school-readiness', label: 'School Readiness' },
+  { id: 'daycare', label: 'Daycare & Care' },
+  { id: 'send', label: 'SEND Support' }
 ];
 
 const GALLERY_IMAGES = [
-  {
-    src: '/images/hero.jpg',
-    category: 'spaces',
-    caption: 'Classrooms and activity areas created for safe, happy learning.',
-    alt: 'Our Spaces - Classroom and activity area'
-  },
-  {
-    src: '/images/classroom.jpg',
-    category: 'spaces',
-    caption: 'Safe, comfortable spaces designed for age-appropriate learning.',
-    alt: 'Our Spaces - Learning area'
-  },
-  {
-    src: '/images/growing-minds-center.jpg',
-    category: 'learning',
-    caption: 'See how play, stories, exploration and conversation turn everyday moments into learning.',
-    alt: 'Learning in Action - Play and exploration'
-  },
-  {
-    src: '/images/nurturing-hero.jpg',
-    category: 'learning',
-    caption: 'Quiet learning corners and supportive routines.',
-    alt: 'Learning in Action - Focused discovery'
-  },
-  {
-    src: '/images/activity-little-artists.jpg',
-    category: 'arts',
-    caption: 'Arts & creativity: Painting, collage and hands-on expression.',
-    alt: 'Arts & Creativity - Painting and craft'
-  },
-  {
-    src: '/images/activity-mini-stem.jpg',
-    category: 'learning',
-    caption: 'Hands-on sensory investigation and early discovery.',
-    alt: 'Learning & Play - Sensory investigation'
-  },
-  {
-    src: '/images/activity-creative-play.jpg',
-    category: 'learning',
-    caption: 'Cooperative play and early problem solving.',
-    alt: 'Learning & Play - Cooperative activities'
-  },
-  {
-    src: '/images/outdoor.jpg',
-    category: 'outdoor',
-    caption: 'Outdoor play area: Fresh air, physical development and active movement.',
-    alt: 'Outdoor Time - Outdoor play area'
-  },
-  {
-    src: '/images/hero-slider-bg.jpg',
-    category: 'themes',
-    caption: 'From theme days to creative celebrations, shared experiences help build happy nursery memories.',
-    alt: 'Theme Days - Celebrations and special moments'
-  },
-  {
-    src: '/images/slider-active-play.jpg',
-    category: 'camps',
-    caption: 'Camps & celebrations: Joyful seasonal exploration.',
-    alt: 'Camps & Celebrations - Seasonal activity'
-  }
+  // Early Years Foundation
+  { src: '/media/eyfs/eyfs-1.jpg', category: 'eyfs', caption: 'Early Years sensory exploration and joyful discovery.', alt: 'Early Years Foundation discovery' },
+  { src: '/media/eyfs/eyfs-2.jpg', category: 'eyfs', caption: 'Engaged small group activities fostering communication.', alt: 'Early Years collaborative activity' },
+  { src: '/media/eyfs/eyfs-3.jpg', category: 'eyfs', caption: 'Creative tactile learning in a bright, child-friendly environment.', alt: 'Tactile learning' },
+  { src: '/media/eyfs/eyfs-4.jpg', category: 'eyfs', caption: 'Fine-motor dexterity and hand-eye coordination games.', alt: 'Fine motor activities' },
+  { src: '/media/eyfs/eyfs-5.jpg', category: 'eyfs', caption: 'Storytime and interactive listening circle.', alt: 'Story circle time' },
+  { src: '/media/eyfs/eyfs-6.jpg', category: 'eyfs', caption: 'Creative mark-making and early artistic expression.', alt: 'Creative mark making' },
+  { src: '/media/eyfs/eyfs-7.jpg', category: 'eyfs', caption: 'Sensory water and texture exploration trays.', alt: 'Sensory exploration' },
+  { src: '/media/eyfs/eyfs-8.jpg', category: 'eyfs', caption: 'Curious minds discovering patterns and colors.', alt: 'Colors and patterns discovery' },
+  { src: '/media/eyfs/eyfs-9.jpg', category: 'eyfs', caption: 'Gentle educator guidance and supportive routines.', alt: 'Educator guidance' },
+  { src: '/media/eyfs/eyfs-10.jpg', category: 'eyfs', caption: 'Joyful celebrations and daily learning milestones.', alt: 'Daily learning moments' },
+
+  // Nursery Program
+  { src: '/media/nursery/nursery-1.jpg', category: 'nursery', caption: 'Nursery program interactive play and motor development.', alt: 'Nursery program active play' },
+  { src: '/media/nursery/nursery-2.jpg', category: 'nursery', caption: 'Purposeful wooden blocks and spatial construction.', alt: 'Wooden block construction' },
+  { src: '/media/nursery/nursery-3.jpg', category: 'nursery', caption: 'Safe indoor classrooms with natural light and safety fittings.', alt: 'Sunlit nursery classroom' },
+  { src: '/media/nursery/nursery-4.jpg', category: 'nursery', caption: 'Social interaction and cooperative peer friendships.', alt: 'Social peer play' },
+  { src: '/media/nursery/nursery-5.jpg', category: 'nursery', caption: 'Loving, motherly care and one-on-one attention.', alt: 'Motherly educator care' },
+  { src: '/media/nursery/nursery-6.jpg', category: 'nursery', caption: 'Music, rhythm instruments, and joyful song circles.', alt: 'Music and rhythm circle' },
+  { src: '/media/nursery/nursery-7.jpg', category: 'nursery', caption: 'Imaginative role-play and dress-up exploration.', alt: 'Imaginative role play' },
+  { src: '/media/nursery/nursery-8.jpg', category: 'nursery', caption: 'Concentration and cognitive problem-solving games.', alt: 'Cognitive problem solving' },
+  { src: '/media/nursery/nursery-9.jpg', category: 'nursery', caption: 'Outdoor garden exploration and energetic play.', alt: 'Outdoor garden movement' },
+
+  // Preschool Program
+  { src: '/media/preschool/preschool-1.jpg', category: 'preschool', caption: 'Preschool literacy and phonics sound recognition.', alt: 'Preschool phonics and literacy' },
+  { src: '/media/preschool/preschool-2.jpg', category: 'preschool', caption: 'Early numeracy counting and mathematical sorting.', alt: 'Early numeracy counting' },
+  { src: '/media/preschool/preschool-3.jpg', category: 'preschool', caption: 'Creative art studio: Painting, collage, and imagination.', alt: 'Preschool art atelier' },
+  { src: '/media/preschool/preschool-4.jpg', category: 'preschool', caption: 'Bilingual Arabic & English immersion activities.', alt: 'Arabic immersion learning' },
+  { src: '/media/preschool/preschool-5.jpg', category: 'preschool', caption: 'Science discovery and simple hands-on experiments.', alt: 'Preschool science discovery' },
+  { src: '/media/preschool/preschool-6.jpg', category: 'preschool', caption: 'Group collaboration and table manners routines.', alt: 'Table routines and manners' },
+
+  // School Readiness
+  { src: '/media/school-readiness/school-readiness-1.jpg', category: 'school-readiness', caption: 'Primary school transition: Pre-writing pencil grip practice.', alt: 'Pre-writing skills' },
+  { src: '/media/school-readiness/school-readiness-2.jpg', category: 'school-readiness', caption: 'Structured listening routines and following instructions.', alt: 'Listening routines' },
+  { src: '/media/school-readiness/school-readiness-3.jpg', category: 'school-readiness', caption: 'Numeracy challenges: Shapes, geometry, and measurements.', alt: 'Numeracy challenges' },
+  { src: '/media/school-readiness/school-readiness-4.jpg', category: 'school-readiness', caption: 'Independent self-care: Organizing books and belongings.', alt: 'Independent self care' },
+  { src: '/media/school-readiness/school-readiness-5.jpg', category: 'school-readiness', caption: 'Confidence building through classroom presentations.', alt: 'Confidence building' },
+  { src: '/media/school-readiness/school-readiness-6.jpg', category: 'school-readiness', caption: 'Gross motor agility on our shaded playground.', alt: 'Playground agility' },
+  { src: '/media/school-readiness/school-readiness-7.jpg', category: 'school-readiness', caption: 'Inquiry-based question time and conversational skills.', alt: 'Conversational skills' },
+  { src: '/media/school-readiness/school-readiness-8.jpg', category: 'school-readiness', caption: 'Proud school-ready learners celebrating progress.', alt: 'School ready learners' },
+
+  // Daycare
+  { src: '/media/daycare/daycare-1.jpg', category: 'daycare', caption: 'Flexible full-day care in a warm home-away-from-home environment.', alt: 'Full day care comfort' },
+  { src: '/media/daycare/daycare-2.jpg', category: 'daycare', caption: 'Nutritious snack time and gentle social habits.', alt: 'Nutritious snack time' },
+  { src: '/media/daycare/daycare-3.jpg', category: 'daycare', caption: 'Quiet room resting sanctuary with individual sanitized cots.', alt: 'Quiet room rest' },
+  { src: '/media/daycare/daycare-4.jpg', category: 'daycare', caption: 'Afternoon enrichment, outdoor play, and peaceful pickup.', alt: 'Afternoon play' },
+
+  // SEND Support
+  { src: '/media/send/send-1.jpg', category: 'send', caption: 'Individualized SEND learning support with dedicated attention.', alt: 'SEND individualized learning' },
+  { src: '/media/send/send-2.jpg', category: 'send', caption: 'Inclusive sensory development celebrating every child’s milestone.', alt: 'Inclusive developmental support' }
 ];
 
 export default function GalleryPage({ onBookVisitClick }) {
@@ -117,7 +107,7 @@ export default function GalleryPage({ onBookVisitClick }) {
         badgeIcon={Camera}
         title="A Little Look Inside Our Nursery"
         description="Discover the spaces, activities and moments that help Just Like Home Nursery feel warm, joyful and welcoming."
-        image="/images/hero-gallery.jpg"
+        image="/media/nursery/nursery-7.jpg"
         imageAlt="Gallery of Just Like Home Nursery in Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"

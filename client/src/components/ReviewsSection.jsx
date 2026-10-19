@@ -29,7 +29,7 @@ const GoogleIcon = ({ size = 18 }) => (
 const TESTIMONIAL_SLIDES = [
   {
     id: 1,
-    image: '/images/testimonial-video-parent.jpg',
+    image: '/media/eyfs/eyfs-6.jpg',
     videoLabel: 'Watch Fatima’s Journey',
     quote: 'The warm motherly care and attentive teachers at Just Like Home made our son feel instantly safe and loved. After having tears on day one, he now runs through the villa doors with the biggest smile. The daily portfolio updates give our family complete peace of mind.',
     name: 'Fatima Al-Shamsi',
@@ -38,7 +38,7 @@ const TESTIMONIAL_SLIDES = [
   },
   {
     id: 2,
-    image: '/images/testimonial-parent-mom.jpg',
+    image: '/media/nursery/nursery-5.jpg',
     videoLabel: 'Watch Sarah’s Experience',
     quote: 'Finding a nursery that matches the warmth of home while rigorously implementing the British EYFS curriculum seemed impossible until we toured Just Like Home. The shaded outdoor garden and sensory classrooms are wonderful, and the staff treat my daughter as their own.',
     name: 'Sarah Jenkins',

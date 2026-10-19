@@ -64,7 +64,7 @@ const VISION_MISSION_DATA = {
     icon: Compass,
     accentColor: '#721024',
     badgeBg: '#FFF1F2',
-    image: '/images/classroom.jpg',
+    image: '/media/school-readiness/school-readiness-1.jpg',
     imageAlt: 'Nurturing classroom environment with caring educators and happy children at Just Like Home Nursery',
     imageBadge: 'Villa No. 47, Al Rashidiya 2, Ajman',
     imageTag: 'Preparing Children For Life',
@@ -94,7 +94,7 @@ const VISION_MISSION_DATA = {
     icon: Heart,
     accentColor: '#c9a84c',
     badgeBg: '#fef9e7',
-    image: '/images/activity-creative-play.jpg',
+    image: '/media/eyfs/eyfs-5.jpg',
     imageAlt: 'Happy children playing and building together at Just Like Home Nursery',
     imageBadge: 'Creativity, Play & Friendships',
     imageTag: 'Nurturing Little Hearts Daily',
@@ -141,7 +141,7 @@ export default function AboutPage({ onBookVisitClick }) {
           "Just Like Home Nursery was created with a simple belief: children flourish when they feel safe, loved, respected and understood.",
           "Our name reflects the experience we want every child to have — the reassurance of a familiar, caring environment combined with thoughtful early-years learning that encourages curiosity, confidence and independence."
         ]}
-        image="/images/hero-about.jpg"
+        image="/media/eyfs/eyfs-1.jpg"
         imageAlt="About Just Like Home Nursery Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"
@@ -195,7 +195,7 @@ export default function AboutPage({ onBookVisitClick }) {
               <RevealOnScroll delay={100}>
                 <div className="about-editorial-image-frame">
                   <img 
-                    src="/images/nurturing-hero.jpg" 
+                    src="/media/preschool/preschool-3.jpg" 
                     alt="Caring educators and children at Just Like Home Nursery" 
                     className="about-editorial-img"
                   />

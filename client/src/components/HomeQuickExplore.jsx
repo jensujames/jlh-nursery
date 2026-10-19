@@ -216,7 +216,7 @@ export default function HomeQuickExplore() {
   return (
     <StickyParallaxSection 
       id="programs" 
-      bgImage="/images/bg-doodles.jpg"
+      bgImage="/media/eyfs/eyfs-9.jpg"
       bgColor="#fffdfa"
       overlayGradient="linear-gradient(180deg, rgba(255, 253, 250, 0.90) 0%, rgba(255, 250, 245, 0.88) 50%, rgba(255, 255, 255, 0.92) 100%)"
       floatingElements={doodlesFloatingElements}

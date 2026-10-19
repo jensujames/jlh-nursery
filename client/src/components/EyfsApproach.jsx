@@ -349,7 +349,7 @@ export default function EyfsApproach() {
             minHeight: '340px'
           }}>
             <img 
-              src="/images/classroom.jpg" 
+              src="/media/school-readiness/school-readiness-1.jpg" 
               alt={current.title}
               style={{
                 width: '100%',

@@ -184,7 +184,7 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
           badge: null, 
           path: '/nursery-activities', 
           icon: Sparkles, 
-          desc: 'Messy play, sensory discovery & daily wonder' 
+          desc: 'Our 9 learning areas, sensory discovery & daily wonder' 
         },
         { 
           name: 'Facilities & Safety', 

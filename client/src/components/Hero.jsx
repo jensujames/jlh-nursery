@@ -244,7 +244,7 @@ export default function Hero({ onBookVisitClick }) {
               transition: 'transform 0.15s ease-out'
             }}>
               <img 
-                src="/images/hero.jpg" 
+                src="/media/nursery/nursery-1.jpg" 
                 alt="Happy children learning with teacher at Just Like Home Nursery Ajman" 
                 style={{
                   width: '100%',

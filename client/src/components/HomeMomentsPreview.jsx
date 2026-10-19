@@ -22,7 +22,7 @@ export default function HomeMomentsPreview() {
   const moments = [
     {
       id: 1,
-      image: '/images/hero.jpg',
+      image: '/media/nursery/nursery-1.jpg',
       title: 'Purposeful Play & Blocks',
       caption: 'Fine motor development with wooden tactile shapes',
       tag: 'Creative Play',
@@ -32,8 +32,8 @@ export default function HomeMomentsPreview() {
     },
     {
       id: 2,
-      image: '/images/classroom.jpg',
-      title: 'Sunlit Reading Teepee',
+      image: '/media/school-readiness/school-readiness-1.jpg',
+      title: 'Sunlit Reading Corner',
       caption: 'Quiet story time and phonics picture book discovery',
       tag: 'Cozy Library',
       badgeColor: '#0284c7',
@@ -42,7 +42,7 @@ export default function HomeMomentsPreview() {
     },
     {
       id: 3,
-      image: '/images/outdoor.jpg',
+      image: '/media/daycare/daycare-4.jpg',
       title: 'Shaded Villa Garden',
       caption: 'Fresh-air gross motor fun under safe UV canopies',
       tag: 'Outdoor Adventure',
@@ -52,7 +52,7 @@ export default function HomeMomentsPreview() {
     },
     {
       id: 4,
-      image: '/images/hero.jpg',
+      image: '/media/preschool/preschool-3.jpg',
       title: 'Sensory Investigation',
       caption: 'Hands-on discovery fostering early curiosity',
       tag: 'EYFS Sensory',

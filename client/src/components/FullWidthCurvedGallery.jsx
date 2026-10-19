@@ -18,7 +18,7 @@ const GALLERY_ITEMS = [
     category: 'Creative Arts & Crafts',
     title: 'Creative Play & Crafts',
     subtitle: 'Painting, drawing, collage and making give children freedom to express ideas',
-    image: '/images/hero.jpg',
+    image: '/media/eyfs/eyfs-6.jpg',
     tag: 'Creative Play',
     tagColor: '#F15A29',
     age: 'Play & Create'
@@ -29,7 +29,7 @@ const GALLERY_ITEMS = [
     category: 'Sensory & Exploration',
     title: 'Sensory Trays & Textures',
     subtitle: 'Hands-on play invites children to investigate textures, materials, and curiosity',
-    image: '/images/nurturing-hero.jpg',
+    image: '/media/preschool/preschool-3.jpg',
     tag: 'Sensory Care',
     tagColor: '#0284c7',
     age: 'Hands-on Discovery'
@@ -40,7 +40,7 @@ const GALLERY_ITEMS = [
     category: 'Outdoor Play Area',
     title: 'Fresh-Air Adventure',
     subtitle: 'Safe physical movement and balance under UV-shaded canopies on green turf',
-    image: '/images/outdoor.jpg',
+    image: '/media/daycare/daycare-4.jpg',
     tag: 'Outdoor Haven',
     tagColor: '#16a34a',
     age: 'Active Movement'
@@ -51,7 +51,7 @@ const GALLERY_ITEMS = [
     category: 'Reading & Story Corner',
     title: 'Stories, Rhymes & Phonics',
     subtitle: 'Cozy language nooks with picture books, rhymes, vocabulary and imagination',
-    image: '/images/classroom.jpg',
+    image: '/media/school-readiness/school-readiness-1.jpg',
     tag: 'Early Literacy',
     tagColor: '#d97706',
     age: 'Storytime'
@@ -62,7 +62,7 @@ const GALLERY_ITEMS = [
     category: 'Motherly Care & Warmth',
     title: 'Nurturing Little Hearts',
     subtitle: 'Kindness, patience, respect and motherly attention in a warm home-like atmosphere',
-    image: '/images/testimonial-mom.jpg',
+    image: '/media/nursery/nursery-5.jpg',
     tag: 'Happy Smiles',
     tagColor: '#e11d48',
     age: 'Motherly Care'
@@ -73,7 +73,7 @@ const GALLERY_ITEMS = [
     category: 'Indoor Play Area',
     title: 'Indoor Movement & Play',
     subtitle: 'Dedicated space for movement, social play, group cooperation and joyful activities',
-    image: '/images/bg-hero-activities.jpg',
+    image: '/media/nursery/nursery-1.jpg',
     tag: 'Indoor Play',
     tagColor: '#9333ea',
     age: 'Active Play'
@@ -84,7 +84,7 @@ const GALLERY_ITEMS = [
     category: 'Early EYFS Learning',
     title: 'Early Numeracy & Phonics',
     subtitle: 'Counting, sorting, shapes, patterns and practical games supporting early learning',
-    image: '/images/bg-hero-programs.jpg',
+    image: '/media/preschool/preschool-2.jpg',
     tag: 'EYFS Readiness',
     tagColor: '#0369a1',
     age: 'Learning Through Play'
@@ -95,7 +95,7 @@ const GALLERY_ITEMS = [
     category: 'Safe Campus & Facilities',
     title: 'Safe Classrooms & CCTV',
     subtitle: 'Child-friendly spaces with controlled reception, rounded fittings and 24/7 CCTV',
-    image: '/images/bg-hero-villa.jpg',
+    image: '/media/nursery/nursery-3.jpg',
     tag: 'Safe Campus',
     tagColor: '#059669',
     age: 'Villa 47 Ajman'

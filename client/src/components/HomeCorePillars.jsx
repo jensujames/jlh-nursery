@@ -139,7 +139,7 @@ export default function HomeCorePillars() {
   return (
     <StickyParallaxSection 
       id="about" 
-      bgImage="/images/bg-botanical.jpg"
+      bgImage="/media/eyfs/eyfs-7.jpg"
       bgColor="#f7faf7"
       overlayGradient="linear-gradient(180deg, rgba(247, 250, 247, 0.88) 0%, rgba(255, 255, 255, 0.82) 50%, rgba(247, 250, 247, 0.90) 100%)"
       floatingElements={botanicalFloatingElements}

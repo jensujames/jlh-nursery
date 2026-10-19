@@ -8,7 +8,7 @@ export default function LuxuryPageHero({
   badgeIcon: BadgeIcon = Sparkles,
   title,
   description,
-  image = "/images/hero-about.jpg",
+  image = "/media/eyfs/eyfs-1.jpg",
   imageAlt = "Just Like Home Nursery in Ajman",
   imageBadgeTitle = "Villa No. 47, Al Rashidiya 2",
   imageBadgeSubtitle = "Where Little Hearts Feel at Home",

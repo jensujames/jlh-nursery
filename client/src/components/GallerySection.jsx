@@ -12,42 +12,42 @@ export default function GallerySection({ onBookVisitClick }) {
   const photos = [
     {
       id: 1,
-      src: "/images/hero.jpg",
+      src: "/media/nursery/nursery-1.jpg",
       category: "learning",
       title: "Purposeful Wooden Block Learning",
       desc: "Children developing spatial awareness and social communication with our warm educator."
     },
     {
       id: 2,
-      src: "/images/classroom.jpg",
+      src: "/media/school-readiness/school-readiness-1.jpg",
       category: "classrooms",
-      title: "Scandinavian Inspired Classroom",
-      desc: "Sunlit space with reading teepee, low bookshelves, and child-safe wooden puzzles."
+      title: "Sunlit Learning Classroom",
+      desc: "Sunlit space with child-height bookshelves and child-safe wooden activities."
     },
     {
       id: 3,
-      src: "/images/outdoor.jpg",
+      src: "/media/daycare/daycare-4.jpg",
       category: "outdoor",
       title: "Shaded Outdoor Play Garden",
-      desc: "Safe UV canopies, wooden playhouse, sensory water station, and synthetic grass."
+      desc: "Safe UV canopies, activity station, and synthetic grass in our private villa garden."
     },
     {
       id: 4,
-      src: "/images/classroom.jpg",
+      src: "/media/eyfs/eyfs-5.jpg",
       category: "learning",
-      title: "Cozy Story Corner & Mini Library",
+      title: "Cozy Story Corner & Phonics Circle",
       desc: "Children enjoying imaginative picture books and rhythmic group reading sessions."
     },
     {
       id: 5,
-      src: "/images/hero.jpg",
+      src: "/media/preschool/preschool-3.jpg",
       category: "creative",
       title: "Sensory & Tactile Discovery",
       desc: "Young minds investigating varied textures and building coordination."
     },
     {
       id: 6,
-      src: "/images/outdoor.jpg",
+      src: "/media/nursery/nursery-9.jpg",
       category: "outdoor",
       title: "Active Movement & Fresh Air",
       desc: "Toddlers exploring balance and gross-motor skills in our shaded villa garden."
