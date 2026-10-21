@@ -133,7 +133,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Arts & Creativity',
       desc: 'Painting, drawing, collage and making give children freedom to express ideas while developing fine-motor skills.',
-      image: '/media/preschool/preschool-3.jpg',
+      image: '/media/school-readiness/school-readiness-4.jpg',
       tag: 'Art & Expression',
       icon: Smile,
       color: '#d97706',
@@ -173,7 +173,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Life Skills & Independence',
       desc: 'Practical routines encourage responsibility, self-help skills, good manners and confidence.',
-      image: '/media/school-readiness/school-readiness-4.jpg',
+      image: '/media/school-readiness/school-readiness-7.jpg',
       tag: 'Life Skills',
       icon: ShieldCheck,
       color: '#721024',

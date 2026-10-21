@@ -288,9 +288,9 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         bg: "#edf7e8",
         accent: "#2e7d32"
       },
-      smallImage: "/media/school-readiness/school-readiness-3.jpg",
-      smallAlt: "Happy child exploring sensory wooden toys and learning games",
-      smallImgPos: "center 10%",
+      smallImage: "/media/eyfs/eyfs-6.jpg",
+      smallAlt: "Caring nursery educator guiding children through engaging sensory exploration",
+      smallImgPos: "center 55%",
       tallImgPos: "center 20%",
       tallImage: "/media/nursery/nursery-1.jpg",
       tallAlt: "Joyful smiling child happily playing with colorful toys"
@@ -3192,7 +3192,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                                       width: '100%',
                                       height: '100%',
                                       objectFit: 'cover',
-                                      objectPosition: item.smallImgPos || (idx === 0 ? 'center 10%' : 'center'),
+                                      objectPosition: item.smallImgPos || 'center',
                                       display: 'block'
                                     }}
                                   />
