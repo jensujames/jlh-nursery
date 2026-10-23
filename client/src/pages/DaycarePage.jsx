@@ -28,7 +28,7 @@ export default function DaycarePage() {
         badgeIcon={Clock}
         title="Flexible Care With a Consistent Sense of Belonging"
         description="Families have different schedules, but every child needs consistency, reassurance and meaningful experiences throughout the day. Our full-day and half-day options are designed to provide a caring routine while supporting learning, play, rest and social development."
-        image="/media/daycare/daycare-1.jpg"
+        image="/media/daycare/daycare-3.jpg"
         imageAlt="Full-day and half-day daycare at Just Like Home Nursery"
         primaryCtaText="Check Availability"
         primaryLink="/contact"

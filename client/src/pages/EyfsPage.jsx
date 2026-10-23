@@ -12,37 +12,51 @@ const DEVELOPMENT_AREAS = [
   {
     title: 'Communication & Language',
     desc: 'Conversations, stories, rhymes and responsive interactions help children listen, understand and express themselves.',
-    icon: MessageCircle
+    icon: MessageCircle,
+    image: '/media/eyfs/eyfs-5.jpg',
+    imageAlt: 'Communication and story circle at Just Like Home Nursery'
   },
   {
     title: 'Personal, Social & Emotional Development',
     desc: 'Warm relationships and group experiences help children develop confidence, emotional awareness, cooperation and a sense of belonging.',
-    icon: Heart
+    icon: Heart,
+    image: '/media/life-skills/life-skills-2.jpg',
+    imageAlt: 'Social collaboration and emotional confidence'
   },
   {
     title: 'Physical Development',
     desc: 'Indoor and outdoor movement, fine-motor activities and everyday self-care strengthen coordination and independence.',
-    icon: Dumbbell
+    icon: Dumbbell,
+    image: '/media/physical-play/physical-2.jpg',
+    imageAlt: 'Active physical play in shaded nursery playground'
   },
   {
     title: 'Literacy',
     desc: 'Stories, sounds, marks, letters and playful phonics experiences support early reading and writing foundations.',
-    icon: BookOpen
+    icon: BookOpen,
+    image: '/media/phonics-literacy/phonics-horizontal.jpg',
+    imageAlt: 'Early literacy and letter recognition activities'
   },
   {
     title: 'Mathematics',
     desc: 'Children explore counting, quantities, shapes, patterns, comparison and problem-solving in meaningful play.',
-    icon: Calculator
+    icon: Calculator,
+    image: '/media/early-numeracy/numeracy-2.jpg',
+    imageAlt: 'Hands-on mathematics and shape sorting'
   },
   {
     title: 'Understanding the World',
     desc: 'Hands-on exploration encourages children to observe, question and connect with people, places, nature and everyday life.',
-    icon: Globe2
+    icon: Globe2,
+    image: '/media/eyfs/eyfs-4.jpg',
+    imageAlt: 'Sensory water and texture exploration'
   },
   {
     title: 'Expressive Arts & Design',
     desc: 'Art, music, movement, role play and imaginative experiences give children ways to create and communicate ideas.',
-    icon: Palette
+    icon: Palette,
+    image: '/media/art-creativity/art-4.jpg',
+    imageAlt: 'Creative art atelier and imaginative design'
   }
 ];
 
@@ -168,7 +182,62 @@ export default function EyfsPage({ onBookVisitClick }) {
                     }}
                   >
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
-                    <div className="luxury-icon-box luxury-icon-burgundy" style={{ marginBottom: '20px' }}>
+                    
+                    {/* Authentic EYFS Area Photo */}
+                    {area.image && (
+                      <div
+                        style={{
+                          width: '100%',
+                          height: '190px',
+                          borderRadius: '1.25rem',
+                          overflow: 'hidden',
+                          marginBottom: '20px',
+                          position: 'relative',
+                          boxShadow: '0 8px 20px rgba(0, 0, 0, 0.08)',
+                          backgroundColor: '#f1f5f9'
+                        }}
+                      >
+                        <img
+                          src={area.image}
+                          alt={area.imageAlt || area.title}
+                          loading="lazy"
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            display: 'block'
+                          }}
+                        />
+                        <div
+                          style={{
+                            position: 'absolute',
+                            inset: 0,
+                            background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 60%)',
+                            pointerEvents: 'none'
+                          }}
+                        />
+                        <span
+                          style={{
+                            position: 'absolute',
+                            bottom: '10px',
+                            left: '12px',
+                            backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                            backdropFilter: 'blur(8px)',
+                            color: '#721024',
+                            fontSize: '11px',
+                            fontWeight: '800',
+                            padding: '3px 10px',
+                            borderRadius: '999px',
+                            letterSpacing: '0.3px',
+                            boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
+                          }}
+                        >
+                          EYFS Growth Pillar
+                        </span>
+                      </div>
+                    )}
+
+                    <div className="luxury-icon-box luxury-icon-burgundy" style={{ marginBottom: '18px' }}>
                       <Icon size={26} />
                     </div>
                     <h3

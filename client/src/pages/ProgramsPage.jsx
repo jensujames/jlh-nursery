@@ -15,7 +15,9 @@ const PROGRAMS = [
     icon: Baby,
     color: '#721024',
     bgColor: '#FFF1F2',
-    link: '/eyfs-learning'
+    link: '/eyfs-learning',
+    image: '/media/eyfs/eyfs-4.jpg',
+    imageAlt: 'Early Years Foundation sensory discovery at Just Like Home'
   },
   {
     title: 'Nursery Program',
@@ -23,7 +25,9 @@ const PROGRAMS = [
     icon: Sparkles,
     color: '#721024',
     bgColor: '#FFF1F2',
-    link: '/nursery-activities'
+    link: '/nursery-activities',
+    image: '/media/nursery/nursery-1.jpg',
+    imageAlt: 'Nursery Program interactive play and motor development'
   },
   {
     title: 'Preschool Program',
@@ -31,7 +35,9 @@ const PROGRAMS = [
     icon: BookOpen,
     color: '#721024',
     bgColor: '#FFF1F2',
-    link: '/contact'
+    link: '/preschool-school-readiness',
+    image: '/media/preschool/preschool-3.jpg',
+    imageAlt: 'Preschool literacy and bilingual learning'
   },
   {
     title: 'School Readiness',
@@ -39,7 +45,9 @@ const PROGRAMS = [
     icon: GraduationCap,
     color: '#721024',
     bgColor: '#FFF1F2',
-    link: '/contact'
+    link: '/preschool-school-readiness',
+    image: '/media/school-readiness/school-readiness-4.jpg',
+    imageAlt: 'School readiness classroom routines and pencil grip'
   },
   {
     title: 'Full-Day & Half-Day Care',
@@ -47,7 +55,9 @@ const PROGRAMS = [
     icon: Clock,
     color: '#721024',
     bgColor: '#FFF1F2',
-    link: '/contact'
+    link: '/daycare-ajman',
+    image: '/media/daycare/daycare-3.jpg',
+    imageAlt: 'Daycare comfort and resting sanctuary'
   },
   {
     title: 'Winter & Summer Camps',
@@ -55,7 +65,9 @@ const PROGRAMS = [
     icon: Sun,
     color: '#721024',
     bgColor: '#FFF1F2',
-    link: '/camps'
+    link: '/camps',
+    image: '/media/physical-play/physical-1.jpg',
+    imageAlt: 'Seasonal camps outdoor exploration and games'
   }
 ];
 
@@ -221,7 +233,61 @@ export default function ProgramsPage({ onBookVisitClick }) {
                   >
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
                     <div>
-                      <div className="luxury-icon-box luxury-icon-burgundy" style={{ marginBottom: '22px' }}>
+                      {/* Authentic Program Photo */}
+                      {prog.image && (
+                        <div
+                          style={{
+                            width: '100%',
+                            height: '190px',
+                            borderRadius: '1.25rem',
+                            overflow: 'hidden',
+                            marginBottom: '20px',
+                            position: 'relative',
+                            boxShadow: '0 8px 20px rgba(0, 0, 0, 0.08)',
+                            backgroundColor: '#f1f5f9'
+                          }}
+                        >
+                          <img
+                            src={prog.image}
+                            alt={prog.imageAlt || prog.title}
+                            loading="lazy"
+                            style={{
+                              width: '100%',
+                              height: '100%',
+                              objectFit: 'cover',
+                              display: 'block'
+                            }}
+                          />
+                          <div
+                            style={{
+                              position: 'absolute',
+                              inset: 0,
+                              background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 60%)',
+                              pointerEvents: 'none'
+                            }}
+                          />
+                          <span
+                            style={{
+                              position: 'absolute',
+                              bottom: '10px',
+                              left: '12px',
+                              backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                              backdropFilter: 'blur(8px)',
+                              color: '#721024',
+                              fontSize: '11px',
+                              fontWeight: '800',
+                              padding: '3px 10px',
+                              borderRadius: '999px',
+                              letterSpacing: '0.3px',
+                              boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
+                            }}
+                          >
+                            JLH Certified Program
+                          </span>
+                        </div>
+                      )}
+
+                      <div className="luxury-icon-box luxury-icon-burgundy" style={{ marginBottom: '18px' }}>
                         <Icon size={26} />
                       </div>
                       <h3

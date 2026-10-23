@@ -16,7 +16,9 @@ const FACILITIES = [
     icon: Building2,
     color: '#721024',
     gradient: 'linear-gradient(90deg, #721024, #F15A29)',
-    border: 'rgba(114, 16, 36, 0.22)'
+    border: 'rgba(114, 16, 36, 0.22)',
+    image: '/media/nursery/nursery-4.jpg',
+    imageAlt: 'Sunlit safe classroom at Just Like Home Nursery'
   },
   {
     title: 'Indoor Play Area',
@@ -24,7 +26,9 @@ const FACILITIES = [
     icon: Sparkles,
     color: '#d97706',
     gradient: 'linear-gradient(90deg, #d97706, #f59e0b)',
-    border: 'rgba(217, 119, 6, 0.22)'
+    border: 'rgba(217, 119, 6, 0.22)',
+    image: '/media/nursery/nursery-1.jpg',
+    imageAlt: 'Indoor active play and wooden block station'
   },
   {
     title: 'Outdoor Play Area',
@@ -32,7 +36,9 @@ const FACILITIES = [
     icon: Trees,
     color: '#059669',
     gradient: 'linear-gradient(90deg, #059669, #10b981)',
-    border: 'rgba(5, 150, 105, 0.22)'
+    border: 'rgba(5, 150, 105, 0.22)',
+    image: '/media/physical-play/physical-1.jpg',
+    imageAlt: 'Safe shaded outdoor playground with climbing and slides'
   },
   {
     title: 'Baby Care & Quiet Room',
@@ -40,7 +46,9 @@ const FACILITIES = [
     icon: Moon,
     color: '#8b5cf6',
     gradient: 'linear-gradient(90deg, #8b5cf6, #a855f7)',
-    border: 'rgba(139, 92, 246, 0.22)'
+    border: 'rgba(139, 92, 246, 0.22)',
+    image: '/media/daycare/daycare-3.jpg',
+    imageAlt: 'Sanitized cots and peaceful quiet sleeping room'
   },
   {
     title: 'Sensory & Exploration Spaces',
@@ -48,7 +56,9 @@ const FACILITIES = [
     icon: Sparkles,
     color: '#0d9488',
     gradient: 'linear-gradient(90deg, #0d9488, #14b8a6)',
-    border: 'rgba(13, 148, 136, 0.22)'
+    border: 'rgba(139, 92, 246, 0.22)',
+    image: '/media/eyfs/eyfs-2.jpg',
+    imageAlt: 'Sensory water and texture exploration trays'
   },
   {
     title: 'Reading & Story Corner',
@@ -56,7 +66,9 @@ const FACILITIES = [
     icon: BookOpen,
     color: '#0284c7',
     gradient: 'linear-gradient(90deg, #0284c7, #38bdf8)',
-    border: 'rgba(2, 132, 199, 0.22)'
+    border: 'rgba(2, 132, 199, 0.22)',
+    image: '/media/phonics-literacy/phonics-horizontal.jpg',
+    imageAlt: 'Interactive picture book reading corner'
   },
   {
     title: 'Life-Skills Activity Areas',
@@ -64,7 +76,9 @@ const FACILITIES = [
     icon: Award,
     color: '#ea580c',
     gradient: 'linear-gradient(90deg, #ea580c, #f97316)',
-    border: 'rgba(234, 88, 12, 0.22)'
+    border: 'rgba(234, 88, 12, 0.22)',
+    image: '/media/life-skills/life-skills-2.jpg',
+    imageAlt: 'Practical life skills and organizing personal belongings'
   },
   {
     title: 'Child-Friendly Washrooms',
@@ -142,7 +156,7 @@ export default function FacilitiesPage({ onBookVisitClick }) {
         badgeIcon={ShieldCheck}
         title="A Safe, Welcoming Space Created for Little Learners"
         description="Children feel more confident when their environment is comfortable, predictable and designed around their needs. Our nursery spaces support active play, focused discovery, social interaction, rest and everyday routines."
-        image="/media/nursery/nursery-3.jpg"
+        image="/media/nursery/nursery-1.jpg"
         imageAlt="Facilities and Safety at Just Like Home Nursery Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"
@@ -244,6 +258,60 @@ export default function FacilitiesPage({ onBookVisitClick }) {
                   >
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: facility.gradient }} />
                     
+                    {/* Authentic Facility Space Photo */}
+                    {facility.image && (
+                      <div
+                        style={{
+                          width: '100%',
+                          height: '180px',
+                          borderRadius: '1.25rem',
+                          overflow: 'hidden',
+                          marginBottom: '20px',
+                          position: 'relative',
+                          boxShadow: '0 8px 20px rgba(0, 0, 0, 0.08)',
+                          backgroundColor: '#f1f5f9'
+                        }}
+                      >
+                        <img
+                          src={facility.image}
+                          alt={facility.imageAlt || facility.title}
+                          loading="lazy"
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            display: 'block'
+                          }}
+                        />
+                        <div
+                          style={{
+                            position: 'absolute',
+                            inset: 0,
+                            background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 60%)',
+                            pointerEvents: 'none'
+                          }}
+                        />
+                        <span
+                          style={{
+                            position: 'absolute',
+                            bottom: '10px',
+                            left: '12px',
+                            backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                            backdropFilter: 'blur(8px)',
+                            color: facility.color,
+                            fontSize: '11px',
+                            fontWeight: '800',
+                            padding: '3px 10px',
+                            borderRadius: '999px',
+                            letterSpacing: '0.3px',
+                            boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
+                          }}
+                        >
+                          Villa 47 Space
+                        </span>
+                      </div>
+                    )}
+
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
                       <div
                         className="luxury-icon-box"

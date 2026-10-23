@@ -103,7 +103,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Phonics & Literacy',
       desc: 'Sounds, songs, stories, conversation and mark-making help develop listening, vocabulary and early literacy.',
-      image: '/media/preschool/preschool-1.jpg',
+      image: '/media/phonics-literacy/phonics-horizontal.jpg',
       tag: 'Phonics & Reading',
       icon: BookOpen,
       color: '#721024',
@@ -113,7 +113,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Early Numeracy',
       desc: 'Counting, sorting, matching, shapes, patterns and practical games make mathematical ideas easier to understand.',
-      image: '/media/school-readiness/school-readiness-3.jpg',
+      image: '/media/early-numeracy/numeracy-2.jpg',
       tag: 'Numbers & Logic',
       icon: Sparkles,
       color: '#0284c7',
@@ -123,7 +123,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Arabic Learning',
       desc: 'Age-appropriate Arabic experiences introduce children to language through engaging activities and familiar repetition.',
-      image: '/media/preschool/preschool-4.jpg',
+      image: '/media/arabic/arabic-horizontal.jpg',
       tag: 'Arabic Language',
       icon: Compass,
       color: '#16a34a',
@@ -133,7 +133,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Arts & Creativity',
       desc: 'Painting, drawing, collage and making give children freedom to express ideas while developing fine-motor skills.',
-      image: '/media/school-readiness/school-readiness-4.jpg',
+      image: '/media/art-creativity/art-4.jpg',
       tag: 'Art & Expression',
       icon: Smile,
       color: '#d97706',
@@ -143,7 +143,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Music, Rhymes & Stories',
       desc: 'Books, songs and rhythm strengthen memory, listening, language and joyful participation.',
-      image: '/media/eyfs/eyfs-5.jpg',
+      image: '/media/music-stories/music-horizontal.jpg',
       tag: 'Music & Stories',
       icon: Heart,
       color: '#e11d48',
@@ -153,7 +153,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Sensory Exploration',
       desc: 'Hands-on play invites children to investigate textures, materials, movement, cause and effect.',
-      image: '/media/eyfs/eyfs-7.jpg',
+      image: '/media/eyfs/eyfs-4.jpg',
       tag: 'Sensory Lab',
       icon: Baby,
       color: '#0d9488',
@@ -163,7 +163,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Physical & Outdoor Play',
       desc: 'Movement supports coordination, strength, balance, confidence and healthy habits.',
-      image: '/media/daycare/daycare-4.jpg',
+      image: '/media/physical-play/physical-1.jpg',
       tag: 'Outdoor Movement',
       icon: Sun,
       color: '#ea580c',
@@ -173,7 +173,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Life Skills & Independence',
       desc: 'Practical routines encourage responsibility, self-help skills, good manners and confidence.',
-      image: '/media/school-readiness/school-readiness-7.jpg',
+      image: '/media/life-skills/life-skills-2.jpg',
       tag: 'Life Skills',
       icon: ShieldCheck,
       color: '#721024',

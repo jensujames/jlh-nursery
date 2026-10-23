@@ -9,17 +9,24 @@ import {
 } from 'lucide-react';
 
 const FILTERS = [
-  { id: 'all', label: 'All Photos (39)' },
+  { id: 'all', label: 'All Photos (82)' },
   { id: 'eyfs', label: 'Early Years Foundation' },
   { id: 'nursery', label: 'Nursery Program' },
   { id: 'preschool', label: 'Preschool' },
   { id: 'school-readiness', label: 'School Readiness' },
+  { id: 'arabic', label: 'Arabic Immersion' },
+  { id: 'art-creativity', label: 'Art & Creativity' },
+  { id: 'early-numeracy', label: 'Early Numeracy & Math' },
+  { id: 'phonics-literacy', label: 'Phonics & Literacy' },
+  { id: 'physical-play', label: 'Physical & Outdoor Play' },
+  { id: 'life-skills', label: 'Life Skills & Independence' },
+  { id: 'music-stories', label: 'Music & Stories' },
   { id: 'daycare', label: 'Daycare & Care' },
   { id: 'send', label: 'SEND Support' }
 ];
 
 const GALLERY_IMAGES = [
-  // Early Years Foundation
+  // 1. Early Years Foundation (10)
   { src: '/media/eyfs/eyfs-1.jpg', category: 'eyfs', caption: 'Early Years sensory exploration and joyful discovery.', alt: 'Early Years Foundation discovery' },
   { src: '/media/eyfs/eyfs-2.jpg', category: 'eyfs', caption: 'Engaged small group activities fostering communication.', alt: 'Early Years collaborative activity' },
   { src: '/media/eyfs/eyfs-3.jpg', category: 'eyfs', caption: 'Creative tactile learning in a bright, child-friendly environment.', alt: 'Tactile learning' },
@@ -31,7 +38,7 @@ const GALLERY_IMAGES = [
   { src: '/media/eyfs/eyfs-9.jpg', category: 'eyfs', caption: 'Gentle educator guidance and supportive routines.', alt: 'Educator guidance' },
   { src: '/media/eyfs/eyfs-10.jpg', category: 'eyfs', caption: 'Joyful celebrations and daily learning milestones.', alt: 'Daily learning moments' },
 
-  // Nursery Program
+  // 2. Nursery Program (9)
   { src: '/media/nursery/nursery-1.jpg', category: 'nursery', caption: 'Nursery program interactive play and motor development.', alt: 'Nursery program active play' },
   { src: '/media/nursery/nursery-2.jpg', category: 'nursery', caption: 'Purposeful wooden blocks and spatial construction.', alt: 'Wooden block construction' },
   { src: '/media/nursery/nursery-3.jpg', category: 'nursery', caption: 'Safe indoor classrooms with natural light and safety fittings.', alt: 'Sunlit nursery classroom' },
@@ -42,7 +49,7 @@ const GALLERY_IMAGES = [
   { src: '/media/nursery/nursery-8.jpg', category: 'nursery', caption: 'Concentration and cognitive problem-solving games.', alt: 'Cognitive problem solving' },
   { src: '/media/nursery/nursery-9.jpg', category: 'nursery', caption: 'Outdoor garden exploration and energetic play.', alt: 'Outdoor garden movement' },
 
-  // Preschool Program
+  // 3. Preschool Program (6)
   { src: '/media/preschool/preschool-1.jpg', category: 'preschool', caption: 'Preschool literacy and phonics sound recognition.', alt: 'Preschool phonics and literacy' },
   { src: '/media/preschool/preschool-2.jpg', category: 'preschool', caption: 'Early numeracy counting and mathematical sorting.', alt: 'Early numeracy counting' },
   { src: '/media/preschool/preschool-3.jpg', category: 'preschool', caption: 'Creative art studio: Painting, collage, and imagination.', alt: 'Preschool art atelier' },
@@ -50,7 +57,7 @@ const GALLERY_IMAGES = [
   { src: '/media/preschool/preschool-5.jpg', category: 'preschool', caption: 'Science discovery and simple hands-on experiments.', alt: 'Preschool science discovery' },
   { src: '/media/preschool/preschool-6.jpg', category: 'preschool', caption: 'Group collaboration and table manners routines.', alt: 'Table routines and manners' },
 
-  // School Readiness
+  // 4. School Readiness (8)
   { src: '/media/school-readiness/school-readiness-1.jpg', category: 'school-readiness', caption: 'Primary school transition: Pre-writing pencil grip practice.', alt: 'Pre-writing skills' },
   { src: '/media/school-readiness/school-readiness-2.jpg', category: 'school-readiness', caption: 'Structured listening routines and following instructions.', alt: 'Listening routines' },
   { src: '/media/school-readiness/school-readiness-3.jpg', category: 'school-readiness', caption: 'Numeracy challenges: Shapes, geometry, and measurements.', alt: 'Numeracy challenges' },
@@ -60,13 +67,70 @@ const GALLERY_IMAGES = [
   { src: '/media/school-readiness/school-readiness-7.jpg', category: 'school-readiness', caption: 'Inquiry-based question time and conversational skills.', alt: 'Conversational skills' },
   { src: '/media/school-readiness/school-readiness-8.jpg', category: 'school-readiness', caption: 'Proud school-ready learners celebrating progress.', alt: 'School ready learners' },
 
-  // Daycare
+  // 5. Arabic Immersion (6)
+  { src: '/media/arabic/arabic-1.jpg', category: 'arabic', caption: 'Arabic alphabet and phonics letter recognition with sensory flashcards.', alt: 'Arabic letter recognition flashcards' },
+  { src: '/media/arabic/arabic-2.jpg', category: 'arabic', caption: 'Hands-on Arabic vocabulary building through playful object associations.', alt: 'Hands-on Arabic vocabulary building' },
+  { src: '/media/arabic/arabic-3.jpg', category: 'arabic', caption: 'Bilingual conversational storytelling circles in Arabic and English.', alt: 'Bilingual conversational storytelling' },
+  { src: '/media/arabic/arabic-4.jpg', category: 'arabic', caption: 'Early Arabic mark-making and letter formation practice.', alt: 'Early Arabic mark making' },
+  { src: '/media/arabic/arabic-5.jpg', category: 'arabic', caption: 'Interactive Arabic learning games encouraging peer communication.', alt: 'Interactive Arabic learning games' },
+  { src: '/media/arabic/arabic-6.jpg', category: 'arabic', caption: 'Cultural heritage celebrations and joyful Arabic rhymes.', alt: 'Cultural heritage celebrations and Arabic rhymes' },
+
+  // 6. Art & Creativity (8)
+  { src: '/media/art-creativity/art-1.jpg', category: 'art-creativity', caption: 'Vibrant easel painting and expressive color mixing in the atelier.', alt: 'Easel painting in art atelier' },
+  { src: '/media/art-creativity/art-2.jpg', category: 'art-creativity', caption: 'Collage and multimedia craft projects encouraging imaginative vision.', alt: 'Collage and multimedia crafts' },
+  { src: '/media/art-creativity/art-3.jpg', category: 'art-creativity', caption: 'Tactile finger painting and sensory texture discovery.', alt: 'Tactile finger painting' },
+  { src: '/media/art-creativity/art-4.jpg', category: 'art-creativity', caption: 'Little artists exploring clay modeling, shapes, and sculpting.', alt: 'Clay modeling and sculpting' },
+  { src: '/media/art-creativity/art-5.jpg', category: 'art-creativity', caption: 'Fine-motor brush strokes and collaborative mural painting.', alt: 'Collaborative mural painting' },
+  { src: '/media/art-creativity/art-6.jpg', category: 'art-creativity', caption: 'Handmade seasonal crafts and creative holiday keepsakes.', alt: 'Handmade seasonal crafts' },
+  { src: '/media/art-creativity/art-7.jpg', category: 'art-creativity', caption: 'Exploring nature-inspired prints and leaf rubbings.', alt: 'Nature inspired art prints' },
+  { src: '/media/art-creativity/art-8.jpg', category: 'art-creativity', caption: 'Proud young creators showcasing their completed gallery masterpieces.', alt: 'Showcasing completed art masterpieces' },
+
+  // 7. Early Numeracy & Math (10)
+  { src: '/media/early-numeracy/numeracy-1.jpg', category: 'early-numeracy', caption: 'Hands-on counting pegs and early quantitative matching.', alt: 'Hands-on counting pegs' },
+  { src: '/media/early-numeracy/numeracy-2.jpg', category: 'early-numeracy', caption: 'Geometric 2D and 3D shape sorting with colorful solid blocks.', alt: 'Geometric shape sorting' },
+  { src: '/media/early-numeracy/numeracy-3.jpg', category: 'early-numeracy', caption: 'Pattern sequencing and color correlation puzzles.', alt: 'Pattern sequencing and sorting' },
+  { src: '/media/early-numeracy/numeracy-4.jpg', category: 'early-numeracy', caption: 'Exploring weight, balance, and spatial measurement scales.', alt: 'Weight and balance scales' },
+  { src: '/media/early-numeracy/numeracy-5.jpg', category: 'early-numeracy', caption: 'Interactive number line challenges and numerical sequencing.', alt: 'Interactive number line challenges' },
+  { src: '/media/early-numeracy/numeracy-6.jpg', category: 'early-numeracy', caption: 'Tactile abacus bead counting and basic addition concepts.', alt: 'Tactile abacus bead counting' },
+  { src: '/media/early-numeracy/numeracy-7.jpg', category: 'early-numeracy', caption: 'Comparing sizes, lengths, and dimensional problem-solving.', alt: 'Comparing sizes and lengths' },
+  { src: '/media/early-numeracy/numeracy-8.jpg', category: 'early-numeracy', caption: 'Math games connecting numbers with everyday real-world objects.', alt: 'Everyday math connections' },
+  { src: '/media/early-numeracy/numeracy-9.jpg', category: 'early-numeracy', caption: 'Peer collaboration on large-format counting puzzles.', alt: 'Collaborative counting puzzles' },
+  { src: '/media/early-numeracy/numeracy-10.jpg', category: 'early-numeracy', caption: 'Joyful celebration of early mathematical discovery milestones.', alt: 'Math milestone celebrations' },
+
+  // 8. Phonics & Literacy (6)
+  { src: '/media/phonics-literacy/phonics-1.jpg', category: 'phonics-literacy', caption: 'Letter sound blending and synthetic phonics flashcard games.', alt: 'Synthetic phonics flashcard games' },
+  { src: '/media/phonics-literacy/phonics-2.jpg', category: 'phonics-literacy', caption: 'Pre-writing mark making: Sand tracing and tactile alphabet letters.', alt: 'Sand tracing tactile letters' },
+  { src: '/media/phonics-literacy/phonics-3.jpg', category: 'phonics-literacy', caption: 'Interactive picture book reading and story character discussions.', alt: 'Picture book reading' },
+  { src: '/media/phonics-literacy/phonics-4.jpg', category: 'phonics-literacy', caption: 'Rhyme recognition and phonological awareness listening circles.', alt: 'Rhyme recognition circles' },
+  { src: '/media/phonics-literacy/phonics-5.jpg', category: 'phonics-literacy', caption: 'Matching uppercase and lowercase alphabet puzzles with peers.', alt: 'Alphabet uppercase lowercase matching' },
+  { src: '/media/phonics-literacy/phonics-6.jpg', category: 'phonics-literacy', caption: 'Early emergent reading confidence with guided educator support.', alt: 'Guided emergent reading' },
+
+  // 9. Physical & Outdoor Play (8)
+  { src: '/media/physical-play/physical-1.jpg', category: 'physical-play', caption: 'Gross motor coordination on our safe, shaded outdoor playground.', alt: 'Outdoor shaded playground play' },
+  { src: '/media/physical-play/physical-2.jpg', category: 'physical-play', caption: 'Balance beam steps and body spatial awareness obstacle courses.', alt: 'Balance beam obstacle course' },
+  { src: '/media/physical-play/physical-3.jpg', category: 'physical-play', caption: 'Tricycle riding and gentle navigation on the garden track.', alt: 'Tricycle riding track' },
+  { src: '/media/physical-play/physical-4.jpg', category: 'physical-play', caption: 'Active slide play, climbing frames, and joyful outdoor laughter.', alt: 'Climbing frames and slides' },
+  { src: '/media/physical-play/physical-5.jpg', category: 'physical-play', caption: 'Ball skills: Throwing, catching, and cooperative team movement.', alt: 'Ball skills and cooperative play' },
+  { src: '/media/physical-play/physical-6.jpg', category: 'physical-play', caption: 'Sensory nature garden strolls and fresh air exploration.', alt: 'Nature garden fresh air strolls' },
+  { src: '/media/physical-play/physical-7.jpg', category: 'physical-play', caption: 'Parachute games building teamwork, rhythm, and agility.', alt: 'Parachute teamwork games' },
+  { src: '/media/physical-play/physical-8.jpg', category: 'physical-play', caption: 'Energetic group dances and rhythmic movement exercises.', alt: 'Rhythmic group dance movement' },
+
+  // 10. Life Skills & Independence (4)
+  { src: '/media/life-skills/life-skills-1.jpg', category: 'life-skills', caption: 'Developing self-help independence: Organizing personal nursery bags and shoes.', alt: 'Organizing personal bags and shoes' },
+  { src: '/media/life-skills/life-skills-2.jpg', category: 'life-skills', caption: 'Hygienic hand-washing routines and healthy daily habits.', alt: 'Hand washing and healthy hygiene routines' },
+  { src: '/media/life-skills/life-skills-3.jpg', category: 'life-skills', caption: 'Table manners, respectful peer sharing, and tidy-up time cooperation.', alt: 'Table manners and tidy up cooperation' },
+  { src: '/media/life-skills/life-skills-4.jpg', category: 'life-skills', caption: 'Practicing coat zipping, shoe buckles, and motor autonomy.', alt: 'Coat zipping and fine motor autonomy' },
+
+  // 11. Music, Rhymes & Stories (1)
+  { src: '/media/music-stories/music-1.jpg', category: 'music-stories', caption: 'Music circle time: Rhythm sticks, percussion instruments, and joyful singing.', alt: 'Music circle and percussion instruments' },
+
+  // 12. Daycare & Rest (4)
   { src: '/media/daycare/daycare-1.jpg', category: 'daycare', caption: 'Flexible full-day care in a warm home-away-from-home environment.', alt: 'Full day care comfort' },
   { src: '/media/daycare/daycare-2.jpg', category: 'daycare', caption: 'Nutritious snack time and gentle social habits.', alt: 'Nutritious snack time' },
   { src: '/media/daycare/daycare-3.jpg', category: 'daycare', caption: 'Quiet room resting sanctuary with individual sanitized cots.', alt: 'Quiet room rest' },
   { src: '/media/daycare/daycare-4.jpg', category: 'daycare', caption: 'Afternoon enrichment, outdoor play, and peaceful pickup.', alt: 'Afternoon play' },
 
-  // SEND Support
+  // 13. SEND Support (2)
   { src: '/media/send/send-1.jpg', category: 'send', caption: 'Individualized SEND learning support with dedicated attention.', alt: 'SEND individualized learning' },
   { src: '/media/send/send-2.jpg', category: 'send', caption: 'Inclusive sensory development celebrating every child’s milestone.', alt: 'Inclusive developmental support' }
 ];
@@ -107,7 +171,7 @@ export default function GalleryPage({ onBookVisitClick }) {
         badgeIcon={Camera}
         title="A Little Look Inside Our Nursery"
         description="Discover the spaces, activities and moments that help Just Like Home Nursery feel warm, joyful and welcoming."
-        image="/media/nursery/nursery-7.jpg"
+        image="/media/nursery/nursery-1.jpg"
         imageAlt="Gallery of Just Like Home Nursery in Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"

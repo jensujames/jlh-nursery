@@ -18,7 +18,9 @@ const LEARNING_AREAS = [
     color: '#0284c7',
     gradient: 'linear-gradient(135deg, #0284c7, #38bdf8)',
     border: 'rgba(2, 132, 199, 0.22)',
-    badge: 'Core Foundation'
+    badge: 'Core Foundation',
+    image: '/media/music-stories/music-horizontal.jpg',
+    imageAlt: 'Communication and language music and story circle'
   },
   {
     number: '02',
@@ -28,7 +30,9 @@ const LEARNING_AREAS = [
     color: '#e11d48',
     gradient: 'linear-gradient(135deg, #e11d48, #fb7185)',
     border: 'rgba(225, 29, 72, 0.22)',
-    badge: 'Social & Emotional'
+    badge: 'Social & Emotional',
+    image: '/media/life-skills/life-skills-2.jpg',
+    imageAlt: 'Children learning life skills and independence routines'
   },
   {
     number: '03',
@@ -38,7 +42,9 @@ const LEARNING_AREAS = [
     color: '#ea580c',
     gradient: 'linear-gradient(135deg, #ea580c, #f97316)',
     border: 'rgba(234, 88, 12, 0.22)',
-    badge: 'Motor Skills & Health'
+    badge: 'Motor Skills & Health',
+    image: '/media/physical-play/physical-1.jpg',
+    imageAlt: 'Physical and outdoor play on the shaded playground'
   },
   {
     number: '04',
@@ -48,7 +54,9 @@ const LEARNING_AREAS = [
     color: '#721024',
     gradient: 'linear-gradient(135deg, #721024, #a5233b)',
     border: 'rgba(114, 16, 36, 0.22)',
-    badge: 'Reading & Phonics'
+    badge: 'Reading & Phonics',
+    image: '/media/phonics-literacy/phonics-horizontal.jpg',
+    imageAlt: 'Phonics and early literacy letter activities'
   },
   {
     number: '05',
@@ -58,7 +66,9 @@ const LEARNING_AREAS = [
     color: '#d97706',
     gradient: 'linear-gradient(135deg, #d97706, #f59e0b)',
     border: 'rgba(217, 119, 6, 0.22)',
-    badge: 'Numbers & Shapes'
+    badge: 'Numbers & Shapes',
+    image: '/media/early-numeracy/numeracy-2.jpg',
+    imageAlt: 'Early numeracy counting and geometric sorting'
   },
   {
     number: '06',
@@ -68,7 +78,9 @@ const LEARNING_AREAS = [
     color: '#0d9488',
     gradient: 'linear-gradient(135deg, #0d9488, #14b8a6)',
     border: 'rgba(13, 148, 136, 0.22)',
-    badge: 'Discovery & Cultures'
+    badge: 'Discovery & Cultures',
+    image: '/media/eyfs/eyfs-8.jpg',
+    imageAlt: 'Curious minds discovering nature and patterns'
   },
   {
     number: '07',
@@ -78,7 +90,9 @@ const LEARNING_AREAS = [
     color: '#8b5cf6',
     gradient: 'linear-gradient(135deg, #8b5cf6, #a855f7)',
     border: 'rgba(139, 92, 246, 0.22)',
-    badge: 'Arts & Imagination'
+    badge: 'Arts & Imagination',
+    image: '/media/art-creativity/art-4.jpg',
+    imageAlt: 'Art and creativity hands-on painting atelier'
   },
   {
     number: '08',
@@ -88,7 +102,9 @@ const LEARNING_AREAS = [
     color: '#16a34a',
     gradient: 'linear-gradient(135deg, #16a34a, #22c55e)',
     border: 'rgba(22, 163, 74, 0.22)',
-    badge: 'Language & Heritage'
+    badge: 'Language & Heritage',
+    image: '/media/arabic/arabic-horizontal.jpg',
+    imageAlt: 'Arabic language immersion and early vocabulary'
   },
   {
     number: '09',
@@ -98,7 +114,9 @@ const LEARNING_AREAS = [
     color: '#b45309',
     gradient: 'linear-gradient(135deg, #b45309, #f59e0b)',
     border: 'rgba(180, 83, 9, 0.22)',
-    badge: 'Inclusive Support'
+    badge: 'Inclusive Support',
+    image: '/media/send/send-1.jpg',
+    imageAlt: 'Dedicated SEND individual learning support'
   }
 ];
 
@@ -220,7 +238,62 @@ export default function ActivitiesPage({ onBookVisitClick }) {
                   >
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: act.gradient }} />
                     
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+                    {/* Authentic Activity Photo */}
+                    {act.image && (
+                      <div
+                        style={{
+                          width: '100%',
+                          height: '200px',
+                          borderRadius: '1.25rem',
+                          overflow: 'hidden',
+                          marginBottom: '20px',
+                          position: 'relative',
+                          boxShadow: '0 8px 20px rgba(0, 0, 0, 0.08)',
+                          backgroundColor: '#f1f5f9'
+                        }}
+                      >
+                        <img
+                          src={act.image}
+                          alt={act.imageAlt || act.title}
+                          loading="lazy"
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            display: 'block',
+                            transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)'
+                          }}
+                        />
+                        <div
+                          style={{
+                            position: 'absolute',
+                            inset: 0,
+                            background: 'linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 60%)',
+                            pointerEvents: 'none'
+                          }}
+                        />
+                        <span
+                          style={{
+                            position: 'absolute',
+                            bottom: '10px',
+                            left: '12px',
+                            backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                            backdropFilter: 'blur(8px)',
+                            color: act.color,
+                            fontSize: '11px',
+                            fontWeight: '800',
+                            padding: '3px 10px',
+                            borderRadius: '999px',
+                            letterSpacing: '0.3px',
+                            boxShadow: '0 2px 6px rgba(0,0,0,0.12)'
+                          }}
+                        >
+                          Area {act.number} · JLH Activity
+                        </span>
+                      </div>
+                    )}
+
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '18px' }}>
                       <div
                         className="luxury-icon-box"
                         style={{

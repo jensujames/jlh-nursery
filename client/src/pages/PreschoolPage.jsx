@@ -42,7 +42,7 @@ export default function PreschoolPage() {
           "Starting school is a major milestone. School readiness is not only about knowing letters and numbers; it is also about confidence, communication, independence, listening, routines and the ability to learn alongside others.",
           "Our preschool and school-readiness experiences build these foundations through purposeful play and age-appropriate learning."
         ]}
-        image="/media/preschool/preschool-1.jpg"
+        image="/media/school-readiness/school-readiness-4.jpg"
         imageAlt="Preschool and school readiness at Just Like Home Nursery"
         primaryCtaText="Book a Visit"
         primaryLink="/contact"
@@ -188,15 +188,59 @@ export default function PreschoolPage() {
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #721024, #F15A29)' }} />
+                
+                {/* Authentic Preschool Play Photo */}
+                <div
+                  style={{
+                    width: '100%',
+                    height: '210px',
+                    borderRadius: '1.25rem',
+                    overflow: 'hidden',
+                    marginBottom: '22px',
+                    position: 'relative',
+                    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.08)'
+                  }}
+                >
+                  <img
+                    src="/media/art-creativity/art-4.jpg"
+                    alt="Creative learning without losing joy at Just Like Home"
+                    loading="lazy"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block'
+                    }}
+                  />
+                  <span
+                    style={{
+                      position: 'absolute',
+                      bottom: '10px',
+                      left: '12px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                      backdropFilter: 'blur(8px)',
+                      color: '#721024',
+                      fontSize: '11px',
+                      fontWeight: '800',
+                      padding: '3px 10px',
+                      borderRadius: '999px',
+                      letterSpacing: '0.3px',
+                      boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
+                    }}
+                  >
+                    Preschool Creativity
+                  </span>
+                </div>
+
                 <div 
                   className="luxury-icon-box luxury-icon-burgundy"
                   style={{
-                    width: '60px',
-                    height: '60px',
-                    marginBottom: '20px'
+                    width: '52px',
+                    height: '52px',
+                    marginBottom: '18px'
                   }}
                 >
-                  <Smile size={28} />
+                  <Smile size={26} />
                 </div>
                 <h3 
                   style={{ 
@@ -234,15 +278,59 @@ export default function PreschoolPage() {
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #0284c7, #38bdf8)' }} />
+                
+                {/* Authentic School Readiness Photo */}
+                <div
+                  style={{
+                    width: '100%',
+                    height: '210px',
+                    borderRadius: '1.25rem',
+                    overflow: 'hidden',
+                    marginBottom: '22px',
+                    position: 'relative',
+                    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.08)'
+                  }}
+                >
+                  <img
+                    src="/media/early-numeracy/numeracy-2.jpg"
+                    alt="School readiness transition routines at Just Like Home"
+                    loading="lazy"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block'
+                    }}
+                  />
+                  <span
+                    style={{
+                      position: 'absolute',
+                      bottom: '10px',
+                      left: '12px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                      backdropFilter: 'blur(8px)',
+                      color: '#0284c7',
+                      fontSize: '11px',
+                      fontWeight: '800',
+                      padding: '3px 10px',
+                      borderRadius: '999px',
+                      letterSpacing: '0.3px',
+                      boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
+                    }}
+                  >
+                    School Readiness
+                  </span>
+                </div>
+
                 <div 
                   className="luxury-icon-box luxury-icon-sky"
                   style={{
-                    width: '60px',
-                    height: '60px',
-                    marginBottom: '20px'
+                    width: '52px',
+                    height: '52px',
+                    marginBottom: '18px'
                   }}
                 >
-                  <GraduationCap size={28} />
+                  <GraduationCap size={26} />
                 </div>
                 <h3 
                   style={{ 
