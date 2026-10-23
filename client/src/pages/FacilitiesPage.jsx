@@ -27,7 +27,7 @@ const FACILITIES = [
     color: '#d97706',
     gradient: 'linear-gradient(90deg, #d97706, #f59e0b)',
     border: 'rgba(217, 119, 6, 0.22)',
-    image: '/media/nursery/nursery-1.jpg',
+    image: '/media/nursery/nursery-2.jpg',
     imageAlt: 'Indoor active play and wooden block station'
   },
   {
@@ -86,7 +86,9 @@ const FACILITIES = [
     icon: Bath,
     color: '#06b6d4',
     gradient: 'linear-gradient(90deg, #06b6d4, #22d3ee)',
-    border: 'rgba(6, 182, 212, 0.22)'
+    border: 'rgba(6, 182, 212, 0.22)',
+    image: '/media/life-skills/life-skills-1.jpg',
+    imageAlt: 'Child-friendly washrooms and personal hygiene station'
   },
   {
     title: 'Kitchen & Meal Preparation Area',
@@ -94,7 +96,9 @@ const FACILITIES = [
     icon: Utensils,
     color: '#d97706',
     gradient: 'linear-gradient(90deg, #d97706, #f59e0b)',
-    border: 'rgba(217, 119, 6, 0.22)'
+    border: 'rgba(217, 119, 6, 0.22)',
+    image: '/media/daycare/daycare-2.jpg',
+    imageAlt: 'Clean meal preparation and nutritious snack routine area'
   },
   {
     title: 'First-Aid / Clinic Facility',
@@ -102,7 +106,9 @@ const FACILITIES = [
     icon: HeartPulse,
     color: '#e11d48',
     gradient: 'linear-gradient(90deg, #e11d48, #fb7185)',
-    border: 'rgba(225, 29, 72, 0.22)'
+    border: 'rgba(225, 29, 72, 0.22)',
+    image: '/media/eyfs/eyfs-9.jpg',
+    imageAlt: 'First-aid care and compassionate child health wellbeing'
   },
   {
     title: 'Doctor Visits',
@@ -110,7 +116,9 @@ const FACILITIES = [
     icon: Stethoscope,
     color: '#2563eb',
     gradient: 'linear-gradient(90deg, #2563eb, #3b82f6)',
-    border: 'rgba(37, 99, 235, 0.22)'
+    border: 'rgba(37, 99, 235, 0.22)',
+    image: '/media/nursery/nursery-8.jpg',
+    imageAlt: 'Regular doctor visits and wellness health checks'
   },
   {
     title: 'Secure Reception',
@@ -118,7 +126,9 @@ const FACILITIES = [
     icon: Lock,
     color: '#475569',
     gradient: 'linear-gradient(90deg, #475569, #64748b)',
-    border: 'rgba(71, 85, 105, 0.22)'
+    border: 'rgba(71, 85, 105, 0.22)',
+    image: '/media/nursery/nursery-5.jpg',
+    imageAlt: 'Secure nursery entrance and welcoming reception area'
   },
   {
     title: 'Safe & Child-Friendly Environment',
@@ -126,7 +136,9 @@ const FACILITIES = [
     icon: ShieldCheck,
     color: '#16a34a',
     gradient: 'linear-gradient(90deg, #16a34a, #22c55e)',
-    border: 'rgba(22, 163, 74, 0.22)'
+    border: 'rgba(22, 163, 74, 0.22)',
+    image: '/media/school-readiness/school-readiness-4.jpg',
+    imageAlt: 'Thoughtfully planned child-friendly learning environment'
   },
   {
     title: 'CCTV Monitoring for Enhanced Safety',
@@ -134,7 +146,9 @@ const FACILITIES = [
     icon: Video,
     color: '#721024',
     gradient: 'linear-gradient(90deg, #721024, #F15A29)',
-    border: 'rgba(114, 16, 36, 0.22)'
+    border: 'rgba(114, 16, 36, 0.22)',
+    image: '/media/eyfs/eyfs-10.jpg',
+    imageAlt: 'Monitored secure nursery campus with continuous CCTV oversight'
   }
 ];
 
