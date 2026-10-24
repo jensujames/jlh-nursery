@@ -52,7 +52,7 @@ const GALLERY_IMAGES = [
   // 3. Preschool Program (6)
   { src: '/media/preschool/preschool-1.jpg', category: 'preschool', caption: 'Preschool literacy and phonics sound recognition.', alt: 'Preschool phonics and literacy' },
   { src: '/media/preschool/preschool-2.jpg', category: 'preschool', caption: 'Early numeracy counting and mathematical sorting.', alt: 'Early numeracy counting' },
-  { src: '/media/preschool/preschool-3.jpg', category: 'preschool', caption: 'Creative art studio: Painting, collage, and imagination.', alt: 'Preschool art atelier' },
+  { src: '/media/preschool/preschool-3.jpg', category: 'preschool', caption: 'Pre-writing and number tracing foundational practice.', alt: 'Preschool number tracing' },
   { src: '/media/preschool/preschool-4.jpg', category: 'preschool', caption: 'Bilingual Arabic & English immersion activities.', alt: 'Arabic immersion learning' },
   { src: '/media/preschool/preschool-5.jpg', category: 'preschool', caption: 'Science discovery and simple hands-on experiments.', alt: 'Preschool science discovery' },
   { src: '/media/preschool/preschool-6.jpg', category: 'preschool', caption: 'Group collaboration and table manners routines.', alt: 'Table routines and manners' },
@@ -106,14 +106,14 @@ const GALLERY_IMAGES = [
   { src: '/media/phonics-literacy/phonics-6.jpg', category: 'phonics-literacy', caption: 'Early emergent reading confidence with guided educator support.', alt: 'Guided emergent reading' },
 
   // 9. Physical & Outdoor Play (8)
+  { src: '/media/physical-play/physical-6.jpg', category: 'physical-play', caption: 'Exciting spiral slide and playground adventures under full UV sun canopies.', alt: 'Outdoor playground slide under UV shade' },
+  { src: '/media/physical-play/physical-8.jpg', category: 'physical-play', caption: 'High-spirits playhouse exploration and active outdoor friendship moments.', alt: 'Outdoor playhouse climbing and laughter' },
+  { src: '/media/physical-play/physical-7.jpg', category: 'physical-play', caption: 'Gentle garden swings and laughter by our bright rainbow garden fence.', alt: 'Garden swings and colorful rainbow fence' },
+  { src: '/media/physical-play/physical-5.jpg', category: 'physical-play', caption: 'Joyful outdoor morning gathering and friendly peer train on our shaded turf.', alt: 'Children gathered on shaded outdoor play garden' },
   { src: '/media/physical-play/physical-1.jpg', category: 'physical-play', caption: 'Gross motor coordination on our safe, shaded outdoor playground.', alt: 'Outdoor shaded playground play' },
   { src: '/media/physical-play/physical-2.jpg', category: 'physical-play', caption: 'Balance beam steps and body spatial awareness obstacle courses.', alt: 'Balance beam obstacle course' },
   { src: '/media/physical-play/physical-3.jpg', category: 'physical-play', caption: 'Tricycle riding and gentle navigation on the garden track.', alt: 'Tricycle riding track' },
   { src: '/media/physical-play/physical-4.jpg', category: 'physical-play', caption: 'Active slide play, climbing frames, and joyful outdoor laughter.', alt: 'Climbing frames and slides' },
-  { src: '/media/physical-play/physical-5.jpg', category: 'physical-play', caption: 'Ball skills: Throwing, catching, and cooperative team movement.', alt: 'Ball skills and cooperative play' },
-  { src: '/media/physical-play/physical-6.jpg', category: 'physical-play', caption: 'Sensory nature garden strolls and fresh air exploration.', alt: 'Nature garden fresh air strolls' },
-  { src: '/media/physical-play/physical-7.jpg', category: 'physical-play', caption: 'Parachute games building teamwork, rhythm, and agility.', alt: 'Parachute teamwork games' },
-  { src: '/media/physical-play/physical-8.jpg', category: 'physical-play', caption: 'Energetic group dances and rhythmic movement exercises.', alt: 'Rhythmic group dance movement' },
 
   // 10. Life Skills & Independence (4)
   { src: '/media/life-skills/life-skills-1.jpg', category: 'life-skills', caption: 'Developing self-help independence: Organizing personal nursery bags and shoes.', alt: 'Organizing personal bags and shoes' },

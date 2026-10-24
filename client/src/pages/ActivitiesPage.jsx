@@ -43,7 +43,7 @@ const LEARNING_AREAS = [
     gradient: 'linear-gradient(135deg, #ea580c, #f97316)',
     border: 'rgba(234, 88, 12, 0.22)',
     badge: 'Motor Skills & Health',
-    image: '/media/physical-play/physical-1.jpg',
+    image: '/media/physical-play/physical-6.jpg',
     imageAlt: 'Physical and outdoor play on the shaded playground'
   },
   {

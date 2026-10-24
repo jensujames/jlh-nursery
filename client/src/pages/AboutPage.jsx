@@ -195,7 +195,7 @@ export default function AboutPage({ onBookVisitClick }) {
               <RevealOnScroll delay={100}>
                 <div className="about-editorial-image-frame">
                   <img 
-                    src="/media/preschool/preschool-3.jpg" 
+                    src="/media/nursery/nursery-5.jpg" 
                     alt="Caring educators and children at Just Like Home Nursery" 
                     className="about-editorial-img"
                   />

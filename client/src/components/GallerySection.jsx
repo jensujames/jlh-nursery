@@ -26,10 +26,10 @@ export default function GallerySection({ onBookVisitClick }) {
     },
     {
       id: 3,
-      src: "/media/daycare/daycare-4.jpg",
+      src: "/media/physical-play/physical-8.jpg",
       category: "outdoor",
       title: "Shaded Outdoor Play Garden",
-      desc: "Safe UV canopies, activity station, and synthetic grass in our private villa garden."
+      desc: "Safe UV canopies, playground playhouse, and synthetic grass in our private villa garden."
     },
     {
       id: 4,
@@ -40,7 +40,7 @@ export default function GallerySection({ onBookVisitClick }) {
     },
     {
       id: 5,
-      src: "/media/preschool/preschool-3.jpg",
+      src: "/media/eyfs/eyfs-7.jpg",
       category: "creative",
       title: "Sensory & Tactile Discovery",
       desc: "Young minds investigating varied textures and building coordination."

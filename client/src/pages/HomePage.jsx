@@ -163,7 +163,7 @@ export default function HomePage({ onBookVisitClick }) {
     {
       title: 'Physical & Outdoor Play',
       desc: 'Movement supports coordination, strength, balance, confidence and healthy habits.',
-      image: '/media/physical-play/physical-1.jpg',
+      image: '/media/physical-play/physical-6.jpg',
       tag: 'Outdoor Movement',
       icon: Sun,
       color: '#ea580c',

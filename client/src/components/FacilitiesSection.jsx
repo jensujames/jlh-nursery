@@ -44,7 +44,7 @@ export default function FacilitiesSection({ onBookVisitClick }) {
       title: "Outdoor Shaded Garden & Play Area",
       category: "Outdoor Exploration",
       icon: Trees,
-      image: "/media/daycare/daycare-4.jpg",
+      image: "/media/physical-play/physical-6.jpg",
       desc: "An expansive, securely walled villa garden equipped with premium UV sun-shading canopies, soft synthetic grass turf, a wooden playhouse, and a sensory splash station.",
       specs: ["UV protective shade canopies", "Wooden playhouse & mini slides", "Sensory water & sand tables", "Paved tricycle & scooter track"]
     },

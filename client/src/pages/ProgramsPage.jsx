@@ -66,7 +66,7 @@ const PROGRAMS = [
     color: '#721024',
     bgColor: '#FFF1F2',
     link: '/camps',
-    image: '/media/physical-play/physical-1.jpg',
+    image: '/media/physical-play/physical-8.jpg',
     imageAlt: 'Seasonal camps outdoor exploration and games'
   }
 ];

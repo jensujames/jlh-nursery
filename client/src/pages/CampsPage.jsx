@@ -5,7 +5,8 @@ import LuxuryPageHero from '../components/LuxuryPageHero';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
 import { 
   Sun, Sparkles, Palette, Trees, Music, Calendar, 
-  Users, Award, MessageCircle, ArrowRight, CheckCircle2 
+  Users, Award, MessageCircle, ArrowRight, CheckCircle2,
+  Waves, Smile
 } from 'lucide-react';
 
 const CAMP_INCLUSIONS = [
@@ -57,6 +58,20 @@ const CAMP_INCLUSIONS = [
     color: '#8b5cf6',
     gradient: 'linear-gradient(90deg, #8b5cf6, #a855f7)',
     border: 'rgba(139, 92, 246, 0.22)'
+  },
+  {
+    title: 'Water play and splash exploration',
+    icon: Waves,
+    color: '#0891b2',
+    gradient: 'linear-gradient(90deg, #0891b2, #06b6d4)',
+    border: 'rgba(8, 145, 178, 0.22)'
+  },
+  {
+    title: 'Role play and drama adventures',
+    icon: Smile,
+    color: '#ec4899',
+    gradient: 'linear-gradient(90deg, #ec4899, #f43f5e)',
+    border: 'rgba(236, 72, 153, 0.22)'
   }
 ];
 
@@ -83,8 +98,8 @@ export default function CampsPage({ onBookVisitClick }) {
           "School holidays can be a wonderful time for children to try something new, make friends and stay engaged in a safe, familiar environment.",
           "Our seasonal camp programs bring together creative projects, stories, music, movement, sensory experiences, themed activities and age-appropriate learning."
         ]}
-        image="/media/physical-play/physical-1.jpg"
-        imageAlt="Holiday and Summer Camps at Just Like Home Nursery Ajman"
+        image="/media/physical-play/physical-8.jpg"
+        imageAlt="Holiday and Summer Camps outdoor play at Just Like Home Nursery Ajman"
         imageBadgeTitle="Villa No. 47, Al Rashidiya 2"
         imageBadgeSubtitle="Where Little Hearts Feel at Home"
         primaryCtaText="Ask About the Next Camp"
@@ -142,11 +157,7 @@ export default function CampsPage({ onBookVisitClick }) {
           </RevealOnScroll>
 
           <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '24px'
-            }}
+            className="camp-inclusions-grid"
           >
             {CAMP_INCLUSIONS.map((item, index) => {
               const Icon = item.icon;

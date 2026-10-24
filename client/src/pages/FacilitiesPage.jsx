@@ -37,7 +37,7 @@ const FACILITIES = [
     color: '#059669',
     gradient: 'linear-gradient(90deg, #059669, #10b981)',
     border: 'rgba(5, 150, 105, 0.22)',
-    image: '/media/physical-play/physical-1.jpg',
+    image: '/media/physical-play/physical-6.jpg',
     imageAlt: 'Safe shaded outdoor playground with climbing and slides'
   },
   {

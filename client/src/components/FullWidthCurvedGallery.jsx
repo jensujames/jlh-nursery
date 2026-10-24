@@ -18,7 +18,7 @@ const GALLERY_ITEMS = [
     category: 'Creative Arts & Crafts',
     title: 'Creative Play & Crafts',
     subtitle: 'Painting, drawing, collage and making give children freedom to express ideas',
-    image: '/media/eyfs/eyfs-6.jpg',
+    image: '/media/art-creativity/art-1.jpg',
     tag: 'Creative Play',
     tagColor: '#F15A29',
     age: 'Play & Create'
@@ -29,7 +29,7 @@ const GALLERY_ITEMS = [
     category: 'Sensory & Exploration',
     title: 'Sensory Trays & Textures',
     subtitle: 'Hands-on play invites children to investigate textures, materials, and curiosity',
-    image: '/media/preschool/preschool-3.jpg',
+    image: '/media/eyfs/eyfs-7.jpg',
     tag: 'Sensory Care',
     tagColor: '#0284c7',
     age: 'Hands-on Discovery'
@@ -40,7 +40,7 @@ const GALLERY_ITEMS = [
     category: 'Outdoor Play Area',
     title: 'Fresh-Air Adventure',
     subtitle: 'Safe physical movement and balance under UV-shaded canopies on green turf',
-    image: '/media/daycare/daycare-4.jpg',
+    image: '/media/physical-play/physical-6.jpg',
     tag: 'Outdoor Haven',
     tagColor: '#16a34a',
     age: 'Active Movement'
@@ -51,7 +51,7 @@ const GALLERY_ITEMS = [
     category: 'Reading & Story Corner',
     title: 'Stories, Rhymes & Phonics',
     subtitle: 'Cozy language nooks with picture books, rhymes, vocabulary and imagination',
-    image: '/media/school-readiness/school-readiness-1.jpg',
+    image: '/media/music-stories/music-horizontal.jpg',
     tag: 'Early Literacy',
     tagColor: '#d97706',
     age: 'Storytime'

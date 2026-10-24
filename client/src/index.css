@@ -9059,4 +9059,33 @@ img, video, canvas, svg, iframe {
   }
 }
 
+/* ==========================================================================
+   Camp Inclusions Balanced Responsive Grid
+   ========================================================================== */
+.camp-inclusions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+@media (min-width: 1040px) {
+  .camp-inclusions-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (min-width: 680px) and (max-width: 1039px) {
+  .camp-inclusions-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .camp-inclusions-grid > *:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}
+
+
 

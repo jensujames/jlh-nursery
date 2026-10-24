@@ -22,9 +22,9 @@ export default function HomeMomentsPreview() {
   const moments = [
     {
       id: 1,
-      image: '/media/nursery/nursery-1.jpg',
-      title: 'Purposeful Play & Blocks',
-      caption: 'Fine motor development with wooden tactile shapes',
+      image: '/media/art-creativity/art-1.jpg',
+      title: 'Creative Art Studio',
+      caption: 'Vibrant easel painting, collage and expressive craft projects',
       tag: 'Creative Play',
       badgeColor: '#ff6b6b',
       tilt: '-1.5deg',
@@ -32,7 +32,7 @@ export default function HomeMomentsPreview() {
     },
     {
       id: 2,
-      image: '/media/school-readiness/school-readiness-1.jpg',
+      image: '/media/music-stories/music-horizontal.jpg',
       title: 'Sunlit Reading Corner',
       caption: 'Quiet story time and phonics picture book discovery',
       tag: 'Cozy Library',
@@ -42,9 +42,9 @@ export default function HomeMomentsPreview() {
     },
     {
       id: 3,
-      image: '/media/daycare/daycare-4.jpg',
+      image: '/media/physical-play/physical-7.jpg',
       title: 'Shaded Villa Garden',
-      caption: 'Fresh-air gross motor fun under safe UV canopies',
+      caption: 'Fresh-air swing play and laughter by our rainbow fence',
       tag: 'Outdoor Adventure',
       badgeColor: '#059669',
       tilt: '-1.2deg',
@@ -52,9 +52,9 @@ export default function HomeMomentsPreview() {
     },
     {
       id: 4,
-      image: '/media/preschool/preschool-3.jpg',
+      image: '/media/eyfs/eyfs-7.jpg',
       title: 'Sensory Investigation',
-      caption: 'Hands-on discovery fostering early curiosity',
+      caption: 'Hands-on texture trays fostering early curiosity',
       tag: 'EYFS Sensory',
       badgeColor: '#d97706',
       tilt: '1.5deg',

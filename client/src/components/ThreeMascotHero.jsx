@@ -118,7 +118,7 @@ const FACILITY_SLIDES = [
     footerTag: 'UV-Protected Shaded Area',
     primaryCta: 'Explore Play Yards',
     secondaryCta: 'See Outdoor Tour',
-    image: '/media/daycare/daycare-4.jpg',
+    image: '/media/physical-play/physical-6.jpg',
     blobColor: 'rgba(186, 230, 253, 0.45)',
     accentBadgeBg: 'linear-gradient(135deg, #f0f9ff, #e0f2fe)',
     accentBadgeColor: '#0284c7',
@@ -168,7 +168,7 @@ const FACILITY_SLIDES = [
     footerTag: 'Calm Ambient Climate',
     primaryCta: 'View Baby Care',
     secondaryCta: 'Schedule A Visit',
-    image: '/media/preschool/preschool-3.jpg',
+    image: '/media/daycare/daycare-3.jpg',
     blobColor: 'rgba(254, 243, 199, 0.55)',
     accentBadgeBg: 'linear-gradient(135deg, #fffbeb, #fef3c7)',
     accentBadgeColor: '#b45309',
@@ -312,7 +312,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       smallAlt: "Happy kids painting and creating crafts together",
       smallImgPos: "center",
       tallImgPos: "center",
-      tallImage: "/media/preschool/preschool-3.jpg",
+      tallImage: "/media/nursery/nursery-2.jpg",
       tallAlt: "Children laughing and joyfully building colorful blocks together"
     },
     {
@@ -344,16 +344,16 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       tagColor: "#721024",
       highlights: ["Flexible Hours & Pick-Up", "Healthy Meals & Quiet Nap Times", "Safe 24/7 Monitored Campus"],
       infoCard: {
-        title: "Creative Arts & Fun",
+        title: "Outdoor Joy & Play",
         bg: "#fff1f2",
         accent: "#721024"
       },
-      smallImage: "/media/daycare/daycare-4.jpg",
-      smallAlt: "Kids happily running and playing in shaded outdoor garden",
+      smallImage: "/media/physical-play/physical-5.jpg",
+      smallAlt: "Children happily lined up on shaded outdoor garden turf",
       smallImgPos: "center",
       tallImgPos: "center",
-      tallImage: "/media/nursery/nursery-5.jpg",
-      tallAlt: "Smiling happy child enjoying a joyful day at nursery"
+      tallImage: "/media/physical-play/physical-6.jpg",
+      tallAlt: "Joyful child coming down the outdoor playground slide"
     }
   ];
 
