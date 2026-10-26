@@ -9087,5 +9087,357 @@ img, video, canvas, svg, iframe {
   }
 }
 
+/* ==========================================================================
+   Principal's Welcome Message Section (Home Page)
+   ========================================================================== */
+.home-principal-section {
+  position: relative;
+  padding: clamp(64px, 7vw, 100px) 20px;
+  background-color: #FFFDF9;
+  background-image: 
+    radial-gradient(circle at 12% 18%, rgba(114, 16, 36, 0.04) 0%, transparent 48%),
+    radial-gradient(circle at 88% 82%, rgba(217, 119, 6, 0.045) 0%, transparent 48%),
+    radial-gradient(circle at 50% 50%, rgba(5, 150, 105, 0.02) 0%, transparent 60%);
+  border-top: 1px solid rgba(114, 16, 36, 0.08);
+  border-bottom: 1px solid rgba(114, 16, 36, 0.08);
+}
+
+.home-principal-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.home-principal-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(36px, 5vw, 68px);
+  align-items: start;
+}
+
+/* Left Column: Content (Scrolls Naturally) */
+.principal-content-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.principal-welcome-quote {
+  background: linear-gradient(135deg, rgba(255, 241, 242, 0.8) 0%, rgba(254, 243, 199, 0.5) 100%);
+  border-left: 4px solid #721024;
+  padding: 20px 24px;
+  border-radius: 0 18px 18px 0;
+  margin-bottom: 24px;
+  position: relative;
+  box-shadow: 0 4px 14px rgba(114, 16, 36, 0.04);
+}
+
+.principal-welcome-quote p {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: clamp(16px, 1.8vw, 18.5px);
+  line-height: 1.65;
+  font-weight: 600;
+  color: #721024;
+  margin: 0;
+  font-style: italic;
+}
+
+.principal-message-body p {
+  margin: 0 0 16px 0;
+  font-size: 15.5px;
+  line-height: 1.82;
+  color: #475569;
+}
+
+.principal-message-body p:last-child {
+  margin-bottom: 0;
+}
+
+.principal-signoff-wrap {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1.5px dashed rgba(114, 16, 36, 0.16);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.principal-sign-salutation {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.principal-sign-name {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 23px;
+  font-weight: 900;
+  color: #721024;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+}
+
+.principal-sign-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #9f1239;
+  margin-top: 2px;
+}
+
+.principal-sign-school {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 1px;
+}
+
+.principal-actions-wrap {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.principal-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #721024 0%, #9f1239 100%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(114, 16, 36, 0.25);
+  transition: all 0.25s ease;
+  text-decoration: none;
+  min-height: 48px;
+}
+
+.principal-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(114, 16, 36, 0.35);
+}
+
+.principal-btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  background-color: #25D366;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+  transition: all 0.25s ease;
+  min-height: 48px;
+}
+
+.principal-btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(37, 211, 102, 0.35);
+}
+
+/* Right Column: Sticky Photo Frame with Full Visibility */
+.principal-portrait-wrapper {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 96px;
+  align-self: flex-start;
+  z-index: 10;
+}
+
+.principal-photo-frame {
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 10px;
+  box-shadow: 
+    0 24px 50px -15px rgba(114, 16, 36, 0.16),
+    0 4px 16px rgba(0, 0, 0, 0.04),
+    0 0 0 1px rgba(114, 16, 36, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.principal-photo-frame:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 28px 56px -15px rgba(114, 16, 36, 0.22),
+    0 6px 20px rgba(0, 0, 0, 0.06),
+    0 0 0 1.5px rgba(114, 16, 36, 0.12);
+}
+
+.principal-photo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  object-fit: contain;
+}
+
+.principal-caption-card {
+  padding: 14px 12px 6px 12px;
+  background: #ffffff;
+}
+
+.principal-badge-tag {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #721024;
+  background: #ffe4e6;
+  padding: 3px 9px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.principal-caption-name {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 18px;
+  font-weight: 800;
+  color: #721024;
+  line-height: 1.25;
+  margin-top: 4px;
+}
+
+.principal-caption-role {
+  font-size: 13px;
+  font-weight: 700;
+  color: #9f1239;
+  margin-top: 2px;
+}
+
+.principal-caption-school {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 1px;
+}
+
+.principal-trust-pills {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.principal-trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(114, 16, 36, 0.12);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #334155;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+/* ==========================================================================
+   Mobile & Tablet Optimization Breakpoints
+   ========================================================================== */
+@media (max-width: 980px) {
+  .home-principal-section {
+    padding: clamp(48px, 6vw, 76px) 16px;
+  }
+  .home-principal-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .principal-portrait-wrapper {
+    position: static;
+    order: -1;
+    max-width: 540px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .principal-signoff-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+  .principal-actions-wrap {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-principal-section {
+    padding: 44px 14px;
+  }
+  .principal-photo-frame {
+    border-radius: 20px;
+    padding: 7px;
+  }
+  .principal-photo-img {
+    border-radius: 14px;
+  }
+  .principal-welcome-quote {
+    padding: 16px 18px;
+    border-radius: 0 14px 14px 0;
+    margin-bottom: 20px;
+  }
+  .principal-welcome-quote p {
+    font-size: 15.5px;
+    line-height: 1.6;
+  }
+  .principal-message-body p {
+    font-size: 15px;
+    line-height: 1.76;
+    margin-bottom: 14px;
+  }
+  .principal-actions-wrap {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .principal-btn-primary,
+  .principal-btn-whatsapp {
+    width: 100%;
+    padding: 13px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .principal-caption-card {
+    padding: 12px 6px 4px;
+  }
+  .principal-caption-name {
+    font-size: 17px;
+  }
+  .principal-caption-role {
+    font-size: 12.5px;
+  }
+  .principal-caption-school {
+    font-size: 11.5px;
+  }
+  .principal-trust-pills {
+    margin-top: 12px;
+    gap: 7px;
+  }
+  .principal-trust-pill {
+    font-size: 11.5px;
+    padding: 6px 11px;
+    gap: 6px;
+  }
+  .principal-sign-name {
+    font-size: 21px;
+  }
+}
+
+
 
 

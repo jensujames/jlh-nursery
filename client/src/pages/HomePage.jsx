@@ -8,7 +8,8 @@ import {
   Heart, Sparkles, BookOpen, Sun, Compass, ShieldCheck, 
   Baby, Smile, Users, MapPin, Phone, Mail, ArrowRight, 
   MessageCircle, Calendar, CheckCircle2, Award, Clock,
-  Camera, Navigation, ChevronLeft, ChevronRight, Trophy
+  Camera, Navigation, ChevronLeft, ChevronRight, Trophy,
+  Quote, GraduationCap
 } from 'lucide-react';
 
 const GMB_URL = 'https://share.google/AbZVHOBinruNYkwDg';
@@ -320,6 +321,157 @@ export default function HomePage({ onBookVisitClick }) {
       {/* 1. Flagship 3D Mascot Hero Stage */}
       <ThreeMascotHero onBookVisitClick={onBookVisitClick} />
 
+      {/* 2. A Message from the Principal */}
+      <section 
+        className="home-principal-section" 
+        aria-label="A Message from the Principal"
+        id="principal-message"
+      >
+        <div className="home-principal-container">
+          <div className="home-principal-grid">
+            
+            {/* Left Column: Content (Scrolls Naturally) */}
+            <div className="principal-content-col">
+              <RevealOnScroll animation="from-bottom">
+                <div>
+                  <span
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      padding: '6px 18px',
+                      borderRadius: '999px',
+                      backgroundColor: '#fff1f2',
+                      color: '#721024',
+                      fontSize: '12.5px',
+                      fontWeight: '800',
+                      letterSpacing: '0.5px',
+                      border: '1px solid rgba(114, 16, 36, 0.12)',
+                      marginBottom: '14px'
+                    }}
+                  >
+                    <Sparkles size={13} color="#e11d48" />
+                    LEADERSHIP &amp; VISION
+                  </span>
+                  <h2
+                    style={{
+                      fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                      fontSize: 'clamp(28px, 4vw, 42px)',
+                      fontWeight: '900',
+                      color: '#721024',
+                      lineHeight: 1.18,
+                      margin: '0 0 20px 0'
+                    }}
+                  >
+                    A Message from the Principal
+                  </h2>
+                </div>
+
+                {/* Opening Welcome Quote */}
+                <div className="principal-welcome-quote">
+                  <p>
+                    &ldquo;Welcome to Just Like Home Nursery, where every child is valued, every achievement is celebrated, and every day is an opportunity to learn, explore, and grow.&rdquo;
+                  </p>
+                </div>
+
+                {/* Body Paragraphs */}
+                <div className="principal-message-body">
+                  <p>
+                    At Just Like Home Nursery, we believe that the early years are the foundation of a child’s lifelong learning journey. Our vision is to provide a safe, nurturing, and stimulating environment where children feel loved, confident, and inspired to discover the world around them.
+                  </p>
+                  <p>
+                    We follow the Early Years Foundation Stage (EYFS) framework and strive to implement its best practices through a play-based, child-centred approach. We recognise that every child is unique, with their own interests, abilities, and pace of development. Through meaningful play, hands-on experiences, creative exploration, and positive relationships, we support children’s development across all seven areas of learning.
+                  </p>
+                  <p>
+                    Our dedicated team of educators is committed to nurturing curiosity, encouraging independence, building social and emotional skills, and fostering a lifelong love of learning. We also value the importance of strong partnerships with parents, working together to ensure that every child feels supported, included, and empowered to reach their full potential.
+                  </p>
+                  <p>
+                    At Just Like Home Nursery, we strive to create more than just a place to learn—we create a home away from home, where little minds flourish, little hearts feel secure, and every child is encouraged to shine.
+                  </p>
+                  <p style={{ fontWeight: '600', color: '#1e293b' }}>
+                    Thank you for trusting us with your child’s precious early years. We look forward to being part of their wonderful journey of discovery, growth, and achievement.
+                  </p>
+                </div>
+
+                {/* Sign-off & Actions */}
+                <div className="principal-signoff-wrap">
+                  <div>
+                    <div className="principal-sign-salutation">Warm regards,</div>
+                    <div className="principal-sign-name">Ruzna Arshadh</div>
+                    <div className="principal-sign-title">Principal</div>
+                    <div className="principal-sign-school">Just Like Home Nursery – Ajman</div>
+                  </div>
+
+                  <div className="principal-actions-wrap">
+                    <button
+                      type="button"
+                      onClick={() => onBookVisitClick && onBookVisitClick()}
+                      className="principal-btn-primary"
+                    >
+                      <Calendar size={15} />
+                      <span>Book a Visit with Us</span>
+                    </button>
+
+                    <a
+                      href={`https://wa.me/971509819786?text=${encodeURIComponent('Hello Principal Ruzna, I read your message on Just Like Home Nursery website and would love to book a campus visit.')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="principal-btn-whatsapp"
+                    >
+                      <MessageCircle size={15} />
+                      <span>Chat with Admissions</span>
+                    </a>
+                  </div>
+                </div>
+              </RevealOnScroll>
+            </div>
+
+            {/* Right Column: Sticky Executive Portrait (Full Photo Uncropped) */}
+            <div className="principal-portrait-wrapper">
+              <div className="principal-photo-frame">
+                <img
+                  src="/media/principal-ruzna-arshadh.jpeg"
+                  alt="Ruzna Arshadh - Principal, Just Like Home Nursery"
+                  className="principal-photo-img"
+                  onError={(e) => {
+                    e.currentTarget.src = '/media/founder-of-jlh.jpeg';
+                  }}
+                />
+                <div className="principal-caption-card">
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', marginBottom: '6px' }}>
+                    <span className="principal-badge-tag">
+                      <Sparkles size={11} color="#e11d48" /> Leadership
+                    </span>
+                    <span style={{ fontSize: '12px', color: '#64748b', fontWeight: '600' }}>
+                      Ajman, UAE
+                    </span>
+                  </div>
+                  <div className="principal-caption-name">Ruzna Arshadh</div>
+                  <div className="principal-caption-role">Principal &amp; Educational Leader</div>
+                  <div className="principal-caption-school">Just Like Home Nursery – Ajman</div>
+                </div>
+              </div>
+
+              {/* Trust Highlights */}
+              <div className="principal-trust-pills">
+                <div className="principal-trust-pill">
+                  <CheckCircle2 size={15} color="#059669" />
+                  <span>EYFS UK Standards</span>
+                </div>
+                <div className="principal-trust-pill">
+                  <Heart size={15} color="#e11d48" />
+                  <span>Play-Based Learning</span>
+                </div>
+                <div className="principal-trust-pill">
+                  <Users size={15} color="#0284c7" />
+                  <span>Parent Partnership</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* 3. Early Years Programs for Every Little Step */}
       <section 
