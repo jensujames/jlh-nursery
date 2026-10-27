@@ -281,11 +281,11 @@ export default function ContactPage() {
                     Phone / WhatsApp
                   </h3>
                   <p style={{ fontSize: '22px', fontWeight: '900', color: '#721024', margin: 0 }}>
-                    050 200 5346
+                    +971 50 200 5346
                   </p>
                 </div>
                 <div style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid rgba(5, 150, 105, 0.12)', display: 'flex', gap: '16px', alignItems: 'center' }}>
-                  <a href="tel:0502005346" style={{ color: '#721024', fontWeight: '800', fontSize: '14.5px', textDecoration: 'none' }}>
+                  <a href="tel:+971502005346" style={{ color: '#721024', fontWeight: '800', fontSize: '14.5px', textDecoration: 'none' }}>
                     Call Us
                   </a>
                   <span style={{ color: '#cbd5e1' }}>|</span>
@@ -542,7 +542,7 @@ export default function ContactPage() {
                         required
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="e.g. 050 200 5346"
+                        placeholder="e.g. +971 50 200 5346"
                         style={{
                           width: '100%',
                           padding: '14px 18px',
@@ -843,7 +843,7 @@ export default function ContactPage() {
                 <span>OPEN IN GOOGLE MAPS</span>
               </a>
               <a 
-                href="tel:0502005346" 
+                href="tel:+971502005346" 
                 className="contact-map-btn contact-map-btn-outline"
               >
                 <Phone size={18} />

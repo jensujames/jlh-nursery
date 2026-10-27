@@ -201,7 +201,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
                 <div><strong>Child:</strong> {formData.childName || 'Little One'} ({formData.childAge})</div>
                 <div><strong>Program:</strong> {formData.programInterest}</div>
                 <div><strong>Location:</strong> Villa 47, Al Rashidiya 2</div>
-                <div><strong>Contact:</strong> 050 200 5346</div>
+                <div><strong>Contact:</strong> +971 50 200 5346</div>
               </div>
             </div>
 
@@ -292,7 +292,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
                   <input
                     type="tel"
                     required
-                    placeholder="e.g. 050 200 5346"
+                    placeholder="e.g. +971 50 200 5346"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     style={{

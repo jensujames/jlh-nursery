@@ -32,7 +32,7 @@ export default function FaqSection({ onBookVisitClick }) {
     },
     {
       q: "How can I arrange a nursery visit or tour?",
-      a: "We warmly invite you to experience our nursery firsthand! You can book a visit directly using the 'Book a Visit' button on this website, call us at 050 200 5346, or send us a WhatsApp message. Our admissions director will be delighted to guide you through our classrooms."
+      a: "We warmly invite you to experience our nursery firsthand! You can book a visit directly using the 'Book a Visit' button on this website, call us at +971 50 200 5346, or send us a WhatsApp message. Our admissions director will be delighted to guide you through our classrooms."
     },
     {
       q: "Do you organize holiday and summer camps?",
@@ -221,7 +221,7 @@ export default function FaqSection({ onBookVisitClick }) {
 
           <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
             <a
-              href="tel:0502005346"
+              href="tel:+971502005346"
               className="btn-secondary"
               style={{ fontSize: '0.86rem', padding: '0.65rem 1.25rem' }}
             >

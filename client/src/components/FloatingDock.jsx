@@ -111,7 +111,7 @@ export default function FloatingDock({ onBookVisitClick }) {
 
           {/* Sky Blue Phone CTA */}
           <a
-            href="tel:0502005346"
+            href="tel:+971502005346"
             style={{
               width: '38px',
               height: '38px',

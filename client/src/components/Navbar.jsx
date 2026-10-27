@@ -205,16 +205,6 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
       bg: '#fef3c7'
     },
     {
-      id: 'blog',
-      name: 'Blog',
-      subLabel: 'Parent Resources',
-      path: '/blog',
-      hasDropdown: false,
-      icon: BookText,
-      color: '#ec4899',
-      bg: '#fce7f3'
-    },
-    {
       id: 'contact',
       name: 'Contact',
       path: '/contact',
@@ -823,7 +813,7 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
                 gap: '0.65rem'
               }}>
                 <a
-                  href="tel:0502005346"
+                  href="tel:+971502005346"
                   style={{
                     backgroundColor: '#f0f9ff',
                     border: '1.5px solid #bae6fd',
@@ -858,7 +848,7 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
                   </div>
                   <div>
                     <div style={{ fontSize: '0.82rem', fontWeight: '800', color: '#0369a1' }}>Direct Call</div>
-                    <div style={{ fontSize: '0.7rem', color: '#0284c7', fontWeight: '600' }}>050 200 5346</div>
+                    <div style={{ fontSize: '0.7rem', color: '#0284c7', fontWeight: '600' }}>+971 50 200 5346</div>
                   </div>
                 </a>
 
@@ -1117,29 +1107,11 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
                 justifyContent: 'space-between',
                 fontSize: '0.72rem',
                 color: '#8a6b72',
-                fontWeight: '700'
+                fontWeight: '700',
+                justifyContent: 'center',
+                textAlign: 'center'
               }}>
                 <span>Villa 47, Al Rashidiya 2, Ajman</span>
-                {onAdminClick && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      onAdminClick();
-                    }}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      color: '#c9a84c',
-                      fontWeight: '800',
-                      cursor: 'pointer',
-                      fontSize: '0.72rem',
-                      textDecoration: 'underline'
-                    }}
-                  >
-                    Admin Portal
-                  </button>
-                )}
               </div>
             </div>
           </div>

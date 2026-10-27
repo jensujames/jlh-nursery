@@ -412,15 +412,14 @@ export default function HomePage({ onBookVisitClick }) {
                       <span>Book a Visit with Us</span>
                     </button>
 
-                    <a
-                      href={`https://wa.me/971509819786?text=${encodeURIComponent('Hello Principal Ruzna, I read your message on Just Like Home Nursery website and would love to book a campus visit.')}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="principal-btn-whatsapp"
+                    <Link
+                      to="/about-us"
+                      className="principal-btn-about"
                     >
-                      <MessageCircle size={15} />
-                      <span>Chat with Admissions</span>
-                    </a>
+                      <Sparkles size={15} color="#c9a84c" />
+                      <span>More About Us</span>
+                      <ArrowRight size={15} />
+                    </Link>
                   </div>
                 </div>
               </RevealOnScroll>
@@ -1947,7 +1946,7 @@ export default function HomePage({ onBookVisitClick }) {
                   </div>
                   <div>
                     <p style={{ margin: 0, fontWeight: '800', fontSize: '15px', color: '#1e293b' }}>Phone / WhatsApp</p>
-                    <a href="tel:0502005346" style={{ margin: 0, fontSize: '14px', color: '#059669', textDecoration: 'none', fontWeight: '750' }}>050 200 5346</a>
+                    <a href="tel:+971502005346" style={{ margin: 0, fontSize: '14px', color: '#059669', textDecoration: 'none', fontWeight: '750' }}>+971 50 200 5346</a>
                   </div>
                 </div>
 

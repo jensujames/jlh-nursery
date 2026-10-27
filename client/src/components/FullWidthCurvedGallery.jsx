@@ -7,7 +7,8 @@ import {
   Heart, 
   X, 
   Calendar,
-  CheckCircle2
+  CheckCircle2,
+  ArrowRight
 } from 'lucide-react';
 import './FullWidthCurvedGallery.css';
 
@@ -21,7 +22,8 @@ const GALLERY_ITEMS = [
     image: '/media/art-creativity/art-1.jpg',
     tag: 'Creative Play',
     tagColor: '#F15A29',
-    age: 'Play & Create'
+    age: 'Play & Create',
+    imgPos: 'center 50%'
   },
   {
     id: 2,
@@ -32,7 +34,8 @@ const GALLERY_ITEMS = [
     image: '/media/eyfs/eyfs-7.jpg',
     tag: 'Sensory Care',
     tagColor: '#0284c7',
-    age: 'Hands-on Discovery'
+    age: 'Hands-on Discovery',
+    imgPos: 'center 85%'
   },
   {
     id: 3,
@@ -43,7 +46,8 @@ const GALLERY_ITEMS = [
     image: '/media/physical-play/physical-6.jpg',
     tag: 'Outdoor Haven',
     tagColor: '#16a34a',
-    age: 'Active Movement'
+    age: 'Active Movement',
+    imgPos: 'center 55%'
   },
   {
     id: 4,
@@ -54,7 +58,8 @@ const GALLERY_ITEMS = [
     image: '/media/music-stories/music-horizontal.jpg',
     tag: 'Early Literacy',
     tagColor: '#d97706',
-    age: 'Storytime'
+    age: 'Storytime',
+    imgPos: 'center 50%'
   },
   {
     id: 5,
@@ -65,7 +70,8 @@ const GALLERY_ITEMS = [
     image: '/media/nursery/nursery-5.jpg',
     tag: 'Happy Smiles',
     tagColor: '#e11d48',
-    age: 'Motherly Care'
+    age: 'Motherly Care',
+    imgPos: 'center 45%'
   },
   {
     id: 6,
@@ -76,7 +82,8 @@ const GALLERY_ITEMS = [
     image: '/media/nursery/nursery-1.jpg',
     tag: 'Indoor Play',
     tagColor: '#9333ea',
-    age: 'Active Play'
+    age: 'Active Play',
+    imgPos: 'center 65%'
   },
   {
     id: 7,
@@ -87,7 +94,8 @@ const GALLERY_ITEMS = [
     image: '/media/preschool/preschool-2.jpg',
     tag: 'EYFS Readiness',
     tagColor: '#0369a1',
-    age: 'Learning Through Play'
+    age: 'Learning Through Play',
+    imgPos: 'center 40%'
   },
   {
     id: 8,
@@ -98,61 +106,147 @@ const GALLERY_ITEMS = [
     image: '/media/nursery/nursery-3.jpg',
     tag: 'Safe Campus',
     tagColor: '#059669',
-    age: 'Villa 47 Ajman'
+    age: 'Villa 47 Ajman',
+    imgPos: 'center 65%'
   }
 ];
 
 export default function FullWidthCurvedGallery({ onBookVisitClick }) {
-  const [currentIndex, setCurrentIndex] = useState(2);
+  const [scrollX, setScrollX] = useState(0);
+  const [maxScroll, setMaxScroll] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [selectedItem, setSelectedItem] = useState(null);
   const [likedMap, setLikedMap] = useState({});
+  const [isDraggingState, setIsDraggingState] = useState(false);
 
   // Touch & Drag state
+  const stageRef = useRef(null);
+  const trackRef = useRef(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
+  const dragStartScroll = useRef(0);
   const dragDistance = useRef(0);
-  const ribbonRef = useRef(null);
 
   const totalItems = GALLERY_ITEMS.length;
 
+  // Calculate exact scroll bounds (stops Card 8 flush at right edge, never leaves empty center space)
+  const updateBounds = useCallback(() => {
+    if (!stageRef.current || !trackRef.current) return;
+    const stageWidth = stageRef.current.clientWidth;
+    const trackWidth = trackRef.current.scrollWidth;
+    const max = Math.max(0, trackWidth - stageWidth);
+    setMaxScroll(max);
+    setScrollX(prev => Math.min(prev, max));
+  }, []);
+
+  useEffect(() => {
+    updateBounds();
+    const handleResize = () => updateBounds();
+    window.addEventListener('resize', handleResize);
+
+    let ro;
+    if (typeof ResizeObserver !== 'undefined' && stageRef.current && trackRef.current) {
+      ro = new ResizeObserver(() => {
+        updateBounds();
+      });
+      ro.observe(stageRef.current);
+      ro.observe(trackRef.current);
+    }
+
+    const timer = setTimeout(updateBounds, 300);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (ro) ro.disconnect();
+      clearTimeout(timer);
+    };
+  }, [updateBounds]);
+
+  const getStep = useCallback(() => {
+    if (!trackRef.current) return 280;
+    const firstCard = trackRef.current.querySelector('.curved-gallery-card-wrap');
+    if (firstCard) {
+      return firstCard.offsetWidth + 20; // card width + gap
+    }
+    return 280;
+  }, []);
+
+  // Strict bounded navigation: Stops at the end flush, does not loop infinitely
   const nextSlide = useCallback(() => {
-    setCurrentIndex(prev => (prev + 1) % totalItems);
-  }, [totalItems]);
+    const step = getStep();
+    setScrollX(prev => {
+      const next = prev + step;
+      if (next >= maxScroll - step * 0.35) {
+        return maxScroll;
+      }
+      return Math.min(next, maxScroll);
+    });
+  }, [getStep, maxScroll]);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex(prev => (prev - 1 + totalItems) % totalItems);
-  }, [totalItems]);
-
-  // Continuous Auto Carousel timer
-  useEffect(() => {
-    if (selectedItem) return;
-    const timer = setInterval(() => {
-      if (!isDragging.current) {
-        nextSlide();
+    const step = getStep();
+    setScrollX(prev => {
+      const prevVal = prev - step;
+      if (prevVal <= step * 0.35) {
+        return 0;
       }
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [selectedItem, nextSlide]);
+      return Math.max(prevVal, 0);
+    });
+  }, [getStep]);
 
-  // Drag handlers
+  // Update active index for indicator dots
+  useEffect(() => {
+    if (maxScroll <= 0) {
+      setActiveIndex(0);
+      return;
+    }
+    if (scrollX >= maxScroll - 15) {
+      setActiveIndex(totalItems - 1);
+      return;
+    }
+    const step = getStep();
+    if (step > 0) {
+      const idx = Math.min(Math.round(scrollX / step), totalItems - 1);
+      setActiveIndex(idx);
+    }
+  }, [scrollX, maxScroll, getStep, totalItems]);
+
+  const scrollToSlide = (idx) => {
+    if (idx >= totalItems - 1) {
+      setScrollX(maxScroll);
+    } else if (idx <= 0) {
+      setScrollX(0);
+    } else {
+      const step = getStep();
+      const target = Math.min(Math.max(0, idx * step), maxScroll);
+      setScrollX(target);
+    }
+  };
+
+  // Mouse Drag handlers
   const handleMouseDown = (e) => {
     isDragging.current = true;
+    setIsDraggingState(true);
     startX.current = e.clientX;
+    dragStartScroll.current = scrollX;
     dragDistance.current = 0;
   };
 
   const handleMouseMove = (e) => {
     if (!isDragging.current) return;
-    dragDistance.current = e.clientX - startX.current;
+    const diff = startX.current - e.clientX;
+    dragDistance.current = diff;
+    const newScroll = Math.min(Math.max(0, dragStartScroll.current + diff), maxScroll);
+    setScrollX(newScroll);
   };
 
   const handleMouseUp = () => {
     if (!isDragging.current) return;
     isDragging.current = false;
-    if (dragDistance.current < -50) {
-      nextSlide();
-    } else if (dragDistance.current > 50) {
-      prevSlide();
+    setIsDraggingState(false);
+    const step = getStep();
+    if (Math.abs(dragDistance.current) > 35) {
+      const snapped = Math.round(scrollX / step) * step;
+      setScrollX(Math.min(Math.max(0, snapped), maxScroll));
     }
     dragDistance.current = 0;
   };
@@ -160,22 +254,28 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
   // Touch handlers
   const handleTouchStart = (e) => {
     isDragging.current = true;
+    setIsDraggingState(true);
     startX.current = e.touches[0].clientX;
+    dragStartScroll.current = scrollX;
     dragDistance.current = 0;
   };
 
   const handleTouchMove = (e) => {
     if (!isDragging.current) return;
-    dragDistance.current = e.touches[0].clientX - startX.current;
+    const diff = startX.current - e.touches[0].clientX;
+    dragDistance.current = diff;
+    const newScroll = Math.min(Math.max(0, dragStartScroll.current + diff), maxScroll);
+    setScrollX(newScroll);
   };
 
   const handleTouchEnd = () => {
     if (!isDragging.current) return;
     isDragging.current = false;
-    if (dragDistance.current < -40) {
-      nextSlide();
-    } else if (dragDistance.current > 40) {
-      prevSlide();
+    setIsDraggingState(false);
+    const step = getStep();
+    if (Math.abs(dragDistance.current) > 30) {
+      const snapped = Math.round(scrollX / step) * step;
+      setScrollX(Math.min(Math.max(0, snapped), maxScroll));
     }
     dragDistance.current = 0;
   };
@@ -205,49 +305,33 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
         </h2>
       </div>
 
-      {/* 3D Curved Perspective Stage (Full Viewport Width) */}
+      {/* Bounded Horizontal Stage (Stops flush at ends, never leaves empty center space) */}
       <div 
-        className="curved-gallery-stage"
-        ref={ribbonRef}
+        className={`curved-gallery-stage ${isDraggingState ? 'is-dragging' : ''}`}
+        ref={stageRef}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="curved-gallery-perspective-track">
+        <div 
+          className="curved-gallery-perspective-track"
+          ref={trackRef}
+          style={{
+            transform: `translate3d(-${scrollX}px, 0, 0)`,
+            transition: isDraggingState ? 'none' : 'transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)'
+          }}
+        >
           {GALLERY_ITEMS.map((item, idx) => {
-            // Calculate distance from active index in cyclic array
-            let offset = idx - currentIndex;
-            if (offset > totalItems / 2) offset -= totalItems;
-            if (offset < -totalItems / 2) offset += totalItems;
-
-            // Compute 3D cylinder curve transforms
-            // Left cards rotate outward, center is flat, right cards rotate inward
-            const rotateY = offset * -8.5; // degrees
-            const translateZ = -Math.abs(offset) * 32; // px depth
-            const translateY = Math.abs(offset) * 4; // subtle dip on wings
-            const scale = Math.max(0.85, 1 - Math.abs(offset) * 0.05);
-            const zIndex = 20 - Math.abs(offset);
-            const opacity = Math.abs(offset) > 3 ? 0.35 : 1;
-
+            const isActive = idx === activeIndex;
             return (
               <div
                 key={item.id}
-                className={`curved-gallery-card-wrap ${offset === 0 ? 'is-active' : ''}`}
-                style={{
-                  transform: `translateX(${offset * 105}%) translateY(${translateY}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
-                  zIndex,
-                  opacity
-                }}
-                onClick={() => {
-                  if (offset === 0) {
-                    setSelectedItem(item);
-                  } else {
-                    setCurrentIndex(idx);
-                  }
-                }}
+                className={`curved-gallery-card-wrap ${isActive ? 'is-active' : ''}`}
+                onClick={() => setSelectedItem(item)}
               >
                 {/* 3D Card Body */}
                 <div className="curved-gallery-card">
@@ -256,6 +340,7 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
                     alt={item.title} 
                     className="curved-gallery-img"
                     loading="lazy"
+                    style={{ objectPosition: item.imgPos || 'center' }}
                   />
 
                   {/* Glassmorphic Overlay on Hover */}
@@ -295,20 +380,32 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
           })}
         </div>
 
-        {/* Floating Side Navigation Arrows */}
+        {/* Floating Side Navigation Arrows with Boundary Disabling */}
         <button 
-          className="curved-nav-btn nav-prev"
+          className={`curved-nav-btn nav-prev ${scrollX <= 5 ? 'is-disabled' : ''}`}
           type="button"
           onClick={prevSlide}
+          disabled={scrollX <= 5}
+          style={{
+            opacity: scrollX <= 5 ? 0.25 : 1,
+            pointerEvents: scrollX <= 5 ? 'none' : 'auto',
+            cursor: scrollX <= 5 ? 'not-allowed' : 'pointer'
+          }}
           aria-label="Previous photo"
         >
           <ChevronLeft size={22} />
         </button>
 
         <button 
-          className="curved-nav-btn nav-next"
+          className={`curved-nav-btn nav-next ${scrollX >= maxScroll - 5 ? 'is-disabled' : ''}`}
           type="button"
           onClick={nextSlide}
+          disabled={scrollX >= maxScroll - 5}
+          style={{
+            opacity: scrollX >= maxScroll - 5 ? 0.25 : 1,
+            pointerEvents: scrollX >= maxScroll - 5 ? 'none' : 'auto',
+            cursor: scrollX >= maxScroll - 5 ? 'not-allowed' : 'pointer'
+          }}
           aria-label="Next photo"
         >
           <ChevronRight size={22} />
@@ -321,8 +418,8 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
           <button
             key={item.id}
             type="button"
-            className={`curved-dot ${idx === currentIndex ? 'active' : ''}`}
-            onClick={() => setCurrentIndex(idx)}
+            className={`curved-dot ${idx === activeIndex ? 'active' : ''}`}
+            onClick={() => scrollToSlide(idx)}
             aria-label={`Go to slide ${item.num}`}
           />
         ))}

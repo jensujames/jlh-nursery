@@ -290,8 +290,10 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       },
       smallImage: "/media/eyfs/eyfs-6.jpg",
       smallAlt: "Caring nursery educator guiding children through engaging sensory exploration",
-      smallImgPos: "center 55%",
-      tallImgPos: "center 20%",
+      smallImgPos: "center bottom",
+      smallImgScale: 1.6,
+      smallImgOrigin: "center 90%",
+      tallImgPos: "center 65%",
       tallImage: "/media/nursery/nursery-1.jpg",
       tallAlt: "Joyful smiling child happily playing with colorful toys"
     },
@@ -310,8 +312,10 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       },
       smallImage: "/media/eyfs/eyfs-5.jpg",
       smallAlt: "Happy kids painting and creating crafts together",
-      smallImgPos: "center",
-      tallImgPos: "center",
+      smallImgPos: "center 85%",
+      smallImgScale: 1.45,
+      smallImgOrigin: "center 85%",
+      tallImgPos: "center 60%",
       tallImage: "/media/nursery/nursery-2.jpg",
       tallAlt: "Children laughing and joyfully building colorful blocks together"
     },
@@ -330,8 +334,10 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       },
       smallImage: "/media/school-readiness/school-readiness-1.jpg",
       smallAlt: "Bright Scandinavian classroom prepared for happy focused learning",
-      smallImgPos: "center",
-      tallImgPos: "center",
+      smallImgPos: "center 32%",
+      smallImgScale: 1.4,
+      smallImgOrigin: "center 32%",
+      tallImgPos: "center 80%",
       tallImage: "/media/eyfs/eyfs-2.jpg",
       tallAlt: "Happy active child discovering books and learning materials"
     },
@@ -350,8 +356,10 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       },
       smallImage: "/media/physical-play/physical-5.jpg",
       smallAlt: "Children happily lined up on shaded outdoor garden turf",
-      smallImgPos: "center",
-      tallImgPos: "center",
+      smallImgPos: "center 40%",
+      smallImgScale: 1.15,
+      smallImgOrigin: "center 40%",
+      tallImgPos: "center 55%",
       tallImage: "/media/physical-play/physical-6.jpg",
       tallAlt: "Joyful child coming down the outdoor playground slide"
     }
@@ -3193,6 +3201,8 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                                       height: '100%',
                                       objectFit: 'cover',
                                       objectPosition: item.smallImgPos || 'center',
+                                      transform: item.smallImgScale ? `scale(${item.smallImgScale})` : 'none',
+                                      transformOrigin: item.smallImgOrigin || 'center',
                                       display: 'block'
                                     }}
                                   />
@@ -3221,7 +3231,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                                     width: '100%',
                                     height: '100%',
                                     objectFit: 'cover',
-                                    objectPosition: item.tallImgPos || (idx === 0 ? 'center 20%' : 'center'),
+                                    objectPosition: item.tallImgPos || 'center 60%',
                                     display: 'block'
                                   }}
                                 />

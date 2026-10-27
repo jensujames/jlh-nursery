@@ -211,11 +211,11 @@ export default function ContactSection({ onBookVisitClick }) {
                   Call & WhatsApp
                 </div>
                 <h4 style={{ fontSize: '1.25rem', color: '#3d050f', fontFamily: 'var(--font-heading)', marginTop: '0.2rem' }}>
-                  050 200 5346
+                  +971 50 200 5346
                 </h4>
                 <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.85rem', flexWrap: 'wrap' }}>
                   <a
-                    href="tel:0502005346"
+                    href="tel:+971502005346"
                     className="btn-primary"
                     style={{ padding: '0.5rem 1.1rem', fontSize: '0.82rem' }}
                   >
@@ -388,7 +388,7 @@ export default function ContactSection({ onBookVisitClick }) {
                     <input
                       type="tel"
                       required
-                      placeholder="e.g. 050 200 5346"
+                      placeholder="e.g. +971 50 200 5346"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       style={{

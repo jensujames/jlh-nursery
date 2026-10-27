@@ -60,7 +60,7 @@ const ADMISSION_FAQS = [
   },
   {
     q: 'How do I check availability?',
-    a: 'Call or WhatsApp 050 200 5346 with your child\'s age and preferred start date.'
+    a: 'Call or WhatsApp +971 50 200 5346 with your child\'s age and preferred start date.'
   }
 ];
 
