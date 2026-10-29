@@ -782,8 +782,10 @@ export default function FounderPage({ onBookVisitClick }) {
           <div 
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '28px'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '32px',
+              maxWidth: '880px',
+              margin: '0 auto'
             }}
           >
             {/* Card 1: Founder Mary Ann */}
@@ -798,7 +800,7 @@ export default function FounderPage({ onBookVisitClick }) {
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease'
                 }}
               >
-                <div style={{ height: '380px', overflow: 'hidden', position: 'relative' }}>
+                <div style={{ aspectRatio: '4 / 5', overflow: 'hidden', position: 'relative', backgroundColor: '#f8fafc' }}>
                   <img 
                     src="/media/founder.jpg" 
                     alt="Mary Ann - Founder, Just Like Home Nursery" 
@@ -850,7 +852,7 @@ export default function FounderPage({ onBookVisitClick }) {
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease'
                 }}
               >
-                <div style={{ height: '380px', overflow: 'hidden', position: 'relative' }}>
+                <div style={{ aspectRatio: '4 / 5', overflow: 'hidden', position: 'relative', backgroundColor: '#f8fafc' }}>
                   <img 
                     src="/media/nursery/nursery-5.jpg" 
                     alt="Just Like Home Nursery Campus" 
@@ -858,7 +860,7 @@ export default function FounderPage({ onBookVisitClick }) {
                       width: '100%',
                       height: '100%',
                       objectFit: 'cover',
-                      objectPosition: 'center 30%'
+                      objectPosition: 'center top'
                     }}
                   />
                   <div 
