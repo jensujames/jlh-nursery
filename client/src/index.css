@@ -9488,4 +9488,22 @@ img, video, canvas, svg, iframe {
 
 
 
-
+
+
+
+/* ==========================================================================
+   Founder Page & Leadership Enhancements
+   ========================================================================== */
+.founder-page-wrapper {
+  min-height: 100vh;
+}
+
+.founder-letter-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .founder-hero-section {
+    padding-top: 42px !important;
+  }
+}

@@ -266,6 +266,7 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
                 { name: 'Safe Facilities & CCTV', path: '/facilities' },
                 { name: 'Campus Photo Gallery', path: '/gallery' },
                 { name: 'About Our Ethos & Team', path: '/about-us' },
+                { name: "Founder's Message", path: '/founder' },
                 { name: 'Admissions & Enrolment', path: '/admissions' },
                 { name: 'Contact & Location', path: '/contact' }
               ].map((item, idx) => (

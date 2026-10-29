@@ -12,6 +12,7 @@ import SmoothScroll from './components/SmoothScroll';
 // Multi-Page Views
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import FounderPage from './pages/FounderPage';
 import ProgramsPage from './pages/ProgramsPage';
 import EyfsPage from './pages/EyfsPage';
 import ActivitiesPage from './pages/ActivitiesPage';
@@ -89,6 +90,10 @@ export default function App() {
             <Route path="/" element={<HomePage onBookVisitClick={handleBookVisit} />} />
             <Route path="/about-us" element={<AboutPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/about-us/" element={<AboutPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/founder" element={<FounderPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/founder/" element={<FounderPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/founder-message" element={<FounderPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/founder-message/" element={<FounderPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/programs" element={<ProgramsPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/programs/" element={<ProgramsPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/eyfs-learning" element={<EyfsPage onBookVisitClick={handleBookVisit} />} />

@@ -391,6 +391,177 @@ export default function AboutPage({ onBookVisitClick }) {
         </div>
       </section>
 
+      {/* FOUNDER SPOTLIGHT: A MESSAGE FROM MARY ANN */}
+      <section 
+        className="about-founder-spotlight-section"
+        style={{
+          padding: 'clamp(56px, 6vw, 84px) 20px',
+          backgroundColor: '#FFFDF9',
+          borderTop: '1px solid rgba(114, 16, 36, 0.08)',
+          borderBottom: '1px solid rgba(114, 16, 36, 0.08)',
+          position: 'relative'
+        }}
+      >
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <RevealOnScroll>
+            <div 
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                gap: 'clamp(32px, 5vw, 56px)',
+                alignItems: 'center',
+                backgroundColor: '#ffffff',
+                borderRadius: '28px',
+                padding: 'clamp(28px, 4vw, 48px)',
+                border: '1.5px solid rgba(114, 16, 36, 0.12)',
+                boxShadow: '0 18px 45px rgba(114, 16, 36, 0.05)'
+              }}
+            >
+              {/* Left: Founder Portrait Card */}
+              <div style={{ position: 'relative', maxWidth: '380px', margin: '0 auto', width: '100%' }}>
+                <div 
+                  style={{
+                    borderRadius: '24px',
+                    overflow: 'hidden',
+                    backgroundColor: '#fff1f2',
+                    border: '2px solid rgba(114, 16, 36, 0.15)',
+                    boxShadow: '0 12px 32px rgba(114, 16, 36, 0.12)',
+                    aspectRatio: '4 / 5'
+                  }}
+                >
+                  <img 
+                    src="/media/founder1.jpg" 
+                    alt="Mary Ann - Founder, Just Like Home Nursery" 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
+                  />
+                </div>
+                <div 
+                  style={{
+                    position: 'absolute',
+                    bottom: '-14px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    backgroundColor: '#ffffff',
+                    padding: '8px 20px',
+                    borderRadius: '999px',
+                    border: '1.5px solid rgba(114, 16, 36, 0.16)',
+                    boxShadow: '0 6px 18px rgba(0,0,0,0.08)',
+                    whiteSpace: 'nowrap',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '12px',
+                    fontWeight: '800',
+                    color: '#721024'
+                  }}
+                >
+                  <Sparkles size={13} color="#e11d48" />
+                  <span>Mary Ann · Founder</span>
+                </div>
+              </div>
+
+              {/* Right: Founder Quote & Link */}
+              <div>
+                <span 
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '5px 16px',
+                    borderRadius: '999px',
+                    backgroundColor: '#fff1f2',
+                    color: '#721024',
+                    fontSize: '12px',
+                    fontWeight: '800',
+                    letterSpacing: '0.5px',
+                    textTransform: 'uppercase',
+                    marginBottom: '14px'
+                  }}
+                >
+                  <Heart size={13} color="#e11d48" />
+                  FOUNDER'S ADDRESS
+                </span>
+
+                <h3 
+                  style={{
+                    fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
+                    fontSize: 'clamp(26px, 3.5vw, 36px)',
+                    fontWeight: '900',
+                    color: '#721024',
+                    lineHeight: 1.2,
+                    margin: '0 0 16px 0'
+                  }}
+                >
+                  A Message from the Founder
+                </h3>
+
+                <p 
+                  style={{
+                    fontSize: '16px',
+                    lineHeight: 1.8,
+                    color: '#475569',
+                    fontStyle: 'italic',
+                    margin: '0 0 18px 0',
+                    borderLeft: '4px solid #721024',
+                    paddingLeft: '18px'
+                  }}
+                >
+                  “It gives me immense joy to welcome you to Just Like Home Nursery, a place where little hearts feel loved, young minds are nurtured, and every child is encouraged to shine in their own unique way.”
+                </p>
+
+                <p style={{ fontSize: '15px', lineHeight: 1.75, color: '#64748b', margin: '0 0 24px 0' }}>
+                  Following the principles of the Early Years Foundation Stage (EYFS), we embrace a holistic approach to early childhood education, nurturing every aspect of a child’s development through play, creativity, exploration, and meaningful experiences.
+                </p>
+
+                <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
+                  <Link
+                    to="/founder"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '12px 24px',
+                      borderRadius: '999px',
+                      backgroundColor: '#721024',
+                      color: '#ffffff',
+                      fontSize: '14px',
+                      fontWeight: '800',
+                      textDecoration: 'none',
+                      boxShadow: '0 6px 18px rgba(114, 16, 36, 0.25)',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    <span>Read Founder's Full Letter</span>
+                    <ArrowRight size={15} />
+                  </Link>
+
+                  <button
+                    type="button"
+                    onClick={() => onBookVisitClick && onBookVisitClick()}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '12px 22px',
+                      borderRadius: '999px',
+                      backgroundColor: '#ffffff',
+                      color: '#721024',
+                      border: '1.5px solid #721024',
+                      fontSize: '14px',
+                      fontWeight: '750',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    <Calendar size={15} />
+                    <span>Book a Visit</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
       {/* 4. WHAT WE PROMISE FAMILIES */}
       <section 
         style={{ 

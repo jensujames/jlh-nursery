@@ -116,6 +116,13 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
           desc: 'Our ethos, leadership & nursery philosophy' 
         },
         { 
+          name: "Founder's Message", 
+          badge: 'Vision', 
+          path: '/founder', 
+          icon: Sparkles, 
+          desc: 'A warm welcome & vision from Founder Mary Ann' 
+        },
+        { 
           name: 'Photo Gallery', 
           badge: null, 
           path: '/gallery', 
