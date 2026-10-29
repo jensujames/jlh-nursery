@@ -1216,28 +1216,55 @@ export default function HomePage({ onBookVisitClick }) {
                             display: 'block'
                           }}
                         />
+                        {/* Vertical Ribbon Badge on Left Side of Image */}
                         <div
                           style={{
                             position: 'absolute',
-                            top: '12px',
-                            left: '12px',
+                            top: '10px',
+                            left: '10px',
                             display: 'inline-flex',
+                            flexDirection: 'column',
                             alignItems: 'center',
-                            gap: '6px',
-                            padding: '4px 12px',
+                            gap: '5px',
+                            padding: '6px 4px',
                             borderRadius: '999px',
-                            backgroundColor: 'rgba(255, 255, 255, 0.94)',
+                            backgroundColor: 'rgba(255, 255, 255, 0.95)',
                             backdropFilter: 'blur(8px)',
                             WebkitBackdropFilter: 'blur(8px)',
                             color: act.color,
-                            fontSize: '11.5px',
-                            fontWeight: '800',
-                            letterSpacing: '0.3px',
-                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)'
+                            border: '1px solid rgba(255, 255, 255, 0.9)',
+                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.12)',
+                            zIndex: 2,
+                            pointerEvents: 'none'
                           }}
                         >
-                          <Icon size={13} />
-                          <span>{act.tag}</span>
+                          <div
+                            style={{
+                              width: '18px',
+                              height: '18px',
+                              borderRadius: '50%',
+                              backgroundColor: `${act.color}15`,
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              flexShrink: 0
+                            }}
+                          >
+                            <Icon size={11} />
+                          </div>
+                          <span
+                            style={{
+                              writingMode: 'vertical-rl',
+                              fontSize: '10px',
+                              fontWeight: '800',
+                              letterSpacing: '0.4px',
+                              lineHeight: 1,
+                              paddingBottom: '2px',
+                              userSelect: 'none'
+                            }}
+                          >
+                            {act.tag}
+                          </span>
                         </div>
                       </div>
 
