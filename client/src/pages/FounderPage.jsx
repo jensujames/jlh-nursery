@@ -186,7 +186,7 @@ export default function FounderPage({ onBookVisitClick }) {
                     }}
                   >
                     <img 
-                      src="/media/founder1.jpg" 
+                      src="/media/founder.jpg" 
                       alt="Mary Ann Founder" 
                       style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} 
                     />
@@ -288,7 +288,7 @@ export default function FounderPage({ onBookVisitClick }) {
                       }}
                     >
                       <img 
-                        src="/media/founder1.jpg" 
+                        src="/media/founder.jpg" 
                         alt="Mary Ann - Founder, Just Like Home Nursery"
                         style={{
                           width: '100%',
@@ -800,7 +800,7 @@ export default function FounderPage({ onBookVisitClick }) {
               >
                 <div style={{ height: '380px', overflow: 'hidden', position: 'relative' }}>
                   <img 
-                    src="/media/founder1.jpg" 
+                    src="/media/founder.jpg" 
                     alt="Mary Ann - Founder, Just Like Home Nursery" 
                     style={{
                       width: '100%',

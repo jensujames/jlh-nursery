@@ -430,7 +430,7 @@ export default function AboutPage({ onBookVisitClick }) {
                   }}
                 >
                   <img 
-                    src="/media/founder1.jpg" 
+                    src="/media/founder.jpg" 
                     alt="Mary Ann - Founder, Just Like Home Nursery" 
                     style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
                   />

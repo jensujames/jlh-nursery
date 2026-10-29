@@ -612,12 +612,12 @@ export default function HomePage({ onBookVisitClick }) {
                   /* Founder Mary Ann Portrait */
                   <div>
                     <img
-                      src="/media/founder1.jpg"
+                      src="/media/founder.jpg"
                       alt="Mary Ann - Founder, Just Like Home Nursery"
                       className="principal-photo-img"
                       style={{ maxHeight: '420px', objectFit: 'cover', objectPosition: 'center 15%' }}
                       onError={(e) => {
-                        e.currentTarget.src = '/media/founder1.jpg';
+                        e.currentTarget.src = '/media/founder.jpg';
                       }}
                     />
                     <div className="principal-caption-card">
