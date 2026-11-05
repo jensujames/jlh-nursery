@@ -343,8 +343,8 @@ app.get('/api/enquiries', async (req, res) => {
   }
 });
 
-// POST /api/enquiries - Submit contact or admissions enquiry
-app.post('/api/enquiries', async (req, res) => {
+// POST /api/enquiries (and /api/inquiries alias) - Submit contact or admissions enquiry
+app.post(['/api/enquiries', '/api/inquiries'], async (req, res) => {
   try {
     const { name, email, phone, subject, message, type } = req.body;
     if (!name || !phone || !message) {
@@ -405,11 +405,19 @@ app.post('/api/enquiries', async (req, res) => {
 });
 
 // ==================== STATIC ASSETS & SPA ROUTING ====================
-const clientDistPath = path.join(__dirname, '../client/dist');
-const indexHtmlPath = path.join(clientDistPath, 'index.html');
+const clientDistCandidates = [
+  path.join(__dirname, '../client/dist'),
+  path.join(__dirname, '../dist'),
+  path.join(process.cwd(), 'client/dist'),
+  path.join(process.cwd(), 'dist'),
+  path.join(process.cwd(), 'public_html')
+];
 
-if (fs.existsSync(clientDistPath) && fs.existsSync(indexHtmlPath)) {
-  // Monolith / single-server production deployment (e.g. Render, Railway, Docker, VPS)
+const clientDistPath = clientDistCandidates.find(p => fs.existsSync(p) && fs.existsSync(path.join(p, 'index.html')));
+const indexHtmlPath = clientDistPath ? path.join(clientDistPath, 'index.html') : null;
+
+if (clientDistPath && indexHtmlPath) {
+  // Monolith / single-server production deployment (e.g. Hostinger Node.js, Render, Railway, Docker, VPS)
   console.log(`📂 Serving built frontend client from: ${clientDistPath}`);
   app.use(express.static(clientDistPath));
 

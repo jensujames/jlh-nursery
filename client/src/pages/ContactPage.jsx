@@ -54,16 +54,39 @@ export default function ContactPage() {
     setErrorMessage('');
 
     try {
-      const response = await fetch(getApiUrl('/api/inquiries'), {
+      // 1. Direct email delivery to nursery inbox
+      fetch('https://formsubmit.co/ajax/nurseryjustlikehome@gmail.com', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Admissions/Contact Enquiry: ${formData.parentName}`,
+          _template: 'table',
+          _captcha: 'false',
+          'Parent Name': formData.parentName,
+          'Phone': formData.phone,
+          'Email': formData.email || 'Not provided',
+          'Child Age': formData.childAge,
+          'Program of Interest': formData.programInterest,
+          'Expected Start Date': formData.startDate || 'Not specified',
+          'Preferred Visit': formData.preferredVisit || 'Not specified',
+          'Message / Questions': formData.message
+        })
+      }).catch((e) => console.warn('Email dispatch notice:', e));
+
+      // 2. Also record in backend API
+      const response = await fetch(getApiUrl('/api/enquiries'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formData.parentName,
           phone: formData.phone,
           email: formData.email,
-          childAge: formData.childAge,
-          program: `${formData.programInterest} (Start: ${formData.startDate || 'N/A'}, Visit: ${formData.preferredVisit || 'N/A'})`,
-          message: formData.message
+          subject: `Enquiry: ${formData.programInterest} (${formData.childAge})`,
+          message: `${formData.message} [Start Date: ${formData.startDate || 'N/A'}, Visit: ${formData.preferredVisit || 'N/A'}]`,
+          type: 'Admissions'
         })
       });
 
