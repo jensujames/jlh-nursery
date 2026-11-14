@@ -1,0 +1,9 @@
+# Robots.txt for Just Like Home Nursery Ajman
+# https://jlhnursery.com
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://jlhnursery.com/sitemap.xml

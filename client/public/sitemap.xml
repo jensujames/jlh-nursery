@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://jlhnursery.com/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://jlhnursery.com/logo.jpg</image:loc>
+      <image:title>Just Like Home Nursery Ajman</image:title>
+    </image:image>
+  </url>
+
+  <!-- About Us Page -->
+  <url>
+    <loc>https://jlhnursery.com/about-us</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Founder Page -->
+  <url>
+    <loc>https://jlhnursery.com/founder</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://jlhnursery.com/media/founder.jpg</image:loc>
+      <image:title>Mary Ann - Founder, Just Like Home Nursery</image:title>
+    </image:image>
+  </url>
+
+  <!-- Programs Overview Page -->
+  <url>
+    <loc>https://jlhnursery.com/programs</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- British EYFS Learning Page -->
+  <url>
+    <loc>https://jlhnursery.com/eyfs-learning</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Preschool & School Readiness Page -->
+  <url>
+    <loc>https://jlhnursery.com/preschool-school-readiness</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Daycare & Full-Day Care Page -->
+  <url>
+    <loc>https://jlhnursery.com/daycare-ajman</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Admissions & Tuition Fees Page -->
+  <url>
+    <loc>https://jlhnursery.com/admissions</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Nursery Activities & Curriculum Page -->
+  <url>
+    <loc>https://jlhnursery.com/nursery-activities</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Campus Facilities & Quiet Rooms Page -->
+  <url>
+    <loc>https://jlhnursery.com/facilities</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Holiday & Summer Camps Page -->
+  <url>
+    <loc>https://jlhnursery.com/camps</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Photo Gallery Page -->
+  <url>
+    <loc>https://jlhnursery.com/gallery</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Nursery Blog & Parenting Articles Page -->
+  <url>
+    <loc>https://jlhnursery.com/blog</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Contact & Google Maps Location Page -->
+  <url>
+    <loc>https://jlhnursery.com/contact</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>

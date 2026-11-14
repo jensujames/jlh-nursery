@@ -54,6 +54,31 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
               <span>WhatsApp Direct</span>
             </a>
             <a
+              href={GMB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-pre-action-btn"
+              style={{
+                backgroundColor: '#ffffff',
+                color: '#1e293b',
+                border: '1.5px solid rgba(114, 16, 36, 0.14)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '6px 14px',
+                borderRadius: '999px',
+                fontSize: '12px',
+                fontWeight: '800',
+                textDecoration: 'none',
+                boxShadow: '0 2px 6px rgba(0,0,0,0.04)'
+              }}
+              title="View Just Like Home Nursery on Google My Business"
+            >
+              <span style={{ color: '#f59e0b', fontSize: '13px' }}>★ 5.0</span>
+              <span>Google Profile</span>
+              <ExternalLink size={12} color="#64748b" />
+            </a>
+            <a
               href="tel:+971502005346"
               className="footer-pre-action-btn footer-pre-btn-call"
               title="Call Us Direct: +971 50 200 5346"
@@ -354,8 +379,36 @@ export default function Footer({ onBookVisitClick, onAdminClick }) {
                 </div>
               </div>
 
-              {/* Book Campus Tour Trigger */}
-              <div style={{ marginTop: '0.35rem' }}>
+              {/* Actions: Google Maps Directions & Book Campus Tour */}
+              <div style={{ marginTop: '0.35rem', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
+                <a
+                  href={GMB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    width: '100%',
+                    padding: '0.55rem 1rem',
+                    borderRadius: '12px',
+                    backgroundColor: '#ffffff',
+                    border: '1.5px solid #e2e8f0',
+                    color: '#0f172a',
+                    fontSize: '0.82rem',
+                    fontWeight: '800',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px',
+                    textDecoration: 'none',
+                    boxShadow: '0 2px 6px rgba(0,0,0,0.03)',
+                    boxSizing: 'border-box'
+                  }}
+                  title="Find Just Like Home Nursery on Google Maps (Villa 47, Al Rashidiya 2, Ajman)"
+                >
+                  <MapPin size={14} color="#ea4335" />
+                  <span>Google Maps Directions</span>
+                  <ExternalLink size={12} color="#94a3b8" />
+                </a>
+
                 <button
                   type="button"
                   onClick={onBookVisitClick}
