@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  Eye, 
-  Heart, 
-  X, 
+import {
+  ChevronLeft,
+  ChevronRight,
+  Eye,
+  Heart,
+  X,
   Calendar,
   CheckCircle2,
   ArrowRight
@@ -286,8 +286,8 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
   };
 
   return (
-    <section 
-      className="curved-gallery-section" 
+    <section
+      className="curved-gallery-section"
       id="section-gallery-curved"
     >
       {/* Background Ambience */}
@@ -306,7 +306,7 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
       </div>
 
       {/* Bounded Horizontal Stage (Stops flush at ends, never leaves empty center space) */}
-      <div 
+      <div
         className={`curved-gallery-stage ${isDraggingState ? 'is-dragging' : ''}`}
         ref={stageRef}
         onMouseDown={handleMouseDown}
@@ -317,7 +317,7 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div 
+        <div
           className="curved-gallery-perspective-track"
           ref={trackRef}
           style={{
@@ -335,9 +335,9 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
               >
                 {/* 3D Card Body */}
                 <div className="curved-gallery-card">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
+                  <img
+                    src={item.image}
+                    alt={item.title}
                     className="curved-gallery-img"
                     loading="lazy"
                     style={{ objectPosition: item.imgPos || 'center' }}
@@ -345,14 +345,14 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
 
                   {/* Glassmorphic Overlay on Hover */}
                   <div className="curved-card-overlay">
-                    <span 
+                    <span
                       className="curved-card-tag"
                       style={{ background: item.tagColor }}
                     >
                       {item.tag}
                     </span>
 
-                    <button 
+                    <button
                       className={`curved-card-heart ${likedMap[item.id] ? 'liked' : ''}`}
                       type="button"
                       onClick={(e) => toggleLike(item.id, e)}
@@ -381,7 +381,7 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
         </div>
 
         {/* Floating Side Navigation Arrows with Boundary Disabling */}
-        <button 
+        <button
           className={`curved-nav-btn nav-prev ${scrollX <= 5 ? 'is-disabled' : ''}`}
           type="button"
           onClick={prevSlide}
@@ -396,7 +396,7 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
           <ChevronLeft size={22} />
         </button>
 
-        <button 
+        <button
           className={`curved-nav-btn nav-next ${scrollX >= maxScroll - 5 ? 'is-disabled' : ''}`}
           type="button"
           onClick={nextSlide}
@@ -429,7 +429,7 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
       {selectedItem && (
         <div className="curved-lightbox-backdrop" onClick={() => setSelectedItem(null)}>
           <div className="curved-lightbox-modal" onClick={e => e.stopPropagation()}>
-            <button 
+            <button
               className="curved-lightbox-close"
               type="button"
               onClick={() => setSelectedItem(null)}
@@ -468,7 +468,7 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
 
               <div className="lightbox-actions">
                 {onBookVisitClick && (
-                  <button 
+                  <button
                     className="lightbox-book-btn"
                     type="button"
                     onClick={() => {
@@ -480,8 +480,8 @@ export default function FullWidthCurvedGallery({ onBookVisitClick }) {
                     <span>Book Campus Tour</span>
                   </button>
                 )}
-                <Link 
-                  to="/gallery" 
+                <Link
+                  to="/gallery"
                   className="lightbox-gallery-link"
                   onClick={() => setSelectedItem(null)}
                 >

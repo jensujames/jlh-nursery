@@ -4,9 +4,9 @@ import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryPageHero from '../components/LuxuryPageHero';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
 import useSEO from '../hooks/useSEO';
-import { 
-  Baby, Sparkles, BookOpen, GraduationCap, Clock, Sun, 
-  ArrowRight, Calendar, Compass, Layers, CheckCircle2 
+import {
+  Baby, Sparkles, BookOpen, GraduationCap, Clock, Sun,
+  ArrowRight, Calendar, Compass, Layers, CheckCircle2
 } from 'lucide-react';
 
 const PROGRAMS = [
@@ -120,7 +120,7 @@ export default function ProgramsPage({ onBookVisitClick }) {
 
   return (
     <div className="programs-page" style={{ backgroundColor: '#FFFDF7', color: '#2d1f22', minHeight: '100vh' }}>
-      
+
       {/* 1. LUXURY HERO BANNER */}
       <LuxuryPageHero
         title="The Right Support for Every Little Step"
@@ -141,11 +141,11 @@ export default function ProgramsPage({ onBookVisitClick }) {
       />
 
       {/* 2. THE SIX CORE PROGRAMS */}
-      <section 
-        id="programs-grid" 
-        style={{ 
-          padding: 'clamp(64px, 7vw, 90px) 20px', 
-          backgroundColor: '#f8faf8', 
+      <section
+        id="programs-grid"
+        style={{
+          padding: 'clamp(64px, 7vw, 90px) 20px',
+          backgroundColor: '#f8faf8',
           backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 40%)',
           borderBottom: '1px solid #f1f5f9',
           position: 'relative',
@@ -305,8 +305,8 @@ export default function ProgramsPage({ onBookVisitClick }) {
                     </div>
 
                     <div style={{ paddingTop: '22px', marginTop: '22px', borderTop: '1px solid #f8e8e8' }}>
-                      <Link 
-                        to={prog.link} 
+                      <Link
+                        to={prog.link}
                         style={{
                           display: 'inline-flex',
                           alignItems: 'center',
@@ -335,9 +335,9 @@ export default function ProgramsPage({ onBookVisitClick }) {
       </section>
 
       {/* 3. AGE GROUPS (BY DEVELOPMENTAL STAGE) */}
-      <section 
-        style={{ 
-          padding: 'clamp(64px, 7vw, 90px) 20px', 
+      <section
+        style={{
+          padding: 'clamp(64px, 7vw, 90px) 20px',
           backgroundColor: '#FFFDF9',
           backgroundImage: 'radial-gradient(circle at 85% 15%, rgba(241, 90, 41, 0.04) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(114, 16, 36, 0.03) 0%, transparent 45%)',
           borderBottom: '1px solid #f1f5f9'
@@ -461,12 +461,12 @@ export default function ProgramsPage({ onBookVisitClick }) {
       </section>
 
       {/* 4. ALL 16 COMPREHENSIVE SERVICES */}
-      <section 
-        style={{ 
-          padding: 'clamp(64px, 7vw, 90px) 20px', 
-          backgroundColor: '#f8faf8', 
+      <section
+        style={{
+          padding: 'clamp(64px, 7vw, 90px) 20px',
+          backgroundColor: '#f8faf8',
           backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 40%)',
-          borderTop: '1px solid #f1f5f9' 
+          borderTop: '1px solid #f1f5f9'
         }}
       >
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>

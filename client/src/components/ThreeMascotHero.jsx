@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { 
-  Sparkles, Calendar, Eye, RotateCcw, 
-  ShieldCheck, Video, Lock, Trees, Sun, 
-  Moon, CloudMoon, Heart, HeartPulse, Stethoscope, 
+import {
+  Sparkles, Calendar, Eye, RotateCcw,
+  ShieldCheck, Video, Lock, Trees, Sun,
+  Moon, CloudMoon, Heart, HeartPulse, Stethoscope,
   ArrowRight, Shield, Award, CheckCircle2, ChevronRight, Activity, Footprints,
   ChevronLeft, Play, Star, Rocket, Clock, MessageCircle
 } from 'lucide-react';
@@ -270,8 +270,8 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
   }, [isFacAutoPlayPaused]);
 
   // Sound effects removed
-  const playMusicalBoing = () => {};
-  const playPopSound = () => {};
+  const playMusicalBoing = () => { };
+  const playPopSound = () => { };
 
   // Main 4 Nursery Pillars Showcase Data (Warmth, Trust, Growth, Joy)
   const pillarShowcaseData = [
@@ -794,7 +794,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
     // NURSERY ROOM BACK WALL & GALLERY WALL FRAMES
     // ==========================================
     const backWallZ = -3.15;
-    
+
     // 1. Soft Warm Pastel Nursery Back Wall
     const wallGeo = new THREE.PlaneGeometry(65, 26);
     const wallMat = new THREE.MeshStandardMaterial({
@@ -922,7 +922,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
         { r: 160, w: 26, color: '#F15A29' },
         { r: 132, w: 24, color: '#f59e0b' },
         { r: 106, w: 22, color: '#84cc16' },
-        { r: 82,  w: 20, color: '#38bdf8' }
+        { r: 82, w: 20, color: '#38bdf8' }
       ];
 
       ctx.lineCap = 'round';
@@ -982,7 +982,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       ctx.strokeRect(20, 20, 472, 472);
 
       const blocks = [
-        { letter: 'A', x: 80,  y: 80,  w: 160, h: 160, bg: '#fee2e2', border: '#f87171', textCol: '#b91c1c' },
+        { letter: 'A', x: 80, y: 80, w: 160, h: 160, bg: '#fee2e2', border: '#f87171', textCol: '#b91c1c' },
         { letter: 'B', x: 272, y: 150, w: 160, h: 160, bg: '#dcfce7', border: '#4ade80', textCol: '#15803d' },
         { letter: 'C', x: 130, y: 272, w: 160, h: 160, bg: '#e0f2fe', border: '#38bdf8', textCol: '#0369a1' }
       ];
@@ -1036,9 +1036,9 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
       const leafPairs = [
         { y: 220, dir: -1, angle: -0.5, s: 42 },
-        { y: 260, dir:  1, angle:  0.4, s: 45 },
+        { y: 260, dir: 1, angle: 0.4, s: 45 },
         { y: 320, dir: -1, angle: -0.6, s: 48 },
-        { y: 360, dir:  1, angle:  0.5, s: 48 },
+        { y: 360, dir: 1, angle: 0.5, s: 48 },
         { y: 420, dir: -1, angle: -0.5, s: 45 }
       ];
 
@@ -2221,8 +2221,8 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
         blockRig[0].scatter.x = -0.66; blockRig[0].scatter.z = 0.55;
         blockRig[1].scatter.x = -0.22; blockRig[1].scatter.z = 0.62;
-        blockRig[2].scatter.x =  0.22; blockRig[2].scatter.z = 0.62;
-        blockRig[3].scatter.x =  0.66; blockRig[3].scatter.z = 0.55;
+        blockRig[2].scatter.x = 0.22; blockRig[2].scatter.z = 0.62;
+        blockRig[3].scatter.x = 0.66; blockRig[3].scatter.z = 0.55;
 
         stackerGroup.position.set(-1.25, -0.98, 0.45);
         stackerShadow.position.set(-1.25, -0.975, 0.45);
@@ -2246,8 +2246,8 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
         blockRig[0].scatter.x = -0.78; blockRig[0].scatter.z = 0.62;
         blockRig[1].scatter.x = -0.26; blockRig[1].scatter.z = 0.70;
-        blockRig[2].scatter.x =  0.26; blockRig[2].scatter.z = 0.70;
-        blockRig[3].scatter.x =  0.78; blockRig[3].scatter.z = 0.62;
+        blockRig[2].scatter.x = 0.26; blockRig[2].scatter.z = 0.70;
+        blockRig[3].scatter.x = 0.78; blockRig[3].scatter.z = 0.62;
 
         stackerGroup.position.set(-1.45, -0.98, 0.45);
         stackerShadow.position.set(-1.45, -0.975, 0.45);
@@ -2271,8 +2271,8 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
         blockRig[0].scatter.x = -0.84; blockRig[0].scatter.z = 0.65;
         blockRig[1].scatter.x = -0.28; blockRig[1].scatter.z = 0.72;
-        blockRig[2].scatter.x =  0.28; blockRig[2].scatter.z = 0.72;
-        blockRig[3].scatter.x =  0.84; blockRig[3].scatter.z = 0.65;
+        blockRig[2].scatter.x = 0.28; blockRig[2].scatter.z = 0.72;
+        blockRig[3].scatter.x = 0.84; blockRig[3].scatter.z = 0.65;
 
         stackerGroup.position.set(-1.65, -0.98, 0.45);
         stackerShadow.position.set(-1.65, -0.975, 0.45);
@@ -2377,10 +2377,10 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     const scrambleCardConfigs = [
-      { id: 'scramble-card-0', pileX: 280,  pileY: 10,  rot: -13.5, scale: 0.94, z: 4 },
-      { id: 'scramble-card-1', pileX: -20,  pileY: 90,  rot: 11.2,  scale: 0.96, z: 3 },
-      { id: 'scramble-card-2', pileX: 30,   pileY: -90, rot: -8.0,  scale: 0.95, z: 2 },
-      { id: 'scramble-card-3', pileX: -270, pileY: 5,   rot: 14.5,  scale: 0.93, z: 1 }
+      { id: 'scramble-card-0', pileX: 280, pileY: 10, rot: -13.5, scale: 0.94, z: 4 },
+      { id: 'scramble-card-1', pileX: -20, pileY: 90, rot: 11.2, scale: 0.96, z: 3 },
+      { id: 'scramble-card-2', pileX: 30, pileY: -90, rot: -8.0, scale: 0.95, z: 2 },
+      { id: 'scramble-card-3', pileX: -270, pileY: 5, rot: 14.5, scale: 0.93, z: 1 }
     ];
 
     function updateSection3Scramble(trackProgress) {
@@ -2682,7 +2682,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
       {/* Scrollable Container (z-index: 25) */}
       <div id="scroll-container">
-        
+
         {/* SECTION 1: 3D Hero Stage */}
         <section className="hero-section" ref={heroSectionRef} id="section-1">
 
@@ -2728,9 +2728,9 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   </p>
 
                   <div className="hero-actions-btns-row" id="hero-actions-btns-row">
-                    <button 
-                      className="hero-cta-btn hero-btn-book" 
-                      type="button" 
+                    <button
+                      className="hero-cta-btn hero-btn-book"
+                      type="button"
                       id="hero-book-now-btn"
                       onClick={() => {
                         playPopSound(580);
@@ -2740,12 +2740,12 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                       <Calendar size={16} />
                       <span>Book Now</span>
                     </button>
-                    
-                    <a 
-                      href="https://wa.me/971502005346?text=Hello%20Just%20Like%20Home%20Nursery%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20nursery." 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="hero-cta-btn hero-btn-whatsapp" 
+
+                    <a
+                      href="https://wa.me/971502005346?text=Hello%20Just%20Like%20Home%20Nursery%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20nursery."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hero-cta-btn hero-btn-whatsapp"
                       id="hero-whatsapp-btn"
                       onClick={() => playPopSound(540)}
                     >
@@ -2772,9 +2772,9 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
             {/* Right: Arched Showcase Card with Carousel (Enters from Right) */}
             <div className="hero-card-right-arch animate-entrance-right delay-200">
-              <div 
-                className="globe-sphere-wrap" 
-                id="arch-kids-carousel" 
+              <div
+                className="globe-sphere-wrap"
+                id="arch-kids-carousel"
                 title="Happy Children at Just Like Home Nursery"
                 onClick={() => {
                   setArchSlideIdx(prev => (prev + 1) % archPhotos.length);
@@ -2782,19 +2782,19 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                 }}
               >
                 {archPhotos.map((photo, idx) => (
-                  <div 
-                    key={idx} 
+                  <div
+                    key={idx}
                     className={`arch-carousel-slide ${idx === archSlideIdx ? 'active' : ''}`}
                   >
                     <img src={photo.src} alt={photo.alt} />
                   </div>
                 ))}
-                
+
                 <div className="arch-carousel-overlay" />
                 <div className="arch-carousel-dots">
                   {archPhotos.map((_, idx) => (
-                    <span 
-                      key={idx} 
+                    <span
+                      key={idx}
                       className={`arch-dot ${idx === archSlideIdx ? 'active' : ''}`}
                       onClick={(e) => {
                         e.stopPropagation();
@@ -2811,7 +2811,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                 <p className="arch-card-body">
                   Through purposeful play, creativity and individual attention, we nurture every child's emotional, social, physical, communication and intellectual development while helping them build the skills they need for life.
                 </p>
-                <div 
+                <div
                   className="arch-card-link"
                   onClick={() => {
                     playPopSound(580);
@@ -2824,15 +2824,15 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
               </div>
 
               <svg className="arch-sparkle" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
+                <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
               </svg>
             </div>
           </div>
 
           {/* Bottom Scroll Indicator */}
           <div className="hero-bottom-controls" id="hero-bottom-controls">
-            <div 
-              className="scroll-indicator" 
+            <div
+              className="scroll-indicator"
               id="scroll-arrow-btn"
               onClick={() => {
                 const targetScroll = heroSectionRef.current ? heroSectionRef.current.offsetHeight : window.innerHeight;
@@ -2863,7 +2863,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
           <div className="section2-transition-overlay" id="transition-overlay" />
           <div className="content-wrapper">
             <div className="pillars-interactive-split">
-              
+
               {/* Left Column: Heading Content + 4 Pillar Cards with Pedestal Slots */}
               <div className="pillars-left-column" data-reveal="left" style={{ display: 'flex', flexDirection: 'column', gap: '32px', width: '100%' }}>
                 <div className="content-header" style={{ marginBottom: 0, textAlign: 'left' }}>
@@ -2887,7 +2887,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   <p style={{ fontSize: '16px', lineHeight: 1.72, color: '#475569', marginBottom: '24px' }}>
                     Our approach combines early-years learning with the care, patience and personal attention of a nurturing home environment. Children are encouraged to discover the world through play, creativity, movement and hands-on experiences while developing confidence at their own pace.
                   </p>
-                  <div 
+                  <div
                     className="three-mascot-about-actions"
                     style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'flex-start' }}
                   >
@@ -2940,9 +2940,9 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
                 {/* 4 Pillar Cards with Pedestal Slots & Light Background Numbers 1 to 4 */}
                 <div className="pillars-stack-container" id="pillars-stack">
-                  
+
                   {/* Pillar 0: WARMTH */}
-                  <div 
+                  <div
                     className={`pillar-stack-card ${activePillar === 0 ? 'active' : ''}`}
                     id="pillar-card-0"
                     onClick={() => handlePillarSelect(0, true)}
@@ -2958,7 +2958,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   </div>
 
                   {/* Pillar 1: TRUST */}
-                  <div 
+                  <div
                     className={`pillar-stack-card ${activePillar === 1 ? 'active' : ''}`}
                     id="pillar-card-1"
                     onClick={() => handlePillarSelect(1, true)}
@@ -2974,7 +2974,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   </div>
 
                   {/* Pillar 2: GROWTH */}
-                  <div 
+                  <div
                     className={`pillar-stack-card ${activePillar === 2 ? 'active' : ''}`}
                     id="pillar-card-2"
                     onClick={() => handlePillarSelect(2, true)}
@@ -2990,7 +2990,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
                   </div>
 
                   {/* Pillar 3: JOY */}
-                  <div 
+                  <div
                     className={`pillar-stack-card ${activePillar === 3 ? 'active' : ''}`}
                     id="pillar-card-3"
                     onClick={() => handlePillarSelect(3, true)}
@@ -3021,320 +3021,320 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
 
                 return (
                   <div className="pillars-right-column">
-                    <div 
-                      className="pillars-media-showcase" 
-                      id="pillars-media-showcase" 
+                    <div
+                      className="pillars-media-showcase"
+                      id="pillars-media-showcase"
                       style={{
                         borderColor: `${currentPillar.tagColor}40`,
                         boxShadow: `0 24px 60px -15px ${currentPillar.tagColor}28, 0 4px 16px rgba(0, 0, 0, 0.04)`,
                         paddingBottom: '36px'
                       }}
                     >
-                    {/* Top Bar: Scroll Progress & Pillar Identity */}
-                    <div 
-                      className="pillars-showcase-progress-bar"
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        marginBottom: '16px',
-                        paddingBottom: '12px',
-                        borderBottom: '1px solid rgba(0, 0, 0, 0.06)'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <span 
-                          style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '6px',
-                            padding: '4px 12px',
-                            borderRadius: '999px',
-                            fontSize: '0.78rem',
-                            fontWeight: '800',
-                            backgroundColor: `${currentPillar.tagColor}15`,
-                            color: currentPillar.tagColor,
-                            border: `1px solid ${currentPillar.tagColor}30`,
-                            letterSpacing: '0.5px',
-                            transition: 'all 0.35s ease'
-                          }}
-                        >
-                          <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: currentPillar.tagColor }} />
-                          <span>{currentPillar.counter} &bull; {currentPillar.pillarName}</span>
-                        </span>
-                        <span style={{ fontSize: '0.82rem', fontWeight: '700', color: '#64748b' }} className="pillars-desktop-title-snippet">
-                          {currentPillar.title}
-                        </span>
-                      </div>
-
-                      {/* 4 Segmented Scroll Progress Indicators */}
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }} title="Scroll progress through 4 Pillars">
-                        {pillarShowcaseData.map((p, pIdx) => {
-                          const isPastOrCurrent = pIdx <= activePillar;
-                          const isCurrent = pIdx === activePillar;
-                          return (
-                            <button
-                              key={pIdx}
-                              type="button"
-                              onClick={() => handlePillarSelect(pIdx, true)}
-                              aria-label={`Jump to ${p.pillarName}`}
-                              style={{
-                                height: '7px',
-                                width: isCurrent ? '28px' : '16px',
-                                borderRadius: '999px',
-                                backgroundColor: isCurrent ? p.tagColor : (isPastOrCurrent ? `${p.tagColor}80` : '#e2e8f0'),
-                                border: 'none',
-                                padding: 0,
-                                cursor: 'pointer',
-                                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                                boxShadow: isCurrent ? `0 2px 8px ${p.tagColor}60` : 'none'
-                              }}
-                            />
-                          );
-                        })}
-                      </div>
-                    </div>
-
-                    {/* Sliding Viewport & Track: Slides smoothly between WARMTH, TRUST, GROWTH, JOY */}
-                    <div 
-                      className="pillars-showcase-slider-viewport"
-                      style={{
-                        width: '100%',
-                        overflow: 'hidden',
-                        borderRadius: '26px',
-                        position: 'relative'
-                      }}
-                    >
-                      <div 
-                        className="pillars-showcase-slider-track"
+                      {/* Top Bar: Scroll Progress & Pillar Identity */}
+                      <div
+                        className="pillars-showcase-progress-bar"
                         style={{
                           display: 'flex',
-                          width: '100%',
-                          transform: `translate3d(-${activePillar * 100}%, 0, 0)`,
-                          transition: 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)',
-                          willChange: 'transform'
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          marginBottom: '16px',
+                          paddingBottom: '12px',
+                          borderBottom: '1px solid rgba(0, 0, 0, 0.06)'
                         }}
                       >
-                        {pillarShowcaseData.map((item, idx) => (
-                          <div 
-                            key={idx}
-                            className="pillars-showcase-slide-item"
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <span
                             style={{
-                              minWidth: '100%',
-                              maxWidth: '100%',
-                              width: '100%',
-                              flexShrink: 0,
-                              boxSizing: 'border-box'
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '6px',
+                              padding: '4px 12px',
+                              borderRadius: '999px',
+                              fontSize: '0.78rem',
+                              fontWeight: '800',
+                              backgroundColor: `${currentPillar.tagColor}15`,
+                              color: currentPillar.tagColor,
+                              border: `1px solid ${currentPillar.tagColor}30`,
+                              letterSpacing: '0.5px',
+                              transition: 'all 0.35s ease'
                             }}
                           >
-                            <div 
-                              className="media-collage-grid pillars-collage-grid"
+                            <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: currentPillar.tagColor }} />
+                            <span>{currentPillar.counter} &bull; {currentPillar.pillarName}</span>
+                          </span>
+                          <span style={{ fontSize: '0.82rem', fontWeight: '700', color: '#64748b' }} className="pillars-desktop-title-snippet">
+                            {currentPillar.title}
+                          </span>
+                        </div>
+
+                        {/* 4 Segmented Scroll Progress Indicators */}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }} title="Scroll progress through 4 Pillars">
+                          {pillarShowcaseData.map((p, pIdx) => {
+                            const isPastOrCurrent = pIdx <= activePillar;
+                            const isCurrent = pIdx === activePillar;
+                            return (
+                              <button
+                                key={pIdx}
+                                type="button"
+                                onClick={() => handlePillarSelect(pIdx, true)}
+                                aria-label={`Jump to ${p.pillarName}`}
+                                style={{
+                                  height: '7px',
+                                  width: isCurrent ? '28px' : '16px',
+                                  borderRadius: '999px',
+                                  backgroundColor: isCurrent ? p.tagColor : (isPastOrCurrent ? `${p.tagColor}80` : '#e2e8f0'),
+                                  border: 'none',
+                                  padding: 0,
+                                  cursor: 'pointer',
+                                  transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                                  boxShadow: isCurrent ? `0 2px 8px ${p.tagColor}60` : 'none'
+                                }}
+                              />
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* Sliding Viewport & Track: Slides smoothly between WARMTH, TRUST, GROWTH, JOY */}
+                      <div
+                        className="pillars-showcase-slider-viewport"
+                        style={{
+                          width: '100%',
+                          overflow: 'hidden',
+                          borderRadius: '26px',
+                          position: 'relative'
+                        }}
+                      >
+                        <div
+                          className="pillars-showcase-slider-track"
+                          style={{
+                            display: 'flex',
+                            width: '100%',
+                            transform: `translate3d(-${activePillar * 100}%, 0, 0)`,
+                            transition: 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)',
+                            willChange: 'transform'
+                          }}
+                        >
+                          {pillarShowcaseData.map((item, idx) => (
+                            <div
+                              key={idx}
+                              className="pillars-showcase-slide-item"
                               style={{
-                                display: 'grid',
-                                gridTemplateColumns: '1fr 1fr',
-                                gap: '14px',
+                                minWidth: '100%',
+                                maxWidth: '100%',
                                 width: '100%',
-                                height: '340px',
-                                borderRadius: '26px'
+                                flexShrink: 0,
+                                boxSizing: 'border-box'
                               }}
                             >
-                              {/* Left Column: Heading Card on Top + Playful Photo on Bottom */}
-                              <div className="pillars-left-col" style={{ display: 'flex', flexDirection: 'column', gap: '12px', height: '100%', width: '100%' }}>
-                                {/* Top: Only Heading */}
-                                <div 
-                                  className="pillars-info-card"
-                                  style={{
-                                    backgroundColor: item.infoCard?.bg || '#edf7e8',
-                                    borderRadius: '16px',
-                                    padding: '0.85rem 1.15rem',
-                                    border: '1px solid rgba(0, 0, 0, 0.04)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '10px',
-                                    boxShadow: '0 4px 14px rgba(0, 0, 0, 0.02)',
-                                    flexShrink: 0
-                                  }}
-                                >
-                                  <div style={{
-                                    width: '28px',
-                                    height: '28px',
-                                    borderRadius: '50%',
-                                    backgroundColor: '#ffffff',
-                                    color: item.infoCard?.accent || '#2e7d32',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.06)',
-                                    flexShrink: 0
-                                  }}>
-                                    <Clock size={15} strokeWidth={2.4} />
+                              <div
+                                className="media-collage-grid pillars-collage-grid"
+                                style={{
+                                  display: 'grid',
+                                  gridTemplateColumns: '1fr 1fr',
+                                  gap: '14px',
+                                  width: '100%',
+                                  height: '340px',
+                                  borderRadius: '26px'
+                                }}
+                              >
+                                {/* Left Column: Heading Card on Top + Playful Photo on Bottom */}
+                                <div className="pillars-left-col" style={{ display: 'flex', flexDirection: 'column', gap: '12px', height: '100%', width: '100%' }}>
+                                  {/* Top: Only Heading */}
+                                  <div
+                                    className="pillars-info-card"
+                                    style={{
+                                      backgroundColor: item.infoCard?.bg || '#edf7e8',
+                                      borderRadius: '16px',
+                                      padding: '0.85rem 1.15rem',
+                                      border: '1px solid rgba(0, 0, 0, 0.04)',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      gap: '10px',
+                                      boxShadow: '0 4px 14px rgba(0, 0, 0, 0.02)',
+                                      flexShrink: 0
+                                    }}
+                                  >
+                                    <div style={{
+                                      width: '28px',
+                                      height: '28px',
+                                      borderRadius: '50%',
+                                      backgroundColor: '#ffffff',
+                                      color: item.infoCard?.accent || '#2e7d32',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'center',
+                                      boxShadow: '0 2px 6px rgba(0, 0, 0, 0.06)',
+                                      flexShrink: 0
+                                    }}>
+                                      <Clock size={15} strokeWidth={2.4} />
+                                    </div>
+                                    <span style={{
+                                      fontSize: '0.92rem',
+                                      fontWeight: '800',
+                                      color: '#1e293b'
+                                    }}>
+                                      {item.infoCard?.title}
+                                    </span>
                                   </div>
-                                  <span style={{
-                                    fontSize: '0.92rem',
-                                    fontWeight: '800',
-                                    color: '#1e293b'
-                                  }}>
-                                    {item.infoCard?.title}
-                                  </span>
+
+                                  {/* Bottom: Playful Child / Infant Photo */}
+                                  <div
+                                    className="pillars-small-img-wrap"
+                                    style={{
+                                      borderRadius: '18px',
+                                      overflow: 'hidden',
+                                      flex: 1,
+                                      minHeight: '268px',
+                                      width: '100%',
+                                      boxShadow: '0 6px 18px rgba(0, 0, 0, 0.06)',
+                                      position: 'relative',
+                                      boxSizing: 'border-box'
+                                    }}
+                                  >
+                                    <img
+                                      src={item.smallImage}
+                                      alt={item.smallAlt || item.title}
+                                      loading={idx === 0 ? 'eager' : 'lazy'}
+                                      style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        objectPosition: item.smallImgPos || 'center',
+                                        transform: item.smallImgScale ? `scale(${item.smallImgScale})` : 'none',
+                                        transformOrigin: item.smallImgOrigin || 'center',
+                                        display: 'block'
+                                      }}
+                                    />
+                                  </div>
                                 </div>
 
-                                {/* Bottom: Playful Child / Infant Photo */}
-                                <div 
-                                  className="pillars-small-img-wrap"
+                                {/* Right Column: Tall Portrait Photo + Floating Badge (Fixed Height) */}
+                                <div
+                                  className="pillars-right-col"
                                   style={{
-                                    borderRadius: '18px',
+                                    borderRadius: '22px',
                                     overflow: 'hidden',
-                                    flex: 1,
-                                    minHeight: '268px',
+                                    height: '340px',
                                     width: '100%',
-                                    boxShadow: '0 6px 18px rgba(0, 0, 0, 0.06)',
                                     position: 'relative',
+                                    boxShadow: '0 10px 24px rgba(0, 0, 0, 0.08)',
                                     boxSizing: 'border-box'
                                   }}
                                 >
                                   <img
-                                    src={item.smallImage}
-                                    alt={item.smallAlt || item.title}
+                                    src={item.tallImage}
+                                    alt={item.tallAlt || item.title}
                                     loading={idx === 0 ? 'eager' : 'lazy'}
+                                    className="pillars-tall-img"
                                     style={{
                                       width: '100%',
                                       height: '100%',
                                       objectFit: 'cover',
-                                      objectPosition: item.smallImgPos || 'center',
-                                      transform: item.smallImgScale ? `scale(${item.smallImgScale})` : 'none',
-                                      transformOrigin: item.smallImgOrigin || 'center',
+                                      objectPosition: item.tallImgPos || 'center 60%',
                                       display: 'block'
                                     }}
                                   />
-                                </div>
-                              </div>
 
-                              {/* Right Column: Tall Portrait Photo + Floating Badge (Fixed Height) */}
-                              <div 
-                                className="pillars-right-col"
-                                style={{
-                                  borderRadius: '22px',
-                                  overflow: 'hidden',
-                                  height: '340px',
-                                  width: '100%',
-                                  position: 'relative',
-                                  boxShadow: '0 10px 24px rgba(0, 0, 0, 0.08)',
-                                  boxSizing: 'border-box'
-                                }}
-                              >
-                                <img
-                                  src={item.tallImage}
-                                  alt={item.tallAlt || item.title}
-                                  loading={idx === 0 ? 'eager' : 'lazy'}
-                                  className="pillars-tall-img"
-                                  style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'cover',
-                                    objectPosition: item.tallImgPos || 'center 60%',
-                                    display: 'block'
-                                  }}
-                                />
-
-                                {/* Floating Pillar Badge */}
-                                <div 
-                                  className="pillars-floating-badge"
-                                  style={{
-                                    position: 'absolute',
-                                    top: '12px',
-                                    left: '12px',
-                                    backgroundColor: 'rgba(255, 255, 255, 0.94)',
-                                    backdropFilter: 'blur(8px)',
-                                    padding: '0.35rem 0.85rem',
-                                    borderRadius: '999px',
-                                    fontSize: '0.78rem',
-                                    fontWeight: '800',
-                                    color: '#1e293b',
-                                    boxShadow: '0 4px 14px rgba(0,0,0,0.12)',
-                                    display: 'inline-flex',
-                                    alignItems: 'center',
-                                    gap: '6px',
-                                    zIndex: 2
-                                  }}
-                                >
-                                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.tagColor }} />
-                                  <span>{item.counter} &bull; {item.pillarName}</span>
+                                  {/* Floating Pillar Badge */}
+                                  <div
+                                    className="pillars-floating-badge"
+                                    style={{
+                                      position: 'absolute',
+                                      top: '12px',
+                                      left: '12px',
+                                      backgroundColor: 'rgba(255, 255, 255, 0.94)',
+                                      backdropFilter: 'blur(8px)',
+                                      padding: '0.35rem 0.85rem',
+                                      borderRadius: '999px',
+                                      fontSize: '0.78rem',
+                                      fontWeight: '800',
+                                      color: '#1e293b',
+                                      boxShadow: '0 4px 14px rgba(0,0,0,0.12)',
+                                      display: 'inline-flex',
+                                      alignItems: 'center',
+                                      gap: '6px',
+                                      zIndex: 2
+                                    }}
+                                  >
+                                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.tagColor }} />
+                                    <span>{item.counter} &bull; {item.pillarName}</span>
+                                  </div>
                                 </div>
                               </div>
                             </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Captions & Highlights Area (Visible on mobile only; on desktop, 4 pillars stack on left handles all descriptions) */}
+                      <div className="media-caption-area pillars-caption-area pillars-desktop-hide">
+                        <div className="media-caption-title pillars-caption-title" id="media-caption-title">
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                            <h4>{currentPillar.pillarName}</h4>
                           </div>
+                          <div className="pillars-controls-cluster" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <span
+                              className="media-counter-pill"
+                              style={{
+                                color: currentPillar.tagColor,
+                                borderColor: `${currentPillar.tagColor}35`,
+                                background: `${currentPillar.tagColor}12`
+                              }}
+                            >
+                              {currentPillar.counter}
+                            </span>
+                            {/* Navigation arrow buttons */}
+                            <button
+                              type="button"
+                              onClick={prevPillar}
+                              className="media-nav-arrow-btn"
+                              aria-label="Previous Pillar"
+                            >
+                              <ChevronLeft size={15} />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={nextPillar}
+                              className="media-nav-arrow-btn"
+                              aria-label="Next Pillar"
+                            >
+                              <ChevronRight size={15} />
+                            </button>
+                          </div>
+                        </div>
+
+                        <p className="media-caption-desc" id="media-caption-desc">
+                          {currentPillar.desc}
+                        </p>
+
+                        {/* Feature Chips */}
+                        {currentPillar.highlights && (
+                          <div className="media-feature-chips">
+                            {currentPillar.highlights.map((h, hIdx) => (
+                              <span key={hIdx} className="media-chip-item">
+                                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: currentPillar.tagColor }} />
+                                <span>{h}</span>
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Indicators (Visible on mobile only) */}
+                      <div className="media-indicators pillars-desktop-hide">
+                        {pillarShowcaseData.map((item, idx) => (
+                          <div
+                            key={idx}
+                            className={`media-indicator-pill ${idx === activePillar ? 'active' : ''}`}
+                            style={idx === activePillar ? { background: item.tagColor, boxShadow: `0 2px 8px ${item.tagColor}50` } : {}}
+                            onClick={() => handlePillarSelect(idx)}
+                          />
                         ))}
                       </div>
                     </div>
-
-                    {/* Captions & Highlights Area (Visible on mobile only; on desktop, 4 pillars stack on left handles all descriptions) */}
-                    <div className="media-caption-area pillars-caption-area pillars-desktop-hide">
-                      <div className="media-caption-title pillars-caption-title" id="media-caption-title">
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                          <h4>{currentPillar.pillarName}</h4>
-                        </div>
-                        <div className="pillars-controls-cluster" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                          <span 
-                            className="media-counter-pill"
-                            style={{
-                              color: currentPillar.tagColor,
-                              borderColor: `${currentPillar.tagColor}35`,
-                              background: `${currentPillar.tagColor}12`
-                            }}
-                          >
-                            {currentPillar.counter}
-                          </span>
-                          {/* Navigation arrow buttons */}
-                          <button
-                            type="button"
-                            onClick={prevPillar}
-                            className="media-nav-arrow-btn"
-                            aria-label="Previous Pillar"
-                          >
-                            <ChevronLeft size={15} />
-                          </button>
-                          <button
-                            type="button"
-                            onClick={nextPillar}
-                            className="media-nav-arrow-btn"
-                            aria-label="Next Pillar"
-                          >
-                            <ChevronRight size={15} />
-                          </button>
-                        </div>
-                      </div>
-
-                      <p className="media-caption-desc" id="media-caption-desc">
-                        {currentPillar.desc}
-                      </p>
-
-                      {/* Feature Chips */}
-                      {currentPillar.highlights && (
-                        <div className="media-feature-chips">
-                          {currentPillar.highlights.map((h, hIdx) => (
-                            <span key={hIdx} className="media-chip-item">
-                              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: currentPillar.tagColor }} />
-                              <span>{h}</span>
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Indicators (Visible on mobile only) */}
-                    <div className="media-indicators pillars-desktop-hide">
-                      {pillarShowcaseData.map((item, idx) => (
-                        <div 
-                          key={idx}
-                          className={`media-indicator-pill ${idx === activePillar ? 'active' : ''}`}
-                          style={idx === activePillar ? { background: item.tagColor, boxShadow: `0 2px 8px ${item.tagColor}50` } : {}}
-                          onClick={() => handlePillarSelect(idx)}
-                        />
-                      ))}
-                    </div>
                   </div>
-                </div>
-              );
+                );
               })()}
             </div>
           </div>

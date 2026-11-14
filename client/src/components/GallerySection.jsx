@@ -62,8 +62,8 @@ export default function GallerySection({ onBookVisitClick }) {
     { id: 'creative', label: 'Sensory & Creative' }
   ];
 
-  const filteredPhotos = activeCategory === 'all' 
-    ? photos 
+  const filteredPhotos = activeCategory === 'all'
+    ? photos
     : photos.filter(p => p.category === activeCategory);
 
   const handleNext = () => {
@@ -75,14 +75,14 @@ export default function GallerySection({ onBookVisitClick }) {
   };
 
   return (
-    <section 
-      id="gallery" 
+    <section
+      id="gallery"
       ref={galleryRef}
-      className="section-padding bg-cream-subtle perspective-1000" 
+      className="section-padding bg-cream-subtle perspective-1000"
       style={{ position: 'relative' }}
     >
       <div className="container">
-        
+
         {/* Header */}
         <RevealOnScroll animation="fade-up">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -133,97 +133,97 @@ export default function GallerySection({ onBookVisitClick }) {
 
         {/* Photos Grid with ScrollCraft Multi-Tier Speed Parallax (Paradigm #09) */}
         <RevealOnScroll animation="fade-up" delay={150}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '1.75rem',
-          marginBottom: '3.5rem'
-        }}>
-          {filteredPhotos.map((photo, index) => {
-            // Speed tiers: index % 3 gives divergent rates (-0.8x, +1.2x, +0.6x)
-            const speedMultiplier = index % 3 === 0 ? 28 : (index % 3 === 1 ? -32 : 18);
-            const parallaxY = (progress - 0.45) * speedMultiplier;
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '1.75rem',
+            marginBottom: '3.5rem'
+          }}>
+            {filteredPhotos.map((photo, index) => {
+              // Speed tiers: index % 3 gives divergent rates (-0.8x, +1.2x, +0.6x)
+              const speedMultiplier = index % 3 === 0 ? 28 : (index % 3 === 1 ? -32 : 18);
+              const parallaxY = (progress - 0.45) * speedMultiplier;
 
-            return (
-              <div
-                key={photo.id}
-                onClick={() => setSelectedPhotoIndex(index)}
-                style={{
-                  position: 'relative',
-                  borderRadius: '1.5rem',
-                  overflow: 'hidden',
-                  height: '320px',
-                  cursor: 'pointer',
-                  boxShadow: '0 8px 24px rgba(70, 7, 19, 0.08)',
-                  border: '4px solid #ffffff',
-                  backgroundColor: '#f3ece6',
-                  transform: `translate3d(0, ${parallaxY.toFixed(1)}px, 0)`,
-                  transition: 'transform 0.15s ease-out, box-shadow 0.25s ease'
-                }}
-              onMouseEnter={(e) => {
-                e.currentTarget.querySelector('.gallery-overlay').style.opacity = '1';
-                e.currentTarget.querySelector('img').style.transform = 'scale(1.05)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.querySelector('.gallery-overlay').style.opacity = '0';
-                e.currentTarget.querySelector('img').style.transform = 'scale(1)';
-              }}
-            >
-              <img
-                src={photo.src}
-                alt={photo.title}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  transition: 'transform 0.4s ease'
-                }}
-              />
+              return (
+                <div
+                  key={photo.id}
+                  onClick={() => setSelectedPhotoIndex(index)}
+                  style={{
+                    position: 'relative',
+                    borderRadius: '1.5rem',
+                    overflow: 'hidden',
+                    height: '320px',
+                    cursor: 'pointer',
+                    boxShadow: '0 8px 24px rgba(70, 7, 19, 0.08)',
+                    border: '4px solid #ffffff',
+                    backgroundColor: '#f3ece6',
+                    transform: `translate3d(0, ${parallaxY.toFixed(1)}px, 0)`,
+                    transition: 'transform 0.15s ease-out, box-shadow 0.25s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.querySelector('.gallery-overlay').style.opacity = '1';
+                    e.currentTarget.querySelector('img').style.transform = 'scale(1.05)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.querySelector('.gallery-overlay').style.opacity = '0';
+                    e.currentTarget.querySelector('img').style.transform = 'scale(1)';
+                  }}
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.title}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 0.4s ease'
+                    }}
+                  />
 
-              {/* Hover Overlay */}
-              <div
-                className="gallery-overlay"
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  backgroundColor: 'rgba(70, 7, 19, 0.85)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'flex-end',
-                  padding: '1.75rem',
-                  color: '#ffffff',
-                  opacity: 0,
-                  transition: 'opacity 0.3s ease'
-                }}
-              >
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.4rem',
-                  color: '#fef08a',
-                  fontSize: '0.76rem',
-                  fontWeight: '700',
-                  textTransform: 'uppercase',
-                  marginBottom: '0.4rem'
-                }}>
-                  <Eye size={14} /> Click to View High-Res
+                  {/* Hover Overlay */}
+                  <div
+                    className="gallery-overlay"
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      backgroundColor: 'rgba(70, 7, 19, 0.85)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-end',
+                      padding: '1.75rem',
+                      color: '#ffffff',
+                      opacity: 0,
+                      transition: 'opacity 0.3s ease'
+                    }}
+                  >
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.4rem',
+                      color: '#fef08a',
+                      fontSize: '0.76rem',
+                      fontWeight: '700',
+                      textTransform: 'uppercase',
+                      marginBottom: '0.4rem'
+                    }}>
+                      <Eye size={14} /> Click to View High-Res
+                    </div>
+                    <h4 style={{
+                      fontSize: '1.25rem',
+                      color: '#ffffff',
+                      fontFamily: 'var(--font-heading)',
+                      marginBottom: '0.25rem'
+                    }}>
+                      {photo.title}
+                    </h4>
+                    <p style={{ fontSize: '0.82rem', color: '#fce7eb', opacity: 0.9 }}>
+                      {photo.desc}
+                    </p>
+                  </div>
                 </div>
-                <h4 style={{
-                  fontSize: '1.25rem',
-                  color: '#ffffff',
-                  fontFamily: 'var(--font-heading)',
-                  marginBottom: '0.25rem'
-                }}>
-                  {photo.title}
-                </h4>
-                <p style={{ fontSize: '0.82rem', color: '#fce7eb', opacity: 0.9 }}>
-                  {photo.desc}
-                </p>
-              </div>
-            </div>
-          );
-        })}
-        </div>
+              );
+            })}
+          </div>
         </RevealOnScroll>
 
         {/* Lightbox Modal */}
