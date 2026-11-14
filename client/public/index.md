@@ -1,85 +1,69 @@
-# Just Like Home Nursery (JLH) — Best Nursery, Daycare & Children's Care in Ajman, UAE
+# Just Like Home Nursery (JLH) — Best EYFS Nursery & Daycare in Ajman, UAE
 
 > **Where Little Hearts Feel at Home**
-> Premier British Early Years Foundation Stage (EYFS) Nursery, Preschool, and Full-Day Daycare in Al Rashidiya 2, Ajman.
+> Premier British Early Years Foundation Stage (EYFS) Nursery, Preschool, and Full-Day Daycare across a 55,000 sq. ft. campus in Al Rashidiya 2, Ajman.
 
 ---
 
-## Quick Reference Facts
+## Quick Reference Facts & Verified NAP
 
-- **Official Name**: Just Like Home Nursery (JLH Nursery)
-- **Local Identity**: حضانة مثل البيت تماماً عجمان
-- **Location**: Standalone Villa No. 47, Al Rashidiya 2, Ajman, United Arab Emirates
-- **Serving Neighborhoods**: Al Rashidiya 2, Al Rashidiya 1, Al Nuaimiya, Al Jurf, Al Rumailah, Ajman Corniche, Coral Beach, and Sharjah border communities
+- **Official Business Name**: Just Like Home Nursery
+- **Bilingual Identity**: حضانة جست لايك هوم عجمان (حضانة مثل البيت تماماً)
+- **Physical Address**: Villa No. 47, Ammar Bin Yasir St, Opp. Rashidiya Towers B3, Near Ajman Sports Club, Al Rashidiya 2, Ajman, United Arab Emirates
+- **Geo Coordinates**: `25.3995, 55.4422`
 - **Google Maps Navigation**: [Find Us on Google Maps](https://maps.google.com/maps?q=Just+Like+Home+Nursery+Al+Rashidiya+2+Ajman)
 - **Google Business Profile**: [Verified GMB Listing & 5-Star Reviews](https://share.google/AbZVHOBinruNYkwDg)
-- **Curriculum**: British Early Years Foundation Stage (UK EYFS Framework) + Conversational Arabic
-- **Ages Accepted**: 45 days up to 4+ years (Baby Care, Toddlers, Foundation Stage Preschool FS1 & FS2)
-- **Care Hours**: Monday to Friday, 7:00 AM – 6:00 PM (Full-Day, Half-Day, After-School Care)
-- **Telephone / WhatsApp**: [+971 50 200 5346](tel:+971502005346)
-- **Direct Email**: [nurseryjustlikehome@gmail.com](mailto:nurseryjustlikehome@gmail.com)
-- **Website**: [https://jlhnursery.com](https://jlhnursery.com)
-- **Reputation**: 5.0 ★★★★★ rating from 48+ verified Google parent reviews
+- **Primary Phone / WhatsApp**: [+971 50 200 5346](tel:+971502005346)
+- **Secondary Line**: [+971 50 618 8607](tel:+971506188607)
+- **Email**: [nurseryjustlikehome@gmail.com](mailto:nurseryjustlikehome@gmail.com)
+- **Operating Hours**: Saturday to Thursday, 6:00 AM – 6:30 PM (Extended hours for working parents)
+- **Ages Accepted**: 45 days up to 4+ years (Infants, Toddlers, Preschool FS1 & FS2)
+- **Campus Size**: 55,000 sq. ft. home-like villa campus with soft play zones, sensory rooms, shaded gardens & certified clinic
 
 ---
 
-## Core Services & High-Intent Search Categories
+## High-Intent Search Keyword Categories
 
-### 1. Nurseries in Ajman — British EYFS Excellence
-Ranked among the premier nurseries in Ajman, Just Like Home provides an enriching early childhood educational foundation. Following the UK British Early Years Foundation Stage (EYFS), our certified educators cultivate curiosity, communication, emotional resilience, and early literacy through purposeful, joyful play.
+### 1. High-Intent Local Keywords (Ajman & Al Rashidiya)
+- **Nursery in Ajman / Best Nursery in Ajman**: Consistently rated 5.0 stars by local families for motherly care, exceptional British EYFS curriculum, and rigorous safety.
+- **Nursery in Al Rashidiya Ajman**: Centrally located in Villa 47 on Ammar Bin Yasir Street, directly opposite Rashidiya Towers B3 and close to Ajman Sports Club.
+- **Daycare in Ajman & Child Care Center in Ajman**: Flexible full-day and half-day options tailored for working families in Ajman, Sharjah, and Dubai.
+- **British Curriculum Nursery Ajman (EYFS)**: Blending the UK Early Years Foundation Stage with Reggio Emilia-inspired child-led learning.
 
-### 2. Children's Care & Early Childhood Development
-Every child receives attentive, motherly care in an emotionally secure environment. We maintain exceptionally low carer-to-child ratios (1:3 for babies, 1:4 for toddlers), ensuring every infant and toddler receives individual warmth, reassurance, and personal development tracking.
+### 2. Age-Specific & Program Keywords
+- **Infant Daycare Ajman / Baby Care from 45 Days**: Hygienic baby suite with responsive 1:3 caregiver ratio and paediatric clinic supervision.
+- **Toddler Care Program Ajman**: Fine-motor activities, sensory exploration, and emotional development for toddlers 14 months to 2.5 years.
+- **Preschool Readiness Program Ajman (FS1 & FS2)**: Jolly Phonics, early mathematics, STEM curiosity, and school transition readiness for ages 2.5 to 4+.
+- **Summer Camp for Kids in Ajman**: Seasonal holiday camps featuring splash days, creative drama, science discovery, and outdoor sports.
+- **Bilingual English and Arabic Nursery Ajman**: English-immersion EYFS early learning supported by foundational Arabic rhymes and cultural values.
 
-### 3. Full-Day & Half-Day Daycare in Ajman
-Designed to support working mothers and busy families across Ajman and Sharjah:
-- **Timings**: Flexible schedules from 7:00 AM to 6:00 PM.
-- **Routines**: Balanced daily schedule incorporating structured learning, creative sensory play, wholesome snack periods, peaceful nap time, and social outdoor activities.
-- **Safety**: 100% CCTV surveillance across all rooms and outdoor areas, plus an on-site licensed medical clinic managed by a registered paediatric nurse.
-
-### 4. Infant & Baby Care (From 45 Days to 14 Months)
-- Hygienic, sanitized baby suites with dedicated quiet crib areas.
-- Personalized feeding, diapering, and tummy-time routines tailored to your baby's unique schedule at home.
-- Sensory stimulation with soft textures, calming music, and gentle visual prompts.
-
-### 5. Preschool & School Readiness (Ages 2.5 – 4+ Years / FS1 & FS2)
-- Jolly Phonics and emergent letter-sound recognition.
-- Early mathematics: sorting, patterns, counting, and everyday problem-solving.
-- Social cooperation, independence, mark-making, and transition readiness for top UAE primary schools.
-
-### 6. Seasonal Holiday & Summer Camps
-- Spring, Summer, and Winter activity camps with splash days, science experiments, storytelling, and artistic expression.
-
----
-
-## Why Parents Choose Just Like Home Nursery
-
-1. **Motherly Love & Emotional Security**: Founder Mary Ann created the nursery with one core belief: a child who feels safe, loved, and valued will naturally love learning.
-2. **24/7 Monitored Safety & Certified Health Clinic**: Full CCTV security and MOH-compliant health clinic on campus.
-3. **Spacious Standalone Villa Environment**: Villa 47 features generous sunlit classrooms, shaded outdoor soft-surface play zones, sensory gardens, and child-safe fixtures.
-4. **Transparent Parent Communication**: Daily updates, developmental milestones, photos, and regular parent-teacher collaboration.
+### 3. Parent-Concern & Feature Keywords
+- **Safe Daycare for Working Parents in Ajman**: Extended timings from 6:00 AM to 6:30 PM accommodating demanding commute schedules.
+- **Reggio Emilia Inspired Nursery UAE**: Fostering natural curiosity, creativity, and self-expression through rich sensory environments.
+- **Indoor and Outdoor Play Area Ajman**: Shaded outdoor soft-surface gardens, climbing frames, sensory mud kitchens, and spacious indoor play halls.
+- **Nursery Admissions Open Ajman 2026**: Ongoing admissions with transparent fee structures and scheduled guided tours.
 
 ---
 
 ## Frequently Asked Questions (FAQ)
 
-### Why is Just Like Home considered one of the best nurseries in Ajman?
-Just Like Home Nursery combines the world-class British EYFS curriculum with warm, motherly children's care in a safe standalone villa in Al Rashidiya 2, Ajman. Featuring low caregiver ratios, 24/7 CCTV security, a licensed clinic, and certified staff, families across Ajman rate us 5.0 stars for our safety, nurturing warmth, and joyful learning environment.
+### What ages does Just Like Home Nursery accept?
+We welcome infants and children from 45 days old up to 4+ years across three dedicated groups: Infant & Baby Care (45 days to 14 months), Toddler Explorers (14 months to 2.5 years), and Preschool Foundation Stage FS1 & FS2 (2.5 to 4+ years).
 
-### What children's care and daycare options are available in Ajman?
-We offer flexible full-day daycare, half-day daycare, and after-school child care from 7:00 AM to 6:00 PM, Monday through Friday. Tailored for working parents in Ajman and nearby Sharjah, our daycare routine blends purposeful British EYFS activities, wholesome snack times, restful naps, and creative social play under continuous caring supervision.
+### What are the daycare and nursery timings in Ajman?
+We offer extended, flexible hours from 6:00 AM to 6:30 PM, Saturday through Thursday, designed specifically for working parents in Ajman, Sharjah, and Dubai. Options include full-day daycare, half-day care, and after-school club.
 
-### What age groups do you accept for infant care and nursery programs?
-We welcome children from 45 days old up to 4+ years across three dedicated stages: Infant & Baby Care (45 days to 14 months) in a hygienic baby suite with dedicated sensory zones, Toddler Explorers (14 months to 2.5 years) focused on motor skills and language, and Preschool Foundation Stage FS1 & FS2 (2.5 to 4+ years) preparing children for primary school readiness.
+### Which early learning curriculum do you follow?
+We follow the world-class British Early Years Foundation Stage (EYFS) curriculum blended with a Reggio Emilia-inspired child-led approach. Our curriculum covers Jolly Phonics, early numeracy, sensory exploration, STEM curiosity, creative arts, and foundational Arabic.
 
 ### Where is Just Like Home Nursery located in Ajman?
-Our nursery is centrally located in a spacious standalone villa at Villa No. 47, Al Rashidiya 2, Ajman, UAE. We are easily accessible from all major Ajman neighborhoods—including Al Rashidiya, Al Nuaimiya, Al Jurf, Al Rumailah, and the Ajman Corniche—as well as families commuting between Sharjah and Ajman.
+We are centrally located in a spacious standalone villa at Villa No. 47, Ammar Bin Yasir St, Opp. Rashidiya Towers B3, Near Ajman Sports Club, Al Rashidiya 2, Ajman, UAE. Conveniently accessible from Al Nuaimiya, Al Jurf, Al Rumailah, and the Ajman Corniche.
 
-### What curriculum does Just Like Home Nursery follow?
-We teach the renowned UK British Early Years Foundation Stage (EYFS) framework. Our curriculum covers all 7 prime and specific learning areas: Communication & Language, Personal Social & Emotional Development, Physical Development, Literacy (Jolly Phonics), Mathematics & Early Problem Solving, Understanding the World, and Expressive Arts & Design, enriched with foundational Arabic.
+### What facilities and safety features does your campus provide?
+Our 55,000 sq. ft. home-like campus features soft indoor and outdoor play areas, sensory rooms, shaded gardens, low carer ratios, 24/7 CCTV surveillance across all rooms, and a certified on-site clinic managed by a licensed paediatric nurse.
 
-### How can parents book a campus visit or check nursery fees?
-Booking a campus tour or inquiring about current term fees and admissions is quick and simple. Parents can call or WhatsApp our admissions team directly at [+971 50 200 5346](tel:+971502005346), email [nurseryjustlikehome@gmail.com](mailto:nurseryjustlikehome@gmail.com), or submit the online visit request form at [https://jlhnursery.com](https://jlhnursery.com).
+### How can parents book a campus visit or check admissions open for 2026?
+Parents can book a guided campus tour or check 2026 admissions availability by calling or messaging on WhatsApp at +971 50 200 5346 or +971 50 618 8607, emailing nurseryjustlikehome@gmail.com, or submitting the online booking form at [https://jlhnursery.com](https://jlhnursery.com).
 
 ---
 
@@ -95,16 +79,14 @@ Booking a campus tour or inquiring about current term fees and admissions is qui
 ## Quick Navigation Links
 
 - [Home Page](https://jlhnursery.com/)
+- [British EYFS Curriculum Ajman](https://jlhnursery.com/eyfs-curriculum-ajman)
+- [Infant & Toddler Daycare Ajman](https://jlhnursery.com/infant-toddler-daycare-ajman)
+- [Campus Facilities & Child Safety](https://jlhnursery.com/nursery-facilities-safety)
+- [Summer Camp for Kids in Ajman](https://jlhnursery.com/summer-camp-ajman)
+- [Book a Nursery Tour in Ajman (Admissions)](https://jlhnursery.com/admissions)
 - [About Us & Leadership](https://jlhnursery.com/about-us)
 - [Founder Mary Ann Message](https://jlhnursery.com/founder)
 - [All Programs](https://jlhnursery.com/programs)
-- [British EYFS Curriculum](https://jlhnursery.com/eyfs-learning)
-- [Daycare & Children's Care](https://jlhnursery.com/daycare)
-- [Preschool & School Readiness](https://jlhnursery.com/preschool)
-- [Campus Facilities & Clinic](https://jlhnursery.com/facilities)
-- [Activities & Sensory Play](https://jlhnursery.com/activities)
-- [Holiday & Summer Camps](https://jlhnursery.com/camps)
-- [Admissions & Tour Booking](https://jlhnursery.com/admissions)
 - [Campus Gallery](https://jlhnursery.com/gallery)
 - [Parenting Blog](https://jlhnursery.com/blog)
 - [Contact & Location](https://jlhnursery.com/contact)

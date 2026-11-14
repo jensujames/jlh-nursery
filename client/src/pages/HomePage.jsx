@@ -17,33 +17,40 @@ const GOOGLE_MAPS_EMBED = 'https://maps.google.com/maps?q=Just+Like+Home+Nursery
 
 const HOME_FAQS = [
   {
-    q: "Why is Just Like Home considered one of the best nurseries in Ajman?",
-    a: "Just Like Home Nursery in Al Rashidiya 2, Ajman combines the world-class British Early Years Foundation Stage (EYFS) curriculum with warm, motherly children's care. We feature low caregiver ratios, 24/7 CCTV security across all classrooms and play zones, a licensed clinic, and certified staff. Families across Ajman rate us 5.0 stars for our safety, nurturing warmth, and joyful learning environment."
+    q: "What ages does Just Like Home Nursery accept?",
+    a: "We welcome infants and children from 45 days old up to 4+ years across three dedicated groups: Infant & Baby Care (45 days to 14 months) in a sanitized baby suite, Toddler Explorers (14 months to 2.5 years) focused on motor skills and sensory discovery, and Preschool Foundation Stage FS1 & FS2 (2.5 to 4+ years) for school readiness."
   },
   {
-    q: "What children's care and daycare options are available in Ajman?",
-    a: "We offer flexible full-day daycare, half-day daycare, and after-school child care from 7:00 AM to 6:00 PM, Monday through Friday. Tailored for working parents in Ajman and nearby Sharjah, our daycare routine blends purposeful British EYFS activities, wholesome snack times, restful naps, and creative social play under continuous caring supervision."
+    q: "What are the daycare and nursery timings in Ajman?",
+    a: "We offer extended, flexible hours from 6:00 AM to 6:30 PM, Saturday through Thursday, designed specifically for working parents in Ajman, Sharjah, and Dubai. Options include full-day daycare, half-day care, and after-school club."
   },
   {
-    q: "What age groups do you accept for infant care and nursery programs?",
-    a: "We welcome children from 45 days old up to 4+ years across three dedicated stages: Infant & Baby Care (45 days to 14 months) in a hygienic baby suite with dedicated sensory zones, Toddler Explorers (14 months to 2.5 years) focused on motor skills and language, and Preschool Foundation Stage FS1 & FS2 (2.5 to 4+ years) preparing children for primary school readiness."
+    q: "Which early learning curriculum do you follow?",
+    a: "We follow the world-class British Early Years Foundation Stage (EYFS) curriculum blended with a Reggio Emilia-inspired child-led approach. Our curriculum covers Jolly Phonics, early numeracy, sensory exploration, STEM curiosity, creative arts, and foundational Arabic."
   },
   {
     q: "Where is Just Like Home Nursery located in Ajman?",
-    a: "Our nursery is centrally located in a spacious standalone villa at Villa No. 47, Al Rashidiya 2, Ajman, UAE. We are easily accessible from all major Ajman neighborhoods—including Al Rashidiya, Al Nuaimiya, Al Jurf, Al Rumailah, and the Ajman Corniche—as well as families commuting between Sharjah and Ajman."
+    a: "We are centrally located in a spacious standalone villa at Villa No. 47, Ammar Bin Yasir St, Opp. Rashidiya Towers B3, Near Ajman Sports Club, Al Rashidiya 2, Ajman, UAE. Conveniently accessible from Al Nuaimiya, Al Jurf, Al Rumailah, and the Ajman Corniche."
   },
   {
-    q: "What curriculum does Just Like Home Nursery follow?",
-    a: "We teach the renowned UK British Early Years Foundation Stage (EYFS) framework. Our curriculum covers all 7 prime and specific learning areas: Communication & Language, Personal Social & Emotional Development, Physical Development, Literacy (Jolly Phonics), Mathematics & Early Problem Solving, Understanding the World, and Expressive Arts & Design, enriched with foundational Arabic."
+    q: "What facilities and safety features does your campus provide?",
+    a: "Our 55,000 sq. ft. home-like campus features soft indoor and outdoor play areas, sensory rooms, shaded gardens, low carer ratios, 24/7 CCTV surveillance across all rooms, and a certified on-site clinic managed by a licensed paediatric nurse."
   },
   {
-    q: "How can parents book a campus visit or inquire about fees?",
-    a: "Booking a campus tour or inquiring about current term fees and admissions is quick and simple. Parents can call or WhatsApp our admissions team directly at +971 50 200 5346, email nurseryjustlikehome@gmail.com, or submit the online visit request form on our website. We are open Monday to Friday from 7:00 AM to 6:00 PM."
+    q: "How can parents book a campus visit or inquire about 2026 admissions and fees?",
+    a: "Parents can book a guided campus tour or check 2026 admissions availability by calling or messaging on WhatsApp at +971 50 200 5346 or +971 50 618 8607, emailing nurseryjustlikehome@gmail.com, or submitting the online booking form on our website."
   }
 ];
 
 
 export default function HomePage({ onBookVisitClick }) {
+  useEffect(() => {
+    document.title = "Just Like Home Nursery | Best EYFS Nursery & Daycare in Ajman";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Looking for a trusted nursery & daycare in Al Rashidiya, Ajman? Just Like Home Nursery offers British EYFS early learning & safe care for ages 45 days–4 yrs.");
+    }
+  }, []);
   const [leadershipTab, setLeadershipTab] = useState('founder');
   const [likedPrograms, setLikedPrograms] = useState({});
   const [programSlide, setProgramSlide] = useState(0);

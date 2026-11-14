@@ -58,7 +58,13 @@
     "name": "Just Like Home Nursery Admissions",
     "email": "nurseryjustlikehome@gmail.com",
     "telephone": "+971502005346",
-    "address": "Villa No. 47, Al Rashidiya 2, Ajman, UAE"
+    "secondaryTelephone": "+971506188607",
+    "address": "Villa No. 47, Ammar Bin Yasir St, Opp. Rashidiya Towers B3, Near Ajman Sports Club, Al Rashidiya 2, Ajman, UAE",
+    "geo": {
+      "latitude": 25.3995,
+      "longitude": 55.4422
+    },
+    "operatingHours": "Saturday - Thursday: 06:00 - 18:30"
   }
 }
 

@@ -96,6 +96,14 @@ export default function App() {
             <Route path="/founder-message/" element={<FounderPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/programs" element={<ProgramsPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/programs/" element={<ProgramsPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/eyfs-curriculum-ajman" element={<EyfsPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/eyfs-curriculum-ajman/" element={<EyfsPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/infant-toddler-daycare-ajman" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/infant-toddler-daycare-ajman/" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/nursery-facilities-safety" element={<FacilitiesPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/nursery-facilities-safety/" element={<FacilitiesPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/summer-camp-ajman" element={<CampsPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/summer-camp-ajman/" element={<CampsPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/eyfs-learning" element={<EyfsPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/eyfs-learning/" element={<EyfsPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/preschool" element={<PreschoolPage onBookVisitClick={handleBookVisit} />} />

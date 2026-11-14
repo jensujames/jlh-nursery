@@ -62,10 +62,10 @@ const DEVELOPMENT_AREAS = [
 
 export default function EyfsPage({ onBookVisitClick }) {
   useEffect(() => {
-    document.title = "EYFS Nursery in Ajman | Learning Through Play";
+    document.title = "British EYFS Curriculum & Early Learning | JLH Nursery Ajman";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Discover the EYFS-inspired, play-based learning approach at Just Like Home Nursery in Ajman, supporting communication, confidence, creativity and development.");
+      metaDesc.setAttribute("content", "Discover our \"Little Hands. Big Discoveries\" EYFS program in Ajman—featuring phonics, early numeracy, Arabic, sensory play & preschool readiness.");
     }
   }, []);
 

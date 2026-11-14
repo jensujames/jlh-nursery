@@ -154,10 +154,10 @@ const FACILITIES = [
 
 export default function FacilitiesPage({ onBookVisitClick }) {
   useEffect(() => {
-    document.title = "Nursery Facilities & Safety in Ajman | Just Like Home";
+    document.title = "Campus Facilities & Child Safety | Just Like Home Nursery";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Explore the safe classrooms, indoor and outdoor play areas, sensory spaces, quiet room, clinic support, secure reception and CCTV at our Ajman nursery.");
+      metaDesc.setAttribute("content", "Explore our 55,000 sq. ft. home-like campus in Al Rashidiya, Ajman with soft play zones, sensory rooms, shaded gardens & strict child safety standards.");
     }
   }, []);
 

@@ -9,10 +9,10 @@ import {
 
 export default function DaycarePage() {
   useEffect(() => {
-    document.title = "Full-Day & Half-Day Daycare in Ajman | Just Like Home";
+    document.title = "Infant & Toddler Daycare in Ajman | Half-Day & Full-Day Care";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Explore nurturing full-day and half-day nursery care in Ajman, combining safe routines, play-based learning, rest and parent communication.");
+      metaDesc.setAttribute("content", "Safe, nurturing child care in Ajman for babies from 45 days to 4 years. Flexible half-day & full-day daycare hours (6:00 AM – 6:30 PM) for working parents.");
     }
   }, []);
 

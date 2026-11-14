@@ -47,20 +47,28 @@ const ENQUIRY_INFO_POINTS = [
 
 const ADMISSION_FAQS = [
   {
-    q: 'What ages do you accept?',
-    a: 'Please contact our team for the nursery\'s current licensed age range and available groups.'
+    q: "What ages does Just Like Home Nursery accept?",
+    a: "We welcome infants and young children from 45 days old up to 4+ years across specialized developmental stages: Baby Care (45 days–14 months), Toddler Explorers (14 months–2.5 years), and Preschool Foundation Stage FS1 & FS2 (2.5–4+ years)."
   },
   {
-    q: 'Do you offer full-day and half-day options?',
-    a: 'Yes. Availability and timings may vary, so our team will confirm the current options during your enquiry.'
+    q: "What are the daycare and nursery timings in Ajman?",
+    a: "We provide extended, flexible care hours from 6:00 AM to 6:30 PM, Saturday through Thursday, purposefully designed to support working parents across Ajman and Sharjah."
   },
   {
-    q: 'Can I visit before registering?',
-    a: 'Yes. We encourage parents to book a visit, meet the team and experience the environment before making a decision.'
+    q: "Which early learning curriculum do you follow?",
+    a: "We teach the renowned UK British Early Years Foundation Stage (EYFS) integrated with Reggio Emilia-inspired child-led learning, sensory exploration, Jolly Phonics, and conversational Arabic."
   },
   {
-    q: 'How do I check availability?',
-    a: 'Call or WhatsApp +971 50 200 5346 with your child\'s age and preferred start date.'
+    q: "Where is Just Like Home Nursery located in Ajman?",
+    a: "Our nursery is located at Villa No. 47, Ammar Bin Yasir St, Opp. Rashidiya Towers B3, Near Ajman Sports Club, Al Rashidiya 2, Ajman, UAE."
+  },
+  {
+    q: "Can parents tour the nursery campus before registering?",
+    a: "Yes, absolutely! We encourage all parents to book a personalized tour to meet our educators, view our 55,000 sq. ft. campus, certified clinic, and soft indoor & outdoor play areas."
+  },
+  {
+    q: "How can I check fee structure and admissions for 2026?",
+    a: "Call or WhatsApp our admissions office directly at +971 50 200 5346 or +971 50 618 8607. Admissions are open year-round with flexible term payment plans."
   }
 ];
 

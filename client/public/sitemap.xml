@@ -10,11 +10,111 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://jlhnursery.com/logo.jpg</image:loc>
-      <image:title>Just Like Home Nursery Ajman</image:title>
+      <image:title>Just Like Home Nursery Ajman - Best EYFS Nursery &amp; Daycare</image:title>
     </image:image>
   </url>
 
-  <!-- About Us Page -->
+  <!-- British EYFS Curriculum in Ajman -->
+  <url>
+    <loc>https://jlhnursery.com/eyfs-curriculum-ajman</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://jlhnursery.com/eyfs-learning</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Infant & Toddler Daycare in Ajman -->
+  <url>
+    <loc>https://jlhnursery.com/infant-toddler-daycare-ajman</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://jlhnursery.com/daycare</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jlhnursery.com/daycare-ajman</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Campus Facilities & Child Safety -->
+  <url>
+    <loc>https://jlhnursery.com/nursery-facilities-safety</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jlhnursery.com/facilities</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Admissions & Tour Booking -->
+  <url>
+    <loc>https://jlhnursery.com/admissions</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Summer & Seasonal Camp in Ajman -->
+  <url>
+    <loc>https://jlhnursery.com/summer-camp-ajman</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jlhnursery.com/camps</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Preschool & School Readiness -->
+  <url>
+    <loc>https://jlhnursery.com/preschool</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jlhnursery.com/preschool-school-readiness</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Childcare in Ajman -->
+  <url>
+    <loc>https://jlhnursery.com/childcare</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Programs Overview -->
+  <url>
+    <loc>https://jlhnursery.com/programs</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- About Us -->
   <url>
     <loc>https://jlhnursery.com/about-us</loc>
     <lastmod>2026-11-14</lastmod>
@@ -34,67 +134,7 @@
     </image:image>
   </url>
 
-  <!-- Programs Overview Page -->
-  <url>
-    <loc>https://jlhnursery.com/programs</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- British EYFS Learning Page -->
-  <url>
-    <loc>https://jlhnursery.com/eyfs-learning</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Daycare in Ajman Page -->
-  <url>
-    <loc>https://jlhnursery.com/daycare</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://jlhnursery.com/daycare-ajman</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Children's Care & Childcare Page -->
-  <url>
-    <loc>https://jlhnursery.com/childcare</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Preschool & School Readiness Page -->
-  <url>
-    <loc>https://jlhnursery.com/preschool</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://jlhnursery.com/preschool-school-readiness</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Admissions & Tuition Fees Page -->
-  <url>
-    <loc>https://jlhnursery.com/admissions</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Nursery Activities & Curriculum Page -->
+  <!-- Nursery Activities & Phonics -->
   <url>
     <loc>https://jlhnursery.com/activities</loc>
     <lastmod>2026-11-14</lastmod>
@@ -108,23 +148,7 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Campus Facilities & Quiet Rooms Page -->
-  <url>
-    <loc>https://jlhnursery.com/facilities</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Holiday & Summer Camps Page -->
-  <url>
-    <loc>https://jlhnursery.com/camps</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Photo Gallery Page -->
+  <!-- Campus Gallery -->
   <url>
     <loc>https://jlhnursery.com/gallery</loc>
     <lastmod>2026-11-14</lastmod>
@@ -132,7 +156,7 @@
     <priority>0.75</priority>
   </url>
 
-  <!-- Nursery Blog & Parenting Articles Page -->
+  <!-- Nursery Blog & Parenting Advice -->
   <url>
     <loc>https://jlhnursery.com/blog</loc>
     <lastmod>2026-11-14</lastmod>
@@ -140,7 +164,7 @@
     <priority>0.75</priority>
   </url>
 
-  <!-- Contact & Google Maps Location Page -->
+  <!-- Contact & Google Maps Location -->
   <url>
     <loc>https://jlhnursery.com/contact</loc>
     <lastmod>2026-11-14</lastmod>
