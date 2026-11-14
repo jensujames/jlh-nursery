@@ -822,11 +822,11 @@ const GALLERY_IMAGES = [
   {
     src: '/media/daycare/daycare-3.jpg',
     category: 'daycare',
-    title: 'Quiet Snooze Suite with Sanitized Baby Cots',
-    caption: 'Temperature-controlled sleep sanctuary equipped with private white wooden cots, fresh linens, and continuous caregiver monitoring.',
-    alt: 'Quiet snooze room with white wooden baby cots at Just Like Home Nursery',
-    badge: 'Rest Sanctuary',
-    ageGroup: '45 Days – 3 Years'
+    title: 'Gentle Care & Supervised Indoor Play',
+    caption: 'Gentle care and supervised indoor play for infants and toddlers.',
+    alt: 'Gentle care and supervised indoor play for infants and toddlers at Just Like Home Nursery',
+    badge: 'Infant & Toddler Care',
+    ageGroup: '45 Days – 2 Years'
   },
 
   // 13. Inclusive SEND Support
@@ -1239,7 +1239,7 @@ export default function GalleryPage({ onBookVisitClick }) {
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(to top, rgba(114, 16, 36, 0.94) 0%, rgba(114, 16, 36, 0.55) 40%, transparent 72%)',
+                    background: 'linear-gradient(to top, rgba(20, 2, 6, 0.95) 0%, rgba(114, 16, 36, 0.72) 42%, rgba(114, 16, 36, 0.18) 68%, transparent 82%)',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'flex-end',
@@ -1254,8 +1254,9 @@ export default function GalleryPage({ onBookVisitClick }) {
                       fontSize: '16px',
                       fontWeight: '800',
                       lineHeight: 1.3,
+                      color: '#ffffff',
                       fontFamily: 'var(--font-heading, "Outfit", sans-serif)',
-                      textShadow: '0 2px 6px rgba(0,0,0,0.4)'
+                      textShadow: '0 2px 6px rgba(0,0,0,0.6)'
                     }}
                   >
                     {img.title || img.caption}
