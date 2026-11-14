@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryPageHero from '../components/LuxuryPageHero';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
+import useSEO from '../hooks/useSEO';
 import { 
   Heart, Sparkles, ShieldCheck, Smile, Users, Compass, 
   ArrowRight, Phone, Calendar, CheckCircle2 
@@ -121,21 +122,18 @@ const VISION_MISSION_DATA = {
 export default function AboutPage({ onBookVisitClick }) {
   const [activeVmTab, setActiveVmTab] = useState('vision');
 
-  useEffect(() => {
-    document.title = "About Just Like Home Nursery | Early Years Nursery Ajman";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Meet Just Like Home Nursery in Ajman and discover our nurturing philosophy, loving care, play-based approach and commitment to every child's development.");
-    }
-  }, []);
+  useSEO({
+    title: "About Just Like Home Nursery | Early Years Nursery Ajman",
+    description: "Meet Just Like Home Nursery in Ajman and discover our nurturing philosophy, loving care, play-based approach and commitment to every child's development.",
+    path: "/about-us",
+    breadcrumbs: [{ name: "About Us", path: "/about-us" }]
+  });
 
   return (
     <div className="about-page" style={{ backgroundColor: '#FFFDF7', color: '#2d1f22' }}>
       
       {/* 1. LUXURY HERO BANNER */}
       <LuxuryPageHero
-        badge="About Us · Early Years Nursery in Ajman"
-        badgeIcon={Heart}
         title="A Nursery Created Around the Way Children Feel, Learn and Grow"
         description={[
           "Just Like Home Nursery was created with a simple belief: children flourish when they feel safe, loved, respected and understood.",

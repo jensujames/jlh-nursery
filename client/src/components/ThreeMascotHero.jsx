@@ -317,7 +317,7 @@ export default function ThreeMascotHero({ onBookVisitClick }) {
       smallImgOrigin: "center 85%",
       tallImgPos: "center 60%",
       tallImage: "/media/nursery/nursery-2.jpg",
-      tallAlt: "Children laughing and joyfully building colorful blocks together"
+      tallAlt: "Children smiling happily from the indoor cottage playhouse window"
     },
     {
       pillarName: "GROWTH",

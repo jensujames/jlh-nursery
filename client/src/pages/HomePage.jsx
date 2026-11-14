@@ -4,6 +4,7 @@ import ThreeMascotHero from '../components/ThreeMascotHero';
 import RevealOnScroll from '../components/RevealOnScroll';
 import ReviewsSection from '../components/ReviewsSection';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
+import useSEO from '../hooks/useSEO';
 import { 
   Heart, Sparkles, BookOpen, Sun, Compass, ShieldCheck, 
   Baby, Smile, Users, MapPin, Phone, Mail, ArrowRight, 
@@ -44,13 +45,11 @@ const HOME_FAQS = [
 
 
 export default function HomePage({ onBookVisitClick }) {
-  useEffect(() => {
-    document.title = "Just Like Home Nursery | Best EYFS Nursery & Daycare in Ajman";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Looking for a trusted nursery & daycare in Al Rashidiya, Ajman? Just Like Home Nursery offers British EYFS early learning & safe care for ages 45 days–4 yrs.");
-    }
-  }, []);
+  useSEO({
+    title: "Just Like Home Nursery | Best EYFS Nursery & Daycare in Ajman",
+    description: "Looking for a trusted nursery & daycare in Al Rashidiya, Ajman? Just Like Home Nursery offers British EYFS early learning & safe care for ages 45 days–4 yrs.",
+    path: "/"
+  });
   const [leadershipTab, setLeadershipTab] = useState('founder');
   const [likedPrograms, setLikedPrograms] = useState({});
   const [programSlide, setProgramSlide] = useState(0);

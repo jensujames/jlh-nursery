@@ -48,9 +48,9 @@ export default function GallerySection({ onBookVisitClick }) {
     {
       id: 6,
       src: "/media/nursery/nursery-9.jpg",
-      category: "outdoor",
-      title: "Active Movement & Fresh Air",
-      desc: "Toddlers exploring balance and gross-motor skills in our shaded villa garden."
+      category: "learning",
+      title: "Interactive Storytime Circle",
+      desc: "Building communication and language skills through interactive storytime."
     }
   ];
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryPageHero from '../components/LuxuryPageHero';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
+import useSEO from '../hooks/useSEO';
 import { 
   FileText, Calendar, Phone, MessageCircle, HelpCircle, 
   CheckCircle2, ArrowRight, ChevronDown, ChevronUp, AlertCircle 
@@ -75,13 +76,12 @@ const ADMISSION_FAQS = [
 export default function AdmissionsPage({ onBookVisitClick }) {
   const [openFaq, setOpenFaq] = useState(0);
 
-  useEffect(() => {
-    document.title = "Nursery Admissions in Ajman | Book a Visit";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Start your child's journey at Just Like Home Nursery in Ajman. Ask about availability, book a nursery tour and receive guidance through the admissions process.");
-    }
-  }, []);
+  useSEO({
+    title: "Nursery Admissions in Ajman 2026 | Book a Guided Campus Tour",
+    description: "Start your child's journey at Just Like Home Nursery in Ajman. Ask about availability, book a nursery tour and receive guidance through the admissions process.",
+    path: "/admissions",
+    breadcrumbs: [{ name: "Nursery Admissions", path: "/admissions" }]
+  });
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -92,8 +92,6 @@ export default function AdmissionsPage({ onBookVisitClick }) {
       
       {/* 1. LUXURY HERO BANNER */}
       <LuxuryPageHero
-        badge="ADMISSIONS · CLEAR ENQUIRY-TO-ENROLMENT PATHWAY"
-        badgeIcon={FileText}
         title="A Warm Welcome Starts Here"
         description="Choosing a nursery is personal. We want families to have the opportunity to ask questions, understand the environment and decide whether Just Like Home Nursery is the right fit for their child."
         image="/media/school-readiness/school-readiness-4.jpg"

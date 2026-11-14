@@ -4,7 +4,7 @@ import RevealOnScroll from './RevealOnScroll';
 import { Sparkles, Calendar, ArrowRight, MessageCircle } from 'lucide-react';
 
 export default function LuxuryPageHero({
-  badge = "Just Like Home Nursery",
+  badge = null,
   badgeIcon: BadgeIcon = Sparkles,
   title,
   description,
@@ -126,30 +126,32 @@ export default function LuxuryPageHero({
         <div style={{ maxWidth: '620px' }}>
           <RevealOnScroll animation="from-left">
             <div>
-              {/* Frosted Glass Pill Badge */}
-              <div style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '18px' }}>
-                <span
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
-                    color: '#721024',
-                    padding: '7px 18px',
-                    borderRadius: '9999px',
-                    fontSize: '13px',
-                    fontWeight: '800',
-                    border: '1.5px solid rgba(114, 16, 36, 0.15)',
-                    boxShadow: '0 4px 14px rgba(114, 16, 36, 0.06)',
-                    letterSpacing: '0.4px'
-                  }}
-                >
-                  <BadgeIcon size={14} style={{ color: '#721024' }} />
-                  <span>{badge}</span>
-                </span>
-              </div>
+              {/* Frosted Glass Pill Badge (Hidden when no badge provided) */}
+              {badge && (
+                <div style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '18px' }}>
+                  <span
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                      backdropFilter: 'blur(10px)',
+                      WebkitBackdropFilter: 'blur(10px)',
+                      color: '#721024',
+                      padding: '7px 18px',
+                      borderRadius: '9999px',
+                      fontSize: '13px',
+                      fontWeight: '800',
+                      border: '1.5px solid rgba(114, 16, 36, 0.15)',
+                      boxShadow: '0 4px 14px rgba(114, 16, 36, 0.06)',
+                      letterSpacing: '0.4px'
+                    }}
+                  >
+                    <BadgeIcon size={14} style={{ color: '#721024' }} />
+                    <span>{badge}</span>
+                  </span>
+                </div>
+              )}
 
               {/* Main Heading */}
               <h1

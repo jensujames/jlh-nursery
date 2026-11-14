@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryPageHero from '../components/LuxuryPageHero';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
+import useSEO from '../hooks/useSEO';
 import { 
   MessageCircle, Heart, Dumbbell, BookOpen, Calculator, 
   Globe2, Palette, Languages, ShieldCheck, Sparkles, 
@@ -121,21 +122,18 @@ const LEARNING_AREAS = [
 ];
 
 export default function ActivitiesPage({ onBookVisitClick }) {
-  useEffect(() => {
-    document.title = "Our Learning Areas & Nursery Activities | Just Like Home Nursery Ajman";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Explore our 9 core learning areas: Communication & Language, PSED, Physical Development, Literacy, Mathematics, Understanding the World, Expressive Arts, Arabic Language, and SEND Support at Just Like Home Nursery in Ajman.");
-    }
-  }, []);
+  useSEO({
+    title: "Nursery Activities & Phonics in Ajman | Just Like Home Nursery",
+    description: "Explore our 9 core learning areas: Communication & Language, PSED, Physical Development, Literacy, Mathematics, Understanding the World, Expressive Arts, Arabic Language, and SEND Support at Just Like Home Nursery in Ajman.",
+    path: "/activities",
+    breadcrumbs: [{ name: "Nursery Activities", path: "/activities" }]
+  });
 
   return (
     <div className="activities-page" style={{ backgroundColor: '#FFFDF7', color: '#2d1f22', minHeight: '100vh' }}>
       
       {/* 1. LUXURY HERO BANNER */}
       <LuxuryPageHero
-        badge="ACTIVITIES & FACILITIES · OUR LEARNING AREAS"
-        badgeIcon={Sparkles}
         title="Our Learning Areas & Everyday Discovery"
         description="Children learn best when experiences feel meaningful, active and enjoyable. Explore our 9 core developmental pillars designed to nurture communication, emotional resilience, creativity, Arabic fluency, and inclusive SEND support."
         image="/media/eyfs/eyfs-4.jpg"

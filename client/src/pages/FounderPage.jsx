@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
+import useSEO from '../hooks/useSEO';
 import { 
   Heart, 
   Sparkles, 
@@ -23,15 +24,14 @@ import {
 } from 'lucide-react';
 
 export default function FounderPage({ onBookVisitClick }) {
+  useSEO({
+    title: "A Message from the Founder | Mary Ann | Just Like Home Nursery Ajman",
+    description: "Read the personal message from Mary Ann, Founder of Just Like Home Nursery in Ajman. Discover her heartfelt vision for early childhood care, EYFS learning and creating a warm second home.",
+    path: "/founder",
+    breadcrumbs: [{ name: "Founder Message", path: "/founder" }]
+  });
+
   useEffect(() => {
-    document.title = "A Message from the Founder | Just Like Home Nursery Ajman";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        "content", 
-        "Read the personal message from Mary Ann, Founder of Just Like Home Nursery in Ajman. Discover her heartfelt vision for early childhood care, EYFS learning and creating a warm second home."
-      );
-    }
     window.scrollTo(0, 0);
   }, []);
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryPageHero from '../components/LuxuryPageHero';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
+import useSEO from '../hooks/useSEO';
 import { 
   Baby, Sparkles, BookOpen, GraduationCap, Clock, Sun, 
   ArrowRight, Calendar, Compass, Layers, CheckCircle2 
@@ -110,21 +111,18 @@ const DEVELOPMENTAL_STAGES = [
 ];
 
 export default function ProgramsPage({ onBookVisitClick }) {
-  useEffect(() => {
-    document.title = "Nursery Programs in Ajman | Just Like Home Nursery";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Explore early years, nursery, preschool, school readiness and flexible full-day and half-day care programs at Just Like Home Nursery in Ajman.");
-    }
-  }, []);
+  useSEO({
+    title: "Early Years Nursery Programs in Ajman | Just Like Home Nursery",
+    description: "Explore early years, nursery, preschool, school readiness and flexible full-day and half-day care programs at Just Like Home Nursery in Ajman.",
+    path: "/programs",
+    breadcrumbs: [{ name: "Nursery Programs", path: "/programs" }]
+  });
 
   return (
     <div className="programs-page" style={{ backgroundColor: '#FFFDF7', color: '#2d1f22', minHeight: '100vh' }}>
       
       {/* 1. LUXURY HERO BANNER */}
       <LuxuryPageHero
-        badge="OUR PROGRAMS · PROGRAM OVERVIEW AND PATHWAY SELECTION"
-        badgeIcon={Compass}
         title="The Right Support for Every Little Step"
         description={[
           "Children's needs change quickly during the early years. Our programs are designed to provide the right balance of nurturing care, purposeful play, social experience and age-appropriate learning at each stage.",

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryPageHero from '../components/LuxuryPageHero';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
+import useSEO from '../hooks/useSEO';
 import { 
   BookOpen, Calendar, ArrowRight, Sparkles, Compass, 
   HelpCircle, Heart, GraduationCap, Info 
@@ -76,21 +77,18 @@ const ARTICLES = [
 ];
 
 export default function BlogPage({ onBookVisitClick }) {
-  useEffect(() => {
-    document.title = "Parent Resources & Early Years Advice | Just Like Home";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Read practical early-years guidance for parents, including nursery readiness, play-based learning, preschool development and choosing a nursery in Ajman.");
-    }
-  }, []);
+  useSEO({
+    title: "Parent Resources & Early Years Advice | Just Like Home Nursery",
+    description: "Read practical early-years guidance for parents, including nursery readiness, play-based learning, preschool development and choosing a nursery in Ajman.",
+    path: "/blog",
+    breadcrumbs: [{ name: "Parent Resources", path: "/blog" }]
+  });
 
   return (
     <div className="blog-page" style={{ backgroundColor: '#FFFDF7', color: '#2d1f22', minHeight: '100vh' }}>
       
       {/* 1. LUXURY HERO BANNER */}
       <LuxuryPageHero
-        badge="PARENT RESOURCES / BLOG · LONG-TERM ORGANIC VISIBILITY AND PARENT EDUCATION"
-        badgeIcon={BookOpen}
         title="Helpful Ideas for Your Child's Early Years"
         description="The early years bring exciting milestones and plenty of questions. Our parent resources share practical ideas to help families understand learning, support growing independence and prepare children for nursery and school."
         image="/media/nursery/nursery-8.jpg"

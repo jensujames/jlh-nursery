@@ -89,10 +89,10 @@ const GALLERY_ITEMS = [
     id: 7,
     num: '# 07',
     category: 'Early EYFS Learning',
-    title: 'Early Numeracy & Phonics',
-    subtitle: 'Counting, sorting, shapes, patterns and practical games supporting early learning',
+    title: 'Early Numeracy & Math Writing',
+    subtitle: 'Counting, sorting, shapes, patterns and early number writing',
     image: '/media/preschool/preschool-2.jpg',
-    tag: 'EYFS Readiness',
+    tag: 'Early Math',
     tagColor: '#0369a1',
     age: 'Learning Through Play',
     imgPos: 'center 40%'

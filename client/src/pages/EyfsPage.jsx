@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryPageHero from '../components/LuxuryPageHero';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
+import useSEO from '../hooks/useSEO';
 import { 
   MessageCircle, Heart, Dumbbell, BookOpen, Calculator, 
   Globe2, Palette, Sparkles, Calendar, ArrowRight, Compass, CheckCircle2 
@@ -61,21 +62,18 @@ const DEVELOPMENT_AREAS = [
 ];
 
 export default function EyfsPage({ onBookVisitClick }) {
-  useEffect(() => {
-    document.title = "British EYFS Curriculum & Early Learning | JLH Nursery Ajman";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Discover our \"Little Hands. Big Discoveries\" EYFS program in Ajman—featuring phonics, early numeracy, Arabic, sensory play & preschool readiness.");
-    }
-  }, []);
+  useSEO({
+    title: "British EYFS Curriculum & Early Learning | JLH Nursery Ajman",
+    description: "Discover our British EYFS play-based curriculum in Ajman—featuring Jolly Phonics, early numeracy, Arabic, sensory play & preschool readiness.",
+    path: "/eyfs-curriculum-ajman",
+    breadcrumbs: [{ name: "British EYFS Curriculum", path: "/eyfs-curriculum-ajman" }]
+  });
 
   return (
     <div className="eyfs-page" style={{ backgroundColor: '#FFFDF7', color: '#2d1f22', minHeight: '100vh' }}>
       
       {/* 1. LUXURY HERO BANNER */}
       <LuxuryPageHero
-        badge="EYFS & LEARNING APPROACH · EXPLAIN HOW LEARNING HAPPENS"
-        badgeIcon={Sparkles}
         title="Learning Through Play, Discovery and Everyday Experiences"
         description={[
           "Young children learn by doing. They learn when they move, talk, listen, touch, imagine, repeat, experiment and share experiences with others.",

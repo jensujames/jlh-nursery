@@ -490,7 +490,92 @@ app.post(['/api/enquiries', '/api/inquiries'], async (req, res) => {
   }
 });
 
-// ==================== STATIC ASSETS & SPA ROUTING ====================
+// ==================== STATIC ASSETS & SPA ROUTING WITH DYNAMIC SEO INJECTION ====================
+const ROUTE_SEO = {
+  '/': {
+    title: 'Just Like Home Nursery | Best EYFS Nursery & Daycare in Ajman',
+    description: 'Looking for a trusted nursery & daycare in Al Rashidiya, Ajman? Just Like Home Nursery offers British EYFS early learning & safe care for ages 45 days–4 yrs.',
+    canonical: 'https://jlhnursery.com/'
+  },
+  '/eyfs-curriculum-ajman': {
+    title: 'British EYFS Curriculum & Early Learning | JLH Nursery Ajman',
+    description: 'Discover our British EYFS play-based curriculum in Ajman—featuring Jolly Phonics, early numeracy, Arabic, sensory play & preschool readiness.',
+    canonical: 'https://jlhnursery.com/eyfs-curriculum-ajman'
+  },
+  '/infant-toddler-daycare-ajman': {
+    title: 'Infant & Toddler Daycare in Ajman | Half-Day & Full-Day Care (6 AM - 6:30 PM)',
+    description: 'Safe, nurturing child care in Ajman for babies from 45 days to 4 years. Flexible half-day & full-day daycare hours (6:00 AM – 6:30 PM) for working parents.',
+    canonical: 'https://jlhnursery.com/infant-toddler-daycare-ajman'
+  },
+  '/preschool': {
+    title: 'Preschool & School Readiness in Ajman | Just Like Home Nursery',
+    description: 'Help your child prepare for school with confidence through preschool learning, phonics, numeracy, routines and independence at Just Like Home Nursery Ajman.',
+    canonical: 'https://jlhnursery.com/preschool'
+  },
+  '/nursery-facilities-safety': {
+    title: 'Campus Facilities & Child Safety | Just Like Home Nursery Ajman',
+    description: 'Explore our 55,000 sq. ft. home-like campus in Al Rashidiya, Ajman with soft play zones, sensory rooms, shaded gardens & strict child safety standards.',
+    canonical: 'https://jlhnursery.com/nursery-facilities-safety'
+  },
+  '/summer-camp-ajman': {
+    title: 'Holiday & Summer Camp for Kids in Ajman | Just Like Home Nursery',
+    description: 'Discover fun, nurturing holiday and summer camp experiences in Ajman with creative activities, movement, exploration, stories and social play.',
+    canonical: 'https://jlhnursery.com/summer-camp-ajman'
+  },
+  '/admissions': {
+    title: 'Nursery Admissions in Ajman 2026 | Book a Guided Campus Tour',
+    description: 'Start your child\'s journey at Just Like Home Nursery in Ajman. Ask about availability, book a nursery tour and receive guidance through the admissions process.',
+    canonical: 'https://jlhnursery.com/admissions'
+  },
+  '/programs': {
+    title: 'Early Years Nursery Programs in Ajman | Just Like Home Nursery',
+    description: 'Explore early years, nursery, preschool, school readiness and flexible full-day and half-day care programs at Just Like Home Nursery in Ajman.',
+    canonical: 'https://jlhnursery.com/programs'
+  },
+  '/about-us': {
+    title: 'About Just Like Home Nursery | Early Years Nursery Ajman',
+    description: 'Meet Just Like Home Nursery in Ajman and discover our nurturing philosophy, loving motherly care, play-based approach and commitment to every child\'s development.',
+    canonical: 'https://jlhnursery.com/about-us'
+  },
+  '/founder': {
+    title: 'A Message from the Founder | Mary Ann | Just Like Home Nursery Ajman',
+    description: 'Read a heartfelt message from Founder Mary Ann on motherly care, early child development, and creating a home away from home in Ajman.',
+    canonical: 'https://jlhnursery.com/founder'
+  },
+  '/activities': {
+    title: 'Nursery Activities & Phonics in Ajman | Just Like Home Nursery',
+    description: 'Explore our 9 core learning areas: Jolly Phonics, early numeracy, Arabic language, sensory discovery, creative arts, and life skills at Just Like Home Nursery.',
+    canonical: 'https://jlhnursery.com/activities'
+  },
+  '/gallery': {
+    title: 'Campus Photo Gallery | Just Like Home Nursery Ajman',
+    description: 'Explore photos of the learning spaces, play areas, activities and special moments at Just Like Home Nursery in Ajman.',
+    canonical: 'https://jlhnursery.com/gallery'
+  },
+  '/blog': {
+    title: 'Parent Resources & Early Years Advice | Just Like Home Nursery',
+    description: 'Read practical early-years guidance for parents, including nursery readiness, play-based learning, preschool development and choosing a nursery in Ajman.',
+    canonical: 'https://jlhnursery.com/blog'
+  },
+  '/contact': {
+    title: 'Contact Just Like Home Nursery | Al Rashidiya 2, Ajman',
+    description: 'Contact Just Like Home Nursery at Villa 47, Al Rashidiya 2, Ajman. Call, WhatsApp 050 200 5346 or book a visit to explore our nurturing early-years environment.',
+    canonical: 'https://jlhnursery.com/contact'
+  }
+};
+
+// Aliases mapping to canonical paths
+ROUTE_SEO['/eyfs-learning'] = ROUTE_SEO['/eyfs-curriculum-ajman'];
+ROUTE_SEO['/daycare'] = ROUTE_SEO['/infant-toddler-daycare-ajman'];
+ROUTE_SEO['/daycare-ajman'] = ROUTE_SEO['/infant-toddler-daycare-ajman'];
+ROUTE_SEO['/childcare'] = ROUTE_SEO['/infant-toddler-daycare-ajman'];
+ROUTE_SEO['/child-care'] = ROUTE_SEO['/infant-toddler-daycare-ajman'];
+ROUTE_SEO['/facilities'] = ROUTE_SEO['/nursery-facilities-safety'];
+ROUTE_SEO['/camps'] = ROUTE_SEO['/summer-camp-ajman'];
+ROUTE_SEO['/preschool-school-readiness'] = ROUTE_SEO['/preschool'];
+ROUTE_SEO['/founder-message'] = ROUTE_SEO['/founder'];
+ROUTE_SEO['/nursery-activities'] = ROUTE_SEO['/activities'];
+
 const clientDistCandidates = [
   path.join(__dirname, '../client/dist'),
   path.join(__dirname, '../dist'),
@@ -502,6 +587,18 @@ const clientDistCandidates = [
 const clientDistPath = clientDistCandidates.find(p => fs.existsSync(p) && fs.existsSync(path.join(p, 'index.html')));
 const indexHtmlPath = clientDistPath ? path.join(clientDistPath, 'index.html') : null;
 
+let cachedIndexHtml = null;
+const getIndexHtml = () => {
+  if (!cachedIndexHtml || process.env.NODE_ENV !== 'production') {
+    try {
+      cachedIndexHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+    } catch (e) {
+      return null;
+    }
+  }
+  return cachedIndexHtml;
+};
+
 if (clientDistPath && indexHtmlPath) {
   // Monolith / single-server production deployment (e.g. Hostinger Node.js, Render, Railway, Docker, VPS)
   console.log(`📂 Serving built frontend client from: ${clientDistPath}`);
@@ -511,7 +608,30 @@ if (clientDistPath && indexHtmlPath) {
     if (req.path.startsWith('/api')) {
       return res.status(404).json({ error: 'API endpoint not found' });
     }
-    res.sendFile(indexHtmlPath);
+
+    const cleanPath = req.path.replace(/\/+$/, '') || '/';
+    const seo = ROUTE_SEO[cleanPath] || ROUTE_SEO['/'];
+
+    const rawHtml = getIndexHtml();
+    if (!rawHtml) {
+      return res.sendFile(indexHtmlPath);
+    }
+
+    // Replace Title, Description, Open Graph, Twitter, and Canonical per route
+    let customHtml = rawHtml
+      .replace(/<title>.*?<\/title>/i, `<title>${seo.title}</title>`)
+      .replace(/<meta name="title" content=".*?" \/>/i, `<meta name="title" content="${seo.title}" />`)
+      .replace(/<meta name="description" content=".*?" \/>/i, `<meta name="description" content="${seo.description}" />`)
+      .replace(/<link rel="canonical" href=".*?" \/>/i, `<link rel="canonical" href="${seo.canonical}" />`)
+      .replace(/<meta property="og:title" content=".*?" \/>/i, `<meta property="og:title" content="${seo.title}" />`)
+      .replace(/<meta property="og:description" content=".*?" \/>/i, `<meta property="og:description" content="${seo.description}" />`)
+      .replace(/<meta property="og:url" content=".*?" \/>/i, `<meta property="og:url" content="${seo.canonical}" />`)
+      .replace(/<meta name="twitter:title" content=".*?" \/>/i, `<meta name="twitter:title" content="${seo.title}" />`)
+      .replace(/<meta name="twitter:description" content=".*?" \/>/i, `<meta name="twitter:description" content="${seo.description}" />`)
+      .replace(/<meta name="twitter:url" content=".*?" \/>/i, `<meta name="twitter:url" content="${seo.canonical}" />`);
+
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    return res.send(customHtml);
   });
 } else {
   // Standalone backend deployment (e.g. backend deployed on Render/Railway, frontend on Vercel/Netlify)

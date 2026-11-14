@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryPageHero from '../components/LuxuryPageHero';
 import { getApiUrl } from '../config/api';
+import useSEO from '../hooks/useSEO';
 import { 
   MapPin, Phone, Mail, MessageCircle, Calendar, 
   CheckCircle2, Send, Navigation, Info, ArrowRight 
@@ -11,13 +12,12 @@ const GMB_URL = 'https://share.google/AbZVHOBinruNYkwDg';
 const GOOGLE_MAPS_EMBED = 'https://maps.google.com/maps?q=Just+Like+Home+Nursery+Al+Rashidiya+2+Ajman&t=&z=16&ie=UTF8&iwloc=&output=embed';
 
 export default function ContactPage() {
-  useEffect(() => {
-    document.title = "Contact Just Like Home Nursery | Al Rashidiya 2, Ajman";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Contact Just Like Home Nursery at Villa 47, Al Rashidiya 2, Ajman. Call, WhatsApp or book a visit to explore our nurturing early-years environment.");
-    }
-  }, []);
+  useSEO({
+    title: "Contact Just Like Home Nursery | Al Rashidiya 2, Ajman",
+    description: "Contact Just Like Home Nursery at Villa 47, Al Rashidiya 2, Ajman. Call, WhatsApp 050 200 5346 or book a visit to explore our nurturing early-years environment.",
+    path: "/contact",
+    breadcrumbs: [{ name: "Contact & Location", path: "/contact" }]
+  });
 
   const [formData, setFormData] = useState({
     parentName: '',
@@ -112,8 +112,6 @@ export default function ContactPage() {
       
       {/* 1. LUXURY HERO BANNER */}
       <LuxuryPageHero
-        badge="CONTACT & BOOK A VISIT · LOCAL CONVERSION PAGE"
-        badgeIcon={MapPin}
         title="Come and Experience Just Like Home"
         description="The best way to understand whether a nursery feels right is to experience it. Book a visit to meet our team, explore the environment and ask questions about your child's care and learning."
         image="/media/daycare/daycare-3.jpg"

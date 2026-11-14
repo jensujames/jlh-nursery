@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryPageHero from '../components/LuxuryPageHero';
+import useSEO from '../hooks/useSEO';
 import { 
   GraduationCap, CheckCircle2, Smile, ArrowRight, 
   Calendar, MessageCircle, Sparkles, Compass 
@@ -19,13 +20,12 @@ const DEVELOPMENTS = [
 ];
 
 export default function PreschoolPage() {
-  useEffect(() => {
-    document.title = "Preschool & School Readiness in Ajman | Just Like Home";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Help your child prepare for school with confidence through preschool learning, phonics, numeracy, routines and independence at Just Like Home Nursery Ajman.");
-    }
-  }, []);
+  useSEO({
+    title: "Preschool & School Readiness in Ajman | Just Like Home Nursery",
+    description: "Help your child prepare for school with confidence through preschool learning, phonics, numeracy, routines and independence at Just Like Home Nursery Ajman.",
+    path: "/preschool",
+    breadcrumbs: [{ name: "Preschool & School Readiness", path: "/preschool" }]
+  });
 
   const whatsappMessage = encodeURIComponent(
     "Hello, I would like to ask about the Preschool and School Readiness program at Just Like Home Nursery."
@@ -35,8 +35,6 @@ export default function PreschoolPage() {
     <div className="preschool-page" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F', minHeight: '100vh' }}>
       {/* 1. LUXURY HERO BANNER */}
       <LuxuryPageHero
-        badge="PRESCHOOL & SCHOOL READINESS · HIGH-INTENT PRESCHOOL PAGE"
-        badgeIcon={GraduationCap}
         title="Preparing Confident, Curious Children for Their Next Step"
         description={[
           "Starting school is a major milestone. School readiness is not only about knowing letters and numbers; it is also about confidence, communication, independence, listening, routines and the ability to learn alongside others.",

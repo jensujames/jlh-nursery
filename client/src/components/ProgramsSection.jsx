@@ -1,13 +1,13 @@
 import React, { useState, useRef } from 'react';
-import { 
-  Baby, 
-  Smile, 
-  Sparkles, 
-  GraduationCap, 
-  Clock, 
-  Sun, 
-  Check, 
-  Calendar, 
+import {
+  Baby,
+  Smile,
+  Sparkles,
+  GraduationCap,
+  Clock,
+  Sun,
+  Check,
+  Calendar,
   ArrowRight,
   ShieldCheck
 } from 'lucide-react';
@@ -128,14 +128,14 @@ export default function ProgramsSection({ onBookVisitClick }) {
   const Icon = current.icon;
 
   return (
-    <section 
-      id="programs" 
+    <section
+      id="programs"
       ref={progRef}
-      className="section-padding bg-cream perspective-1000" 
+      className="section-padding bg-cream perspective-1000"
       style={{ position: 'relative' }}
     >
       <div className="container">
-        
+
         {/* Header */}
         <RevealOnScroll animation="fade-up">
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
@@ -160,7 +160,7 @@ export default function ProgramsSection({ onBookVisitClick }) {
         </RevealOnScroll>
 
         {/* Program Selection Pills */}
-        <div 
+        <div
           className="programs-pills-bar"
           style={{
             display: 'flex',
@@ -206,7 +206,7 @@ export default function ProgramsSection({ onBookVisitClick }) {
 
         {/* Detailed Program Showcase Card (ScrollCraft Paradigm #01: 3D Depth Compaction) */}
         <RevealOnScroll animation="zoom-in" delay={150}>
-          <div 
+          <div
             className="programs-showcase-card"
             style={{
               backgroundColor: '#ffffff',
@@ -220,190 +220,190 @@ export default function ProgramsSection({ onBookVisitClick }) {
               transition: 'transform 0.2s ease-out'
             }}
           >
-          {/* Left Column: Details */}
-          <div className="programs-card-details" style={{ padding: '3rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-              <div style={{
-                width: '48px',
-                height: '48px',
-                borderRadius: '12px',
-                backgroundColor: current.badgeColor === '#0284c7' ? '#e0f2fe' : current.badgeColor === '#15803d' ? '#dcfce7' : '#fce7eb',
-                color: current.badgeColor,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <Icon size={24} />
-              </div>
-              <div>
-                <span style={{
-                  fontSize: '0.75rem',
-                  fontWeight: '700',
-                  textTransform: 'uppercase',
+            {/* Left Column: Details */}
+            <div className="programs-card-details" style={{ padding: '3rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                <div style={{
+                  width: '48px',
+                  height: '48px',
+                  borderRadius: '12px',
+                  backgroundColor: current.badgeColor === '#0284c7' ? '#e0f2fe' : current.badgeColor === '#15803d' ? '#dcfce7' : '#fce7eb',
                   color: current.badgeColor,
-                  letterSpacing: '0.06em'
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}>
-                  {current.stage}
-                </span>
-                <div style={{ fontSize: '0.9rem', fontWeight: '700', color: '#6b7280' }}>
-                  Target Age: {current.age}
+                  <Icon size={24} />
+                </div>
+                <div>
+                  <span style={{
+                    fontSize: '0.75rem',
+                    fontWeight: '700',
+                    textTransform: 'uppercase',
+                    color: current.badgeColor,
+                    letterSpacing: '0.06em'
+                  }}>
+                    {current.stage}
+                  </span>
+                  <div style={{ fontSize: '0.9rem', fontWeight: '700', color: '#6b7280' }}>
+                    Target Age: {current.age}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <h3 style={{
-              fontSize: '1.85rem',
-              color: '#3d050f',
-              marginBottom: '1rem',
-              fontFamily: 'var(--font-heading)'
-            }}>
-              {current.title}
-            </h3>
-
-            <p style={{
-              fontSize: '1.02rem',
-              color: '#4a443e',
-              lineHeight: '1.7',
-              marginBottom: '1.75rem'
-            }}>
-              {current.description}
-            </p>
-
-            <div style={{ marginBottom: '2rem' }}>
-              <div style={{
-                fontSize: '0.82rem',
-                fontWeight: '700',
-                textTransform: 'uppercase',
-                color: '#7b1127',
-                letterSpacing: '0.06em',
-                marginBottom: '0.85rem'
-              }}>
-                Program Highlights & Inclusions
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                {current.highlights.map((item, idx) => (
-                  <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-                    <div style={{
-                      width: '20px',
-                      height: '20px',
-                      borderRadius: '50%',
-                      backgroundColor: current.badgeColor === '#0284c7' ? '#e0f2fe' : current.badgeColor === '#15803d' ? '#dcfce7' : '#fce7eb',
-                      color: current.badgeColor,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0
-                    }}>
-                      <Check size={12} strokeWidth={3} />
-                    </div>
-                    <span style={{ fontSize: '0.92rem', color: '#374151', fontWeight: '500' }}>
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div style={{
-              padding: '1rem 1.25rem',
-              backgroundColor: '#fdfbf7',
-              borderRadius: '1rem',
-              border: '1px solid rgba(123, 17, 39, 0.08)',
-              marginBottom: '2rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.75rem'
-            }}>
-              <Clock size={20} style={{ color: '#d4af37', flexShrink: 0 }} />
-              <div style={{ fontSize: '0.85rem', color: '#4b5563' }}>
-                <strong style={{ color: '#3d050f' }}>Timings:</strong> {current.timing}
-              </div>
-            </div>
-
-            <div className="programs-actions-row" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <button
-                onClick={onBookVisitClick}
-                className="btn-primary"
-                style={{ padding: '0.85rem 1.75rem', fontSize: '0.95rem' }}
-              >
-                <Calendar size={18} />
-                <span>Book Visit for This Program</span>
-              </button>
-
-              <a
-                href={`https://wa.me/971502005346?text=Hello%20Just%20Like%20Home%20Nursery,%20I%20would%20like%20to%20inquire%20about%20the%20${encodeURIComponent(current.title)}%20program.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-                style={{ padding: '0.85rem 1.5rem', fontSize: '0.95rem' }}
-              >
-                <span>Ask on WhatsApp</span>
-                <ArrowRight size={16} />
-              </a>
-            </div>
-          </div>
-
-          {/* Right Column: Visual Showcase */}
-          <div 
-            className="programs-card-image-wrap"
-            style={{
-              position: 'relative',
-              minHeight: '380px',
-              backgroundColor: '#460713',
-              overflow: 'hidden'
-            }}
-          >
-            <img 
-              src={selectedProgram === 0 ? "/media/nursery/nursery-1.jpg" : selectedProgram % 2 === 0 ? "/media/school-readiness/school-readiness-1.jpg" : "/media/daycare/daycare-4.jpg"}
-              alt={current.title}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                opacity: 0.95
-              }}
-            />
-            <div style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(to top, rgba(70, 7, 19, 0.75) 0%, rgba(70, 7, 19, 0.1) 60%)'
-            }} />
-
-            <div style={{
-              position: 'absolute',
-              bottom: '2rem',
-              left: '2rem',
-              right: '2rem',
-              color: '#ffffff'
-            }}>
-              <div style={{
-                display: 'inline-block',
-                padding: '0.35rem 0.85rem',
-                borderRadius: '9999px',
-                backgroundColor: 'rgba(212, 175, 55, 0.3)',
-                backdropFilter: 'blur(8px)',
-                color: '#fef08a',
-                fontSize: '0.78rem',
-                fontWeight: '700',
-                marginBottom: '0.75rem',
-                border: '1px solid rgba(212, 175, 55, 0.5)'
-              }}>
-                ✨ British EYFS Standards
-              </div>
-              <h4 style={{
-                fontSize: '1.4rem',
-                color: '#ffffff',
-                marginBottom: '0.4rem',
+              <h3 style={{
+                fontSize: '1.85rem',
+                color: '#3d050f',
+                marginBottom: '1rem',
                 fontFamily: 'var(--font-heading)'
               }}>
-                {current.title} at Just Like Home
-              </h4>
-              <p style={{ fontSize: '0.88rem', color: '#fce7eb', opacity: 0.9 }}>
-                Encouraging young minds through purposeful exploration and warm motherly guidance.
+                {current.title}
+              </h3>
+
+              <p style={{
+                fontSize: '1.02rem',
+                color: '#4a443e',
+                lineHeight: '1.7',
+                marginBottom: '1.75rem'
+              }}>
+                {current.description}
               </p>
+
+              <div style={{ marginBottom: '2rem' }}>
+                <div style={{
+                  fontSize: '0.82rem',
+                  fontWeight: '700',
+                  textTransform: 'uppercase',
+                  color: '#7b1127',
+                  letterSpacing: '0.06em',
+                  marginBottom: '0.85rem'
+                }}>
+                  Program Highlights & Inclusions
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                  {current.highlights.map((item, idx) => (
+                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                      <div style={{
+                        width: '20px',
+                        height: '20px',
+                        borderRadius: '50%',
+                        backgroundColor: current.badgeColor === '#0284c7' ? '#e0f2fe' : current.badgeColor === '#15803d' ? '#dcfce7' : '#fce7eb',
+                        color: current.badgeColor,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0
+                      }}>
+                        <Check size={12} strokeWidth={3} />
+                      </div>
+                      <span style={{ fontSize: '0.92rem', color: '#374151', fontWeight: '500' }}>
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div style={{
+                padding: '1rem 1.25rem',
+                backgroundColor: '#fdfbf7',
+                borderRadius: '1rem',
+                border: '1px solid rgba(123, 17, 39, 0.08)',
+                marginBottom: '2rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem'
+              }}>
+                <Clock size={20} style={{ color: '#d4af37', flexShrink: 0 }} />
+                <div style={{ fontSize: '0.85rem', color: '#4b5563' }}>
+                  <strong style={{ color: '#3d050f' }}>Timings:</strong> {current.timing}
+                </div>
+              </div>
+
+              <div className="programs-actions-row" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <button
+                  onClick={onBookVisitClick}
+                  className="btn-primary"
+                  style={{ padding: '0.85rem 1.75rem', fontSize: '0.95rem' }}
+                >
+                  <Calendar size={18} />
+                  <span>Book Visit for This Program</span>
+                </button>
+
+                <a
+                  href={`https://wa.me/971502005346?text=Hello%20Just%20Like%20Home%20Nursery,%20I%20would%20like%20to%20inquire%20about%20the%20${encodeURIComponent(current.title)}%20program.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary"
+                  style={{ padding: '0.85rem 1.5rem', fontSize: '0.95rem' }}
+                >
+                  <span>Ask on WhatsApp</span>
+                  <ArrowRight size={16} />
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: Visual Showcase */}
+            <div
+              className="programs-card-image-wrap"
+              style={{
+                position: 'relative',
+                minHeight: '380px',
+                backgroundColor: '#460713',
+                overflow: 'hidden'
+              }}
+            >
+              <img
+                src={selectedProgram === 0 ? "/media/nursery/nursery-1.jpg" : selectedProgram % 2 === 0 ? "/media/school-readiness/school-readiness-1.jpg" : "/media/daycare/daycare-4.jpg"}
+                alt={current.title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  opacity: 0.95
+                }}
+              />
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(to top, rgba(70, 7, 19, 0.75) 0%, rgba(70, 7, 19, 0.1) 60%)'
+              }} />
+
+              <div style={{
+                position: 'absolute',
+                bottom: '2rem',
+                left: '2rem',
+                right: '2rem',
+                color: '#ffffff'
+              }}>
+                <div style={{
+                  display: 'inline-block',
+                  padding: '0.35rem 0.85rem',
+                  borderRadius: '9999px',
+                  backgroundColor: 'rgba(212, 175, 55, 0.3)',
+                  backdropFilter: 'blur(8px)',
+                  color: '#fef08a',
+                  fontSize: '0.78rem',
+                  fontWeight: '700',
+                  marginBottom: '0.75rem',
+                  border: '1px solid rgba(212, 175, 55, 0.5)'
+                }}>
+                  ✨ British EYFS Standards
+                </div>
+                <h4 style={{
+                  fontSize: '1.4rem',
+                  color: '#ffffff',
+                  marginBottom: '0.4rem',
+                  fontFamily: 'var(--font-heading)'
+                }}>
+                  {current.title} at Just Like Home
+                </h4>
+                <p style={{ fontSize: '0.88rem', color: '#fce7eb', opacity: 0.9 }}>
+                  Encouraging young minds through purposeful exploration and warm motherly guidance.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
         </RevealOnScroll>
 
       </div>

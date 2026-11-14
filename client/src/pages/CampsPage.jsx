@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryPageHero from '../components/LuxuryPageHero';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
+import useSEO from '../hooks/useSEO';
 import { 
   Sun, Sparkles, Palette, Trees, Music, Calendar, 
   Users, Award, MessageCircle, ArrowRight, CheckCircle2,
@@ -76,13 +77,12 @@ const CAMP_INCLUSIONS = [
 ];
 
 export default function CampsPage({ onBookVisitClick }) {
-  useEffect(() => {
-    document.title = "Holiday & Summer Camp in Ajman | Just Like Home Nursery";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Discover fun, nurturing holiday and summer camp experiences in Ajman with creative activities, movement, exploration, stories and social play.");
-    }
-  }, []);
+  useSEO({
+    title: "Holiday & Summer Camp for Kids in Ajman | Just Like Home Nursery",
+    description: "Discover fun, nurturing holiday and summer camp experiences in Ajman with creative activities, movement, exploration, stories and social play.",
+    path: "/summer-camp-ajman",
+    breadcrumbs: [{ name: "Holiday & Summer Camps", path: "/summer-camp-ajman" }]
+  });
 
   const campWhatsapp = "Hello, I would like to ask about the upcoming holiday and summer camps at Just Like Home Nursery.";
 
@@ -91,8 +91,6 @@ export default function CampsPage({ onBookVisitClick }) {
       
       {/* 1. LUXURY HERO BANNER */}
       <LuxuryPageHero
-        badge="HOLIDAY & SUMMER CAMPS · SEASONAL ENROLMENT"
-        badgeIcon={Sun}
         title="Happy Holidays Filled With Play, Creativity and Discovery"
         description={[
           "School holidays can be a wonderful time for children to try something new, make friends and stay engaged in a safe, familiar environment.",

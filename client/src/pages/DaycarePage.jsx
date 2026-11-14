@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryPageHero from '../components/LuxuryPageHero';
+import useSEO from '../hooks/useSEO';
 import { 
   Clock, Sun, Moon, Heart, MessageCircle, Calendar, 
   Sparkles, CheckCircle2, ArrowRight, ShieldCheck 
 } from 'lucide-react';
 
 export default function DaycarePage() {
-  useEffect(() => {
-    document.title = "Infant & Toddler Daycare in Ajman | Half-Day & Full-Day Care";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Safe, nurturing child care in Ajman for babies from 45 days to 4 years. Flexible half-day & full-day daycare hours (6:00 AM – 6:30 PM) for working parents.");
-    }
-  }, []);
+  useSEO({
+    title: "Infant & Toddler Daycare in Ajman | Half-Day & Full-Day Care (6 AM - 6:30 PM)",
+    description: "Safe, nurturing child care in Ajman for babies from 45 days to 4 years. Flexible half-day & full-day daycare hours (6:00 AM – 6:30 PM) for working parents.",
+    path: "/infant-toddler-daycare-ajman",
+    breadcrumbs: [{ name: "Infant & Toddler Daycare", path: "/infant-toddler-daycare-ajman" }]
+  });
 
   const whatsappMessage = encodeURIComponent(
     "Hello, I would like to check availability for full-day and half-day care options at Just Like Home Nursery."
@@ -24,8 +24,6 @@ export default function DaycarePage() {
     <div className="daycare-page" style={{ backgroundColor: '#FFFDF7', color: '#3F3F3F', minHeight: '100vh' }}>
       {/* 1. LUXURY HERO BANNER */}
       <LuxuryPageHero
-        badge="FULL-DAY & HALF-DAY CARE · FLEXIBLE CARE SEARCH INTENT"
-        badgeIcon={Clock}
         title="Flexible Care With a Consistent Sense of Belonging"
         description="Families have different schedules, but every child needs consistency, reassurance and meaningful experiences throughout the day. Our full-day and half-day options are designed to provide a caring routine while supporting learning, play, rest and social development."
         image="/media/daycare/daycare-3.jpg"

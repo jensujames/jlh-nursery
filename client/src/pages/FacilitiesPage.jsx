@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import LuxuryPageHero from '../components/LuxuryPageHero';
 import LuxuryClosingCta from '../components/LuxuryClosingCta';
+import useSEO from '../hooks/useSEO';
 import { 
   Building2, Trees, Moon, Sparkles, BookOpen, Award, 
   Bath, Utensils, HeartPulse, Stethoscope, Lock, Video, 
@@ -87,8 +88,8 @@ const FACILITIES = [
     color: '#06b6d4',
     gradient: 'linear-gradient(90deg, #06b6d4, #22d3ee)',
     border: 'rgba(6, 182, 212, 0.22)',
-    image: '/media/life-skills/life-skills-1.jpg',
-    imageAlt: 'Child-friendly washrooms and personal hygiene station'
+    image: '/images/hero-facilities.jpg',
+    imageAlt: 'Safe child-friendly washrooms and hygiene facilities'
   },
   {
     title: 'Kitchen & Meal Preparation Area',
@@ -153,21 +154,18 @@ const FACILITIES = [
 ];
 
 export default function FacilitiesPage({ onBookVisitClick }) {
-  useEffect(() => {
-    document.title = "Campus Facilities & Child Safety | Just Like Home Nursery";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Explore our 55,000 sq. ft. home-like campus in Al Rashidiya, Ajman with soft play zones, sensory rooms, shaded gardens & strict child safety standards.");
-    }
-  }, []);
+  useSEO({
+    title: "Campus Facilities & Child Safety | Just Like Home Nursery Ajman",
+    description: "Explore our 55,000 sq. ft. home-like campus in Al Rashidiya, Ajman with soft play zones, sensory rooms, shaded gardens & strict child safety standards.",
+    path: "/nursery-facilities-safety",
+    breadcrumbs: [{ name: "Campus Facilities & Safety", path: "/nursery-facilities-safety" }]
+  });
 
   return (
     <div className="facilities-page" style={{ backgroundColor: '#FFFDF7', color: '#2d1f22', minHeight: '100vh' }}>
       
       {/* 1. LUXURY HERO BANNER */}
       <LuxuryPageHero
-        badge="FACILITIES & SAFETY · ANSWER PARENT TRUST AND SAFETY QUESTIONS"
-        badgeIcon={ShieldCheck}
         title="A Safe, Welcoming Space Created for Little Learners"
         description="Children feel more confident when their environment is comfortable, predictable and designed around their needs. Our nursery spaces support active play, focused discovery, social interaction, rest and everyday routines."
         image="/media/nursery/nursery-1.jpg"
