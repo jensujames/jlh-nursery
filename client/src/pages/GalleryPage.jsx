@@ -1170,49 +1170,6 @@ export default function GalleryPage({ onBookVisitClick }) {
                   loading="lazy"
                 />
 
-                {/* Top Badge: Category & Age Tag */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '14px',
-                    left: '14px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    zIndex: 2
-                  }}
-                >
-                  <span
-                    style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.92)',
-                      backdropFilter: 'blur(8px)',
-                      color: '#721024',
-                      padding: '4px 10px',
-                      borderRadius: '999px',
-                      fontSize: '11.5px',
-                      fontWeight: '800',
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.12)'
-                    }}
-                  >
-                    {img.badge || 'Early Learning'}
-                  </span>
-                  {img.ageGroup && (
-                    <span
-                      style={{
-                        backgroundColor: 'rgba(114, 16, 36, 0.88)',
-                        backdropFilter: 'blur(8px)',
-                        color: '#ffffff',
-                        padding: '4px 9px',
-                        borderRadius: '999px',
-                        fontSize: '11px',
-                        fontWeight: '700'
-                      }}
-                    >
-                      {img.ageGroup}
-                    </span>
-                  )}
-                </div>
-
                 {/* Zoom Icon Indicator */}
                 <div
                   style={{
@@ -1509,47 +1466,17 @@ export default function GalleryPage({ onBookVisitClick }) {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'space-between',
-                  gap: '12px',
-                  marginBottom: '10px',
+                  justifyContent: 'flex-end',
+                  gap: '10px',
+                  marginBottom: '14px',
                   flexWrap: 'wrap'
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span
-                    style={{
-                      backgroundColor: '#ffe4e6',
-                      color: '#9f1239',
-                      padding: '4px 12px',
-                      borderRadius: '999px',
-                      fontSize: '12px',
-                      fontWeight: '800'
-                    }}
-                  >
-                    {selectedItem.badge || 'Campus Moment'}
-                  </span>
-                  {selectedItem.ageGroup && (
-                    <span
-                      style={{
-                        backgroundColor: '#f1f5f9',
-                        color: '#475569',
-                        padding: '4px 10px',
-                        borderRadius: '999px',
-                        fontSize: '12px',
-                        fontWeight: '700'
-                      }}
-                    >
-                      Ages: {selectedItem.ageGroup}
-                    </span>
-                  )}
-                </div>
-
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <button
-                    onClick={() => {
-                      closeLightbox();
-                      if (onBookVisitClick) onBookVisitClick();
-                    }}
+                <button
+                  onClick={() => {
+                    closeLightbox();
+                    if (onBookVisitClick) onBookVisitClick();
+                  }}
                     style={{
                       padding: '8px 18px',
                       borderRadius: '999px',
@@ -1589,7 +1516,6 @@ export default function GalleryPage({ onBookVisitClick }) {
                     <span>WhatsApp</span>
                   </a>
                 </div>
-              </div>
 
               <h3
                 style={{
