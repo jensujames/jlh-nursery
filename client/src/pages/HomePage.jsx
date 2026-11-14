@@ -15,12 +15,42 @@ import {
 const GMB_URL = 'https://share.google/AbZVHOBinruNYkwDg';
 const GOOGLE_MAPS_EMBED = 'https://maps.google.com/maps?q=Just+Like+Home+Nursery+Al+Rashidiya+2+Ajman&t=&z=16&ie=UTF8&iwloc=&output=embed';
 
+const HOME_FAQS = [
+  {
+    q: "Why is Just Like Home considered one of the best nurseries in Ajman?",
+    a: "Just Like Home Nursery in Al Rashidiya 2, Ajman combines the world-class British Early Years Foundation Stage (EYFS) curriculum with warm, motherly children's care. We feature low caregiver ratios, 24/7 CCTV security across all classrooms and play zones, a licensed clinic, and certified staff. Families across Ajman rate us 5.0 stars for our safety, nurturing warmth, and joyful learning environment."
+  },
+  {
+    q: "What children's care and daycare options are available in Ajman?",
+    a: "We offer flexible full-day daycare, half-day daycare, and after-school child care from 7:00 AM to 6:00 PM, Monday through Friday. Tailored for working parents in Ajman and nearby Sharjah, our daycare routine blends purposeful British EYFS activities, wholesome snack times, restful naps, and creative social play under continuous caring supervision."
+  },
+  {
+    q: "What age groups do you accept for infant care and nursery programs?",
+    a: "We welcome children from 45 days old up to 4+ years across three dedicated stages: Infant & Baby Care (45 days to 14 months) in a hygienic baby suite with dedicated sensory zones, Toddler Explorers (14 months to 2.5 years) focused on motor skills and language, and Preschool Foundation Stage FS1 & FS2 (2.5 to 4+ years) preparing children for primary school readiness."
+  },
+  {
+    q: "Where is Just Like Home Nursery located in Ajman?",
+    a: "Our nursery is centrally located in a spacious standalone villa at Villa No. 47, Al Rashidiya 2, Ajman, UAE. We are easily accessible from all major Ajman neighborhoods—including Al Rashidiya, Al Nuaimiya, Al Jurf, Al Rumailah, and the Ajman Corniche—as well as families commuting between Sharjah and Ajman."
+  },
+  {
+    q: "What curriculum does Just Like Home Nursery follow?",
+    a: "We teach the renowned UK British Early Years Foundation Stage (EYFS) framework. Our curriculum covers all 7 prime and specific learning areas: Communication & Language, Personal Social & Emotional Development, Physical Development, Literacy (Jolly Phonics), Mathematics & Early Problem Solving, Understanding the World, and Expressive Arts & Design, enriched with foundational Arabic."
+  },
+  {
+    q: "How can parents book a campus visit or inquire about fees?",
+    a: "Booking a campus tour or inquiring about current term fees and admissions is quick and simple. Parents can call or WhatsApp our admissions team directly at +971 50 200 5346, email nurseryjustlikehome@gmail.com, or submit the online visit request form on our website. We are open Monday to Friday from 7:00 AM to 6:00 PM."
+  }
+];
+
+
 export default function HomePage({ onBookVisitClick }) {
   const [leadershipTab, setLeadershipTab] = useState('founder');
   const [likedPrograms, setLikedPrograms] = useState({});
   const [programSlide, setProgramSlide] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(3);
   const [isPaused, setIsPaused] = useState(false);
+  const [openFaq, setOpenFaq] = useState(0);
+  const toggleFaq = (idx) => setOpenFaq(openFaq === idx ? null : idx);
   const touchStartXRef = useRef(0);
   const touchEndXRef = useRef(0);
 

@@ -98,12 +98,24 @@ export default function App() {
             <Route path="/programs/" element={<ProgramsPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/eyfs-learning" element={<EyfsPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/eyfs-learning/" element={<EyfsPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/preschool" element={<PreschoolPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/preschool/" element={<PreschoolPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/preschool-school-readiness" element={<PreschoolPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/preschool-school-readiness/" element={<PreschoolPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/daycare" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/daycare/" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
             <Route path="/daycare-ajman" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
             <Route path="/daycare-ajman/" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/childcare" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/childcare/" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/child-care" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/child-care/" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/childrens-care" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/childrens-care/" element={<DaycarePage onBookVisitClick={handleBookVisit} />} />
             <Route path="/camps" element={<CampsPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/camps/" element={<CampsPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/activities" element={<ActivitiesPage onBookVisitClick={handleBookVisit} />} />
+            <Route path="/activities/" element={<ActivitiesPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/nursery-activities" element={<ActivitiesPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/nursery-activities/" element={<ActivitiesPage onBookVisitClick={handleBookVisit} />} />
             <Route path="/facilities" element={<FacilitiesPage onBookVisitClick={handleBookVisit} />} />
