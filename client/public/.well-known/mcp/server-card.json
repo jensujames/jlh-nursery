@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "just-like-home-nursery-mcp",
+  "displayName": "Just Like Home Nursery MCP Server",
+  "description": "Model Context Protocol (MCP) server card for Just Like Home Nursery in Ajman, UAE. Exposes nursery programs, tour bookings, admissions, and campus information for AI agents.",
+  "version": "1.0.0",
+  "homepage": "https://jlhnursery.com",
+  "endpoint": "https://jlhnursery.com/api/mcp",
+  "transport": {
+    "type": "http-sse",
+    "url": "https://jlhnursery.com/api/mcp/sse"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": false
+  },
+  "tools": [
+    {
+      "name": "book_nursery_tour",
+      "description": "Schedule a tour or visit at Just Like Home Nursery in Al Rashidiya 2, Ajman",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "parentName": { "type": "string", "description": "Parent full name" },
+          "phone": { "type": "string", "description": "Contact phone number" },
+          "childAge": { "type": "string", "description": "Age of child" },
+          "preferredDate": { "type": "string", "description": "Visit date (YYYY-MM-DD)" },
+          "preferredTime": { "type": "string", "description": "Morning or Afternoon" }
+        },
+        "required": ["parentName", "phone", "preferredDate"]
+      }
+    },
+    {
+      "name": "get_nursery_info",
+      "description": "Retrieve nursery location, curriculum, timings, and contact details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "submit_enquiry",
+      "description": "Send an admissions inquiry or questions directly to the nursery management",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "phone": { "type": "string" },
+          "email": { "type": "string" },
+          "message": { "type": "string" }
+        },
+        "required": ["name", "phone", "message"]
+      }
+    }
+  ],
+  "contact": {
+    "name": "Just Like Home Nursery Admissions",
+    "email": "nurseryjustlikehome@gmail.com",
+    "telephone": "+971502005346",
+    "address": "Villa No. 47, Al Rashidiya 2, Ajman, UAE"
+  }
+}

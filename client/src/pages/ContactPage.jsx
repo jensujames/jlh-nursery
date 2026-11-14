@@ -511,7 +511,14 @@ export default function ContactPage() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+                <form 
+                  onSubmit={handleSubmit} 
+                  toolname="submit_enquiry"
+                  tooldescription="Send an admissions inquiry or message to Just Like Home Nursery"
+                  data-toolname="submit_enquiry"
+                  data-tooldescription="Send an admissions inquiry or message to Just Like Home Nursery"
+                  style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}
+                >
                   {errorMessage && (
                     <div
                       style={{

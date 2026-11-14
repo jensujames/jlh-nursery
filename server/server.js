@@ -76,6 +76,92 @@ app.use(
 app.use(express.json());
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 
+// Declare Content Signals & AI headers on all HTTP responses
+app.use((req, res, next) => {
+  res.setHeader('Content-Signal', 'search=yes, ai-train=no');
+  next();
+});
+
+// SEP-1649 MCP Server Card publication
+app.get('/.well-known/mcp/server-card.json', (req, res) => {
+  const serverCardCandidates = [
+    path.join(__dirname, '../client/public/.well-known/mcp/server-card.json'),
+    path.join(__dirname, '../client/dist/.well-known/mcp/server-card.json'),
+    path.join(process.cwd(), 'client/public/.well-known/mcp/server-card.json'),
+    path.join(process.cwd(), 'dist/.well-known/mcp/server-card.json'),
+    path.join(process.cwd(), '.well-known/mcp/server-card.json')
+  ];
+  const cardPath = serverCardCandidates.find(p => fs.existsSync(p));
+  if (cardPath) {
+    res.setHeader('Content-Type', 'application/json');
+    return res.sendFile(path.resolve(cardPath));
+  }
+  res.setHeader('Content-Type', 'application/json');
+  return res.status(200).json({
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "name": "just-like-home-nursery-mcp",
+    "displayName": "Just Like Home Nursery MCP Server",
+    "description": "Model Context Protocol (MCP) server card for Just Like Home Nursery in Ajman, UAE.",
+    "version": "1.0.0",
+    "homepage": "https://jlhnursery.com",
+    "endpoint": "https://jlhnursery.com/api/mcp",
+    "capabilities": { "tools": true, "resources": true, "prompts": false },
+    "tools": [
+      {
+        "name": "book_nursery_tour",
+        "description": "Schedule a tour or visit at Just Like Home Nursery in Al Rashidiya 2, Ajman",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "parentName": { "type": "string" },
+            "phone": { "type": "string" },
+            "preferredDate": { "type": "string" }
+          },
+          "required": ["parentName", "phone", "preferredDate"]
+        }
+      },
+      {
+        "name": "get_nursery_info",
+        "description": "Retrieve nursery location, curriculum, timings, and contact details",
+        "inputSchema": { "type": "object", "properties": {} }
+      },
+      {
+        "name": "submit_enquiry",
+        "description": "Send an admissions inquiry or questions directly to the nursery management",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "phone": { "type": "string" },
+            "message": { "type": "string" }
+          },
+          "required": ["name", "phone", "message"]
+        }
+      }
+    ]
+  });
+});
+
+// Content negotiation: Serve Markdown when AI agents send Accept: text/markdown
+app.use((req, res, next) => {
+  const accept = req.headers['accept'] || '';
+  if (accept.includes('text/markdown') && (req.path === '/' || req.path === '/index.html')) {
+    const mdCandidates = [
+      path.join(__dirname, '../client/public/index.md'),
+      path.join(__dirname, '../client/dist/index.md'),
+      path.join(process.cwd(), 'client/public/index.md'),
+      path.join(process.cwd(), 'dist/index.md'),
+      path.join(process.cwd(), 'index.md')
+    ];
+    const found = mdCandidates.find(p => fs.existsSync(p));
+    if (found) {
+      res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+      return res.sendFile(path.resolve(found));
+    }
+  }
+  next();
+});
+
 // ==================== IN-MEMORY FALLBACK STORE ====================
 // Ensures 100% continuous uptime and zero disruption for parents even if MongoDB Atlas has a network blip
 const memoryStore = {

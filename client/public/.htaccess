@@ -1,6 +1,27 @@
+# Custom MIME Types
+<IfModule mod_mime.c>
+  AddType text/markdown;charset=utf-8 .md
+  AddType application/json .json
+</IfModule>
+
+# Declare Content Signals on HTTP Responses
+<IfModule mod_headers.c>
+  Header set Content-Signal "search=yes, ai-train=no"
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # 1. Allow direct access to .well-known directory (SEP-1649 MCP Server Card)
+  RewriteRule ^\.well-known/ - [L]
+
+  # 2. Serve Markdown representation when AI agents request Accept: text/markdown
+  RewriteCond %{HTTP:Accept} text/markdown [NC]
+  RewriteCond %{REQUEST_URI} ^/?(index\.html)?$
+  RewriteRule .* index.md [L,T=text/markdown;charset=utf-8]
+
+  # 3. Standard Single Page Application (SPA) routing
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
@@ -18,4 +39,6 @@
   ExpiresByType image/webp "access plus 1 year"
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/markdown "access plus 1 hour"
+  ExpiresByType application/json "access plus 1 hour"
 </IfModule>

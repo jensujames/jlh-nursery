@@ -80,7 +80,7 @@ export default function Hero({ onBookVisitClick }) {
             </div>
 
             {/* Main Headline */}
-            <h1 
+            <h2 
               className="hero-title animate-entrance-up delay-150" 
               style={{
                 color: '#3d050f',
@@ -98,7 +98,7 @@ export default function Hero({ onBookVisitClick }) {
               }}>
                 Feel at Home.
               </span>
-            </h1>
+            </h2>
 
             {/* Vision & Mission Grounded Subtitle */}
             <p 

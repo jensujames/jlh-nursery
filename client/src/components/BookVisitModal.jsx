@@ -260,7 +260,14 @@ export default function BookVisitModal({ isOpen, onClose }) {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.15rem' }}>
+            <form 
+              onSubmit={handleSubmit} 
+              toolname="book_nursery_tour"
+              tooldescription="Schedule a campus tour or visit at Just Like Home Nursery in Al Rashidiya 2, Ajman"
+              data-toolname="book_nursery_tour"
+              data-tooldescription="Schedule a campus tour or visit at Just Like Home Nursery in Al Rashidiya 2, Ajman"
+              style={{ display: 'flex', flexDirection: 'column', gap: '1.15rem' }}
+            >
               {/* Parent Info */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
                 <div>

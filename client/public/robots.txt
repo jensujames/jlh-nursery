@@ -1,6 +1,8 @@
 # Robots.txt for Just Like Home Nursery Ajman
 # https://jlhnursery.com
 
+Content-Signal: search=yes, ai-train=no
+
 User-agent: *
 Allow: /
 Disallow: /api/
