@@ -828,15 +828,6 @@ const GALLERY_IMAGES = [
     badge: 'Rest Sanctuary',
     ageGroup: '45 Days – 3 Years'
   },
-  {
-    src: '/media/daycare/daycare-4.jpg',
-    category: 'daycare',
-    title: 'Gentle Care & Supervised Indoor Play',
-    caption: 'Gentle care and supervised indoor play for infants and toddlers.',
-    alt: 'Gentle care and supervised indoor play for infants and toddlers at Just Like Home Nursery',
-    badge: 'Infant & Toddler Care',
-    ageGroup: '45 Days – 2 Years'
-  },
 
   // 13. Inclusive SEND Support
   {
