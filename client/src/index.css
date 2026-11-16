@@ -6158,6 +6158,10 @@ textarea {
     overscroll-behavior-y: contain !important;
     touch-action: pan-y !important;
   }
+
+  .mobile-app-drawer-body > * {
+    flex-shrink: 0 !important;
+  }
 }
 
 /* ==========================================================================

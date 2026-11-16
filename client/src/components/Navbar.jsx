@@ -730,7 +730,7 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
               data-lenis-prevent-touch="true"
               data-lenis-prevent-wheel="true"
               style={{ 
-                padding: '1rem', 
+                padding: '1rem 1rem 2.5rem 1rem', 
                 flex: '1 1 0%', 
                 minHeight: 0,
                 overflowY: 'auto', 
@@ -751,7 +751,8 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
                 boxShadow: '0 8px 24px rgba(114, 16, 36, 0.22)',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '0.75rem'
+                gap: '0.75rem',
+                flexShrink: 0
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -817,7 +818,8 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
-                gap: '0.65rem'
+                gap: '0.65rem',
+                flexShrink: 0
               }}>
                 <a
                   href="tel:+971502005346"
@@ -905,7 +907,8 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
                 boxShadow: '0 4px 18px rgba(114, 16, 36, 0.05)',
                 overflow: 'hidden',
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                flexShrink: 0
               }}>
                 {menuConfig.map((item, idx) => {
                   const Icon = item.icon;
@@ -1238,6 +1241,9 @@ export default function Navbar({ onBookVisitClick, onAdminClick }) {
           -webkit-overflow-scrolling: touch !important;
           overscroll-behavior-y: contain !important;
           touch-action: pan-y !important;
+        }
+        .mobile-app-drawer-body > * {
+          flex-shrink: 0 !important;
         }
         .mobile-app-drawer-body::-webkit-scrollbar {
           width: 5px;
